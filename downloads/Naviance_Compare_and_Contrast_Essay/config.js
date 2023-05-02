@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":4,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044514Z'","moddate":"","trapped":"","fileName":"Naviance_Compare_and_Contrast_Essay.pdf","bounds":[[935,1210],[935,1210],[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":2,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044521Z'","moddate":"","trapped":"","fileName":"School_Should_Start_Later_in_the_Day.pdf","bounds":[[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

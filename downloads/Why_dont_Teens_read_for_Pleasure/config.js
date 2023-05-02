@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":2,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044531Z'","moddate":"","trapped":"","fileName":"Why_dont_Teens_read_for_Pleasure.pdf","bounds":[[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

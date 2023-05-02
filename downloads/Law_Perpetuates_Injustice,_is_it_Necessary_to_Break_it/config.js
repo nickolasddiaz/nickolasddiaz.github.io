@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":1,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044507Z'","moddate":"","trapped":"","fileName":"Law_Perpetuates_Injustice,_is_it_Necessary_to_Break_it.pdf","bounds":[[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":4,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044530Z'","moddate":"","trapped":"","fileName":"US_History_Mr_Whitesell_Extra_Credit.pdf","bounds":[[935,1210],[935,1210],[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

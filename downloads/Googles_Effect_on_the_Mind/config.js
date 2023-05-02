@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":4,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044503Z'","moddate":"","trapped":"","fileName":"Googles_Effect_on_the_Mind.pdf","bounds":[[935,1210],[935,1210],[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

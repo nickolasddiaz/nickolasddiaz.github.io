@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":2,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044516Z'","moddate":"","trapped":"","fileName":"Nuclear_waste_They_say_I_say.pdf","bounds":[[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

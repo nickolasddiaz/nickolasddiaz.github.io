@@ -1,0 +1,46 @@
+
+
+
+
+  
+    <div id="overlay"></div>
+    <div id="popup">
+      <iframe src="" loading="lazy" id="popup-iframe" ></iframe>
+    </div>
+    <center class="write" id="writinglist"></center>
+
+
+
+
+<script>
+  const overlay = document.getElementById("overlay");
+  const popup = document.getElementById("popup");
+  const iframe = document.getElementById("popup-iframe");
+
+  function openPopup(url) {
+    iframe.src = url;
+    overlay.style.display = "block";
+    popup.style.display = "block";
+  }
+
+  overlay.addEventListener("click", function () {
+    overlay.style.display = "none";
+    popup.style.display = "none";
+    iframe.src = "";
+  });
+const pagelist = document.getElementById("writinglist");
+
+const page = ["Nuclear waste They say I say", "Midterm Paper Reflecting on my Values", "Great Expectations", "College Application Essay", "Biola Application Paper", "The Bluest Eye Final Draft", "Sparta Warfare", "Research MOTOE", "Azusa Pacific University Application", "Personal MOTOE", "Are Fast Food making People Fat", "Marriage a Men's Point of View Pride and Prejustice", "Cost of Discipleship", "Triboelectric Generators Speech", "Law Perpetuates Injustice, is it Necessary to Break it", "Achieving your Goals Paper", "Beowulf Essay", "US History Mr Whitesell Extra Credit", "Mere Christianity", "Constitution Rewrite", "CYOM Project", "Chile", "Dead Poets Writing", "Types of Failure", "Narrative MOTOE", "Googles Effect on the Mind", "Communism letter", "Hero's Journey 3 Act Short Story", "Senior Speeches", "School Should Start Later", "What Happened to the Young Girls of Salem Village", "Review of Literature", "Andrew Jackson", "Persuasive MOTOE", "Expansion of Robots in the Workforce", "Marijuana should be Illegal in the US", "Slave Trade Doc", "The Whistler Project", "Nuclear Energy should for World", "Response MOTOE", "Kitty Cloning Paper", "Mi Rutina Diaria", "Personal Narrative In-Class Speech", "Should Minimum Wage be Increased", "Homelessness in the US", "Why dont Teens read for Pleasure", "Mythology Questions ", "Nickolas Diaz Story", "Tech that Impacts Life Paper", "Trip to Miami Florida", "Lower the Minimum Wage", "Expository MOTOE", "Mythology Short Essay", "Boredom is a Life Lesson", "Educational Reform ", "They say, I say CH.1 Activity ", "Naviance Compare and Contrast Essay", "Is the American Dream Alive", "Biblical Love Essay", "Proverbs 4", "Endurance Book Review", "Golden vs. Silver vs. Bronze vs. Iron", "A Modest Proposal about Lunch Lines", "King Leonidas Persuading the Spartans", "Lessons From James", "Spanish Three Minute Project", "Make a Decision to Follow Christ", "School Should Start Later in the Day"];
+let bigstring = '<table>';
+bigstring += "<tr>";
+for (let i = 0; i < 68; ++i) {
+  if(i % 3 === 0 && i !== 0){
+    bigstring += "</tr><tr>";
+  }
+  bigstring += '<th id="pagerow"><div class="card"><div class="card-image"></div><div class="card-description"><center class="text-title">'+ page[i] + '</center><button class="view-button" id="bottone5" onclick="openPopup(`./downloads/' + page[i].replace(/\s+/g, '_') + '/index.html`)">view</button><a href="./downloads/' + page[i] + '.pdf" download id="bottone5">download</a> </div> </div></th>';
+}
+bigstring += "</tr>";
+bigstring += "</table>";
+pagelist.innerHTML = bigstring;
+
+</script>

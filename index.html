@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<title>v1PurG3</title>
+<link rel="shortcut icon" href="v1purgelogo_cyN_icon.ico" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="index.css">
+
+<body>
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#" id="about-link" onclick="fetchAboutMe('about.html')">About Me</a>
+		<a href="#" onclick="fetchAboutMe('awards.html')">Awards</a>
+		<a href="#" onclick="fetchAboutMe('papers.html')">Academic Papers</a>
+	</div>
+	<div class="navbar" id="myBtn">
+		<left class="openbtn" id="titlechange" onclick="openNav()"></left>
+		<left onclick="window.open('https://www.linkedin.com/in/nickolas-diaz-937222242/'); return false;"> <i class="fa fa-linkedin" ></i></left>
+		<left onclick="window.open('https://github.com/NickolasDDiaz'); return false;"><i class="fa fa-github"></i></left>
+	</div>
+	<div id="about-content"></div>
+	<div class="emailcontact">
+		<a>Contact Me at nickolasddiaz@gmail.com</a>
+	</div>
+	<script>
+	function openNav() {
+		document.getElementById("myBtn").style.left = "250px";
+		document.getElementById("mySidenav").style.width = "250px";
+		document.getElementById("main").style.marginLeft = "250px";
+		myFunction();
+	}
+
+	function closeNav() {
+		document.getElementById("myBtn").style.left = "0px";
+		document.getElementById("mySidenav").style.width = "0";
+		document.getElementById("main").style.marginLeft = "0";
+	}
+
+function geek() {
+  fetch('https://geek-jokes.sameerkumar.website/api?format=json')
+    .then(response => response.json())
+    .then(data => {
+      var display = `Random Geek Quotes: ${data.joke}<br>`
+      document.querySelector(".display").innerHTML = display;
+    })
+    .catch(error => console.error(error));
+}
+
+	const about = document.getElementById('about-content');
+	async function fetchAboutMe(x) {
+		const response = await fetch(x);
+		const data = await response.text();
+		about.innerHTML = data;
+		const scripts = about.getElementsByTagName("script");
+		for(let i = 0; i < scripts.length; i++) {
+			const script = document.createElement("script");
+			script.innerHTML = scripts[i].innerHTML;
+			scripts[i].parentNode.replaceChild(script, scripts[i]);
+		}
+		const capitalized = x.charAt(0).toUpperCase() + x.slice(1).replace(".html", "");
+		var temp = "&#9776; " + capitalized;
+		
+		document.getElementById("titlechange").innerHTML = temp;
+	}
+	fetchAboutMe('about.html');
+	</script>
+</body>
+
+</html>
