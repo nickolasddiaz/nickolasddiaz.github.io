@@ -1,1 +1,0 @@
-IDRViewer.config = {"pagecount":1,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044452Z'","moddate":"","trapped":"","fileName":"Are_Fast_Food_making_People_Fat.pdf","bounds":[[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

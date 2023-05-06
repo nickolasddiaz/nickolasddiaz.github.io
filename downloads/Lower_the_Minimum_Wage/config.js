@@ -1,1 +1,0 @@
-IDRViewer.config = {"pagecount":3,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044508Z'","moddate":"","trapped":"","fileName":"Lower_the_Minimum_Wage.pdf","bounds":[[935,1210],[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

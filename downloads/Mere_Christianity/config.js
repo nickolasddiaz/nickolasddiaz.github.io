@@ -1,1 +1,0 @@
-IDRViewer.config = {"pagecount":2,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044511Z'","moddate":"","trapped":"","fileName":"Mere_Christianity.pdf","bounds":[[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

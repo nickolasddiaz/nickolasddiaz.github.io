@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>v1PurG3</title>
+<title>Nickolasddiaz's Website</title>
 <link rel="shortcut icon" href="v1purgelogo_cyN_icon.ico" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -9,9 +9,9 @@
 <body>
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="#" id="about-link" onclick="fetchAboutMe('about.html')">About Me</a>
-		<a href="#" onclick="fetchAboutMe('awards.html')">Awards</a>
-		<a href="#" onclick="fetchAboutMe('papers.html')">Academic Papers</a>
+		<a href="?file=about.html" id="about-link" onclick="fetchAboutMe()">About Me</a>
+		<a href="?file=awards.html" onclick="fetchAboutMe()">Awards</a>
+		<a href="?file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
 	</div>
 	<div class="navbar" id="myBtn">
 		<left class="openbtn" id="titlechange" onclick="openNav()"></left>
@@ -22,6 +22,7 @@
 	<div class="emailcontact">
 		<a></a>
 	</div>
+</body>
 	<script>
 	function openNav() {
 		document.getElementById("myBtn").style.left = "250px";
@@ -46,24 +47,33 @@ function geek() {
     .catch(error => console.error(error));
 }
 
-	const about = document.getElementById('about-content');
-	async function fetchAboutMe(x) {
-		const response = await fetch(x);
-		const data = await response.text();
-		about.innerHTML = data;
-		const scripts = about.getElementsByTagName("script");
-		for(let i = 0; i < scripts.length; i++) {
-			const script = document.createElement("script");
-			script.innerHTML = scripts[i].innerHTML;
-			scripts[i].parentNode.replaceChild(script, scripts[i]);
-		}
-		const capitalized = x.charAt(0).toUpperCase() + x.slice(1).replace(".html", "");
-		var temp = "&#9776; " + capitalized;
-		
-		document.getElementById("titlechange").innerHTML = temp;
-	}
-	fetchAboutMe('about.html');
+const about = document.getElementById('about-content');
+
+async function fetchAboutMe() {
+  const urlParams = new URLSearchParams(window.location.search);
+  let fileName = urlParams.get('file');
+  if (fileName == null) {
+    fileName = "about.html";
+  }
+  const response = await fetch(fileName);
+  const data = await response.text();
+  const about = document.getElementById('about-content');
+  about.innerHTML = data;
+  const scripts = about.getElementsByTagName("script");
+  for(let i = 0; i < scripts.length; i++) {
+    const script = document.createElement("script");
+    script.innerHTML = scripts[i].innerHTML;
+    scripts[i].parentNode.replaceChild(script, scripts[i]);
+  }
+  const capitalized = fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(".html", "");
+  const temp = "&#9776; " + capitalized;
+  document.getElementById("titlechange").innerHTML = temp;
+}
+
+
+fetchAboutMe();
+
 	</script>
-</body>
+
 
 </html>

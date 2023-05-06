@@ -1,1 +1,0 @@
-IDRViewer.config = {"pagecount":4,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044504Z'","moddate":"","trapped":"","fileName":"Hero's_Journey_3_Act_Short_Story.pdf","bounds":[[935,1210],[935,1210],[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};

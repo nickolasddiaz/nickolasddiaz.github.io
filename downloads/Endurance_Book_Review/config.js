@@ -1,1 +1,0 @@
-IDRViewer.config = {"pagecount":5,"title":"","author":"","subject":"","keywords":"","creator":"Writer","producer":"LibreOffice 7.0","creationdate":"D:20230501044500Z'","moddate":"","trapped":"","fileName":"Endurance_Book_Review.pdf","bounds":[[935,1210],[935,1210],[935,1210],[935,1210],[935,1210]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};
