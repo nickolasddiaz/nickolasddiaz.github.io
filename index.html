@@ -9,13 +9,13 @@
 <body>
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a href="?file=about.html" id="about-link" onclick="fetchAboutMe()">About Me</a>
-		<a href="?file=awards.html" onclick="fetchAboutMe()">Awards</a>
-		<a href="?file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
+		<a href="#file=about.html" id="about-link" onclick="fetchAboutMe()">About Me</a>
+		<a href="#file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
+		<a href="#file=awards.html" onclick="fetchAboutMe()">Awards</a>
 	</div>
 	<div class="navbar" id="myBtn">
 		<left class="openbtn" id="titlechange" onclick="openNav()"></left>
-		<left onclick="window.open('https://www.linkedin.com/in/nickolas-diaz-937222242/'); return false;"> <i class="fa fa-linkedin" ></i></left>
+		<left onclick="window.open('https://www.linkedin.com/in/nickolas-diaz-937222242/'); return false;"> <i class="fa fa-linkedin"></i></left>
 		<left onclick="window.open('https://github.com/NickolasDDiaz'); return false;"><i class="fa fa-github"></i></left>
 	</div>
 	<div id="about-content"></div>
@@ -23,57 +23,48 @@
 		<a></a>
 	</div>
 </body>
-	<script>
-	function openNav() {
-		document.getElementById("myBtn").style.left = "250px";
-		document.getElementById("mySidenav").style.width = "250px";
-		document.getElementById("main").style.marginLeft = "250px";
-		myFunction();
-	}
+<script>
+function openNav() {
+	document.getElementById("myBtn").style.left = "250px";
+	document.getElementById("mySidenav").style.width = "250px";
+	document.getElementById("main").style.marginLeft = "250px";
+	myFunction();
+}
 
-	function closeNav() {
-		document.getElementById("myBtn").style.left = "0px";
-		document.getElementById("mySidenav").style.width = "0";
-		document.getElementById("main").style.marginLeft = "0";
-	}
+function closeNav() {
+	document.getElementById("myBtn").style.left = "0px";
+	document.getElementById("mySidenav").style.width = "0";
+	document.getElementById("main").style.marginLeft = "0";
+}
 
 function geek() {
-  fetch('https://geek-jokes.sameerkumar.website/api?format=json')
-    .then(response => response.json())
-    .then(data => {
-      var display = `Random Geek Quotes: ${data.joke}<br>`
-      document.querySelector(".display").innerHTML = display;
-    })
-    .catch(error => console.error(error));
+	fetch('https://geek-jokes.sameerkumar.website/api?format=json').then(response => response.json()).then(data => {
+		var display = `Random Geek Quotes: ${data.joke}<br>`
+		document.querySelector(".display").innerHTML = display;
+	}).catch(error => console.error(error));
 }
-
 const about = document.getElementById('about-content');
-
 async function fetchAboutMe() {
-  const urlParams = new URLSearchParams(window.location.search);
-  let fileName = urlParams.get('file');
-  if (fileName == null) {
-    fileName = "about.html";
-  }
-  const response = await fetch(fileName);
-  const data = await response.text();
-  const about = document.getElementById('about-content');
-  about.innerHTML = data;
-  const scripts = about.getElementsByTagName("script");
-  for(let i = 0; i < scripts.length; i++) {
-    const script = document.createElement("script");
-    script.innerHTML = scripts[i].innerHTML;
-    scripts[i].parentNode.replaceChild(script, scripts[i]);
-  }
-  const capitalized = fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(".html", "");
-  const temp = "&#9776; " + capitalized;
-  document.getElementById("titlechange").innerHTML = temp;
+	const urlParams = new URLSearchParams(window.location.hash.substr(1));
+	let fileName = urlParams.get('file');
+	if(fileName == null) {
+		fileName = "about.html";
+	}
+	const response = await fetch(fileName);
+	const data = await response.text();
+	const about = document.getElementById('about-content');
+	about.innerHTML = data;
+	const scripts = about.getElementsByTagName("script");
+	for(let i = 0; i < scripts.length; i++) {
+		const script = document.createElement("script");
+		script.innerHTML = scripts[i].innerHTML;
+		scripts[i].parentNode.replaceChild(script, scripts[i]);
+	}
+	const capitalized = fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(".html", "");
+	const temp = "&#9776; " + capitalized;
+	document.getElementById("titlechange").innerHTML = temp;
 }
-
-
 fetchAboutMe();
-
-	</script>
-
+</script>
 
 </html>
