@@ -234,4 +234,7 @@ body {
   left: 50%;
   top: 50%;
   }
-  
+  input[type=text], input[type=button] {
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	}
