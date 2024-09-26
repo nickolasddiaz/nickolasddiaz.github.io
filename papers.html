@@ -3,32 +3,3 @@
 	<iframe src="" loading="lazy" id="popup-iframe"></iframe>
 </div>
 <center class="write" id="writinglist"></center>
-<script>
-const overlay = document.getElementById("overlay");
-const popup = document.getElementById("popup");
-const iframe = document.getElementById("popup-iframe");
-
-function openPopup(url) {
-	iframe.src = "https://docs.google.com/viewer?url=" + url + "&embedded=true";
-	overlay.style.display = "block";
-	popup.style.display = "block";
-}
-overlay.addEventListener("click", function() {
-	overlay.style.display = "none";
-	popup.style.display = "none";
-	iframe.src = "";
-});
-const pagelist = document.getElementById("writinglist");
-const page = ["Dead Poets Writing", "is it Necessary to Break it", "Marijuana should be Illegal in the US", "Case of Helping the Poor", "Personal Narrative In-Class Speech", "The Bluest Eye Final Draft", "Kitty Cloning Paper", "College Application Essay", "Mythology Questions ", "Moral Ground Hardin or Singer", "They say, I say CH.1 Activity ", "Mythology Short Essay", "Constitution Rewrite", "CYOM Project", "Tech that Impacts Life Paper", "Endurance Book Review", "Make a Decision to Follow Christ", "Hero's Journey 3 Act Short Story", "Expository MOTOE", "Chile", "Research MOTOE", "Why Jacksonville University", "Spanish Three Minute Project", "US History Mr Whitesell Extra Credit", "Senior Speeches", "Mere Christianity", "Nuclear Energy should for World", "Beowulf Essay", "Reflecting on my values", "Machine Gun Kelly", "Lessons From James", "Is the American Dream Alive", "Marriage a Men's Point of View Pride and Prejustice", "Why dont Teens read for Pleasure", "Educational Reform ", "Nickolas Diaz Story", "Prostitution is a Harmful Lifestyle", "Personal MOTOE", "Response MOTOE", "Proverbs 4", "Should Minimum Wage be Increased", "Golden vs. Silver vs. Bronze vs. Iron", "Summary Singer Solution Poverty", "Naviance Compare and Contrast Essay", "Lower the Minimum Wage", "Types of Failure", "Boredom is a Life Lesson", "Googles Effect on the Mind", "Triboelectric Generators Speech", "School Should Start Later", "Biblical Love Essay", "Persuasive MOTOE", "The Whistler Project", "King Leonidas Persuading the Spartans", "School Should Start Later in the Day", "Biola Application Paper", "Narrative MOTOE", "Communism letter", "Great Expectations", "A Modest Proposal about Lunch Lines", "Homelessness in the US", "Inmates No drug Testing", "Are Fast Food making People Fat", "Expansion of Robots in the Workforce", "Andrew Jackson", "Sparta Warfare", "Mi Rutina Diaria", "Azusa Pacific University Application", "I say CH.1 Activity ", "Midterm Paper Reflecting on my Values", "Slave Trade Doc","Nuclear waste They say I say", "Cost of Discipleship", "Review of Literature", "What Happened to the Young Girls of Salem Village", "Law Perpetuates Injustice", "Achieving your Goals Paper", "Trip to Miami Florida", "Sex Drugs Dinosaurs"];
-let bigstring = '<p style="font-size:1rem;">The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework.</p><table><tr>';
-for(let i = 0; i < page.length; ++i) {
-	if(i % 3 == 0 && i > 0) {
-		bigstring += "</tr><tr>";
-	}
-	bigstring += '<td style="height: 100v; vertical-align: top;"><div class="card"><center class="text-title">' + page[i] + '</center><div class="card-image"></div><div class="card-description" onclick="openPopup(`nickolasddiaz.github.io//downloads/' + encodeURIComponent(page[i]) + '.pdf`)"><center>Click Me</center></div></div></td>';
-}
-bigstring += "</tr></table>";
-pagelist.innerHTML = bigstring;
-pagelist.style.width = "80%";
-pagelist.style.margin = "10 auto";
-</script>
