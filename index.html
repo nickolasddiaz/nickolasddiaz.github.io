@@ -19,8 +19,11 @@
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#file=about.html" id="about-link" onclick="fetchAboutMe()">About Me</a>
+        <a href="#file=Career Summary.html" id="about-link" onclick="fetchAboutMe()">Career Summary</a>
 		<a href="#file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
 		<a href="#file=awards.html" onclick="fetchAboutMe()">Awards</a>
+        <a href="#file=password manager.html" onclick="fetchAboutMe()">Password Manager Project</a>
+		<a href="#file=resume.html" onclick="fetchAboutMe()">Resume</a>
 	</div>
 	<div class="navbar" id="myBtn">
 		<left class="openbtn" id="titlechange" onclick="openNav()"></left>
@@ -131,12 +134,6 @@ function closeNav() {
 	document.getElementById("main").style.marginLeft = "0";
 }
 
-function geek() {
-	fetch('https://geek-jokes.sameerkumar.website/api?format=json').then(response => response.json()).then(data => {
-		var display = `Random Geek Quotes: ${data.joke}<br>`
-		document.querySelector(".display").innerHTML = display;
-	}).catch(error => console.error(error));
-}
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }

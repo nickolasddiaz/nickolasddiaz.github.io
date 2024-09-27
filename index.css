@@ -407,6 +407,8 @@ body {
 		visibility: visible;
 		opacity: 1;
 	}
-	
+	p {
+		line-height: 2 ;
+	  }
 
 	
