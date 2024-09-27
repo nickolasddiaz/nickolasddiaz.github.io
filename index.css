@@ -155,37 +155,39 @@
 	background-color: white;
 }
 .card {
-	height: 20%;
-	width: 100%;
-	border-radius: 1rem;
-	overflow: hidden;
-	max-width: 19vw;
-	margin: 1rem;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Ensure height is at least equal to width */
+    width: 100%;
+    overflow: hidden;
+    max-width: 19vh;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure the elements inside the card are spaced evenly */
+    border-radius: 0; /* Remove rounded corners */
 }
 .card-image {
 	max-width: 100%;
 	height: auto;
 }
 .card-description {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content */
+    width: 100%;
 	background-color: #f5f5f5;
-	height: 0%;
-	height: 50%;
-	width: 100%;
-	transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
-	padding-bottom: 2rem;
-	max-height: 10vh;
-	padding-left: 0px;
+    padding-bottom: 1rem;
+    padding-left: 0px;
+    flex-grow: 1;
+    flex-basis: 50%; /* Ensure equal height between card-description and text-title */
 }
 .text-title {
-	background: #4286f4;
-	font-size: calc(1vh + 1vw);
-	font-weight: bold;
-	padding: .1vh;
-	text-overflow: ellipsis;
-	padding-bottom: 2vh;
-	max-height: 10vh;
+    background: #4286f4;
+    padding: 0.5rem;
+    text-overflow: ellipsis;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 50%; /* Ensure equal height between text-title and card-description */
 }
 td{
 	padding: .5vh;
@@ -237,4 +239,58 @@ body {
   input[type=text], input[type=button] {
 	-webkit-appearance: none;
 	-webkit-border-radius: 0;
+	}
+
+	table {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around; /* Distribute the cards evenly */
+	}
+	
+	tr {
+		width: 100%;
+		display: flex; /* Flexbox to align all items in the same row */
+		justify-content: space-around; /* Ensure cards are spaced evenly */
+	}
+	
+	td {
+		display: flex; /* Flexbox ensures the td maintains equal height */
+		flex-direction: column;
+		padding: .5vh;
+		flex-basis: 30%; /* Allow td to take up a third of the width */
+	}
+
+	.card-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr); /* Default for small screens (2 cards per row) */
+		gap: 10px;
+	}
+
+	@media only screen and (min-width: 500px) {
+		.card-container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr); /* 3 cards per row for medium screens */
+		}
+	}
+
+	@media only screen and (min-width: 800px) {
+		.card-container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr); /* 3 cards per row for medium screens */
+		}
+	}
+	
+	@media only screen and (min-width: 1024px) {
+		.card-container {
+			display: grid;
+			grid-template-columns: repeat(5, 1fr); /* 4 cards per row for large screens */
+		}
+	}
+
+	@media only screen and (min-width: 1500px) {
+		.card-container {
+			display: grid;
+			grid-template-columns: repeat(6, 1fr); /* 4 cards per row for large screens */
+		}
 	}

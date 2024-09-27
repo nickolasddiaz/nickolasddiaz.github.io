@@ -12,7 +12,7 @@
   gtag('config', 'G-GQE2JZYP14');
 </script>
 </head>
-<link rel="shortcut icon" href="v1purgelogo_cyN_icon.ico" />
+<link rel="shortcut icon" href="" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
@@ -35,35 +35,79 @@
 </body>
 
 <script>
-	function papers(){
-	const overlay = document.getElementById("overlay");
-	const popup = document.getElementById("popup");
-	const iframe = document.getElementById("popup-iframe");
-	
 	function openPopup(url) {
-		iframe.src = "https://docs.google.com/viewer?url=" + url + "&embedded=true";
-		overlay.style.display = "block";
-		popup.style.display = "block";
-	}
-	overlay.addEventListener("click", function() {
-		overlay.style.display = "none";
-		popup.style.display = "none";
-		iframe.src = "";
-	});
-	const pagelist = document.getElementById("writinglist");
-	const page = ["Dead Poets Writing", "Law Perpetuates Injustice, is it Necessary to Break it", "Marijuana should be Illegal in the US", "Case of Helping the Poor", "Personal Narrative In-Class Speech", "The Bluest Eye Final Draft", "Kitty Cloning Paper", "College Application Essay", "Mythology Questions ", "Moral Ground Hardin or Singer", "They say, I say CH.1 Activity ", "Mythology Short Essay", "Constitution Rewrite", "CYOM Project", "Tech that Impacts Life Paper", "Endurance Book Review", "Make a Decision to Follow Christ", "Hero's Journey 3 Act Short Story", "Expository MOTOE", "Chile", "Research MOTOE", "Why Jacksonville University", "Spanish Three Minute Project", "US History Mr Whitesell Extra Credit", "Senior Speeches", "Mere Christianity", "Nuclear Energy should for World", "Beowulf Essay", "Reflecting on my values", "Machine Gun Kelly", "Lessons From James", "Is the American Dream Alive", "Marriage a Men's Point of View Pride and Prejustice", "Why dont Teens read for Pleasure", "Educational Reform ", "Nickolas Diaz Story", "Prostitution is a Harmful Lifestyle", "Personal MOTOE", "Response MOTOE", "Proverbs 4", "Should Minimum Wage be Increased", "Golden vs. Silver vs. Bronze vs. Iron", "Summary Singer Solution Poverty", "Naviance Compare and Contrast Essay", "Lower the Minimum Wage", "Types of Failure", "Boredom is a Life Lesson", "Googles Effect on the Mind", "Triboelectric Generators Speech", "School Should Start Later", "Biblical Love Essay", "Persuasive MOTOE", "The Whistler Project", "King Leonidas Persuading the Spartans", "School Should Start Later in the Day", "Biola Application Paper", "Narrative MOTOE", "Communism letter", "Great Expectations", "A Modest Proposal about Lunch Lines", "Homelessness in the US", "Inmates No drug Testing", "Are Fast Food making People Fat", "Expansion of Robots in the Workforce", "Andrew Jackson", "Sparta Warfare", "Mi Rutina Diaria", "Azusa Pacific University Application", "I say CH.1 Activity ", "Midterm Paper Reflecting on my Values", "Slave Trade Doc","Nuclear waste They say I say", "Cost of Discipleship", "Review of Literature", "What Happened to the Young Girls of Salem Village", "Law Perpetuates Injustice", "Achieving your Goals Paper", "Trip to Miami Florida", "Sex Drugs Dinosaurs"];
-	let bigstring = '<p style="font-size:1rem;">The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework.</p><table><tr>';
-	for(let i = 0; i < page.length; ++i) {
-		if(i % 3 == 0 && i > 0) {
-			bigstring += "</tr><tr>";
-		}
-		bigstring += '<td style="height: 100v; vertical-align: top;"><div class="card"><center class="text-title">' + page[i] + '</center><div class="card-image"></div><div class="card-description" onclick="openPopup(`nickolasddiaz.github.io//downloads/' + encodeURIComponent(page[i]) + '.pdf`)"><center>Click Me</center></div></div></td>';
-	}
-	bigstring += "</tr></table>";
-	pagelist.innerHTML = bigstring;
-	pagelist.style.width = "80%";
-	pagelist.style.margin = "10 auto";
-	}
+    // Ensure we reference the correct elements after they are loaded in papers.html
+    const iframe = document.getElementById("popup-iframe");
+    const overlay = document.getElementById("overlay");
+    const popup = document.getElementById("popup");
+
+    // Check if elements exist
+    if (iframe && overlay && popup) {
+        iframe.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(url) + "&embedded=true";
+        overlay.style.display = "block";
+        popup.style.display = "block";
+    }
+}
+
+// Close popup when clicking on overlay
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById("overlay");
+    const popup = document.getElementById("popup");
+    const iframe = document.getElementById("popup-iframe");
+
+    if (overlay && popup && iframe) {
+        overlay.addEventListener("click", function() {
+            overlay.style.display = "none";
+            popup.style.display = "none";
+            iframe.src = ""; // Clear the iframe src
+        });
+    }
+});
+
+function papers() {
+    const pagelist = document.getElementById("writinglist");
+    const page = [ "Marijuana should be Illegal in the US", "Case of Helping the Poor", "Personal Narrative In-Class Speech", "The Bluest Eye Final Draft", "Kitty Cloning Paper", "College Application Essay", "Mythology Questions ", "Moral Ground Hardin or Singer", "They say, I say CH.1 Activity ", "Mythology Short Essay", "Constitution Rewrite", "CYOM Project", "Tech that Impacts Life Paper", "Endurance Book Review", "Make a Decision to Follow Christ", "Hero's Journey 3 Act Short Story", "Expository MOTOE", "Chile", "Research MOTOE", "Why Jacksonville University", "Spanish Three Minute Project", "US History Mr Whitesell Extra Credit", "Senior Speeches", "Mere Christianity", "Nuclear Energy should for World", "Beowulf Essay", "Reflecting on my values", "Machine Gun Kelly", "Lessons From James", "Is the American Dream Alive", "Marriage a Men's Point of View Pride and Prejustice", "Why dont Teens read for Pleasure", "Educational Reform ", "Nickolas Diaz Story", "Prostitution is a Harmful Lifestyle", "Personal MOTOE", "Response MOTOE", "Proverbs 4", "Should Minimum Wage be Increased", "Golden vs. Silver vs. Bronze vs. Iron", "Summary Singer Solution Poverty", "Naviance Compare and Contrast Essay", "Lower the Minimum Wage", "Types of Failure", "Boredom is a Life Lesson", "Googles Effect on the Mind", "Triboelectric Generators Speech", "School Should Start Later", "Biblical Love Essay", "Persuasive MOTOE", "The Whistler Project", "King Leonidas Persuading the Spartans", "School Should Start Later in the Day", "Biola Application Paper", "Narrative MOTOE", "Communism letter", "Great Expectations", "A Modest Proposal about Lunch Lines", "Homelessness in the US", "Inmates No drug Testing", "Are Fast Food making People Fat", "Expansion of Robots in the Workforce", "Andrew Jackson", "Sparta Warfare", "Mi Rutina Diaria", "Azusa Pacific University Application", "I say CH.1 Activity ", "Midterm Paper Reflecting on my Values", "Slave Trade Doc","Nuclear waste They say I say", "Cost of Discipleship", "Review of Literature", "What Happened to the Young Girls of Salem Village", "Law Perpetuates Injustice", "Achieving your Goals Paper", "Trip to Miami Florida", "Sex Drugs Dinosaurs","Dead Poets Writing", "Law Perpetuates Injustice, is it Necessary to Break it"];
+    
+    let bigstring = `
+        <p style="font-size:1rem;">
+            The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework.
+        </p>
+        <div class="card-container">
+    `;
+
+    for (let i = 0; i < page.length; ++i) {
+        bigstring += `
+            <div class="card">
+                <center class="text-title">${page[i]}</center>
+                <div class="card-image"></div>
+                <div class="card-description" onclick="openPopup('https://nickolasddiaz.github.io/downloads/${encodeURIComponent(page[i])}.pdf')">
+                    <center>Click Me</center>
+                </div>
+            </div>
+        `;
+    }
+    
+    bigstring += `</div>`;
+    pagelist.innerHTML = bigstring;
+    pagelist.style.width = "80%";
+    pagelist.style.margin = "10px auto";
+
+    // Ensure correct elements are available after papers are loaded
+    const overlay = document.getElementById("overlay");
+    const popup = document.getElementById("popup");
+    const iframe = document.getElementById("popup-iframe");
+
+    // Add click event listener for closing the popup
+    if (overlay && popup && iframe) {
+        overlay.addEventListener("click", function() {
+            overlay.style.display = "none";
+            popup.style.display = "none";
+            iframe.src = "";
+        });
+    }
+}
+
+
 	</script>
 
 <script>
@@ -115,6 +159,7 @@ async function fetchAboutMe() {
 
 }
 fetchAboutMe();
+
 </script>
 
 </html>
