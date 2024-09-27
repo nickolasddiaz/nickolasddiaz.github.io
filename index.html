@@ -14,7 +14,6 @@
 </head>
 <link rel="shortcut icon" href="" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
 <body>
 	<div id="mySidenav" class="sidenav">
@@ -25,15 +24,23 @@
 	</div>
 	<div class="navbar" id="myBtn">
 		<left class="openbtn" id="titlechange" onclick="openNav()"></left>
-		<left onclick="window.open('https://www.linkedin.com/in/nickolas-diaz-937222242/'); return false;"> <i class="fa fa-linkedin"></i></left>
-		<left onclick="window.open('https://github.com/NickolasDDiaz'); return false;"><i class="fa fa-github"></i></left>
+		
 	</div>
 	<div id="about-content"></div>
-	<div class="emailcontact">
-		<a></a>
-	</div>
+	<div class="bottompage">
+        <footer>
+            <div class="rounded-social-buttons">
+                <a class="social-button facebook" href="https://github.com/nickolasddiaz/nickolasddiaz.github.io" target="_blank"><i class="fa fa-user"></i><span class="tooltip">GitHub Profile</span></a>
+                <a class="social-button twitter" href="https://github.com/NickolasDDiaz" target="_blank"><i class="fab fa-github"></i><span class="tooltip">GitHub Repository</span></a>
+                <a class="social-button linkedin" href="https://linkedin.com/in/nickolas-diaz-937222242" target="_blank"><i class="fab fa-linkedin"></i><span class="tooltip">LinkedIn Profile</span></a>
+                <a class="social-button tryhackme" href="https://tryhackme.com/p/NickolasDaniel" target="_blank"><i class="fa fa-server"></i><span class="tooltip">TryHackMe Profile</span></a>
+                <a class="social-button leetcode" href="https://leetcode.com/studyplan/leetcode-75/" target="_blank"><i class="fa fa-code"></i><span class="tooltip">LeetCode Study Plan</span></a>
+            </div>
+        </footer>
+    </div>
 </body>
 
+<script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 <script>
 	function openPopup(url) {
     // Ensure we reference the correct elements after they are loaded in papers.html
@@ -69,9 +76,9 @@ function papers() {
     const page = [ "Marijuana should be Illegal", "Case of Helping the Poor", "Personal Narrative In-Class Speech", "The Bluest Eye Final Draft", "Kitty Cloning Paper", "College Application Essay", "Mythology Questions ", "Moral Ground Hardin or Singer", "They say, I say CH.1 Activity ", "Mythology Short Essay", "Constitution Rewrite", "CYOM Project", "Tech that Impacts Life Paper", "Endurance Book Review", "Make a Decision to Follow Christ", "Hero's Journey 3 Act Short Story", "Expository MOTOE", "Chile", "Research MOTOE", "Why Jacksonville University", "Spanish Three Minute Project", "US History Mr Whitesell Extra Credit", "Senior Speeches", "Mere Christianity", "Nuclear Energy should for World", "Beowulf Essay", "Reflecting on my values", "Machine Gun Kelly", "Lessons From James", "Is the American Dream Alive", "Marriage a Men's Point of View", "Why dont Teens read for Pleasure", "Educational Reform ", "Nickolas Diaz Story", "Prostitution is a Harmful Lifestyle", "Personal MOTOE", "Response MOTOE", "Proverbs 4", "Minimum Wage Increase", "Golden, Silver, Bronze, Iron", "Singer Solution Poverty", "Compare and Contrast", "Lower the Minimum Wage", "Types of Failure", "Boredom is a Life Lesson", "Googles Effect on the Mind", "Triboelectric Generators Speech", "School Should Start Later", "Biblical Love Essay", "Persuasive MOTOE", "The Whistler Project", "King Leonidas Persuading the Spartans", "School Should Start Later in the Day", "Biola Application Paper", "Narrative MOTOE", "Communism letter", "Great Expectations", "Proposal about Lunch Lines", "Homelessness in the US", "Inmates No drug Testing", "Are Fast Food making People Fat", "Expansion of Robots in the Workforce", "Andrew Jackson", "Sparta Warfare", "Mi Rutina Diaria", "Azusa Pacific University Application", "I say CH.1 Activity ", "Midterm Paper Reflecting on my Values", "Slave Trade Doc","Nuclear waste They say I say", "Cost of Discipleship", "Review of Literature", "Young Girls Salem Village", "Law Perpetuates Injustice", "Achieving your Goals Paper", "Trip to Miami Florida", "Sex Drugs Dinosaurs","Dead Poets Writing","Archimedes Principle","Ballistic Pendulum","career summary and goals","Centripetal Force ","charge to mass ratio electron","Conservation Angular Momentum ","Cultural Appropriation!","Data Analysis","Desnity of Liquids","Electric Fields","Electricity","Electromagnetism","Energy in fields","Entrepreneur FirstClassGraphics","Error Analysis","Ethic Scenario","Ethics Challenge!!","loop and junction","Magnetism","Moment of Inertia","Kurt Elling","Popular Culture","SHAD","Shows COPS","Steps of Racism","Student Survey","The oscilloscope"];
     
     let bigstring = `
-        <p style="font-size:1rem;">
-            The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework.
-        </p>
+        <center style="font-size:1v;">
+            The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework. The total number of essays displayed are ${page.length}.
+        </center>
         <div class="card-container">
     `;
 

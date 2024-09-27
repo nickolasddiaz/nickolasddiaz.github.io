@@ -3,6 +3,7 @@
 	--white: #ffffff;
 	--black: #001f3f;
 	--grey: #e0e0e0;
+	
 }
 .navbar {
 	width: 100%;
@@ -70,6 +71,7 @@
 }
 #main {
 	transition: margin-left .5s;
+	
 }
 @media screen and (max-height: 450px) {
 	.sidenav {
@@ -88,15 +90,8 @@
 .fa:hover {
 	opacity: 0.7;
 }
-.fa-linkedin {
-	background: none;
-	color: var(--white);
-}
-.fa-github {
-	background: none;
-	color: var(--white);
-}
 .write {
+	min-height: 61vh;
 	color: var(--black);
 	width: 60%;
 	padding: 25px;
@@ -108,25 +103,16 @@
 	background: var(--grey);
 	box-shadow: inset 0 28px 28px 56px #7d7d7d, inset 0-28px -28px 56px #ffffff;
 }
-.emailcontact {
-	overflow: hidden;
-	position: fixed;
-	background-color: var(--green);
-	bottom: 0%;
-	left: 0;
-	width: 100%;
-	align-self: flex-end;
-	height: 4vh;
+.bottompage {
+    background-color: var(--green);
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    bottom: 0;
+	
 }
-.emailcontact a {
-	float: left;
-	display: block;
-	color: var(--white);
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-}
+
+
 #overlay {
 	display: none;
 	position: fixed;
@@ -192,6 +178,12 @@
 td{
 	padding: .5vh;
 }
+.column img {
+	width: 100%;
+	height: auto;
+	max-width: 75%;
+  }
+  
 #pagerow {
 	padding: .2vw;
 	padding-right: 0px;
@@ -208,12 +200,14 @@ body {
 	max-width: 1200px;
 	margin: 0 auto;
 	position: relative;
-}
-.row {
+  }
+  .row {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	width: 100%;
-}
+	margin-bottom: 20px;
+  }
 .row iframe, img {
 	width: 100%;
 	max-width: 100%;
@@ -221,9 +215,11 @@ body {
 }
 .column {
 	flex: 1;
-	max-width: 50%;
-	padding: 0 10px;
-}
+	max-width: 45%;
+	padding: 0 15px;
+	text-align: center;
+	margin-bottom: 20px;
+  }
 .container iframe {
 	z-index: 1;
 	overflow: hidden;
@@ -294,3 +290,123 @@ body {
 			grid-template-columns: repeat(6, 1fr); /* 4 cards per row for large screens */
 		}
 	}
+
+	svg-inline--fa {
+		vertical-align: -0.200em;
+	  }
+	  
+	  .rounded-social-buttons {
+		text-align: center;
+		padding-top: 1vh;
+	  }
+	  
+	  .rounded-social-buttons .social-button {
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+		width: 3.125rem;
+		height: 3.125rem;
+		border: 0.125rem solid transparent;
+		text-decoration: none;
+		text-align: center;
+		color: #fefefe;
+		font-size: 1.5625rem;
+		font-weight: normal;
+		line-height: 2em;
+		border-radius: 1.6875rem;
+		transition: all 0.5s ease;
+		margin-right: 0.75rem; /* Increased margin-right for more horizontal space */
+		margin-bottom: 0.25rem;
+	}
+	  
+
+	  .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-tiktok, .fa-youtube, .fa-instagram {
+		font-size: 25px;
+	  }
+	  
+	  .rounded-social-buttons .social-button.facebook {
+		background: #3b5998;
+	  }
+	  
+	  .rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
+		color: #3b5998;
+		background: #fefefe;
+		border-color: #3b5998;
+	  }
+	  
+	  .rounded-social-buttons .social-button.twitter {
+		background: #55acee;
+	  }
+	  
+	  .rounded-social-buttons .social-button.twitter:hover, .rounded-social-buttons .social-button.twitter:focus {
+		color: #55acee;
+		background: #fefefe;
+		border-color: #55acee;
+	  }
+	  
+	  .rounded-social-buttons .social-button.linkedin {
+		background: #007bb5;
+	  }
+	  
+	  .rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
+		color: #007bb5;
+		background: #fefefe;
+		border-color: #007bb5;
+	  }
+
+	  .rounded-social-buttons .social-button.tryhackme {
+		background: #c43b01;
+	  }
+	  
+	  .rounded-social-buttons .social-button.tryhackme:hover, .rounded-social-buttons .social-button.tryhackme:focus {
+		color: #007bb5;
+		background: #fefefe;
+		border-color: #007bb5;
+	  }
+
+	  .rounded-social-buttons .social-button.leetcode {
+		background: #01121b;
+	  }
+	  
+	  .rounded-social-buttons .social-button.leetcode:hover, .rounded-social-buttons .social-button.tryhackme:focus {
+		color: #007bb5;
+		background: #fefefe;
+		border-color: #007bb5;
+	  }
+	  
+	  #writingglist {
+		padding-top: 7vh;
+	  }
+
+	  center{
+		padding-bottom: 1vh;
+	  }
+
+	  .rounded-social-buttons .social-button {
+		position: relative;
+	}
+	
+	.tooltip {
+		visibility: hidden;
+		background-color: black;
+		color: #fff;
+		text-align: center;
+		padding: 5px 10px;
+		border-radius: 5px;
+		position: absolute;
+		bottom: 125%; /* Position above the icon */
+		left: 50%;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: opacity 0.3s;
+		white-space: nowrap;
+		z-index: 1;
+	}
+	
+	.social-button:hover .tooltip {
+		visibility: visible;
+		opacity: 1;
+	}
+	
+
+	
