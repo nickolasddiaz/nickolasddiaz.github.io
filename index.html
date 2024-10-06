@@ -19,7 +19,7 @@
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<a href="#file=about.html" id="about-link" onclick="fetchAboutMe()">About Me</a>
-        <a href="#file=career summary" id="about-link" onclick="fetchAboutMe()">Career Summary</a>
+        <a href="#file=career summary.html" id="about-link" onclick="fetchAboutMe()">career summary</a>
 		<a href="#file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
 		<a href="#file=awards.html" onclick="fetchAboutMe()">Awards</a>
         <a href="#file=password manager.html" onclick="fetchAboutMe()">Password Manager Project</a>
@@ -46,14 +46,13 @@
 <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
 <script>
 	function openPopup(url) {
-    // Ensure we reference the correct elements after they are loaded in papers.html
     const iframe = document.getElementById("popup-iframe");
     const overlay = document.getElementById("overlay");
     const popup = document.getElementById("popup");
 
-    // Check if elements exist
     if (iframe && overlay && popup) {
-        iframe.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(url) + "&embedded=true";
+        // Directly use the PDF file URL, which lets the browser use its native PDF viewer.
+        iframe.src = url;
         overlay.style.display = "block";
         popup.style.display = "block";
     }
@@ -69,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.addEventListener("click", function() {
             overlay.style.display = "none";
             popup.style.display = "none";
-            iframe.src = ""; // Clear the iframe src
+            iframe.src = ""; // Clear the iframe src to save memory.
         });
     }
 });
@@ -154,7 +153,7 @@ async function fetchAboutMe() {
 		script.innerHTML = scripts[i].innerHTML;
 		scripts[i].parentNode.replaceChild(script, scripts[i]);
 	}
-	const capitalized = fileName.charAt(0).toUpperCase() + fileName.slice(1).replace(".html", "");
+	const capitalized = fileName.replace(/(^\w|\s\w)/g, m => m.toUpperCase()); + fileName.slice(1).replace(".html", "");
 	const temp = "&#9776; " + capitalized;
 	document.getElementById("titlechange").innerHTML = temp;
 	if(fileName == "papers.html"){
