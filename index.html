@@ -23,7 +23,8 @@
 		<a href="#file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
 		<a href="#file=awards.html" onclick="fetchAboutMe()">Awards</a>
         <a href="#file=password manager.html" onclick="fetchAboutMe()">Password Manager Project</a>
-		<a href="#file=resume.html" onclick="fetchAboutMe()">Resume</a>
+		<a href="#file=text editor.html" onclick="fetchAboutMe()">Text Editor Project</a>
+        <a href="#file=resume.html" onclick="fetchAboutMe()">Resume</a>
 	</div>
 	<div class="navbar" id="myBtn">
 		<left class="openbtn" id="titlechange" onclick="openNav()"></left>
@@ -153,8 +154,9 @@ async function fetchAboutMe() {
 		script.innerHTML = scripts[i].innerHTML;
 		scripts[i].parentNode.replaceChild(script, scripts[i]);
 	}
-	const capitalized = fileName.replace(/(^\w|\s\w)/g, m => m.toUpperCase()); + fileName.slice(1).replace(".html", "");
-	const temp = "&#9776; " + capitalized;
+	const capitalized = fileName.replace(/(^\w|\s\w)/g, m => m.toUpperCase()).replace(/\.html$/, "");;
+	
+    const temp = "&#9776; " + capitalized;
 	document.getElementById("titlechange").innerHTML = temp;
 	if(fileName == "papers.html"){
 		papers();
