@@ -293,86 +293,37 @@ body {
 
 	svg-inline--fa {
 		vertical-align: -0.200em;
-	  }
-	  
-	  .rounded-social-buttons {
-		text-align: center;
-		padding-top: 1vh;
-	  }
-	  
-	  .rounded-social-buttons .social-button {
-		display: inline-block;
-		position: relative;
-		cursor: pointer;
-		width: 3.125rem;
-		height: 3.125rem;
-		border: 0.125rem solid transparent;
-		text-decoration: none;
-		text-align: center;
-		color: #fefefe;
-		font-size: 1.5625rem;
-		font-weight: normal;
-		line-height: 2em;
-		border-radius: 1.6875rem;
-		transition: all 0.5s ease;
-		margin-right: 0.75rem; /* Increased margin-right for more horizontal space */
-		margin-bottom: 0.25rem;
 	}
+	.rounded-social-buttons {
+        text-align: center;
+        padding-top: 1vh;
+    }
+    
+    .rounded-social-buttons .social-button {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        width: 3.125rem;
+        height: 3.125rem;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 1.6875rem;
+        transition: all 0.5s ease;
+        margin-right: 0.75rem;
+        margin-bottom: 0.25rem;
+        background: transparent;
+    }
+    
+    .rounded-social-buttons .social-icon {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .rounded-social-buttons .social-button:hover .social-icon {
+        filter: invert(1) sepia(1) hue-rotate(150deg);
+    }
 	  
-
-	  .rounded-social-buttons .fa-twitter, .fa-facebook-f, .fa-linkedin, .fa-tiktok, .fa-youtube, .fa-instagram {
-		font-size: 25px;
-	  }
 	  
-	  .rounded-social-buttons .social-button.facebook {
-		background: #3b5998;
-	  }
-	  
-	  .rounded-social-buttons .social-button.facebook:hover, .rounded-social-buttons .social-button.facebook:focus {
-		color: #3b5998;
-		background: #fefefe;
-		border-color: #3b5998;
-	  }
-	  
-	  .rounded-social-buttons .social-button.twitter {
-		background: #55acee;
-	  }
-	  
-	  .rounded-social-buttons .social-button.twitter:hover, .rounded-social-buttons .social-button.twitter:focus {
-		color: #55acee;
-		background: #fefefe;
-		border-color: #55acee;
-	  }
-	  
-	  .rounded-social-buttons .social-button.linkedin {
-		background: #007bb5;
-	  }
-	  
-	  .rounded-social-buttons .social-button.linkedin:hover, .rounded-social-buttons .social-button.linkedin:focus {
-		color: #007bb5;
-		background: #fefefe;
-		border-color: #007bb5;
-	  }
-
-	  .rounded-social-buttons .social-button.tryhackme {
-		background: #c43b01;
-	  }
-	  
-	  .rounded-social-buttons .social-button.tryhackme:hover, .rounded-social-buttons .social-button.tryhackme:focus {
-		color: #007bb5;
-		background: #fefefe;
-		border-color: #007bb5;
-	  }
-
-	  .rounded-social-buttons .social-button.leetcode {
-		background: #01121b;
-	  }
-	  
-	  .rounded-social-buttons .social-button.leetcode:hover, .rounded-social-buttons .social-button.tryhackme:focus {
-		color: #007bb5;
-		background: #fefefe;
-		border-color: #007bb5;
-	  }
 	  
 	  #writingglist {
 		padding-top: 7vh;
