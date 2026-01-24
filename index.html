@@ -2,19 +2,6 @@
 <html>
 <title>Nickolasddiaz's Website</title>
 
-<head>
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GQE2JZYP14"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-
-	function gtag() {
-		dataLayer.push(arguments);
-	}
-	gtag('js', new Date());
-	gtag('config', 'G-GQE2JZYP14');
-	</script>
-</head>
 <link rel="shortcut icon" href="" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="index.css">
@@ -26,9 +13,12 @@
 		<a href="#file=career summary.html" id="about-link" onclick="fetchAboutMe()">career summary</a>
 		<a href="#file=papers.html" onclick="fetchAboutMe()">Academic Papers</a>
 		<a href="#file=awards.html" onclick="fetchAboutMe()">Awards</a>
-		<a href="#file=password manager.html" onclick="fetchAboutMe()">Password Manager Project</a>
-		<a href="#file=text editor.html" onclick="fetchAboutMe()">Text Editor Project</a>
-		<a href="#file=tank game.html" onclick="fetchAboutMe()">Tank Game Project</a>
+		<a href="#file=password manager.html" onclick="fetchAboutMe()">Password Manager</a>
+		<a href="#file=text editor.html" onclick="fetchAboutMe()">Text Editor</a>
+		<a href="#file=tank game.html" onclick="fetchAboutMe()">Tank Game</a>
+		<a href="#file=pantry manager.html" onclick="fetchAboutMe()">Pantry Manager</a>
+		<a href="#file=client server.html" onclick="fetchAboutMe()">Client Server</a>
+		<a href="#file=programing language.html" onclick="fetchAboutMe()">Programing Language</a>
 		<a href="#file=resume.html" onclick="fetchAboutMe()">Resume</a>
 	</div>
 	<div class="navbar" id="myBtn">
@@ -96,9 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function papers() {
 	const pagelist = document.getElementById("writinglist");
-	const page = ["Marijuana should be Illegal", "Case of Helping the Poor", "Personal Narrative In-Class Speech", "The Bluest Eye Final Draft", "Kitty Cloning Paper", "College Application Essay", "Mythology Questions ", "Moral Ground Hardin or Singer", "They say, I say CH.1 Activity ", "Mythology Short Essay", "Constitution Rewrite", "CYOM Project", "Tech that Impacts Life Paper", "Endurance Book Review", "Make a Decision to Follow Christ", "Hero's Journey 3 Act Short Story", "Expository MOTOE", "Chile", "Research MOTOE", "Why Jacksonville University", "Spanish Three Minute Project", "US History Mr Whitesell Extra Credit", "Senior Speeches", "Mere Christianity", "Nuclear Energy should for World", "Beowulf Essay", "Reflecting on my values", "Machine Gun Kelly", "Lessons From James", "Is the American Dream Alive", "Marriage a Men's Point of View", "Why dont Teens read for Pleasure", "Educational Reform ", "Nickolas Diaz Story", "Prostitution is a Harmful Lifestyle", "Personal MOTOE", "Response MOTOE", "Proverbs 4", "Minimum Wage Increase", "Golden, Silver, Bronze, Iron", "Singer Solution Poverty", "Compare and Contrast", "Lower the Minimum Wage", "Types of Failure", "Boredom is a Life Lesson", "Googles Effect on the Mind", "Triboelectric Generators Speech", "School Should Start Later", "Biblical Love Essay", "Persuasive MOTOE", "The Whistler Project", "King Leonidas Persuading the Spartans", "School Should Start Later in the Day", "Biola Application Paper", "Narrative MOTOE", "Communism letter", "Great Expectations", "Proposal about Lunch Lines", "Homelessness in the US", "Inmates No drug Testing", "Are Fast Food making People Fat", "Expansion of Robots in the Workforce", "Andrew Jackson", "Sparta Warfare", "Mi Rutina Diaria", "Azusa Pacific University Application", "I say CH.1 Activity ", "Midterm Paper Reflecting on my Values", "Slave Trade Doc", "Nuclear waste They say I say", "Cost of Discipleship", "Review of Literature", "Young Girls Salem Village", "Law Perpetuates Injustice", "Achieving your Goals Paper", "Trip to Miami Florida", "Sex Drugs Dinosaurs", "Dead Poets Writing", "Archimedes Principle", "Ballistic Pendulum", "career summary and goals", "Centripetal Force ", "charge to mass ratio electron", "Conservation Angular Momentum ", "Cultural Appropriation!", "Data Analysis", "Desnity of Liquids", "Electric Fields", "Electricity", "Electromagnetism", "Energy in fields", "Entrepreneur FirstClassGraphics", "Error Analysis", "Ethic Scenario", "Ethics Challenge!!", "loop and junction", "Magnetism", "Moment of Inertia", "Kurt Elling", "Popular Culture", "SHAD", "Shows COPS", "Steps of Racism", "Student Survey", "The oscilloscope","Consise Sentenses","Design Choices","Desnity of Liquids Report","Five Tech Dilemmas","Limiting Reactant Report","Techinical Writing","Data Analysis on Births","Smart-Heat-Relief Mask"];
+	const page = ["Achieving your Goals Paper", "Analysis and Design a Project", "Andrew Jackson", "Andy_s Interview Presentation", "Archimedes Principle", "Are Fast Food making People Fat", "Azusa Pacific University Application", "Background Information of Piracy", "Ballistic Pendulum", "Beowulf Essay", "Biblical Love Essay", "Biola Application Paper", "Boredom is a Life Lesson", "Career Summary and Goals", "Case of Helping the Poor", "Centripetal Force", "Charge to Mass Ratio Electron", "Chile", "College Application Essay", "Communism Letter", "Compare and Contrast", "Computer Security lab01", "Computer Security lab02", "Computer Security lab03", "Computer Security lab04", "Computer Security lab05", "Computer Security lab06", "Conservation Angular Momentum ", "Consise Sentenses", "Constitution Rewrite", "Cost of Discipleship", "Cultural Appropriation!", "CYOM Project", "Data Analysis on Births", "Data Analysis", "Dead Poets Writing", "Design Choices", "Design Thinking Mini Challenge", "Desnity of Liquids Report", "Desnity of Liquids", "Educational Reform ", "Effective Communication", "Electric Fields", "Electricity", "Electromagnetism", "Endurance Book Review", "Energy in Fields", "Entrepreneur FirstClassGraphics", "Error Analysis", "Ethic Scenario", "Ethical Analysis of Piracy", "Ethical Scenario PII", "Ethics Challenge!!", "Ethics Exercise", "Expansion of Robots in the Workforce", "Expository MOTOE", "Five Tech Dilemmas", "Golden, Silver, Bronze, Iron", "Googles Effect on the Mind", "Google_s vision AI", "Great Expectations", "Great Grandmother Candida Natalia", "Hero's Journey 3 Act Short Story", "Homelessness in the US", "Inmates No drug Testing", "Is the American Dream Alive", "Iteration Plan", "King Leonidas Persuading the Spartans", "Kitty Cloning Paper", "Kurt Elling", "Law Perpetuates Injustice", "Lessons From James", "Limiting Reactant Report", "loop and junction", "Lower the Minimum Wage", "Machine Gun Kelly", "Magnetism", "Make a Decision to Follow Christ", "Marijuana should be Illegal", "Marriage a Men's Point of View", "Mere Christianity", "Mi Rutina Diaria", "Midterm Paper Reflecting on my Values", "Minimum Wage Increase", "Moment of Inertia", "Moral Ground Hardin or Singer", "Mythology Questions", "Mythology Short Essay", "Narrative MOTOE", "Nickolas Diaz Story", "Nuclear Energy should for World", "Nuclear waste They say I say", "Personal MOTOE", "Personal Narrative In-Class Speech", "Persuasive MOTOE", "Piracy Script", "Popular Culture", "Proposal about Lunch Lines", "Prostitution is a Harmful Lifestyle", "Proverbs 4", "Reflecting on my values", "Reflection Assignment Public Speaking Practice", "Research MOTOE", "Response for 1491", "Response for England_s Failed Conquistadors", "Response for Many Origins", "Response MOTOE", "Review of Literature", "School Should Start Later in the Day", "School Should Start Later", "Senior Speeches", "Sex Drugs Dinosaurs", "SHAD", "Shows COPS", "Singer Solution Poverty", "Slave Trade Doc", "Smart-Heat-Relief Mask", "Solutions and Reccomendations to Piracy", "Spanish Three Minute Project", "Sparta Warfare", "Steps of Racism", "Student Survey", "Tech that Impacts Life Paper", "Techinical Writing", "Testing Plan", "The Bluest Eye Final Draft", "The oscilloscope", "The Whistler Project", "They say, I say CH.1 Activity ", "Triboelectric Generators Speech", "Trip to Miami Florida", "Types of Failure", "Vectra Digital Case Study", "Why dont Teens read for Pleasure", "Why Jacksonville University", "Young Girls Salem Village"];
 	let bigstring = `
-        <center style="font-size:1v;">
+        <div style="text-align: center;"/>">
             The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework. The total number of essays displayed are ${page.length}.
         </center>
         <div class="card-container">
@@ -106,10 +96,10 @@ function papers() {
 	for(let i = 0; i < page.length; ++i) {
 		bigstring += `
             <div class="card">
-                <center class="text-title">${page[i]}</center>
+                <div class="text-title" style="text-align: center;">${page[i]}</div>
                 <div class="card-image"></div>
                 <div class="card-description" onclick="openPopup('https://nickolasddiaz.github.io/downloads/${encodeURIComponent(page[i])}.pdf')">
-                    <center>Click Me</center>
+                    <div style="text-align: center;">Click Me</div>
                 </div>
             </div>
         `;
@@ -178,14 +168,13 @@ async function fetchAboutMe() {
 		fileName = "about.html";
 	}
 	const response = await fetch(fileName);
-	const data = await response.text();
-	about.innerHTML = data;
+	about.innerHTML = await response.text();
 	const scripts = about.getElementsByTagName("script");
 	for(let i = 0; i < scripts.length; i++) {
 		const script = document.createElement("script");
 		if(scripts[i].innerHTML == null || scripts[i].parentNode == null) continue;
 		script.innerHTML = scripts[i].innerHTML;
-		if(scripts[i].parentNode && scripts[i].innerHTML && script == null) {
+		if(scripts[i].parentNode && scripts[i].innerHTML) {
 			if(scripts[i].parentNode) {
 				scripts[i].parentNode.replaceChild(script, scripts[i]);
 			}
@@ -199,17 +188,19 @@ async function fetchAboutMe() {
 	}
 	switch (fileName) {
 		case "papers.html":
-			papers();
-			break;
+			papers();break;
 		case "password manager.html":
-			fetchAndRenderMarkdown("NickolasDanielPassManager");
-			break;
+			await fetchAndRenderMarkdown("NickolasDanielPassManager"); break;
 		case "text editor.html":
-			fetchAndRenderMarkdown("NickolasDiaz-Text-Editor");
-			break;
+			await fetchAndRenderMarkdown("NickolasDiaz-Text-Editor"); break;
 		case "tank game.html":
-			fetchAndRenderMarkdown("Tank_Game");
-			break;
+			await fetchAndRenderMarkdown("Tank_Game"); break;
+		case "pantry manager.html":
+			await fetchAndRenderMarkdown("CEN-4033-Pantry-Inventory-Management-System"); break;
+		case "client server.html":
+			await fetchAndRenderMarkdown("CNT-3004-client-server-project"); break;
+		case "programing language.html":
+			await fetchAndRenderMarkdown("16bitcomputer"); break;
 	}
 }
 fetchAboutMe();
