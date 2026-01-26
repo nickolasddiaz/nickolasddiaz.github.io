@@ -1,12 +1,13 @@
 {
 	"name": "my-app",
-	"private": true,
+	"private": false,
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "bun --bun vite dev",
-		"build": "bun --bun vite build",
-		"preview": "bun --bun vite preview --base=/nickolasddiaz.github.io/",
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"predeploy": "npm run build",
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -14,7 +15,7 @@
 		"format": "prettier --write .",
 		"test:unit": "vitest",
 		"test": "bun run test:unit -- --run",
-		"deploy": "bun run build && gh-pages -d build true"
+		"deploy": "npm run build && npx gh-pages -d build --dotfiles"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
@@ -28,6 +29,7 @@
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
+		"gh-pages": "^6.3.0",
 		"globals": "^16.5.0",
 		"playwright": "^1.57.0",
 		"prettier": "^3.7.4",
@@ -42,7 +44,7 @@
 		"vitest-browser-svelte": "^2.0.1"
 	},
 	"dependencies": {
-		"gh-pages": "^6.3.0",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"marked": "^17.0.1"
 	}
 }

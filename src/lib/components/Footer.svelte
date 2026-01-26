@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { resolve } from '$app/paths';
+
   const socialLinks = [
     {
       name: 'GitHub Profile',

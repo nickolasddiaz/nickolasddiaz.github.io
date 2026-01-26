@@ -25,13 +25,8 @@ p {
   min-height: 61vh;
   color: var(--black);
   width: 80%;
-  padding-top: 15px;
-  padding-left: 3%;
-  padding-right: 3%;
-  margin: auto;
-  margin-top: 4rem;
-  padding-bottom: 100px;
-  margin-bottom: 10%;
+  padding: 15px 3% 100px;
+  margin: 4rem auto 10%;
   border-radius: 27px;
   background: var(--grey);
   box-shadow: inset 0 28px 28px 56px #7d7d7d, inset 0 -28px -28px 56px #ffffff;
@@ -103,4 +98,35 @@ input[type='button'] {
   appearance: none;
   -webkit-border-radius: 0;
   border-radius: 0;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 90%;
+  z-index: 1;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 80%;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+#popup-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
 }

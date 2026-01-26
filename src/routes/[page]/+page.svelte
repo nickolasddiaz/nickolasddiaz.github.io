@@ -1,9 +1,12 @@
+
 <script lang="ts">
   import { page } from '$app/stores';
   import { getPapers } from '$lib/data/papers';
   import PaperCard from '$lib/components/PaperCard.svelte';
   import { marked } from 'marked';
-  
+  import { resolve } from '$app/paths';
+
+
 
   let content = $state('');
   let loading = $state(true);
@@ -18,6 +21,10 @@
   });
 
   async function loadPageContent(pageName: string) {
+		if (pageName === ""){
+			pageName = "about_me";
+		}
+
     loading = true;
     
     if (pageName === 'papers') {
@@ -66,8 +73,8 @@
 
   async function fetchHTMLContent(pageName: string) {
     try {
-      const fileName = pageName.replace(/-/g, ' ') + '.html';
-      const response = await fetch(`/${fileName}`);
+      const fileName = (pageName.replace(/-/g, ' '));
+      const response = await fetch(resolve(`/${fileName}`));
       return await response.text();
     } catch (error) {
       console.error('Error fetching HTML:', error);

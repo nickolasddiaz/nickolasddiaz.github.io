@@ -1,6 +1,7 @@
 <script lang="ts">
   import { sidenavOpen } from '$lib/stores/navigation';
   import { goto } from '$app/navigation';
+  import { resolve } from '$app/paths';
 
   const menuItems = [
     { name: 'About Me', path: '/about_me' },
@@ -17,7 +18,7 @@
   ];
 
   function navigate(path: string) {
-    goto(path);
+    goto(resolve(path));
     sidenavOpen.set(false);
   }
 

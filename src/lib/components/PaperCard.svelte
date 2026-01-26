@@ -7,12 +7,18 @@
     const iframe = document.getElementById('popup-iframe') as HTMLIFrameElement;
     const overlay = document.getElementById('overlay') as HTMLElement;
     const popup = document.getElementById('popup') as HTMLElement;
-    
-    if (iframe && overlay && popup) {
-      iframe.src = url;
-      overlay.style.display = 'block';
-      popup.style.display = 'block';
-    }
+
+    iframe.src = url;
+    overlay.style.display = 'block';
+    popup.style.display = 'block';
+
+    // Add click event listener for closing the popup
+    overlay.addEventListener("click", function() {
+      overlay.style.display = "none";
+      popup.style.display = "none";
+      iframe.src = "";
+    });
+
   }
 </script>
 
@@ -73,4 +79,5 @@
     align-items: center;
     justify-content: center;
   }
+
 </style>
