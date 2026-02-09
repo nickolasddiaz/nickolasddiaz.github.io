@@ -4,16 +4,16 @@
   import { resolve } from '$app/paths';
 
   const menuItems = [
-    { name: 'About Me', path: '/about_me' },
+    { name: 'About Me', path: '/' },
     { name: 'Career Summary', path: '/career_summary' },
     { name: 'Academic Papers', path: '/papers' },
     { name: 'Awards', path: '/awards' },
-    { name: 'Password Manager', path: '/password_manager' },
-    { name: 'Text Editor', path: '/text_editor' },
-    { name: 'Tank Game', path: '/tank_game' },
-    { name: 'Pantry Manager', path: '/pantry_manager' },
-    { name: 'Client Server', path: '/client_server' },
-    { name: 'Programming Language', path: '/programming_language' },
+    { name: 'Password Manager', path: '/github/password_manager' },
+    { name: 'Text Editor', path: '/github/text_editor' },
+    { name: 'Tank Game', path: '/github/tank_game' },
+    { name: 'Pantry Manager', path: '/github/pantry_manager' },
+    { name: 'Client Server', path: '/github/client_server' },
+    { name: 'Programming Language', path: '/github/programming_language' },
     { name: 'Resume', path: '/resume' }
   ];
 

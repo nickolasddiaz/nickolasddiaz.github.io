@@ -6,9 +6,9 @@ export interface Paper {
   url: string;
 }
 
-export function getPapers(): Paper[] {
+export default function getPapers(): Paper[] {
   return papers.map((title) => ({
-		title,
+		title: title.replace('_',"'"),
 		url: resolve(`/papers/${encodeURIComponent(title)}.pdf`)
 	}));
 }

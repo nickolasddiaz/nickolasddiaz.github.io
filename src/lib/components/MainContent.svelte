@@ -1,0 +1,21 @@
+<script>
+    let { children } = $props();
+</script>
+
+
+<div class="content">
+    {@render children()}
+</div>
+
+<style>
+    .content {
+    min-height: 61vh;
+    color: var(--black);
+    width: 80%;
+    padding: 15px 3% 100px;
+    margin: 4rem auto 10%;
+    border-radius: 27px;
+    background: var(--grey);
+    box-shadow: inset 0 28px 28px 56px #7d7d7d, inset 0 -28px -28px 56px #ffffff;
+    }
+</style>
