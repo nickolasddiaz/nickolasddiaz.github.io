@@ -1,0 +1,1 @@
+import"../chunks/DezyN8l9.js";import"../chunks/BA_7x-aJ.js";import{M as n}from"../chunks/B_E0Xdgz.js";import{S as r}from"../chunks/CQaGMUHk.js";function s(o){n(o,{children:(t,e)=>{r(t,{repoName:"CEN-4033-Pantry-Inventory-Management-System"})}})}export{s as component};

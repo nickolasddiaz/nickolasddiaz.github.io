@@ -1,1 +1,0 @@
-import{R as o,b as r}from"../chunks/EI5G2iCJ.js";function a(e,t){throw new o(e,t.toString())}const n=()=>{throw a(307,`${r}/about_me`)},c=Object.freeze(Object.defineProperty({__proto__:null,load:n},Symbol.toStringTag,{value:"Module"}));export{c as universal};
