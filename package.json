@@ -45,6 +45,7 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.10",
+		"flexsearch": "^0.8.212",
 		"marked": "^17.0.1"
 	}
 }
