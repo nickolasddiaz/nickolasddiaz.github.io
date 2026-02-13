@@ -1,121 +1,42 @@
-:root {
-  --green: #4ab573;
-  --white: #ffffff;
-  --black: #001f3f;
-  --grey: #e0e0e0;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source './src/**/*.{html,js,svelte,ts,md}';
+@source '../node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}';
+@source '../node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}';
+@source '../node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}';
+
+@plugin 'flowbite/plugin';
+
+@theme {
+  --z-index-100: 100;
+
+  --color-primary-50: #fff5f2;
+  --color-primary-100: #fff1ee;
+  --color-primary-200: #ffe4de;
+  --color-primary-300: #ffd5cc;
+  --color-primary-400: #ffbcad;
+  --color-primary-500: #fe795d;
+  --color-primary-600: #ef562f;
+  --color-primary-700: #eb4f27;
+  --color-primary-800: #cc4522;
+  --color-primary-900: #a5371b;
+
+  --color-secondary-50: #f0f9ff;
+  --color-secondary-100: #e0f2fe;
+  --color-secondary-200: #bae6fd;
+  --color-secondary-300: #7dd3fc;
+  --color-secondary-400: #38bdf8;
+  --color-secondary-500: #0ea5e9;
+  --color-secondary-600: #0284c7;
+  --color-secondary-700: #0369a1;
+  --color-secondary-800: #075985;
+  --color-secondary-900: #0c4a6e;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--white);
-  font-size: calc(0.6em + 0.6vw);
-}
-
-p {
-  line-height: 2;
-}
-
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.column {
-  flex: 1;
-  max-width: 45%;
-  padding: 0 15px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.column img {
-  width: 100%;
-  height: auto;
-  max-width: 75%;
-}
-
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  padding: 20px;
-}
-
-@media only screen and (min-width: 500px) {
-  .card-container {
-    grid-template-columns: repeat(3, 1fr);
+@layer base {
+  button, [role="button"] {
+    cursor: pointer;
   }
-}
-
-@media only screen and (min-width: 800px) {
-  .card-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .card-container {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
-@media only screen and (min-width: 1500px) {
-  .card-container {
-    grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-input[type='text'],
-input[type='button'] {
-  -webkit-appearance: none;
-  appearance: none;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-#popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60%;
-  height: 90%;
-  z-index: 1;
-}
-
-#popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  height: 80%;
-  z-index: 1000;
-  background: white;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-#popup-iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: none;
 }

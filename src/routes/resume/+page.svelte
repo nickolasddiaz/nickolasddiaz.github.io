@@ -6,5 +6,5 @@
 
 
 <MainContent>
-    <iframe style="width:100%; height:100vh" title="My Resume" src={resume_location}></iframe>
+    <iframe class="w-full h-full" title="My Resume" src={resume_location}></iframe>
 </MainContent>

@@ -1,4 +1,21 @@
-import { writable } from 'svelte/store';
+type Name = string;
+type Path = string;
 
-export const sidenavOpen = writable(false);
-export const currentPopup = writable<string | null>(null);
+type PathEntry = [Name, Path]; 
+
+type NavList = Record<string, PathEntry[]>;
+
+  
+export const navlist: NavList = {
+  "About Me": [['Career Summary', '/career_summary'],
+              ['Academic Papers', '/papers'],
+              ['Awards', '/awards'],
+              ['Resume', '/resume']],
+  
+  "Github Projects": [['Password Manager', '/github/NickolasDanielPassManager'],
+              ['Text Editor', '/github/NickolasDiaz-Text-Editor'],
+              ['Tank Game', '/github/Tank_Game'],
+              ['Pantry Manager', '/github/CEN-4033-Pantry-Inventory-Management-System'],
+              ['Client Server', '/github/CNT-3004-client-server-project'],
+              ['Programming Language', '/github/16bitcomputer']], 
+}
