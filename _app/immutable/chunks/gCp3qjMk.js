@@ -1,0 +1,1 @@
+import{a as i,f as t}from"./DXH54xT3.js";import{c as e,r as n}from"./CLr4qM_y.js";import{s as p}from"./Dpzp2yLi.js";var m=t('<div class="p-8 h-screen"><!></div>');function v(a,o){var r=m(),s=e(r);p(s,()=>o.children),n(r),i(a,r)}export{v as M};

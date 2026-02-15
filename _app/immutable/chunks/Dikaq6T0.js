@@ -1,0 +1,1 @@
+import{a7 as o,W as a,U as t,a8 as c,X as l}from"./CLr4qM_y.js";function f(n){t===null&&o(),c&&t.l!==null?u(t).m.push(n):a(()=>{const e=l(n);if(typeof e=="function")return e})}function u(n){var e=n.l;return e.u??={a:[],b:[],m:[]}}export{f as o};

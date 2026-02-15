@@ -1,1 +1,0 @@
-import"../chunks/DezyN8l9.js";import"../chunks/BA_7x-aJ.js";import{M as t}from"../chunks/B_E0Xdgz.js";import{S as e}from"../chunks/CQaGMUHk.js";function s(o){t(o,{children:(r,p)=>{e(r,{repoName:"CNT-3004-client-server-project"})}})}export{s as component};

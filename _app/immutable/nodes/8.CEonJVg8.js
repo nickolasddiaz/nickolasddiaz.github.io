@@ -1,1 +1,0 @@
-import"../chunks/DezyN8l9.js";import"../chunks/BA_7x-aJ.js";import{M as r}from"../chunks/B_E0Xdgz.js";import{S as p}from"../chunks/CQaGMUHk.js";function s(o){r(o,{children:(t,i)=>{p(t,{repoName:"16bitcomputer"})}})}export{s as component};

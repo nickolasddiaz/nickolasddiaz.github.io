@@ -1,1 +1,0 @@
-import"../chunks/DezyN8l9.js";import"../chunks/BA_7x-aJ.js";import{M as i}from"../chunks/B_E0Xdgz.js";import{S as r}from"../chunks/CQaGMUHk.js";function s(o){i(o,{children:(t,p)=>{r(t,{repoName:"NickolasDiaz-Text-Editor"})}})}export{s as component};
