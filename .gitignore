@@ -25,3 +25,10 @@ vite.config.ts.timestamp-*
 # lock files
 bun.lock
 package-lock.json
+
+# VScode
+.vscode/*
+
+# Jetbrains
+.idea/
+*.iml

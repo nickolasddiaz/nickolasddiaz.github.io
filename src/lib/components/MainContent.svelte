@@ -3,6 +3,6 @@
 </script>
 
 
-<div class="p-8">
+<div class="p-8 h-screen">
     {@render children()}
 </div>

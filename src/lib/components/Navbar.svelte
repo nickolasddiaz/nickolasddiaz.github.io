@@ -4,7 +4,7 @@ import {navlist} from '$lib/stores/navigation'
 </script>
 
 
-<Navbar class="bg-primary-100 dark:bg-primary-700">
+<Navbar class="bg-primary-300 dark:bg-secondary-300">
   <NavBrand href="/">
     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
         Welcome to my site

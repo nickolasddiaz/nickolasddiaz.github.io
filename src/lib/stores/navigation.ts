@@ -7,10 +7,10 @@ type NavList = Record<string, PathEntry[]>;
 
   
 export const navlist: NavList = {
-  "About Me": [['Career Summary', '/career_summary'],
-              ['Academic Papers', '/papers'],
-              ['Awards', '/awards'],
-              ['Resume', '/resume']],
+  "About Me": [['Career Summary', '/about_me/career_summary'],
+              ['Academic Papers', '/about_me/papers'],
+              ['Awards', '/about_me/awards'],
+              ['Resume', '/about_me/resume']],
   
   "Github Projects": [['Password Manager', '/github/NickolasDanielPassManager'],
               ['Text Editor', '/github/NickolasDiaz-Text-Editor'],

@@ -6,5 +6,5 @@
 
 
 <MainContent>
-    <iframe class="w-full h-full" title="My Resume" src={resume_location}></iframe>
+    <iframe class="left-0 h-full w-full" title="My Resume" src={resume_location + "#zoom=FitW"}></iframe>
 </MainContent>
