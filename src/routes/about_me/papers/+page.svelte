@@ -3,12 +3,9 @@
     import {topic_types, papers, total_pages, total_words, type Paper, FILTYPE, sortPapers} from '$lib/stores/paper_types'
     import { year_day_formatDate } from "$lib/utils/formatDate";
     import { Document } from 'flexsearch';
-    import { Button, Dropdown, Radio } from "flowbite-svelte";
-    import { Datepicker, Search, Modal } from "flowbite-svelte";
+    import { Button, Dropdown, Radio, Datepicker, Search, Modal } from "flowbite-svelte";
     import { FilterOutline } from "flowbite-svelte-icons";
 	import EmojiIcon from "$lib/components/EmojiIcon.svelte";
-
-    let defaultModal = $state(false);
     
     let dateRange: { from: Date | undefined; to: Date | undefined } = $state({
         from: undefined,
@@ -76,9 +73,8 @@
             });
         });
     
-
-
     let selectedPdfUrl = $state('');
+    let defaultModal = $state(false);
     
     function openPdfDialog(url: string) {
         selectedPdfUrl = url;
@@ -95,12 +91,12 @@
 
         <Button>Filter<FilterOutline class="ms-2 h-6 w-6 text-white dark:text-white" /></Button>
         <Dropdown simple class="*:p-2">
+            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Newest}>Newest</Radio> </li>
+            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Oldest}>Oldest</Radio> </li>
+            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Word}>Word Count</Radio> </li>
+            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Page}>Page Count</Radio> </li>
             <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Alph}>Alphbetical</Radio> </li>
             <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Rev}>Reverse</Radio> </li>
-            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Page}>Page Count</Radio> </li>
-            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Word}>Word Count</Radio> </li>
-            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Oldest}>Oldest</Radio> </li>
-            <li> <Radio name="filter" bind:group={filter} value={FILTYPE.Newest}>Newest</Radio> </li>
         </Dropdown>
     </div>
     

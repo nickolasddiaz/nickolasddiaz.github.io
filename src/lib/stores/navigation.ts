@@ -10,7 +10,8 @@ export const navlist: NavList = {
   "About Me": [['Career Summary', '/about_me/career_summary'],
               ['Academic Papers', '/about_me/papers'],
               ['Awards', '/about_me/awards'],
-              ['Resume', '/about_me/resume']],
+              ['Resume', '/about_me/resume'],
+              ['Leetcode', '/about_me/leetcode']],
   
   "Github Projects": [['Password Manager', '/github/NickolasDanielPassManager'],
               ['Text Editor', '/github/NickolasDiaz-Text-Editor'],

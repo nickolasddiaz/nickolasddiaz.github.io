@@ -1,6 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import MainContent from '$lib/components/MainContent.svelte';
-	import { resolve } from '$app/stores';
 
 </script>
 
