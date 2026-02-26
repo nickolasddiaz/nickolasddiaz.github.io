@@ -1,6 +1,6 @@
 import type Accordiontype from '$lib/stores/accordion_tabs_types'
 
-export const database: Accordiontype[] = [
+export const data: Accordiontype[] = [
   {
     header: "Database 1 Final Project Documents",
     tab_list: [

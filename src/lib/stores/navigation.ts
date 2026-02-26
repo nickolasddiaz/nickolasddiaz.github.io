@@ -13,8 +13,11 @@ export const navlist: NavList = {
               ['Resume', '/about_me/resume'],
               ['Leetcode', '/about_me/leetcode']],
   
-  "Classes": [['Database 1', '/classes/database'],
-              ['Computer Graphics', '/classes/computer_graphics']],
+  "Classes": [['Computer Graphics', '/classes/computer_graphics'],
+              ['C++', '/classes/cpp'],
+              ['Computer Architecture', '/classes/architecture'],
+              ['Database 1', '/classes/database'],
+              ['Python', '/classes/py']],
   
   "Github Projects": [['Password Manager', '/github/NickolasDanielPassManager'],
               ['Text Editor', '/github/NickolasDiaz-Text-Editor'],

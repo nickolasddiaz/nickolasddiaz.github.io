@@ -31,3 +31,10 @@ To deploy to github pages:
 ```sh
 npm run deploy
 ```
+## Format
+
+To the tailwind CSS:
+
+```sh
+npm run format
+```

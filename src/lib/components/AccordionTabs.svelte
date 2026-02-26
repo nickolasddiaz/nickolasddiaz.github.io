@@ -6,6 +6,18 @@
   import CodeBlock from '$lib/components/CodeBlock.svelte';
   
   export let data: Accordiontype[] = []
+  
+  function getextention(str: string){
+    let exten = str.split(".").pop()
+    switch (exten) {
+      case 'h':
+        return "cpp"
+      case 's':
+        return "asm"
+      default:
+        return exten
+    }
+  }
 </script>
 
 <MainContent>
@@ -20,7 +32,7 @@
                             {#await fetch(tab.resource).then(res => res.text())}
                                 <p>Loading code...</p>
                             {:then codeText}
-                                <CodeBlock code={codeText} lang={tab.resource.split(".").pop()} />
+                                <CodeBlock code={codeText} lang={getextention(tab.resource)} />
                             {:catch error}
                                 <p>Error loading file: {error.message}</p>
                             {/await}
