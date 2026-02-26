@@ -1,5 +1,11 @@
 # Welcome to my website
 
+## To start 
+
+```sh
+bun install
+```
+
 ## Developing
 
 start a development server:

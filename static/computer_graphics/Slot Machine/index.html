@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    table, th, td {
+        border:1px solid black;
+        text-align: center;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Slot Machine by Nickolas Diaz</title>
+</head>
+<body>
+<h1>The Slot Machine by Nickolas Diaz</h1>
+<div>Apple:0, Banana:1, Coconut:2, Lemon:3, Melon:4, Orange:5, Mango:6</div>
+<button id="play_button">Play 1</button>
+<label>Amount of Machines: cost 1 per machine</label><input type="range" id="machines" min="1" max="20" value="1"></input>
+<div id="money_elem">$100</div>
+<div id="status_elem"></div>
+<table id="gameTable">
+    <tr>
+        <th>Slot 1</th>
+        <th>Slot 2</th>
+        <th>Slot 3</th>
+    </tr>
+</table>
+
+</body>
+</html>
+
+<script>
+    const IMAGE_NUMBERS = 6;
+    const IMAGES = [
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABLVJREFUeJztWktLVVEU/u416I9ERPSYBE0iwqKMisJCg8CBQjioBhFNpEFEVEJWk5w4UJKIlIpIiSIsKrLsoUmk0B9pcM5qcM9jP9Z+3XuumvcsuAO3Z6+99re/9e119tlAaaWV1spWWe0ATHbz/E4CgGq1gsv35psW55oE4Gr/dqomkV0ZXmxqjNVmOv8fbE0xYKBva432lQqujfxakdhKBqx2AABwqWdLtvIAMDj2e8XiWnUALpzeTNVE8e4+XF7xeMoUKMrRUlcvAUBMhBiEmAg7JsdY//0nN1EWQBUYnvjDPjfV0UkR1XwByPyeev28sLg31NtxubuPxL+jOAaQBxkT4XtnD6XBR0TY/WzcO/Cpjk6KiUAJoAAyv4/2H6WYIAHTMzNdFyhBndRJA8gCzIKhPNBYCT4S2rMJCYBJ7cr/ACT95X7i873vXgaD4N0hnfzfKAIAbGxrS4KKIa2GMnm1naM0C4D0PwgA6MCI/c++fxUEQnAKpBPPAwIfjCFIjtIaAEj95owCZLaZxgy1lt8FWh4Ar3zhxE8VtdC8BiD3R57rWmqA1xHTmOc+vvHWgWANECdEliBdwADI+0POdZeQkmPMEHMiJa6+SXgirt0QvKjqMRGigG1Q9R2xvmuAAsDFTzPO+RkZoNLeRmnyDj5ZaeSsIGIAgEXtIY8rj4mETf4saHkR9NYAV04TwwyZ7uYKzpXTZoEVfDMxFgKAltOmIJN2MhQxKq0lH6Ckn923OHGpQDLsPMUC4BAkbaU9lFr1q+e0yhiFSYJvUUsiiuFrLABLXb2Uvd1plGaER9nCiGTQjAAYVi4vefNJ+yyGWGY3BIBOaSbv0p9hVclCd1caiaCG7g4pi3yt3AW4RpW6JApPgFJr9YFVR2SqN1JlpoerPtbyDGAB2DYxWuG2HE60OMUWfySIk96P38NVUQsdM8SM26CkvB6ixtNaEFNl0oC/qIWNGWYtnwIWBoSJGrtKUrucStKzDlEzl9mK7+SZgbkPjZ8H7Hr6oAIAsyfOEBuM8+BDL2L0E2Q9p23AyDWJnqaFakBq7pxWgoe9iAnPaRUYhknC5K//mC32VNhMadJOdLTgDavqprQ4pugbzjI71LzQenusm/QgawNHDDAqaBwwAKTTJD2NDGV24pc7hbox/zn4w0i5C/g8xAqPktOaCHq+DMklb+rb8vZoOIarZ/UBTwa0v3hcUd/D1ZzmtILTA73dXg2axkzHrecVWDT/IzGHUlPQ3p74TEA1VpkOHUknfmv+S92fy1teA7wB6JierBjpaUsHib5KjcDktIv2Jo1pOgDr1YI+jbFqz+wC6plerV1eedGfyB7Ap8yu/QYX5hq+KhPs4MnB48QFL4sdnLdBNB+K2Nk/vAKDC/ULn2gNfRyVJ5D+X9/f5eAZAKxltuo7j6EIqxtF8aKSbauKDHTP2izARGDSLvkNLX4thAENORlvP8K8I/Crqt4FkJ7V2CKAwAA29LOYyQPlLtD4RcnRfYfJl9aRMV3sJ0XZPYCCVx8o6KboyN5DFBMvdiowMqX1lMmeZVLmdsGTB5pwWfr+ngPEBZ+vJjRQfHXkzuK3Vb/cXVpppZVWWmmlrR/7B+3i9Xq8trOcAAAAAElFTkSuQmCC", //apple.png
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABB1JREFUeJztWUlrFEEYfZ9RDCEHwQQUERSREC/RSwIeFAUhSA7BBRWMEMS7InjID/DmL1AMoqIi4oJIEDzkIIggingJQkARN4IomIjEzOeha/mql5lMLzPdpB4MTFcq3fNevW+pasDDw8PDw2PFgtr9A9Lg0vheltfnJ6dT86iEABPD3dyxpgudXT0AgM6u3sictCKsyvbTWoelxQX8M5/53O5bGQEACAEWcrtnJQS4OPWbgMAFSzm7YHUud2kBBg8viqsv6iMwme6+lXDAoyud3CjDPbi8lhtMiUUlBCAQiipYlRCgSFQiBxAAIgKUyRmp3B6LSjiASAUBqU/CvDR5oCIOIBABcuHzckHpBZi62s0MBrG79MT5iFB6AXTsU8BYjANwh1Kh/AIgWHliZzC4JoA5mwTlF0CttBYCAJjleLZQ6MjjRxaFZ9fWMaBsrsiT+B4eGD3zt+luqdQOIEXMVAAtApsJKhTSJ4NyCyAJi0bILLoIhbSoRCNUJErrgOnr61ln+GCV2c0DKiRIJ4iUe6XSCkCCrS55iSEAxsjpP6kkKKUAz2/0co05FOeWn0yKlLETKqUATu9vSIoQME2QdkP6s4LSCfDi5gbV+8M6ADCEAbcJgs4PKVEqAV7e2hgkPlHedAUEk13okBBZDotKI8Cr25uCuAecxGczPifuB9DwxDAZbRXgzZ3NrPt4ZjbxHO713YyvIOYcGP+VWoG2CPDu7hZmZtTEftZanZ3uztqckh2QAS0TYObeNmYwaszBFjZEKLa0OTZny1U4Yv+pn5kkKEyA2ft9qngp0mq1bUZnx9IynpN6fScJErBv7Efms3K/F8j7hh8f9rNZccCWL6ekRXdx9poTwoGc0Mh4EGSQKMDEcLd5xIWzfWAGJLGeg6/p2+OBYEQlNFbx7ZAT5cslJnc2bkKLb4LYCYE9Y3O5vCqKFUCSD54f/BpJbO7JzqBuhzN0KDuzIOESs70+IB0QaoMVYfns3Se/50IeWGYIOAeTYhVkK0qSsLNzo+SEFnvKwzG9PiLH4nmhoQAT53aoDB59OREXqxFiJvjD5c0KA1iiyU0QY+jE19wlaCiAeSdXpxVlUboa791hCMlzfTc5kjMGAgaPfy5g/euYav7pkJMHmNlJgvq7HA8nQwCoqf+VTZDsDXT/X2/OrmOfCiEPNFEG9QvKaNJK7uIAgOTBhhoPbE5yi5/gEjghVwSa6gOMnZEcz9LygCUR7QHY/h2IPeMbOPqhsJV3OCUhHAYAhLWt1WO/m1BBZDxscwBOOPUfmS2cuMaKb4UbKh3nAgCxyUomxNjk5syxztDzth9637KV11jWA5NCwWZ+xFYDM69OmGwdnWk5aYmmHy7FCMd0OM6DOUF8bxh521aiHh4eHh4eHh4eHh4O/gN4bpbbyuhVKAAAAABJRU5ErkJggg==", //banana.png
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA9dJREFUeJztWk1LFVEYfqe/EERtDMok45IfJbSJFhFBLUKoRRGRldGlIMKIgogQiaBaiIhEiyAXboIW1aIIJPpAr5pBapeiDGrbTzjnbaEz95xzz505n+NcOg8Ijj7OzPOc933nuc4BCAgICAgICAj4TxHldaHJ+6eRUgqEUqAUgVIK7HHv4NPc7oWFt4t+HDnPCF79IsgfU/GYAiEr5px88DIXQ5xfZGr0AnKCxBUnNfG8QXLOmZHXXo1wdvLKWBkRkbn5BitMESgRjhU45YeTXoxY5+IksXhKKVCMV1MUxvzMgDNydi+6uFcRVq5WxsoIAJCIZ1ecyFeYOyb1LaLCGRifclYNxhXAiq/MLcLs/Fd+NVFcYcmKIzLm1c+C5DwC5+7xHmfVYGRALB4AoDK3mPz885dv9WWMElGiGdKWSOcMHetyYoK2Aax4Sil0d25Pfldq3yoXiilVYMG53bvT2gStXorFT88uQE/3Dr5fk56XBx2+n/U4dcfCk2bo+aLxTNCugOnZBQAAmPm0ZF3G6hzeMBQ4NlA2gC39GOzNLVWXofr9V+NhtnrDiHJR8lJPMYzhXDvYZtwKSgawE39XZzsAAHSUtiU3s1T9mXB/LP9JX2GNJ4QO58r+LUYmKFcAG3Q6Sm3czbS1tiS8zS2bvIWhLI4JMocHl/JyCjrSvyEyjjAoCYXRd7+1BmJmBWBSZmYlahJ0pCsu5WAdRxepBlTGyphZfp6Cjimnf89GLRdSDahdNKMXC8Zxa4BG+RWF49CAvMqYbyMx6EhnQwrHiQHvh89hnQiFEOMj6OhwEBFOda1XdqGhAQ37zEOIccVBl08B1fBRFI6J+AwD/JSojINZkz153LrpezUDChp0ZBwbpFdAAYOOyLGF2hAsWNCJOS6gOATtStQ9x434VAMO3ZyI3JUx30a2QSdr4D+Z/6v8iVAhCvNCixB0XELts4Bssis8IVxzXItXMCClF5sk6FgZcPTOs8hFGecZdHT6P9MAAGj6oGNtwIl7L6JmCTq6q69kAAAI5d5cQScLSgb0Db+Kih50TFYfQOO9QP/omyh7aq987zvoiDAVD6D5brAZg04WtAy4+OhtZBpiVDgm4m1WH8Dg7fDlxx+iogQdW/EAhjtEro5PRWwZr8V/dFyIB7DYI3R9YibiReYXdFyJB3C0T/DWkRLWXpquiGy8y4NyO0Z14FJ4DGcnvHG4vfYegcjeGvOPQULWXjyAh62yAwdaMRbIlrq4Y1R15vkSHsPbyS/ta8G4HcSWUJn4voXHyG2Let/uDZj2rM9LcEBAQEBAQECCf/0StEhBoBeuAAAAAElFTkSuQmCC", // coconut.png
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABExJREFUeJztWk1rFTEUPc+VVosigq2vFJUqqFSoS0GKuGjrVjf+DH+Jf0REBEFEcFGkiNRNNy6EguJXv9CVupnrYpKZJPfmY74eijlQ2jcvyeSec++ZJB0gIyMjIyMjIyMj47/EaNI3/Pn5DoEKEBFQFCAqACL1uwAVBFCB6QsvJjK3wW/y68tdMj9ToQIlQgoRut3xy+uDzHWQQd2gNcJBEyNHIuLE4kavc+51MF/gGkQFUBgqa0KKMBG+fieXNjvP/1DXATTiwVMZHAgAgQgq6LIbofxefVH/EJV/Vp9RtdvfXAreMwW9EBALvoQ9eTtAfa0moiKoIozUEKRbAUTYe3O1Ewm9ZUAIMfUlIiz1GWHmtW7oTEA39SGWQU2YuqrVJ62+3W7v9ZXWTHQiICV4lrpW0LyuVS8nIwLqq7F2Ny61IqE1AWnKA3Yw6jNTn6saU18iYufVxcYktCIgNXhuXJKqiKhvXkPVVzZL4Nv6QiMSBjZBOXW1g1uqAlx9Myt0T68xmsSmo9FCIj3tjWDU4qVe4DgLmoQVoX8BZXzv9JtZ3k6KLTkDmgRv0FApxmsdVurWhEmeoMaKPE1q9QlfX84nzXeQEiArJQHZwT2pKxqmsBASTdQtozgG9AAKqIqI+vAS4XuaiMQmYBgC2q7onIywzNJSXyKWm2gKgkaxvXWfAGD21McGsUvGJe3zZWOMm2BgLI9Z/p65BwA4t/iAxdt/BjRNXZDVzi0Dv/qApL5cGn70SkD65OXUVaNwYzRLJkIq33hNkIB0V4fTTq5hmzDYJoo6SO9jMcEIeyNAVt/dz/PUjU/eVNsuF92WryTtuUyEgHT17WvcwaVycdQnV3147muW0YAEhNU3gkuo4bD65jWbCL5rNOYyNAHW5JlxcWXsMpDKxZ68204ighMbV78XAoY47IxlhFwu/kwMIXk36D/rTzzqpkLt/NT3DXeI7FrCWOPVvWh8nTJg8MNOoy8zRzWWZaJWWaXF0LEEwqnb9bCTEwGHME8Zweg7FAGTOuys1TcyTgUdM9FeCTg8+9Cpp7AKfR52MlcPqa/azd0+SPK3Vv9bK//FzY0reFzFjEu385mgZHDxHSIKwngtbn4aLUtATt1SEEd9GKmr+lpZoXt6jbGZH+i7DErAkTOPRsQmCs9EEycPXsO89gWinbHm1vYbZXVrE5yaezzyPn6CkyfP5AGbMIFUhzA4RDRJ/c4EAMDU/JNR19Rtd9jpPioJ49XdVn7WeSl89OzTUbr6iNZwOCNMYsu2RITxSrvggb42Qw39wK1htsqLqM+JaI9eCDh2/tnIVp8/5wEIpdFE/fqaWQbjlZ1Or8n0diAyvfB8xI3LqfUk9QFJfYmIrsEDA70l9uPdMpk7xGqhkrIQct4Kc3ebs7c+/b1viUn4vnWd2m6VzS3wzM0P/857giEcvL1GKcvg0zfeT3xuGRkZGRkZGRkZ/xP+APSRlJuM7TGWAAAAAElFTkSuQmCC", // lemon.png
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmZJREFUeJztm71xwzAMhZlcVnHl2hO4UJlMk8plqkyTlC48gWtXHsapcKeTSeLvgaJjfl0uEkQ8USAIwikNBoPBYPC0vLR82Pfvx632/8/3n6bjSSlYAM5hjhaChDzA6/iSSCGghhGOH8+X4v9OX1e4EBCDWsdrTkpBifHmNcA5b3F22m3Za07pqrabw6Viyfm509Nue/c3CkRsMBvIOc+9baTzhFcE081a53OOH8+Xu9lRg2zQ9XObHhHUN+4PG3HAKzmOZtptzSKIb5I6rnHa8knUbFlEMAsgHXxuwN5YkPsMCK0I4mUQ8bZQQRAZTEVqIRKdiBWghGYWuBMhYm2nrbBKzd++JIL34rR0FrAzYI3kpiVVlUpLHyqKI23mkMwCUQywDk6T9KATJOmYWQE8673UltZ5SQottVmdIrXlT5vDo8jtNEvPkHwCxQssuz0aVE9wIohiADKX742qAI+a3GgoChCVx/dGUYD/6vAS2F6gF7RLqjoGeIiYVd4xVmOApmYnwVsd1oyF7HPlc3MiZCGiHphSWUzYXgAFqkiK/JRWD4I1Z6IOVOY0E8CSVLVYilUVISnebx3hOKwitIQ7AdKcEJWubVmFYlXSnASlhCueWJZgeramKhxSFo+GE0bTOyC+sDcRSmhPhl6jBvIoqNTqfRaEHo4SvYoQfjw+RyJCyzJa0wYJQrs8LqnlBNJ8wdMYQbhu3h82N80bRe8GEa1ybgMRzZESUVHdo6s0SnpBts521ypLoLvBSoQ0IUsCpPScEBHoaoS2o1OQtGx0oh0nVv/BxPxwc40fTAwGg8Fg8MT8AaJXQ9cIrghFAAAAAElFTkSuQmCC", // melon.png
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAmBJREFUeJztmjFLAzEUx//XVj+Do4uLoyD0mzhLFYvFYhHBSZwcFAedBWcnly6Ci1BQ6CK4uDj6CRwEwTyHeva06r2XS655NX8oDXeQ5PfPy+VdLkBUVFRUVFRU1D9VUnaDz7sJEQBDg19aJgIMgJl9KrVP3ht72UsIGAX+Cd5QkikPrs8eGK999FZ5Cg7YwxsM/+cO/RjhvNIsOOAGfngtwfzRm9M+V1xW5hveEHDfqdJoy/Zy4uZ3cMAP/Jf7BCwcF4+GwhEwLngDoN8uHg2FDBgnfFq+2agVMsHagBDgDQZ19Vr2JlgZEBJ82s71up0JTlaBccOn90sxoIylzgaeCLhqyqNAZEDI8Gn5ck1mgvUUCBF+UJalBmwDXOf2vuAJQHd1ih0F4ggIHT7tk1MDir7Slg1PAC4avChgR4AmeEkUsAzQCM+dBWwDtMFzIyB3zcjbwwsVnj7Qls5e/2TMjQDN8BzlGqAR/rRucFrnvR2wDNAELxV7CmiB54482wBN8ACwcitLbvMjQBF8Vlwj8iNgguEB5rb4006FtMBnlZcDANxMUCE8V/xUeALh2QZMKjwg+DT2uP39ORA2PGf+A5L9AEXwEolqftiqkAZ47ugDwj1BDfBSiVu471QpZHjJ6AOW5wPuNqs0CfCA5YeREOFtZd1av51GQRjwNqMPFPg0tnjylmiHBxycEeq1aqQVHnB0SOp6vfbLyhA2POD4nOBVM2tEWE/73+T8kXu5ViMt8IDHo7Ld1SkaV3orkfdF96Lx1Qhfb3W2Kv24/PnyNP113zdwVFRUVFRU1KfeAch1lFo6UvldAAAAAElFTkSuQmCC", //orange.png
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAA/BJREFUeJztWj1rFUEUPTfvIdZ2FnZW2gRRRAiiEETzJ+ysBAslKBaJYCHBBBMQNYilhYVlupQKIhFFsfEX2Iilje9a7Nfs7L3zsTv7UjgHluyyN/v2nnvmzNcCGRkZGRkZGRkZGRn/I+iwX8DGz/XTPGHGgnL/2IPvSd/50An48XCRJ8yY8AxTZkyqI/D/hxIydwIOHp3lKslWwtb1FBz97D5kzI2AdxvnuZ3kTCYAzXmfl9NI2Li1yACwuv25dX/a4zeisP/4Ak+ZwcxgwDio+EvVdXmfm5g+BPxaO8VAm4gqeQmjKWBva0mQ+qxTZbUJ8CzYB1x4+ftIfW5XHxhBAW+fXOxWnKyqs1Fx7SAC92wGFczkNaQgucab7UtMABYAEAGEIoEFFFJznhPX5/a9vjhz9C8+/SlSlKqPgc9v4fXOZZakbcpfcnq5RzAMMsG7uXqHwQS8erpsuLuQpN3OISTp8gMMawYVNBJ6e8CzZ1d40nF3Ms7Zav+wXF6Ihe0ZRfyYfXUvAnaeX+UiccXIyDY8j+kRta5hdZljIpqArRfXuKm68eLErap1Ey3qWJNhVVkcI6AiYDwaogjY3F1pkqd2hZjJSkKouNkdsifWjB+xGcQ3gUqunZGdUEXHKE+tOKUbFYaglwdIMhVNTzQ8q+KiSTbxKGPHQjABm7sr9Xuoska46dXPYU9spaQBo0LXOCCIADN5AGUziJG1laDT9HQljdEMeo8DNFmjum4lEGmQkJU0BrwEdKpfwmt6qjKMJBXD09QxBg0DFKAZWITpsSdWiI9tBr5VIicBWvUBFD4QZHhWkkL3idY1WUm341P7wKD1ANnEGtMDfIZXkqcqqWuQMQhZI1QJcFa/hC5Vx0SnEx8zKgxfJAldIB22IlRPYlym5x/l6fHy/CJlMxi8JCbJVFQFwkwPAd2nDzHL44kIMKVKVsLW+MAV71SSSV6aRRIgxaKoOSpED9NTDc9Qh6AkiYA+GyNJVoWdqzvVIZpeYPfJ3dhUSESAUMWgqbDcfVbxcMTaNPTdI0xLgHcq7BjlwTa98EWSIRukaTZGSJdqp+Llqxbxnli4lUQYvjusbcPj9o29qAc3Tk/GUSZgHrCTtOLt/3HEpvhWINnWmN/wAg0SfiUdX/+WbCykKgCIVAGRUmWlit74dsVRxp5Y+5p0PpR0czR2attZKgfU+JP3v4yyLhr80JDJESkfOwzZOlu8dzDqRxzRD3cSEbz3b5ABPe7c3Y+jf8HS6wdcJCwISYbtCjfqWFr9MLdPd5L8kEkICQkXSStkGOfLd97PLfH6fVM+bHN3heGo8vWb+3NPMCMjIyMjIyMjIyNDxD+A6kKm0IEifwAAAABJRU5ErkJggg==" //mango.png
+    ];
+    class Main {
+        money;
+        slotMachines;
+        status_elem;
+        money_elem;
+        parent_element;
+        constructor(status_elem, money_elem, table_element, slot_machines) {
+            this.money = 100;
+            this.slotMachines = [];
+            for (let i = 0; i < slot_machines; i++) {
+                this.slotMachines[i] = new SlotMachine(table_element);
+            }
+            this.status_elem = status_elem;
+            this.money_elem = money_elem;
+            this.parent_element = table_element;
+        }
+        set _money(money) {
+            this.money = money;
+            this.money_elem.innerHTML = `$${money.toString()}`;
+        }
+        PlayAll() {
+            if (this.money <= 0) {
+                this.status_elem.innerHTML = "No money";
+                return;
+            }
+            this._money = this.money - 1;
+            let sum = 0;
+            for (let slot of this.slotMachines.slice()) {
+                sum += slot.play();
+            }
+            if (sum > 0) {
+                this.status_elem.innerHTML = `Winner: Money made: ${sum}`;
+                this._money = this.money + sum;
+            }
+            else {
+                this.status_elem.innerHTML = `Game Over`;
+            }
+        }
+        reset(slot_machines) {
+            const rows = this.parent_element.querySelectorAll('tr:not(:first-child)');
+            rows.forEach(row => row.remove());
+            this.slotMachines = [];
+            for (let i = 0; i < slot_machines; i++) {
+                this.slotMachines[i] = new SlotMachine(this.parent_element);
+            }
+            this.status_elem.innerHTML = "";
+        }
+    }
+    class SlotMachine {
+        last_amount_won;
+        numbers;
+        image_element;
+        constructor(parent_element) {
+            this.last_amount_won = 0;
+            this.numbers = [0, 0, 0];
+            this.image_element = [new Image(), new Image(), new Image()];
+            let tr_element = document.createElement('tr');
+            for (let elm of this.image_element) {
+                let td_element = document.createElement('td');
+                elm.src = IMAGES[0];
+                elm.alt = '0';
+                td_element.appendChild(elm);
+                tr_element.appendChild(td_element);
+            }
+            parent_element.appendChild(tr_element);
+        }
+        play() {
+            for (let i in this.numbers) {
+                this.numbers[i] = Math.floor(Math.random() * (IMAGE_NUMBERS + 1));
+                if (this.image_element[i] !== undefined) {
+                    this.image_element[i].src = IMAGES[this.numbers[i]];
+                    this.image_element[i].alt = String(this.numbers[i]);
+                }
+            }
+            if (this.numbers[0] === this.numbers[1]) {
+                if (this.numbers[0] === this.numbers[2]) {
+                    return this.numbers[0] === 0 ? 14 : 7;
+                }
+                else {
+                    return this.numbers[0] === 0 ? 3 : 2;
+                }
+            }
+            return this.numbers[0] === 0 ? 1 : 0;
+        }
+    }
+
+
+    const gameTable = document.getElementById('gameTable');
+    const money_elem = document.getElementById('money_elem');
+    const status_elem = document.getElementById('status_elem');
+    const machineSlider = document.getElementById('machines');
+    const play_button = document.getElementById('play_button');
+
+    let main = new Main(status_elem, money_elem, gameTable, machineSlider.value);
+
+    play_button.onclick = main.PlayAll.bind(main);
+
+    machineSlider.oninput = function() {
+        const count = parseInt(this.value);
+        play_button.innerHTML = `Play ${count}`;
+
+        main.reset(count);
+    };
+</script>

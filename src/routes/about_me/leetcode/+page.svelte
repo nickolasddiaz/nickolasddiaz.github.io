@@ -133,9 +133,7 @@
                   </div>
 
                   <div class="h-full">
-                      <CodeBlock code={item["code_content"]} lang={item["language"]}>
-                          
-                      </CodeBlock>
+                      <CodeBlock code={item["code_content"]} lang={item["language"]}></CodeBlock>
                   </div>
               </TabItem>
           {/each}

@@ -1,0 +1,58 @@
+--list all customers and number of tickets they have
+SELECT
+    p.NAME, p.EMAIL, p.PHONE, p.ADDRESS,
+    COUNT(t.TICKET_ID) AS Amount_Of_Tickets
+FROM PASSENGER p
+JOIN TICKET t ON p.PASSENGER_ID = t.PASSENGER_ID
+GROUP BY p.PASSENGER_ID, p.NAME, p.EMAIL, p.PHONE, p.ADDRESS
+ORDER BY p.NAME;
+
+--list all the schedules routes stations and staff from a ticket in the correct order 1 , 2, 3
+SELECT
+    rt.ORDER_ID as Orders,
+    FORMAT_TIMESTAMP_DAY(s.DEPARTURE_TIME) AS DEPARTURE, FORMAT_TIMESTAMP_DAY(s.ARRIVAL_TIME) as ARRIVAL,
+    r.NAME AS RouteName,
+    origin_station.NAME AS Origin_Station,
+    dest_station.NAME AS Dest_Station,
+    t.CONFIRMATION_CODE as Code
+FROM TICKET t
+JOIN ROUTE_TICKET rt ON t.TICKET_ID = rt.TICKET_ID
+JOIN SCHEDULE s ON rt.SCHEDULE_ID = s.SCHEDULE_ID
+JOIN ROUTE r ON s.ROUTE_ID = r.ROUTE_ID
+JOIN STATION origin_station ON r.ORIGIN_ID = origin_station.STATION_CODE
+JOIN STATION dest_station ON r.DEST_ID = dest_station.STATION_CODE
+    WHERE t.TICKET_ID = 102
+    ORDER BY rt.ORDER_ID;
+
+--List all staff and their vehicles and assigned station
+SELECT
+    (s.F_NAME ||  ' ' || s.L_NAME) as Staff_Name, s.ROLE,
+    v.NAME AS Vehicle_Name, v.MODEL, VEHICLE_TYPE_CHAR(v.VEHICLE_TYPE) as Vehicle, v.VIN,
+    n.STATION_CODE, n.NAME as STATION_NAME,
+    (n.STREET || ' ' || n.CITY || ' ' || n.STATE || ' ' || n.ZIP || ' ' || n.LATITUDE || ' ' || n.LONGITUDE) as STATION_ADDRESS
+FROM STAFF s
+JOIN STATION n on s.ASSIGNED_STATION_CODE = n.STATION_CODE
+LEFT JOIN VEHICLE v ON s.VEHICLE_ID = v.VEHICLE_ID
+ORDER BY s.L_NAME, s.F_NAME;
+
+--List a station's routes, and schedules
+SELECT
+    r.NAME AS RouteName, VEHICLE_TYPE_CHAR(r.VEHICLE_TYPE) as Vehicle, r.DURATION_MINUTES, r.DISTANCE_MILES,
+    FORMAT_TIMESTAMP(s.DEPARTURE_TIME) ||  GET_DAY_STRING(s.DAYS_OF_WEEK) AS DEPARTURE, FORMAT_TIMESTAMP(s.ARRIVAL_TIME) as ARRIVAL
+FROM STATION st
+JOIN ROUTE r ON st.STATION_CODE = r.ORIGIN_ID OR st.STATION_CODE = r.DEST_ID
+JOIN SCHEDULE s ON r.ROUTE_ID = s.ROUTE_ID
+WHERE st.STATION_CODE = 'JAX' 
+ORDER BY r.ROUTE_ID, s.SCHEDULE_ID;
+
+--List all schedules with their source and destination stations
+SELECT
+    FORMAT_TIMESTAMP(s.DEPARTURE_TIME) ||  GET_DAY_STRING(s.DAYS_OF_WEEK) AS DEPARTURE, FORMAT_TIMESTAMP(s.ARRIVAL_TIME) as ARRIVAL,
+    r.DURATION_MINUTES as TYPICAL_DURATION_MINUTES, EXTRACT(HOUR FROM (s.ARRIVAL_TIME - s.DEPARTURE_TIME)) * 60 + EXTRACT(MINUTE FROM(s.ARRIVAL_TIME - s.DEPARTURE_TIME)) as ACTUAL_DURATION, r.DISTANCE_MILES,
+    origin_station.STATION_CODE AS Origin_Name,
+    destination_station.STATION_CODE AS Dest_Name
+FROM SCHEDULE s
+JOIN ROUTE r ON s.ROUTE_ID = r.ROUTE_ID
+JOIN STATION origin_station ON r.ORIGIN_ID = origin_station.STATION_CODE
+JOIN STATION destination_station ON r.DEST_ID = destination_station.STATION_CODE
+ORDER BY s.SCHEDULE_ID;

@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>"My WebGL initials N. D. D."</title>
+		
+		<!-- 
+			GLSL is the language used for shaders (GL Shader Language)
+			Attribute - you specify how to pull the data out of the buffers you supply.
+			Buffers - Data loaded onto the GPU (Normally vertex information)
+			Uniforms - global variables (in GLSL) that you set before you run the shader program
+			Textures - Textures are arrays of data you can randomly acces in your shader program.  
+			Varying - are way for a vertex shader to pass data to the fragmentShader.
+		-->
+
+		<script id="2dVertexGradientShader" type="x-shader/x-vertex">
+			precision mediump float;
+			attribute vec2 a_position;
+			attribute vec3 a_color;
+			varying vec3 fragColor;
+			void main(){
+				gl_Position = vec4(a_position, 0.0, 1.0); 
+				fragColor = a_color;
+			}		
+		</script>
+		
+		<script id="2dFragmentShader" type="x-shader/x-fragment">
+            precision mediump float;
+            varying vec3 fragColor;
+            void main(){
+                gl_FragColor = vec4(fragColor, 1.0);
+            }
+		</script>
+
+		<script id="2dVertexShader" type="notjs">
+			attribute vec2 a_position;
+            attribute vec3 a_color;
+            varying vec3 fragColor;
+            void main() {
+            	gl_Position = a_position;
+                fragColor = a_color;
+            }
+		</script>
+
+		
+		<script>
+		class InitWebGLProgram {
+			constructor() {
+				//setup our viewport
+				gl.viewport(0,0, gl.canvas.width, gl.canvas.height);
+
+				gl.clearColor(0.75, 0.85, 0.8, 1.0);
+				gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+			}
+			createShader(type, source) {
+				let shader = gl.createShader(type)
+				gl.shaderSource(shader,source);
+				gl.compileShader(shader);
+				let success = gl.getShaderParameter(shader,gl.COMPILE_STATUS);
+				if(success) {
+					return shader;
+				}
+				//else it didnt work
+				console.error(gl.getShaderInfoLog(shader));
+				gl.deleteShader(shader);
+			}
+			
+			createProgram(vertexShader,fragmentShader) {
+				let program = gl.createProgram();
+				gl.attachShader(program, vertexShader);
+				gl.attachShader(program, fragmentShader);
+				gl.linkProgram(program);
+				let success = gl.getProgramParameter(program,gl.LINK_STATUS);
+				if(success) {
+					return program;
+				}
+				console.error(gl.getProgramInfoLog(program));
+				gl.deleteProgram(program);
+			}
+		}
+	
+		class GradientShape2d {
+			constructor(vertices, indices) {
+				this.indexSize = indices.length;
+				this.positionBuffer = gl.createBuffer();
+				gl.bindBuffer(gl.ARRAY_BUFFER, this.positionBuffer);
+				gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+				this.indexBuffer = gl.createBuffer();
+				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
+				gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+			}
+			render(program) {
+				//Now we have to find the attribute position in the program --- think of this as a pointer
+				let positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+				gl.enableVertexAttribArray(positionAttributeLocation);
+
+				gl.bindBuffer(gl.ARRAY_BUFFER, this.positionBuffer);
+				gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
+
+				gl.vertexAttribPointer(
+					positionAttributeLocation, // Attribute location
+					3, // Number of elements per attribute
+					gl.FLOAT, // Type of elements
+					false,
+					5 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
+					0 // Offset from the beginning of a single vertex to this attribute
+				);
+				const colorAttributeLocation = gl.getAttribLocation(program, "a_color");
+				gl.enableVertexAttribArray(colorAttributeLocation);
+
+				gl.vertexAttribPointer(
+					colorAttributeLocation, // Attribute location
+					3, // Number of elements per attribute
+					gl.FLOAT, // Type of elements
+					false,
+					5 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
+					2 * Float32Array.BYTES_PER_ELEMENT // Offset from the beginning of a single vertex to this attribute
+				);
+
+				gl.drawElements(gl.TRIANGLES, this.indexSize, gl.UNSIGNED_SHORT, 0)
+			}
+		}
+
+		class letterVertexCreator{
+			static letter_N(x, y, size, r, g, b){
+				const [left, right, new_left, new_right] = (() => Array.from({ length: 4 }, (_, i) => -1.0 + x + (i * size/2)))();
+				const [top, bottom] = (() => Array.from({ length: 2 }, (_, i) => 1.0 + y - (i * size * 4)))();
+
+				const letter_N = [
+					left, top, r, b, g, // top left
+					left, bottom, r, b, g, // bottom left
+					right, top, r, b, g, // top right
+					right, bottom, r, b, g, // bottom right
+
+					new_left, bottom, r, b, g, // bottom left
+					new_right, bottom, r, b, g, // bottom right
+
+					new_left, top, r, b, g, // top left
+					new_right, top, r, b, g, // top right
+				]
+
+				const indices = [
+					0, 1, 2,
+					2, 1, 3,
+
+					0, 4, 2,
+					2, 4, 5,
+
+					6, 4, 7,
+					7, 4, 5,
+				];
+
+				return new GradientShape2d(letter_N, indices)
+			}
+
+			static letter_D(x, y, size, r, g, b){
+				const [old_left, old_right, new_right] = [-1.0 + x, -1.0 + x + (size/2), -1.0 + x + 3*(size/2)]
+				const ys = (() => Array.from({ length: 5 }, (_, i) => 1.0 + y - (i * size)))();
+				const letter_N = [
+					old_right, ys[0], r, g, b, // top right
+					old_right, ys[4], r, g, b, // bottom right
+					old_left, ys[0], r, g, b, // top left
+					old_left, ys[4], r, g, b, // bottom left
+
+					new_right, ys[1], r, g, b, // top right
+					old_right, ys[1], r, g, b, // bottom left
+					old_right, ys[0], r, g, b, // top left
+					new_right, ys[2], r, g, b, // bottom right
+
+					new_right, ys[3], r, g, b, // top right
+					old_right, ys[4], r, g, b, // bottom left
+					old_right, ys[3], r, g, b, // top left
+					new_right, ys[2], r, g, b, // bottom right
+
+				]
+				const indices = [
+					0, 1, 2,
+					2, 1, 3,
+
+					6, 5, 4,
+					4, 6, 7,
+
+					10, 9, 8,
+					8, 9, 11,
+
+				];
+
+				return new GradientShape2d(letter_N, indices)
+			}
+		}
+
+
+		class Main {
+			constructor() {
+				this.webGL = new InitWebGLProgram();
+				let vertexShaderSource = document.getElementById('2dVertexGradientShader').text;
+				let fragmentShaderSource = document.getElementById('2dFragmentShader').text;
+				let vertexShader = this.webGL.createShader(gl.VERTEX_SHADER, vertexShaderSource);
+				let fragmentShader = this.webGL.createShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+                this.program = this.webGL.createProgram(vertexShader,fragmentShader);
+
+                gl.useProgram(this.program);
+
+				let first = letterVertexCreator.letter_N(.3, -.5, .2, 0.9, 0.9, 0.6);
+				first.render(this.program);
+
+				let second = letterVertexCreator.letter_D(0.85, -.5, .2, 0.5, 0.7, 0.9);
+				second.render(this.program);
+
+				let third = letterVertexCreator.letter_D(1.4, -.5, .2, 0.3, 0.15, 0.4);
+				third.render(this.program);
+
+
+
+				
+			}	
+		}
+		</script>
+	</head>
+	<BODY>
+		<HEADER>
+		
+		</HEADER>
+		
+		<CANVAS id="myCanvas" width="640" height="400">
+			Your browser does not support canvas.
+		</CANVAS>
+
+		<FOOTER>
+		
+		</FOOTER>
+		<SCRIPT>
+			let canvas = document.getElementById("myCanvas");
+			let gl = canvas.getContext("webgl");
+			
+			new Main();
+		</SCRIPT>		
+	</BODY>
+</HTML>
+		
+		

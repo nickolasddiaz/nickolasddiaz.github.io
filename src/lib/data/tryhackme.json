@@ -1,0 +1,1537 @@
+[
+{
+"title": "Offensive Security Intro",
+"code": "offensivesecurityintro",
+"difficulty": "easy"
+},
+{
+"title": "Nmap Live Host Discovery",
+"code": "nmap01",
+"difficulty": "medium"
+},
+{
+"title": "Linux Privilege Escalation",
+"code": "linprivesc",
+"difficulty": "medium"
+},
+{
+"title": "Metasploit: Introduction",
+"code": "metasploitintro",
+"difficulty": "easy"
+},
+{
+"title": "Google Dorking",
+"code": "googledorking",
+"difficulty": "easy"
+},
+{
+"title": "Learning Cyber Security",
+"code": "beginnerpathintro",
+"difficulty": "easy"
+},
+{
+"title": "Introductory Networking",
+"code": "introtonetworking",
+"difficulty": "easy"
+},
+{
+"title": "Nmap",
+"code": "furthernmap",
+"difficulty": "easy"
+},
+{
+"title": "Introductory Researching",
+"code": "introtoresearch",
+"difficulty": "easy"
+},
+{
+"title": "Starting Out In Cyber Sec",
+"code": "startingoutincybersec",
+"difficulty": "easy"
+},
+{
+"title": "Vulnversity",
+"code": "vulnversity",
+"difficulty": "easy"
+},
+{
+"title": "OpenVPN",
+"code": "openvpn",
+"difficulty": "easy"
+},
+{
+"title": "Hydra",
+"code": "hydra",
+"difficulty": "easy"
+},
+{
+"title": "CVE-2022-26923",
+"code": "cve202226923",
+"difficulty": "easy"
+},
+{
+"title": "Vulnerabilities 101",
+"code": "vulnerabilities101",
+"difficulty": "easy"
+},
+{
+"title": "Red Team Engagements",
+"code": "redteamengagements",
+"difficulty": "easy"
+},
+{
+"title": "Red Team Fundamentals",
+"code": "redteamfundamentals",
+"difficulty": "easy"
+},
+{
+"title": "Python Basics",
+"code": "pythonbasics",
+"difficulty": "easy"
+},
+{
+"title": "Red Team Recon",
+"code": "redteamrecon",
+"difficulty": "easy"
+},
+{
+"title": "Linux PrivEsc",
+"code": "linuxprivesc",
+"difficulty": "medium"
+},
+{
+"title": "Walking An Application",
+"code": "walkinganapplication",
+"difficulty": "easy"
+},
+{
+"title": "Content Discovery",
+"code": "contentdiscovery",
+"difficulty": "easy"
+},
+{
+"title": "RootMe",
+"code": "rrootme",
+"difficulty": "easy"
+},
+{
+"title": "Subdomain Enumeration",
+"code": "subdomainenumeration",
+"difficulty": "easy"
+},
+{
+"title": "Authentication Bypass",
+"code": "authenticationbypass",
+"difficulty": "easy"
+},
+{
+"title": "Metasploit: Exploitation",
+"code": "metasploitexploitation",
+"difficulty": "easy"
+},
+{
+"title": "Nmap Basic Port Scans",
+"code": "nmap02",
+"difficulty": "easy"
+},
+{
+"title": "Python for Pentesters",
+"code": "pythonforcybersecurity",
+"difficulty": "easy"
+},
+{
+"title": "HTTP in Detail",
+"code": "httpindetail",
+"difficulty": "easy"
+},
+{
+"title": "DNS in Detail",
+"code": "dnsindetail",
+"difficulty": "easy"
+},
+{
+"title": "Metasploit: Meterpreter",
+"code": "meterpreter",
+"difficulty": "easy"
+},
+{
+"title": "Nmap Advanced Port Scans",
+"code": "nmap03",
+"difficulty": "medium"
+},
+{
+"title": "Net Sec Challenge",
+"code": "netsecchallenge",
+"difficulty": "medium"
+},
+{
+"title": "Hacking with PowerShell",
+"code": "powershell",
+"difficulty": "easy"
+},
+{
+"title": "PowerShell for Pentesters",
+"code": "powershellforpentesters",
+"difficulty": "medium"
+},
+{
+"title": "Passive Reconnaissance",
+"code": "passiverecon",
+"difficulty": "easy"
+},
+{
+"title": "Active Reconnaissance",
+"code": "activerecon",
+"difficulty": "easy"
+},
+{
+"title": "IDOR",
+"code": "idor",
+"difficulty": "easy"
+},
+{
+"title": "Buffer Overflows",
+"code": "bof1",
+"difficulty": "easy"
+},
+{
+"title": "Nmap Post Port Scans",
+"code": "nmap04",
+"difficulty": "medium"
+},
+{
+"title": "What the Shell?",
+"code": "introtoshells",
+"difficulty": "easy"
+},
+{
+"title": "Protocols and Servers",
+"code": "protocolsandservers",
+"difficulty": "easy"
+},
+{
+"title": "Spring4Shell: CVE-2022-22965",
+"code": "spring4shell",
+"difficulty": "info"
+},
+{
+"title": "Internal",
+"code": "internal",
+"difficulty": "hard"
+},
+{
+"title": "Windows Privilege Escalation",
+"code": "windowsprivesc20",
+"difficulty": "medium"
+},
+{
+"title": "Protocols and Servers 2",
+"code": "protocolsandservers2",
+"difficulty": "medium"
+},
+{
+"title": "Careers in Cyber",
+"code": "careersincyber",
+"difficulty": "info"
+},
+{
+"title": "Defensive Security Intro",
+"code": "defensivesecurityintro",
+"difficulty": "easy"
+},
+{
+"title": "File Inclusion",
+"code": "fileinc",
+"difficulty": "medium"
+},
+{
+"title": "Pentesting Fundamentals",
+"code": "pentestingfundamentals",
+"difficulty": "easy"
+},
+{
+"title": "Principles of Security",
+"code": "principlesofsecurity",
+"difficulty": "info"
+},
+{
+"title": "Intro to SSRF",
+"code": "ssrfqi",
+"difficulty": "easy"
+},
+{
+"title": "Exploit Vulnerabilities",
+"code": "exploitingavulnerabilityv2",
+"difficulty": "easy"
+},
+{
+"title": "Intro to Cross-site Scripting",
+"code": "xss",
+"difficulty": "easy"
+},
+{
+"title": "Command Injection",
+"code": "oscommandinjection",
+"difficulty": "easy"
+},
+{
+"title": "SQL Injection",
+"code": "sqlinjectionlm",
+"difficulty": "medium"
+},
+{
+"title": "Vulnerability Capstone",
+"code": "vulnerabilitycapstone",
+"difficulty": "easy"
+},
+{
+"title": "Dirty Pipe: CVE-2022-0847",
+"code": "dirtypipe",
+"difficulty": "info"
+},
+{
+"title": "Red Team Threat Intel",
+"code": "redteamthreatintel",
+"difficulty": "medium"
+},
+{
+"title": "John the Ripper: The Basics",
+"code": "johntheripperbasics",
+"difficulty": "easy"
+},
+{
+"title": "Solar, exploiting log4j",
+"code": "solar",
+"difficulty": "medium"
+},
+{
+"title": "ffuf",
+"code": "ffuf",
+"difficulty": "easy"
+},
+{
+"title": "Learn and win prizes",
+"code": "tickets1",
+"difficulty": "info"
+},
+{
+"title": "Web Enumeration",
+"code": "webenumerationv2",
+"difficulty": "easy"
+},
+{
+"title": "PrintNightmare",
+"code": "printnightmarehpzqlp8",
+"difficulty": "medium"
+},
+{
+"title": "Pwnkit: CVE-2021-4034",
+"code": "pwnkit",
+"difficulty": "info"
+},
+{
+"title": "Putting it all together",
+"code": "puttingitalltogether",
+"difficulty": "easy"
+},
+{
+"title": "How Websites Work",
+"code": "howwebsiteswork",
+"difficulty": "easy"
+},
+{
+"title": "Hashing - Crypto 101",
+"code": "hashingcrypto101",
+"difficulty": "medium"
+},
+{
+"title": "Nessus",
+"code": "rpnessusredux",
+"difficulty": "easy"
+},
+{
+"title": "Bash Scripting",
+"code": "bashscripting",
+"difficulty": "easy"
+},
+{
+"title": "Tor",
+"code": "torforbeginners",
+"difficulty": "easy"
+},
+{
+"title": "Pickle Rick",
+"code": "picklerick",
+"difficulty": "easy"
+},
+{
+"title": "Phishing Analysis Fundamentals",
+"code": "phishingemails1tryoe",
+"difficulty": "easy"
+},
+{
+"title": "Overpass",
+"code": "overpass",
+"difficulty": "easy"
+},
+{
+"title": "Breaching Active Directory",
+"code": "breachingad",
+"difficulty": "medium"
+},
+{
+"title": "Enumerating Active Directory",
+"code": "adenumeration",
+"difficulty": "medium"
+},
+{
+"title": "Exploiting Active Directory",
+"code": "exploitingad",
+"difficulty": "medium"
+},
+{
+"title": "Lateral Movement and Pivoting",
+"code": "lateralmovementandpivoting",
+"difficulty": "easy"
+},
+{
+"title": "One Piece",
+"code": "ctfonepiece65",
+"difficulty": "medium"
+},
+{
+"title": "OWASP Juice Shop",
+"code": "owaspjuiceshop",
+"difficulty": "easy"
+},
+{
+"title": "Mr Robot CTF",
+"code": "mrrobot",
+"difficulty": "medium"
+},
+{
+"title": "tomghost",
+"code": "tomghost",
+"difficulty": "easy"
+},
+{
+"title": "dogcat",
+"code": "dogcat",
+"difficulty": "medium"
+},
+{
+"title": "Res",
+"code": "res",
+"difficulty": "easy"
+},
+{
+"title": "Nax",
+"code": "nax",
+"difficulty": "medium"
+},
+{
+"title": "The Marketplace",
+"code": "marketplace",
+"difficulty": "medium"
+},
+{
+"title": "kiba",
+"code": "kiba",
+"difficulty": "easy"
+},
+{
+"title": "RustScan",
+"code": "rustscan",
+"difficulty": "easy"
+},
+{
+"title": "Binex",
+"code": "binex",
+"difficulty": "medium"
+},
+{
+"title": "Network Services",
+"code": "networkservices",
+"difficulty": "easy"
+},
+{
+"title": "Attacking Kerberos",
+"code": "attackingkerberos",
+"difficulty": "easy"
+},
+{
+"title": "Post-Exploitation Basics",
+"code": "postexploit",
+"difficulty": "easy"
+},
+{
+"title": "Blue",
+"code": "blue",
+"difficulty": "easy"
+},
+{
+"title": "Upload Vulnerabilities",
+"code": "uploadvulns",
+"difficulty": "easy"
+},
+{
+"title": "Steel Mountain",
+"code": "steelmountain",
+"difficulty": "easy"
+},
+{
+"title": "Kenobi",
+"code": "kenobi",
+"difficulty": "easy"
+},
+{
+"title": "Alfred",
+"code": "alfred",
+"difficulty": "easy"
+},
+{
+"title": "HackPark",
+"code": "hackpark",
+"difficulty": "medium"
+},
+{
+"title": "Red Team OPSEC",
+"code": "opsec",
+"difficulty": "medium"
+},
+{
+"title": "Game Zone",
+"code": "gamezone",
+"difficulty": "easy"
+},
+{
+"title": "Skynet",
+"code": "skynet",
+"difficulty": "easy"
+},
+{
+"title": "Daily Bugle",
+"code": "dailybugle",
+"difficulty": "hard"
+},
+{
+"title": "Overpass 2 - Hacked",
+"code": "overpass2hacked",
+"difficulty": "easy"
+},
+{
+"title": "Weaponization",
+"code": "weaponization",
+"difficulty": "medium"
+},
+{
+"title": "Relevant",
+"code": "relevant",
+"difficulty": "medium"
+},
+{
+"title": "Password Attacks",
+"code": "passwordattacks",
+"difficulty": "hard"
+},
+{
+"title": "Phishing",
+"code": "phishingyl",
+"difficulty": "medium"
+},
+{
+"title": "The Lay of the Land",
+"code": "thelayoftheland",
+"difficulty": "easy"
+},
+{
+"title": "Enumeration",
+"code": "enumerationpe",
+"difficulty": "easy"
+},
+{
+"title": "Windows Local Persistence",
+"code": "windowslocalpersistence",
+"difficulty": "medium"
+},
+{
+"title": "Data Exfiltration",
+"code": "dataxexfilt",
+"difficulty": "hard"
+},
+{
+"title": "Windows Internals",
+"code": "windowsinternals",
+"difficulty": "medium"
+},
+{
+"title": "Introduction to Windows API",
+"code": "windowsapi",
+"difficulty": "easy"
+},
+{
+"title": "Abusing Windows Internals",
+"code": "abusingwindowsinternals",
+"difficulty": "hard"
+},
+{
+"title": "Introduction to Antivirus",
+"code": "introtoav",
+"difficulty": "easy"
+},
+{
+"title": "Intermediate Nmap",
+"code": "intermediatenmap",
+"difficulty": "easy"
+},
+{
+"title": "Active Directory Basics",
+"code": "winadbasics",
+"difficulty": "easy"
+},
+{
+"title": "Persisting Active Directory",
+"code": "persistingad",
+"difficulty": "medium"
+},
+{
+"title": "Credentials Harvesting",
+"code": "credharvesting",
+"difficulty": "medium"
+},
+{
+"title": "Corp",
+"code": "corp",
+"difficulty": "easy"
+},
+{
+"title": "Retro",
+"code": "retro",
+"difficulty": "hard"
+},
+{
+"title": "Network Services 2",
+"code": "networkservices2",
+"difficulty": "easy"
+},
+{
+"title": "Basic Pentesting",
+"code": "basicpentestingjt",
+"difficulty": "easy"
+},
+{
+"title": "Wonderland",
+"code": "wonderland",
+"difficulty": "medium"
+},
+{
+"title": "Anonymous",
+"code": "anonymous",
+"difficulty": "medium"
+},
+{
+"title": "Boiler CTF",
+"code": "boilerctf2",
+"difficulty": "medium"
+},
+{
+"title": "Common Linux Privesc",
+"code": "commonlinuxprivesc",
+"difficulty": "easy"
+},
+{
+"title": "All in One",
+"code": "allinonemj",
+"difficulty": "easy"
+},
+{
+"title": "Linux Agency",
+"code": "linuxagency",
+"difficulty": "medium"
+},
+{
+"title": "The Docker Rodeo",
+"code": "dockerrodeo",
+"difficulty": "medium"
+},
+{
+"title": "Blog",
+"code": "blog",
+"difficulty": "medium"
+},
+{
+"title": "SQLMAP",
+"code": "sqlmap",
+"difficulty": "easy"
+},
+{
+"title": "UltraTech",
+"code": "ultratech1",
+"difficulty": "medium"
+},
+{
+"title": "Biohazard",
+"code": "biohazard",
+"difficulty": "medium"
+},
+{
+"title": "0day",
+"code": "0day",
+"difficulty": "medium"
+},
+{
+"title": "Advent of Cyber 2022",
+"code": "adventofcyber4",
+"difficulty": "easy"
+},
+{
+"title": "Intro to Digital Forensics",
+"code": "introdigitalforensics",
+"difficulty": "easy"
+},
+{
+"title": "Junior Security Analyst Intro",
+"code": "jrsecanalystintrouxo",
+"difficulty": "easy"
+},
+{
+"title": "Security Operations",
+"code": "securityoperations",
+"difficulty": "easy"
+},
+{
+"title": "Pyramid Of Pain",
+"code": "pyramidofpainax",
+"difficulty": "easy"
+},
+{
+"title": "Wireshark 101",
+"code": "wireshark",
+"difficulty": "easy"
+},
+{
+"title": "What is Networking?",
+"code": "whatisnetworking",
+"difficulty": "info"
+},
+{
+"title": "Windows Fundamentals 1",
+"code": "windowsfundamentals1xbx",
+"difficulty": "info"
+},
+{
+"title": "MITRE",
+"code": "mitre",
+"difficulty": "medium"
+},
+{
+"title": "Sysmon",
+"code": "sysmon",
+"difficulty": "easy"
+},
+{
+"title": "Yara",
+"code": "yara",
+"difficulty": "easy"
+},
+{
+"title": "MAL: Malware Introductory",
+"code": "malmalintroductory",
+"difficulty": "easy"
+},
+{
+"title": "Zero Logon",
+"code": "zer0logon",
+"difficulty": "hard"
+},
+{
+"title": "OpenVAS",
+"code": "openvas",
+"difficulty": "easy"
+},
+{
+"title": "MISP",
+"code": "misp",
+"difficulty": "medium"
+},
+{
+"title": "Core Windows Processes",
+"code": "btwindowsinternals",
+"difficulty": "easy"
+},
+{
+"title": "Sysinternals",
+"code": "btsysinternalssg",
+"difficulty": "easy"
+},
+{
+"title": "Windows Event Logs",
+"code": "windowseventlogs",
+"difficulty": "medium"
+},
+{
+"title": "Osquery: The Basics",
+"code": "osqueryf8",
+"difficulty": "easy"
+},
+{
+"title": "Splunk: The Basics",
+"code": "splunk101",
+"difficulty": "easy"
+},
+{
+"title": "Introduction to SIEM",
+"code": "introtosiem",
+"difficulty": "easy"
+},
+{
+"title": "Splunk 2",
+"code": "splunk2gcd5",
+"difficulty": "medium"
+},
+{
+"title": "Volatility",
+"code": "volatility",
+"difficulty": "medium"
+},
+{
+"title": "Investigating Windows",
+"code": "investigatingwindows",
+"difficulty": "easy"
+},
+{
+"title": "Windows Forensics 1",
+"code": "windowsforensics1",
+"difficulty": "medium"
+},
+{
+"title": "Windows Forensics 2",
+"code": "windowsforensics2",
+"difficulty": "medium"
+},
+{
+"title": "Redline",
+"code": "btredlinejoxr3d",
+"difficulty": "medium"
+},
+{
+"title": "How to use TryHackMe",
+"code": "howtousetryhackme",
+"difficulty": "easy"
+},
+{
+"title": "Linux Fundamentals Part 1",
+"code": "linuxfundamentalspart1",
+"difficulty": "info"
+},
+{
+"title": "Linux Fundamentals Part 2",
+"code": "linuxfundamentalspart2",
+"difficulty": "info"
+},
+{
+"title": "Linux Fundamentals Part 3",
+"code": "linuxfundamentalspart3",
+"difficulty": "info"
+},
+{
+"title": "The Cod Caper",
+"code": "thecodcaper",
+"difficulty": "easy"
+},
+{
+"title": "SSDLC",
+"code": "securesdlc",
+"difficulty": "medium"
+},
+{
+"title": "Linux Forensics",
+"code": "linuxforensics",
+"difficulty": "medium"
+},
+{
+"title": "TheHive Project",
+"code": "thehiveproject",
+"difficulty": "medium"
+},
+{
+"title": "Autopsy",
+"code": "btautopsye0",
+"difficulty": "easy"
+},
+{
+"title": "Weaponizing Vulnerabilities",
+"code": "weaponizingvulnerabilities",
+"difficulty": "medium"
+},
+{
+"title": "Disk Analysis & Autopsy",
+"code": "autopsy2ze0",
+"difficulty": "medium"
+},
+{
+"title": "History of Malware",
+"code": "historyofmalware",
+"difficulty": "info"
+},
+{
+"title": "MAL: Strings",
+"code": "malstrings",
+"difficulty": "easy"
+},
+{
+"title": "Basic Malware RE",
+"code": "basicmalwarere",
+"difficulty": "medium"
+},
+{
+"title": "MAL: REMnux - The Redux",
+"code": "malremnuxv2",
+"difficulty": "easy"
+},
+{
+"title": "Cyber Kill Chain",
+"code": "cyberkillchainzmt",
+"difficulty": "easy"
+},
+{
+"title": "Unified Kill Chain",
+"code": "unifiedkillchain",
+"difficulty": "easy"
+},
+{
+"title": "Diamond Model",
+"code": "diamondmodelrmuwwg42",
+"difficulty": "easy"
+},
+{
+"title": "Intro to Cyber Threat Intel",
+"code": "cyberthreatintel",
+"difficulty": "easy"
+},
+{
+"title": "Threat Intelligence Tools",
+"code": "threatinteltools",
+"difficulty": "easy"
+},
+{
+"title": "OpenCTI",
+"code": "opencti",
+"difficulty": "medium"
+},
+{
+"title": "Traffic Analysis Essentials",
+"code": "trafficanalysisessentials",
+"difficulty": "easy"
+},
+{
+"title": "Snort",
+"code": "snort",
+"difficulty": "medium"
+},
+{
+"title": "Snort Challenge - The Basics",
+"code": "snortchallenges1",
+"difficulty": "medium"
+},
+{
+"title": "Intro to Endpoint Security",
+"code": "introtoendpointsecurity",
+"difficulty": "easy"
+},
+{
+"title": "Snort Challenge - Live Attacks",
+"code": "snortchallenges2",
+"difficulty": "medium"
+},
+{
+"title": "NetworkMiner",
+"code": "networkminer",
+"difficulty": "easy"
+},
+{
+"title": "Zeek",
+"code": "zeekbro",
+"difficulty": "medium"
+},
+{
+"title": "Zeek Exercises",
+"code": "zeekbroexercises",
+"difficulty": "medium"
+},
+{
+"title": "Brim",
+"code": "brim",
+"difficulty": "medium"
+},
+{
+"title": "OSI Model",
+"code": "osimodelzi",
+"difficulty": "info"
+},
+{
+"title": "Intro to LAN",
+"code": "introtolan",
+"difficulty": "info"
+},
+{
+"title": "Packets & Frames",
+"code": "packetsframes",
+"difficulty": "info"
+},
+{
+"title": "Extending Your Network",
+"code": "extendingyournetwork",
+"difficulty": "info"
+},
+{
+"title": "Wireshark: The Basics",
+"code": "wiresharkthebasics",
+"difficulty": "easy"
+},
+{
+"title": "Wireshark: Packet Operations",
+"code": "wiresharkpacketoperations",
+"difficulty": "easy"
+},
+{
+"title": "Wireshark: Traffic Analysis",
+"code": "wiresharktrafficanalysis",
+"difficulty": "medium"
+},
+{
+"title": "Wazuh",
+"code": "wazuhct",
+"difficulty": "medium"
+},
+{
+"title": "Elastic Stack: The Basics",
+"code": "investigatingwithelk101",
+"difficulty": "medium"
+},
+{
+"title": "ItsyBitsy",
+"code": "itsybitsy",
+"difficulty": "medium"
+},
+{
+"title": "Phishing Emails in Action",
+"code": "phishingemails2rytmuv",
+"difficulty": "easy"
+},
+{
+"title": "Phishing Analysis Tools",
+"code": "phishingemails3tryoe",
+"difficulty": "easy"
+},
+{
+"title": "Phishing Prevention",
+"code": "phishingemails4gkxh",
+"difficulty": "easy"
+},
+{
+"title": "The Greenholt Phish",
+"code": "phishingemails5fgjlzxc",
+"difficulty": "easy"
+},
+{
+"title": "Incident Handling With Splunk",
+"code": "splunk201",
+"difficulty": "medium"
+},
+{
+"title": "Benign",
+"code": "benign",
+"difficulty": "medium"
+},
+{
+"title": "Investigating with Splunk",
+"code": "investigatingwithsplunk",
+"difficulty": "medium"
+},
+{
+"title": "DFIR: An Introduction",
+"code": "introductoryroomdfirmodule",
+"difficulty": "easy"
+},
+{
+"title": "KAPE",
+"code": "kape",
+"difficulty": "medium"
+},
+{
+"title": "Velociraptor",
+"code": "velociraptorhp",
+"difficulty": "medium"
+},
+{
+"title": "Intro to Logs",
+"code": "introtologs",
+"difficulty": "easy"
+},
+{
+"title": "Summit",
+"code": "summit",
+"difficulty": "easy"
+},
+{
+"title": "Eviction",
+"code": "eviction",
+"difficulty": "easy"
+},
+{
+"title": "Friday Overtime",
+"code": "fridayovertime",
+"difficulty": "medium"
+},
+{
+"title": "Trooper",
+"code": "trooper",
+"difficulty": "easy"
+},
+{
+"title": "TShark: The Basics",
+"code": "tsharkthebasics",
+"difficulty": "easy"
+},
+{
+"title": "TShark: CLI Wireshark Features",
+"code": "tsharkcliwiresharkfeatures",
+"difficulty": "medium"
+},
+{
+"title": "TShark Challenge I: Teamwork",
+"code": "tsharkchallengesone",
+"difficulty": "easy"
+},
+{
+"title": "TShark Challenge II: Directory",
+"code": "tsharkchallengestwo",
+"difficulty": "easy"
+},
+{
+"title": "Monday Monitor",
+"code": "mondaymonitor",
+"difficulty": "easy"
+},
+{
+"title": "Retracted",
+"code": "retracted",
+"difficulty": "easy"
+},
+{
+"title": "Intro to Malware Analysis",
+"code": "intromalwareanalysis",
+"difficulty": "medium"
+},
+{
+"title": "Unattended",
+"code": "unattended",
+"difficulty": "medium"
+},
+{
+"title": "Disgruntled",
+"code": "disgruntled",
+"difficulty": "easy"
+},
+{
+"title": "Critical",
+"code": "critical",
+"difficulty": "easy"
+},
+{
+"title": "Secret Recipe",
+"code": "registry4n6",
+"difficulty": "medium"
+},
+{
+"title": "Snapped Phish-ing Line",
+"code": "snappedphishingline",
+"difficulty": "easy"
+},
+{
+"title": "Tempest",
+"code": "tempestincident",
+"difficulty": "medium"
+},
+{
+"title": "Boogeyman 1",
+"code": "boogeyman1",
+"difficulty": "medium"
+},
+{
+"title": "Boogeyman 2",
+"code": "boogeyman2",
+"difficulty": "medium"
+},
+{
+"title": "Boogeyman 3",
+"code": "boogeyman3",
+"difficulty": "medium"
+},
+{
+"title": "Log Operations",
+"code": "logoperations",
+"difficulty": "easy"
+},
+{
+"title": "Intro to Log Analysis",
+"code": "introtologanalysis",
+"difficulty": "easy"
+},
+{
+"title": "Splunk: Exploring SPL",
+"code": "splunkexploringspl",
+"difficulty": "medium"
+},
+{
+"title": "Splunk: Setting up a SOC Lab",
+"code": "splunklab",
+"difficulty": "medium"
+},
+{
+"title": "Splunk: Dashboards and Reports",
+"code": "splunkdashboardsandreports",
+"difficulty": "easy"
+},
+{
+"title": "Splunk: Data Manipulation",
+"code": "splunkdatamanipulation",
+"difficulty": "medium"
+},
+{
+"title": "Fixit",
+"code": "fixit",
+"difficulty": "medium"
+},
+{
+"title": "Logstash: Data Processing Unit",
+"code": "logstash",
+"difficulty": "medium"
+},
+{
+"title": "Intro to Detection Engineering",
+"code": "introtodetectionengineering",
+"difficulty": "easy"
+},
+{
+"title": "Tactical Detection",
+"code": "tacticaldetection",
+"difficulty": "medium"
+},
+{
+"title": "Threat Intelligence for SOC",
+"code": "threatintelligenceforsoc",
+"difficulty": "medium"
+},
+{
+"title": "Sigma",
+"code": "sigma",
+"difficulty": "medium"
+},
+{
+"title": "SigHunt",
+"code": "sighunt",
+"difficulty": "medium"
+},
+{
+"title": "Aurora EDR",
+"code": "auroraedr",
+"difficulty": "medium"
+},
+{
+"title": "Introduction to SOAR",
+"code": "soar",
+"difficulty": "medium"
+},
+{
+"title": "Custom Alert Rules in Wazuh",
+"code": "customalertrulesinwazuh",
+"difficulty": "easy"
+},
+{
+"title": "Advanced ELK Queries",
+"code": "advancedelkqueries",
+"difficulty": "easy"
+},
+{
+"title": "Slingshot",
+"code": "slingshot",
+"difficulty": "easy"
+},
+{
+"title": "Threat Hunting: Introduction",
+"code": "introductiontothreathunting",
+"difficulty": "easy"
+},
+{
+"title": "Threat Hunting: Foothold",
+"code": "threathuntingfoothold",
+"difficulty": "medium"
+},
+{
+"title": "Threat Hunting: Pivoting",
+"code": "threathuntingpivoting",
+"difficulty": "medium"
+},
+{
+"title": "Threat Hunting: Endgame",
+"code": "threathuntingendgame",
+"difficulty": "medium"
+},
+{
+"title": "Intro to Threat Emulation",
+"code": "threatemulationintro",
+"difficulty": "medium"
+},
+{
+"title": "Hunt Me I: Payment Collectors",
+"code": "paymentcollectors",
+"difficulty": "medium"
+},
+{
+"title": "Hunt Me II: Typo Squatters",
+"code": "typosquatters",
+"difficulty": "medium"
+},
+{
+"title": "Threat Modelling",
+"code": "threatmodelling",
+"difficulty": "medium"
+},
+{
+"title": "Atomic Red Team",
+"code": "atomicredteam",
+"difficulty": "medium"
+},
+{
+"title": "CALDERA",
+"code": "caldera",
+"difficulty": "hard"
+},
+{
+"title": "x86 Architecture Overview",
+"code": "x8664arch",
+"difficulty": "easy"
+},
+{
+"title": "x86 Assembly Crash Course",
+"code": "x86assemblycrashcourse",
+"difficulty": "medium"
+},
+{
+"title": "Atomic Bird Goes Purple #1",
+"code": "atomicbirdone",
+"difficulty": "medium"
+},
+{
+"title": "Atomic Bird Goes Purple #2",
+"code": "atomicbirdtwo",
+"difficulty": "medium"
+},
+{
+"title": "Preparation",
+"code": "preparation",
+"difficulty": "medium"
+},
+{
+"title": "Identification & Scoping",
+"code": "identificationandscoping",
+"difficulty": "medium"
+},
+{
+"title": "Threat Intel & Containment",
+"code": "intelcreationandcontainment",
+"difficulty": "easy"
+},
+{
+"title": "Eradication & Remediation",
+"code": "eradicationandremediation",
+"difficulty": "easy"
+},
+{
+"title": "Lessons Learned",
+"code": "lessonslearned",
+"difficulty": "easy"
+},
+{
+"title": "Dissecting PE Headers",
+"code": "dissectingpeheaders",
+"difficulty": "medium"
+},
+{
+"title": "Tardigrade",
+"code": "tardigrade",
+"difficulty": "medium"
+},
+{
+"title": "Basic Static Analysis",
+"code": "staticanalysis1",
+"difficulty": "medium"
+},
+{
+"title": "MalBuster",
+"code": "malbuster",
+"difficulty": "medium"
+},
+{
+"title": "Advanced Static Analysis",
+"code": "advancedstaticanalysis",
+"difficulty": "medium"
+},
+{
+"title": "Basic Dynamic Analysis",
+"code": "basicdynamicanalysis",
+"difficulty": "medium"
+},
+{
+"title": "Dynamic Analysis: Debugging",
+"code": "advanceddynamicanalysis",
+"difficulty": "medium"
+},
+{
+"title": "Anti-Reverse Engineering",
+"code": "antireverseengineering",
+"difficulty": "medium"
+},
+{
+"title": "MalDoc: Static Analysis",
+"code": "maldoc",
+"difficulty": "medium"
+},
+{
+"title": "Security Engineer Intro",
+"code": "securityengineerintro",
+"difficulty": "easy"
+},
+{
+"title": "Security Principles",
+"code": "securityprinciples",
+"difficulty": "easy"
+},
+{
+"title": "Introduction to Cryptography",
+"code": "cryptographyintro",
+"difficulty": "medium"
+},
+{
+"title": "Identity and Access Management",
+"code": "iaaaidm",
+"difficulty": "easy"
+},
+{
+"title": "Governance & Regulation",
+"code": "cybergovernanceregulation",
+"difficulty": "easy"
+},
+{
+"title": "Secure Network Architecture",
+"code": "introtosecurityarchitecture",
+"difficulty": "medium"
+},
+{
+"title": "Risk Management",
+"code": "seriskmanagement",
+"difficulty": "easy"
+},
+{
+"title": "Vulnerability Management",
+"code": "vulnerabilitymanagementkj",
+"difficulty": "medium"
+},
+{
+"title": "Linux System Hardening",
+"code": "linuxsystemhardening",
+"difficulty": "medium"
+},
+{
+"title": "Microsoft Windows Hardening",
+"code": "microsoftwindowshardening",
+"difficulty": "easy"
+},
+{
+"title": "Active Directory Hardening",
+"code": "activedirectoryhardening",
+"difficulty": "medium"
+},
+{
+"title": "Network Device Hardening",
+"code": "networkdevicehardening",
+"difficulty": "medium"
+},
+{
+"title": "Network Security Protocols",
+"code": "networksecurityprotocols",
+"difficulty": "medium"
+},
+{
+"title": "Virtualization and Containers",
+"code": "virtualizationandcontainers",
+"difficulty": "easy"
+},
+{
+"title": "Intro to Cloud Security",
+"code": "introductiontocloudsecurityc6",
+"difficulty": "easy"
+},
+{
+"title": "Auditing and Monitoring",
+"code": "auditingandmonitoringse",
+"difficulty": "easy"
+},
+{
+"title": "OWASP API Security Top 10 - 1",
+"code": "owaspapisecuritytop105w",
+"difficulty": "medium"
+},
+{
+"title": "OWASP API Security Top 10 - 2",
+"code": "owaspapisecuritytop10d0",
+"difficulty": "medium"
+},
+{
+"title": "SAST",
+"code": "sast",
+"difficulty": "medium"
+},
+{
+"title": "DAST",
+"code": "dastzap",
+"difficulty": "medium"
+},
+{
+"title": "Introduction to DevSecOps",
+"code": "introductiontodevsecops",
+"difficulty": "medium"
+},
+{
+"title": "Mother's Secret",
+"code": "codeanalysis",
+"difficulty": "easy"
+},
+{
+"title": "Traverse",
+"code": "traverse",
+"difficulty": "easy"
+},
+{
+"title": "Intro to IR and IM",
+"code": "introtoirandim",
+"difficulty": "easy"
+},
+{
+"title": "Logging for Accountability",
+"code": "loggingforaccountability",
+"difficulty": "easy"
+},
+{
+"title": "Becoming a First Responder",
+"code": "becomingafirstresponder",
+"difficulty": "info"
+},
+{
+"title": "Cyber Crisis Management",
+"code": "cybercrisismanagement",
+"difficulty": "easy"
+}
+]
