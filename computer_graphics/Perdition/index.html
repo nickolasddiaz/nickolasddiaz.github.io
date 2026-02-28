@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>"The Painful Paint Program"</title>
+	<style>
+		.color-button {
+			width: 3rem;
+			height: 2rem;
+		}
+	</style>
+	</head>
+	<BODY>
+		<HEADER></HEADER>
+		<h1>The Painful Paint Program by Nickolas Diaz</h1>
+
+		<CANVAS id="myCanvas" width="640" height="400"></CANVAS>
+
+		<div>
+			<button type="button" class="color-button" id="button-green" title="Green color"></button>
+			<button type="button" class="color-button" id="button-pink" title="Pink color"></button>
+			<button type="button" class="color-button" id="button-purple" title="Purple color"></button>
+			<button type="button" class="color-button" id="button-tan" title="Tan color"></button>
+			<button type="button" class="color-button" id="button-teal" title="Teal color"></button>
+			<label for="shape_selection">Choose a Shape:</label>
+				<select id="shape_selection">
+					<option value="0">Box</option>
+					<option value="1">Line</option>
+					<option value="2">Circle</option>
+					<option value="3">Triangle</option>
+					<option value="4">N-Polygon</option>
+			</select>
+			<label for="draw_style">Draw Style:</label>
+				<select id="draw_style">
+					<option value="0">Fill</option>
+					<option value="1">Outline</option>
+			</select>
+		</div>		
+	</BODY>
+</HTML>
+		
+<script type="module">
+	import Main from './dist/Main.js';
+
+	const shape_id = document.getElementById("shape_selection")
+	const draw_id = document.getElementById("draw_style")
+
+	const button_green = document.getElementById("button-green")
+	const button_pink = document.getElementById("button-pink")
+	const button_purple = document.getElementById("button-purple")
+	const button_tan = document.getElementById("button-tan")
+	const button_teal = document.getElementById("button-teal")
+
+	const canvas = document.getElementById("myCanvas");
+	const gl = canvas.getContext("webgl");
+
+	let m = new Main(gl, canvas, shape_id, draw_id, [button_green, button_pink, button_purple, button_tan, button_teal]);
+</script>

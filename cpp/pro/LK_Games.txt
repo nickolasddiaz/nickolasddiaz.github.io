@@ -1,0 +1,5 @@
+G0016                  80                  3.500000                  0084                  0345                  0074
+B0017                  90                  2.000000                  None                  None                  None
+B0016                  80                  3.500000                  None                  None                  None
+B0015                  80                  2.000000                  None                  None                  None
+G0020                  90                  3.000000                  None                  None                  None

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        table, th, td {
+        border:1px solid black;
+        text-align: center;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Number Game by Nickolas Diaz</title>
+</head>
+<body>
+    <h1>Lucky Number Game by Nickolas Diaz</h1>
+    <button id="playButton" onclick="main.playGame()">Play</button>
+    <table>  
+    <tr>
+        <th>Status YOU</th>
+        <th>Status OTHER</th>
+        <th>Wins</th>
+        <th>Lost</th>
+        <th>Picture</th>
+    </tr>
+    <tr>
+        <td id="win_status">Not played yet</td>
+        <td id="loose_status">Not played yet</td>
+        <td id="stats_win">0</td>
+        <td id="stats_lost">0</td>
+        <td>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAOdJREFUWIXtl7EagzAIhEm/bu6+//O5O6eL+kVCyEFQh3qjBu7PVSMl+nclR02O7IkuPpmueRYXTWkxQ8AALVMFAuqPAGSi9q4BENVDu3nEbjW3QLRuuHbtgZAuhpkjEB+pINKc9ateYU4UvnuuLY3Dt0rgSnNJX3Rh+X4DB1FvI5m2FMoE4MNmRNxDfAjvFPwTIOl4Enw8gRfgBMA+pZeIe5QAnunIq/ZJKGlKiykdy/oKQCtEmlrrTZ/jvUHvKNZquad5IOmlYDHXAFQIizwTURjEyEw4DBExFVcQu5B5AO3/+F+zVz8ECGAQyY5MZgAAAABJRU5ErkJggg==" hidden id="happy">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAANRJREFUWIXtl0EWwyAIRGleL+L9D9Wj2E3bpwh0RNRFnGVE5ovREKK76+GYkyNzosGV6UsJSg4IGEAzNSCg/AhAJtJXDYCYHtbgr+y95j0Q2oBr1R4I6WGYOQJxSRMizVm+5ghzovDVcyXm21RgprmkJxpYnm/gIvq3kEyfKpQVgC+bEXEP8SVcKXgLkOp4Kri9AgegAkhaVKC4Rwng6Y680m/C1WoAZm6DlBv+HPeCGfMrz+kNiWVuAYRBeDqiMIiRnnAYIqIrbiC+QvoBNP/2X7OjN345KMueftRpAAAAAElFTkSuQmCC" hidden id="mad">
+        </td>
+    </tr>
+
+    </table>
+
+</body>
+</html>
+
+
+<script>
+    class Main{
+        constructor() {
+            this.win_status = document.getElementById("win_status");
+            this.loose_status = document.getElementById("loose_status");
+            this.happy = document.getElementById("happy");
+            this.mad = document.getElementById("mad");
+            this.stats_win = document.getElementById("stats_win");
+            this.stats_lost = document.getElementById("stats_lost");
+            this.lost = 0;
+            this.won = 0;
+        }
+    
+        playGame(){
+            let other = Math.floor(Math.random() * 100) + 1;
+            let you = Math.floor(Math.random() * 100) + 1;
+            if (other < you){
+                this.won += 1;
+                this.showImg();
+                this.updateStats(you, other);
+            } else{
+                this.lost += 1;
+                this.showImg();
+                this.updateStats(you, other);
+            }
+        }
+        updateStats(you, other){
+            this.stats_win.innerHTML = String(this.won);
+            this.stats_lost.innerHTML = String(this.lost);
+            this.win_status.innerHTML = String(you);
+            this.loose_status.innerHTML = String(other);
+        }
+        showImg(){
+            let result = this.won > this.lost;
+            this.happy.hidden = !result;
+            this.mad.hidden = result;
+        }
+    }
+    let main = new Main();
+
+</script>

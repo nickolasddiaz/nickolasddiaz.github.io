@@ -1,0 +1,5 @@
+G0012                  70                  2.500000                  None                  None                  None
+G0016                  80                  3.500000                  None                  None                  None
+B0017                  90                  2.000000                  None                  None                  None
+B0016                  80                  3.500000                  None                  None                  None
+G1232                  70                  4.000000                  None                  None                  None

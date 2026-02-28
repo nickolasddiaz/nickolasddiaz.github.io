@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&lbrack;Tank Game&rbrack;&lpar;https&colon;&sol;&sol;github&period;com&sol;nickolasddiaz&sol;Tank&lowbar;Game&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="tank-game"><a href="https://github.com/nickolasddiaz/Tank_Game">Tank Game</a></h1>
+<p>A top-down shooter game built with LibGDX using box2d and Java featuring procedurally generated terrain, multiple biomes, and dynamic combat mechanics. Players aim to survive while maximizing their score in an infinite world filled with various enemies, power-ups, and strategic challenges.
+<a href="https://nickolasddiaz.github.io/Tank_Game/">Game Link</a></p>
+<p align="center">
+    <img src="https://github.com/user-attachments/assets/1a796f92-9b00-48e9-a382-faf3afe9fafd">
+<h2 id="features">Features</h2>
+<h3 id="world-generation">World Generation</h3>
+<ul>
+<li>Infinite procedurally generated map using cellular noise algorithms</li>
+<li>Five distinct biomes:
+<ul>
+<li>Ocean</li>
+<li>Tundra</li>
+<li>Plains</li>
+<li>Wild West</li>
+<li>Desert</li>
+</ul>
+</li>
+<li>Unique structures and obstacles for each biome</li>
+<li>Road networks and building placement using Wave Function Collapse algorithm inspired by <a href="https://github.com/sea5kg/Roads2DGenerator">sea5kg</a> and <a href="https://www.youtube.com/watch?v=rI_y2GAlQFM">The Coding Train</a></li>
+</ul>
+<h3 id="gameplay-elements">Gameplay Elements</h3>
+<h4 id="entities">Entities</h4>
+<ul>
+<li>Player-controlled tanks</li>
+<li>Cars</li>
+<li>Enemy/Allied units controlled through ai pathfinding</li>
+</ul>
+<h4 id="combat-system">Combat System</h4>
+<ul>
+<li>Three weapon types:
+<ul>
+<li>Standard bullets</li>
+<li>Guided missiles</li>
+<li>Deployable mines</li>
+</ul>
+</li>
+<li>Strategic combat with various attack patterns</li>
+<li>Dynamic difficulty scaling</li>
+</ul>
+<h4 id="power-up-system">Power-up System</h4>
+<p>Combat Enhancements:</p>
+<ul>
+<li>Increased bullet damage, size, and speed</li>
+<li>Critical hit chances and damage multipliers</li>
+<li>Fire rate improvements</li>
+</ul>
+<p>Survival Mechanics:</p>
+<ul>
+<li>Health regeneration</li>
+<li>Enhanced armor</li>
+<li>Speed boosts</li>
+<li>Allied unit spawning</li>
+</ul>
+<p>Special Abilities:</p>
+<ul>
+<li>Multi-directional shooting</li>
+<li>Structures destruction</li>
+</ul>
+<p>Score Mechanics:</p>
+<ul>
+<li>Point multipliers</li>
+<li>Wanted level system</li>
+<li>High score tracking through a leaderboard</li>
+</ul>
+<h3 id="controls">Controls</h3>
+<h4 id="desktop">Desktop</h4>
+<ul>
+<li>WASD: Movement</li>
+<li>Mouse Click: Shoot</li>
+<li>P or Space-bar: Pause game</li>
+</ul>
+<h4 id="mobile">Mobile</h4>
+<ul>
+<li>Virtual joystick for movement</li>
+<li>Touch controls for shooting</li>
+<li>Auto-fire option available</li>
+</ul>
+<h3 id="technical-features">Technical Features</h3>
+<ul>
+<li>Cross-platform compatibility (Desktop and Web)</li>
+<li>Mobile-optimized controls</li>
+<li>Debug mode for testing</li>
+<li>Leaderboard system</li>
+</ul>
+<h2 id="credits">Credits</h2>
+<ul>
+<li>Developed by Nickolas Diaz</li>
+<li>Has no previous game development knowledge</li>
+<li>Code located at <a href="https://github.com/nickolasddiaz/Tank_Game/tree/master/core/src/main/java/io/github/nickolasddiaz">https://github.com/nickolasddiaz/Tank_Game/tree/master/core/src/main/java/io/github/nickolasddiaz</a></li>
+<li>Assets located at <a href="https://github.com/nickolasddiaz/Tank_Game/tree/master/other">https://github.com/nickolasddiaz/Tank_Game/tree/master/other</a></li>
+<li><a href="https://nickolasdan.itch.io/tank-game">itch.io</a></li>
+<li><a href="https://www.newgrounds.com/portal/view/971494">newgrounds</a></li>
+</ul>
+
+            
+            
+        </body>
+        </html>

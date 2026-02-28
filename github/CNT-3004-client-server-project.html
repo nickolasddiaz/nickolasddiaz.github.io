@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&lbrack;Socket-Based Networked File Sharing Cloud Server&rbrack;&lpar;https&colon;&sol;&sol;github&period;com&sol;nickolasddiaz&sol;CNT-3004-client-server-project&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="socket-based-networked-file-sharing-cloud-server"><a href="https://github.com/nickolasddiaz/CNT-3004-client-server-project">Socket-Based Networked File Sharing Cloud Server</a></h1>
+<blockquote>
+<p>A secure, multithreaded client-server file sharing system built for CNT3004 – Computer Networks<br>
+Florida Polytechnic University | Fall 2025</p>
+</blockquote>
+<ul>
+<li><strong>Release:</strong> <a href="https://github.com/nickolasddiaz/CNT-3004-client-server-project/releases/tag/final_project">Final Project</a></li>
+<li><strong>Forked from:</strong> <a href="https://github.com/ayeshasdina/SOCKET-PROGRAMMING-with-Python">SOCKET-PROGRAMMING-with-Python</a></li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>This project implements a fully-featured cloud file server with both GUI and CLI clients, supporting secure file operations, real-time performance monitoring, and concurrent user connections. Built with Python socket programming, it demonstrates practical applications of network protocols, security, and distributed systems.</p>
+<h2 id="team">Team</h2>
+<ul>
+<li><strong>Matthew Powrie</strong></li>
+<li><strong>Nickolas Diaz</strong></li>
+</ul>
+<h2 id="documents">Documents</h2>
+<ul>
+<li><a href="https://nickolasddiaz.github.io/CNT-3004-client-server-project/Project%20Description_.pdf">Project Description</a></li>
+<li><a href="https://nickolasddiaz.github.io/CNT-3004-client-server-project/Project%20Report.pdf">Final Report</a></li>
+</ul>
+<h2 id="key-features">Key Features</h2>
+<h3 id="architecture--performance">Architecture &amp; Performance</h3>
+<ul>
+<li><strong>Multithreaded server</strong> supporting concurrent client connections</li>
+<li><strong>TLS/TCP socket encryption</strong> for secure data transmission</li>
+<li><strong>Efficient file streaming</strong> using on-the-fly ZIP compression/decompression</li>
+<li><strong>Session management</strong> with JWT-based authentication</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li><strong>SQLite database</strong> for credential storage</li>
+<li><strong>Bcrypt password hashing</strong> for secure authentication</li>
+<li><strong>TLS encryption</strong> for all client-server communications</li>
+</ul>
+<h3 id="user-experience">User Experience</h3>
+<ul>
+<li><strong>Dual interface support</strong>: Full-featured GUI and command-line interface</li>
+<li><strong>Real-time progress tracking</strong> with ETA, data rates, and progress bars</li>
+<li><strong>Performance analytics</strong> with matplotlib visualizations</li>
+<li><strong>Graceful error handling</strong> with descriptive messages</li>
+</ul>
+<h3 id="monitoring--analytics">Monitoring &amp; Analytics</h3>
+<ul>
+<li>Response time histograms</li>
+<li>Upload/download speed box plots</li>
+<li>Statistical metrics (count, min, median, standard deviation)</li>
+</ul>
+<h2 id="supported-operations">Supported Operations</h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>UPLOAD</code></td>
+<td>Upload multiple files/directories</td>
+</tr>
+<tr>
+<td><code>DOWNLOAD</code></td>
+<td>Download multiple files/directories</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td>Delete a file</td>
+</tr>
+<tr>
+<td><code>MKDIR</code></td>
+<td>Create a new directory</td>
+</tr>
+<tr>
+<td><code>RMDIR</code></td>
+<td>Delete a directory</td>
+</tr>
+<tr>
+<td><code>CD</code></td>
+<td>Change directory</td>
+</tr>
+<tr>
+<td><code>DIR</code></td>
+<td>Show the current directory contents</td>
+</tr>
+<tr>
+<td><code>TREE</code></td>
+<td>Display directory structure recursively</td>
+</tr>
+<tr>
+<td><code>STATS</code></td>
+<td>View network performance statistics</td>
+</tr>
+<tr>
+<td><code>CLS</code></td>
+<td>Clear the screen</td>
+</tr>
+<tr>
+<td><code>HELP</code></td>
+<td>Show all available commands</td>
+</tr>
+<tr>
+<td><code>LOGOUT</code></td>
+<td>Log out of current session</td>
+</tr>
+<tr>
+<td><code>DISCONNECT</code></td>
+<td>Disconnect from server</td>
+</tr>
+<tr>
+<td><code>EXIT</code></td>
+<td>Exit the program</td>
+</tr>
+</tbody>
+</table>
+<h2 id="-screenshots">📸 Screenshots</h2>
+<h3 id="gui-client">GUI Client</h3>
+<h4 id="main-interface">Main Interface</h4>
+<img width="868" height="737" alt="Main Page GUI" src="https://github.com/user-attachments/assets/c3ace62a-947b-434c-9ee5-794e582dfb0c" />
+<h4 id="authentication">Authentication</h4>
+<img width="868" height="734" alt="Login Screen" src="https://github.com/user-attachments/assets/b150a255-f7b0-4ba8-b60c-5ace845123f1" />
+<h4 id="file-upload-in-progress">File Upload in Progress</h4>
+<img width="858" height="777" alt="Uploading a File" src="https://github.com/user-attachments/assets/7f98f0bc-1b48-4159-af58-80f409498209" />
+<h4 id="context-menu-operations">Context Menu Operations</h4>
+<img width="852" height="735" alt="GUI Context Menu" src="https://github.com/user-attachments/assets/5cdd1b5d-bcfa-49ff-a23d-f61a51bfd3d5" />
+<h4 id="directory-management">Directory Management</h4>
+<img width="862" height="549" alt="Creating a Directory" src="https://github.com/user-attachments/assets/cf17bf29-209a-44a5-bf63-00ad07fdf2bb" />
+<h4 id="performance-statistics">Performance Statistics</h4>
+<img width="868" height="762" alt="Show Statistics" src="https://github.com/user-attachments/assets/fe167ff1-3246-4f38-b51a-423c3c301844" />
+<h3 id="cli-client">CLI Client</h3>
+<h4 id="terminal-interface">Terminal Interface</h4>
+<img width="1467" height="721" alt="Main Page CLI" src="https://github.com/user-attachments/assets/cc44fff9-89aa-4074-93f5-148127b22ccf" />
+<h4 id="file-transfer">File Transfer</h4>
+<img width="1462" height="718" alt="Uploading a File" src="https://github.com/user-attachments/assets/d1b35e7f-c286-4113-bd20-b4110b311ead" />
+<h4 id="analytics-dashboard">Analytics Dashboard</h4>
+<img width="1586" height="1663" alt="Show Statistics" src="https://github.com/user-attachments/assets/4c62db0c-df95-4748-866e-090d93f9be08" />
+<h2 id="technical-stack">Technical Stack</h2>
+<ul>
+<li><strong>Language:</strong> Python 3.14</li>
+<li><strong>Networking:</strong> Socket programming (TCP/TLS)</li>
+<li><strong>Database:</strong> SQLite</li>
+<li><strong>Security:</strong> Bcrypt, JWT</li>
+<li><strong>GUI Framework:</strong> tkinter</li>
+<li><strong>Visualization:</strong> matplotlib</li>
+<li><strong>Compression:</strong> zipfile (streaming)</li>
+</ul>
+<h2 id="learned">Learned</h2>
+<ul>
+<li>Client-server architecture</li>
+<li>Network socket programming</li>
+<li>Secure authentication and encryption</li>
+<li>Concurrent connection handling</li>
+<li>File I/O and streaming</li>
+<li>Real-time performance monitoring</li>
+<li>GUI and CLI development</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

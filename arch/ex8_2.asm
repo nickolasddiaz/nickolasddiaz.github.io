@@ -1,0 +1,19 @@
+;ex8_2.asm
+;Student: Nickolas Diaz
+ORG 100h
+
+MOV DL, 64h
+MOV AH, 02H 
+INT 21H
+
+MOV DL, 6fh
+MOV AH, 02H 
+INT 21H
+
+MOV DL, 67h
+MOV AH, 02H 
+INT 21H
+
+MOV AH, 4CH 
+INT 21H 
+RET

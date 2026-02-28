@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&lbrack;16bitcomputer&rbrack;&lpar;https&colon;&sol;&sol;github&period;com&sol;nickolasddiaz&sol;16bitcomputer&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="16bitcomputer"><a href="https://github.com/nickolasddiaz/16bitcomputer">16bitcomputer</a></h1>
+<p>A complete 16-bit Complex Instruction Set Computer (CISC) architecture implemented in Logic-SIM Evolution, with a custom high-level language compiler written in Python.</p>
+<p>The compiler generates three output files:</p>
+<ul>
+<li><code>program.tre</code> - Parse tree visualization</li>
+<li><code>program.asm</code> - Assembly code</li>
+<li><code>program.bin</code> - Binary machine code (hex)</li>
+</ul>
+<p><a href="https://nickolasddiaz.github.io/16bitcomputer/">Emulator Link</a></p>
+<h2 id="overview">Overview</h2>
+<p>This project implements a fully functional 16-bit CISC processor with:</p>
+<ul>
+<li>Custom microcode architecture designed in Logic-SIM Evolution</li>
+<li>High-level programming language with C/python-style syntax</li>
+<li>Python-based compiler that generates assembly and binary code</li>
+<li>116 instruction opcodes supporting arithmetic, logic, and control flow</li>
+<li>32×32 RGB video display</li>
+</ul>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Complete compiler toolchain</strong>: Source → Parse Tree → Assembly → Binary</li>
+<li><strong>Register allocation</strong>: Intelligent register and memory management</li>
+<li><strong>Function support</strong>: User-defined functions with multiple return values</li>
+<li><strong>Control structures</strong>: if/elif/else, for, while, do-while loops</li>
+<li><strong>Arithmetic operations</strong>: Addition, subtraction, multiplication, division, modulo</li>
+<li><strong>Bitwise operations</strong>: AND, OR, XOR, NOT, shifts, rotates</li>
+<li><strong>Video output</strong>: Built-in functions for pixel manipulation</li>
+</ul>
+<h2 id="system-architecture">System Architecture</h2>
+<h3 id="hardware-specifications">Hardware Specifications</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Specification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Architecture</strong></td>
+<td>16-bit CISC with microcode</td>
+</tr>
+<tr>
+<td><strong>Instruction Memory</strong></td>
+<td>65,536 (0xFFFF) instructions</td>
+</tr>
+<tr>
+<td><strong>Registers</strong></td>
+<td>16 general-purpose (R0-R15)</td>
+</tr>
+<tr>
+<td><strong>RAM</strong></td>
+<td>65,535 (0xFFFF) × 16-bit words</td>
+</tr>
+<tr>
+<td><strong>Video Display</strong></td>
+<td>32×32 pixels, RGB 555 (15-bit)</td>
+</tr>
+<tr>
+<td><strong>Status Flags</strong></td>
+<td>Greater, Equal, Less, Carry</td>
+</tr>
+<tr>
+<td><strong>Data Type</strong></td>
+<td>16-bit signed integer (-32,768 to 32,767)</td>
+</tr>
+<tr>
+<td><strong>Opcode Count</strong></td>
+<td>116 instructions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="register-conventions">Register Conventions</h3>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Mnemonic</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R0-R13</td>
+<td>-</td>
+<td>General purpose registers</td>
+</tr>
+<tr>
+<td>R14</td>
+<td>RE (BP)</td>
+<td>Base pointer (stack frame)</td>
+</tr>
+<tr>
+<td>R15</td>
+<td>RF (SP)</td>
+<td>Stack pointer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="status-flags">Status Flags</h3>
+<ul>
+<li><strong>Greater (G)</strong>: Set when first operand &gt; second operand</li>
+<li><strong>Equal (E)</strong>: Set when operands are equal</li>
+<li><strong>Less (L)</strong>: Set when first operand &lt; second operand</li>
+<li><strong>Carry (C)</strong>: Set when arithmetic operation produces carry/borrow</li>
+</ul>
+<h2 id="language-specification">Language Specification</h2>
+<h3 id="control-structures">Control Structures</h3>
+<h4 id="if-statement">If Statement</h4>
+<pre><code class="language-c"><span class="hljs-keyword">if</span> (condition) {
+    <span class="hljs-comment">// code block</span>
+} elif (condition) {  <span class="hljs-comment">// optional</span>
+    <span class="hljs-comment">// code block</span>
+} <span class="hljs-keyword">else</span> {              <span class="hljs-comment">// optional</span>
+    <span class="hljs-comment">// code block</span>
+}
+</code></pre>
+<h4 id="loops">Loops</h4>
+<p><strong>While Loop</strong></p>
+<pre><code class="language-c"><span class="hljs-keyword">while</span> (condition) {
+    <span class="hljs-comment">// code block</span>
+}
+</code></pre>
+<p><strong>Do-While Loop</strong></p>
+<pre><code class="language-c"><span class="hljs-keyword">do</span> {
+    <span class="hljs-comment">// code block</span>
+} <span class="hljs-keyword">while</span> (condition);
+</code></pre>
+<p><strong>For Loop</strong></p>
+<pre><code class="language-c"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) {
+    <span class="hljs-comment">// code block</span>
+}
+</code></pre>
+<h3 id="functions">Functions</h3>
+<p>All programs must contain a <code>main()</code> function as the entry point.</p>
+<p><strong>Function Definition</strong></p>
+<pre><code class="language-c">def <span class="hljs-title function_">function_name</span><span class="hljs-params">(param1, param2)</span> {
+    <span class="hljs-comment">// code block</span>
+    <span class="hljs-keyword">return</span> value1, value2;  <span class="hljs-comment">// Multiple return values supported</span>
+}
+</code></pre>
+<p><strong>Function Call</strong></p>
+<pre><code class="language-c"><span class="hljs-comment">// Single return value</span>
+result = function_name(arg1, arg2);
+
+<span class="hljs-comment">// Multiple return values</span>
+a, b, c = function_name(x, y);
+
+<span class="hljs-comment">// Mixed assignment</span>
+a, b, c, d, e = a, <span class="hljs-number">2</span>, function_name(a, b);
+</code></pre>
+<h3 id="operators">Operators</h3>
+<h4 id="arithmetic-operators">Arithmetic Operators</h4>
+<ul>
+<li><code>+</code> Addition</li>
+<li><code>-</code> Subtraction</li>
+<li><code>*</code> Multiplication</li>
+<li><code>/</code> Division (integer)</li>
+<li><code>%</code> Modulo</li>
+</ul>
+<h4 id="bitwise-operators">Bitwise Operators</h4>
+<ul>
+<li><code>&amp;</code> Bitwise AND</li>
+<li><code>|</code> Bitwise OR</li>
+<li><code>^</code> Bitwise XOR</li>
+<li><code>~</code> Bitwise NOT (one's complement)</li>
+<li><code>&lt;&lt;</code>Left shift</li>
+<li><code>&gt;&gt;</code>Right shift</li>
+</ul>
+<h4 id="comparison-operators">Comparison Operators</h4>
+<ul>
+<li><code>==</code> Equal to</li>
+<li><code>!=</code> Not equal to</li>
+<li><code>&gt;</code> Greater than</li>
+<li><code>&lt;</code> Less than</li>
+<li><code>&gt;=</code> Greater than or equal to</li>
+<li><code>&lt;=</code> Less than or equal to</li>
+</ul>
+<h4 id="logical-operators">Logical Operators</h4>
+<ul>
+<li><code>&amp;&amp;</code> or <code>and</code> Logical AND</li>
+<li><code>||</code> or <code>or</code> Logical OR</li>
+</ul>
+<h4 id="assignment-operators">Assignment Operators</h4>
+<ul>
+<li><code>=</code> Assignment</li>
+<li><code>+=</code> Add and assign</li>
+<li><code>-=</code> Subtract and assign</li>
+<li><code>*=</code> Multiply and assign</li>
+<li><code>/=</code> Divide and assign</li>
+<li><code>++</code> Increment</li>
+<li><code>--</code> Decrement</li>
+</ul>
+<h3 id="built-in-functions">Built-in Functions</h3>
+<h4 id="video-functions">Video Functions</h4>
+<pre><code class="language-c">VIDEO(r,g,b, x, y)  <span class="hljs-comment">// Set pixel at (x, y) to color value</span>
+VID()               <span class="hljs-comment">// Update video display</span>
+VID_RED(value)        <span class="hljs-comment">// Set color value</span>
+VID_GREEN(value)        <span class="hljs-comment">// Set color value</span>
+VID_BLUE(value)        <span class="hljs-comment">// Set color value</span>
+VID_X(x)            <span class="hljs-comment">// Set X coordinate</span>
+VID_Y(y)            <span class="hljs-comment">// Set Y coordinate</span>
+</code></pre>
+<h4 id="system-functions">System Functions</h4>
+<pre><code class="language-c">HALT()              <span class="hljs-comment">// Halt the computer</span>
+</code></pre>
+<h3 id="syntax-examples">Syntax Examples</h3>
+<p><strong>Variable Assignment</strong></p>
+<pre><code class="language-c">a = <span class="hljs-number">3</span>;
+a += b;
+a -= b;
+a *= b;
+a /= b;
+</code></pre>
+<p><strong>Negation</strong></p>
+<pre><code class="language-c">a = -(<span class="hljs-number">100</span> ^ b | function_call());  <span class="hljs-comment">// Arithmetic negation</span>
+a = ~(<span class="hljs-number">100</span> ^ b | function_call());  <span class="hljs-comment">// Bitwise NOT</span>
+</code></pre>
+<p><strong>Conditional Expressions</strong></p>
+<pre><code class="language-c"><span class="hljs-keyword">if</span> (a + <span class="hljs-number">6</span>) {          <span class="hljs-comment">// Non-zero evaluation</span>
+    <span class="hljs-comment">// code</span>
+}
+
+<span class="hljs-keyword">if</span> (a == b + <span class="hljs-number">6</span> &amp;&amp; c) {  <span class="hljs-comment">// Logical AND</span>
+    <span class="hljs-comment">// code</span>
+}
+
+<span class="hljs-keyword">if</span> (a == b + <span class="hljs-number">6</span> || function_call() != <span class="hljs-number">21</span>) {  <span class="hljs-comment">// Logical OR</span>
+    <span class="hljs-comment">// code</span>
+}
+</code></pre>
+<h2 id="instruction-set">Instruction Set</h2>
+<h3 id="system-instructions">System Instructions</h3>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x00</code></td>
+<td><code>NOP</code></td>
+<td>No Operation</td>
+</tr>
+<tr>
+<td><code>0x01</code></td>
+<td><code>HALT</code></td>
+<td>Halt Computer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="video-display-instructions">Video Display Instructions</h3>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x01</code></td>
+<td><code>VID</code></td>
+<td>Updates the pixel with a color</td>
+</tr>
+<tr>
+<td><code>0x03</code></td>
+<td><code>PUSH</code></td>
+<td>saves variable and increments the sp</td>
+</tr>
+<tr>
+<td><code>0x06</code></td>
+<td><code>POP</code></td>
+<td>saves variable and decriments the sp</td>
+</tr>
+<tr>
+<td><code>0x09</code></td>
+<td><code>VID_RED reg</code></td>
+<td>Set video Red  0-31</td>
+</tr>
+<tr>
+<td><code>0x0C</code></td>
+<td><code>VID_GREEN reg</code></td>
+<td>Set video Blue  0-31</td>
+</tr>
+<tr>
+<td><code>0x0F</code></td>
+<td><code>VID_BLUE reg</code></td>
+<td>Set video Green  0-31</td>
+</tr>
+<tr>
+<td><code>0x12</code></td>
+<td><code>VID_X reg</code></td>
+<td>Set video X coordinate 0-63</td>
+</tr>
+<tr>
+<td><code>0x15</code></td>
+<td><code>VID_Y reg</code></td>
+<td>Set video Y coordinate 0-63</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-movement-instructions">Data Movement Instructions</h3>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x18</code></td>
+<td><code>MOV reg, reg</code></td>
+<td>Move register to register</td>
+</tr>
+</tbody>
+</table>
+<h3 id="comparison-instructions">Comparison Instructions</h3>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x1E</code></td>
+<td><code>CMP reg, reg</code></td>
+<td>Compare two registers (sets flags)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="arithmetic-instructions">Arithmetic Instructions</h3>
+<h4 id="addition">Addition</h4>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x24</code></td>
+<td><code>ADD reg, reg</code></td>
+<td>input1 = input1 + input2</td>
+</tr>
+<tr>
+<td><code>0x2A</code></td>
+<td><code>SUB reg, reg</code></td>
+<td>input1 = input1 - input2</td>
+</tr>
+<tr>
+<td><code>0x30</code></td>
+<td><code>MULT reg, reg</code></td>
+<td>input1 = input1 * input2</td>
+</tr>
+<tr>
+<td><code>0x36</code></td>
+<td><code>DIV reg, reg</code></td>
+<td>input1 = input1 / input2</td>
+</tr>
+<tr>
+<td><code>0x3C</code></td>
+<td><code>QUOT reg, reg</code></td>
+<td>input1 = input1 mod input2</td>
+</tr>
+<tr>
+<td><code>0x42</code></td>
+<td><code>AND reg</code></td>
+<td>input1 = input1 bit and input2</td>
+</tr>
+<tr>
+<td><code>0x48</code></td>
+<td><code>OR reg, reg</code></td>
+<td>input1 = input1 bit or input2</td>
+</tr>
+<tr>
+<td><code>0x4E</code></td>
+<td><code>XOR reg, reg</code></td>
+<td>input1 = input1 bit xor input2</td>
+</tr>
+<tr>
+<td><code>0x54</code></td>
+<td><code>SHL reg, reg</code></td>
+<td>input1 = input1 shift left input2</td>
+</tr>
+<tr>
+<td><code>0x5A</code></td>
+<td><code>SHR reg, reg</code></td>
+<td>input1 = input1 shift right input2</td>
+</tr>
+<tr>
+<td><code>0x60</code></td>
+<td><code>NEG reg, reg</code></td>
+<td>input1 = negate input2</td>
+</tr>
+<tr>
+<td><code>0x66</code></td>
+<td><code>NOT reg, reg</code></td>
+<td>input1 = not input2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="control-flow-instructions">Control Flow Instructions</h3>
+<h4 id="jump-instructions">Jump Instructions</h4>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x6C</code></td>
+<td><code>JMP imm8</code></td>
+<td>Unconditional jump to 16-bit address</td>
+</tr>
+<tr>
+<td><code>0x6D</code></td>
+<td><code>JEQ imm8</code></td>
+<td>Jump if equal flag set</td>
+</tr>
+<tr>
+<td><code>0x6E</code></td>
+<td><code>JNE imm8</code></td>
+<td>Jump if not equal</td>
+</tr>
+<tr>
+<td><code>0x6F</code></td>
+<td><code>JG imm8</code></td>
+<td>Jump if greater</td>
+</tr>
+<tr>
+<td><code>0x70</code></td>
+<td><code>JLE imm8</code></td>
+<td>Jump if less or equal</td>
+</tr>
+<tr>
+<td><code>0x71</code></td>
+<td><code>JL imm8</code></td>
+<td>Jump if less</td>
+</tr>
+<tr>
+<td><code>0x72</code></td>
+<td><code>JGE imm8</code></td>
+<td>Jump if greater or equal</td>
+</tr>
+</tbody>
+</table>
+<h4 id="subroutine-instructions">Subroutine Instructions</h4>
+<table>
+<thead>
+<tr>
+<th>Opcode</th>
+<th>Mnemonic</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0x73</code></td>
+<td><code>CALL imm8       </code></td>
+<td>Push return address, jump to subroutine</td>
+</tr>
+<tr>
+<td><code>0x74</code></td>
+<td><code>RTRN</code></td>
+<td>Pop return address into PC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="register-conventions-1">Register Conventions</h2>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R0-RD</td>
+<td>General Purpose</td>
+</tr>
+<tr>
+<td>RE</td>
+<td>Base Pointer</td>
+</tr>
+<tr>
+<td>RF</td>
+<td>Stack Pointer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="addressing-modes">Addressing Modes</h3>
+<p>Instructions support six addressing modes indicated by suffix:</p>
+<table>
+<thead>
+<tr>
+<th>Suffix</th>
+<th>Mode</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(none)</td>
+<td>Register-Register</td>
+<td><code>ADD R1, R2</code></td>
+<td>Both operands are registers</td>
+</tr>
+<tr>
+<td>_MR</td>
+<td>Memory-Register</td>
+<td><code>ADD [BP+5], R2</code></td>
+<td>Dest is memory, source is register</td>
+</tr>
+<tr>
+<td>_IM</td>
+<td>Register-Immediate</td>
+<td><code>ADD R1, 10</code></td>
+<td>Dest is register, source is immediate</td>
+</tr>
+<tr>
+<td>_RM</td>
+<td>Register-Memory</td>
+<td><code>ADD R1, [BP+5]</code></td>
+<td>Dest is register, source is memory (Load)</td>
+</tr>
+<tr>
+<td>_MI</td>
+<td>Memory-Immediate</td>
+<td><code>ADD [BP+5], 10</code></td>
+<td>Dest is memory, source is immediate</td>
+</tr>
+<tr>
+<td>_MM</td>
+<td>Memory-Memory</td>
+<td><code>ADD [BP+5], [BP+7]</code></td>
+<td>Both operands are memory</td>
+</tr>
+</tbody>
+</table>
+<h2 id="issues">Issues</h2>
+<ul>
+<li>Could not figure the stack/base pointer out so having multiple functions will not work</li>
+<li>Could not get the clock cycles to work in Logic Sim</li>
+</ul>
+
+            
+            
+        </body>
+        </html>

@@ -1,0 +1,23 @@
+# Lab #10 by Nickolas Diaz
+from FullName import FullName
+
+person1 = FullName("Henry", "Smith")
+print(person1)
+person2 = FullName("John", "Davis")
+print(person2)
+person3 = FullName("Nickolas", "Diaz")
+print(person3)
+person4 = FullName("Elon", "Musk")
+print(person4)
+person5 = FullName("Regan", "Sampson")
+print(person5)
+print(person1 > person2)
+print(person1 > person3)
+print(person2 > person3)
+print(person2 > person2)
+print(person1 > person4)
+print(person1 > person5)
+print(person2 > person5)
+print(person2 > person4)
+print(person3 > person4)
+print(person4 > person5)

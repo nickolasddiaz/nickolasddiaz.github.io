@@ -1,0 +1,1 @@
+import{a4 as o,b as a,c as t,a5 as c,d as l}from"./D8-yv3m5.js";function f(n){t===null&&o(),c&&t.l!==null?u(t).m.push(n):a(()=>{const e=l(n);if(typeof e=="function")return e})}function u(n){var e=n.l;return e.u??={a:[],b:[],m:[]}}export{f as o};
