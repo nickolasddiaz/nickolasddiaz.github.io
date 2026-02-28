@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&lbrack;CEN 4033 Pantry Inventory Management System&rbrack;&lpar;https&colon;&sol;&sol;github&period;com&sol;nickolasddiaz&sol;CEN-4033-Pantry-Inventory-Management-System&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="cen-4033-pantry-inventory-management-system"><a href="https://github.com/nickolasddiaz/CEN-4033-Pantry-Inventory-Management-System">CEN 4033 Pantry Inventory Management System</a></h1>
+<p>Project from Secure Software Engineering in Florida Polytechnic University Summer 2025.
+<a href="https://pantrymanagement.42web.io/">Website Link</a></p>
+<h2 id="project-description">Project Description</h2>
+<p>Students are asked to work in teams to design and implement a Pantry Inventory Management System,
+which is s a simple web-based app that allows users to track the items they have in their pantry, manage
+expiration dates, and create shopping lists for missing items. The system enables users to add, edit, and
+remove pantry items, while also providing features for setting reminders for products nearing their
+expiration dates. Core features are listed on the next page. Teams are asked to create Software
+Requirements Specification (SRS), design documents, and implement a software functional prototype,
+using one of the SDLC software development models. The list of deliverables for the team project is shown
+below.</p>
+<h2 id="core-features-of-the-pantry-inventory-management-system">Core Features of the Pantry Inventory Management System</h2>
+<ul>
+<li>User Authentication
+Users must be able to sign up and log in securely. This ensures that each user’s pantry inventory
+is private and protected. Passwords shall be securely stored.</li>
+<li>Pantry Item Management
+Users can add new items (name, quantity, expiration date), update existing items, and delete
+them. Each item is linked to a user’s account and can only be modified or removed by that user.</li>
+<li>Shopping List Creation
+The system will allow users to create a shopping list based on items that are out of stock or near
+their expiration date. The list can be easily marked as &quot;purchased&quot; once the user buys the item.</li>
+<li>Expiration Date Reminders
+Users will be notified or reminded about items that are nearing their expiration date. This can be
+as simple as a list view that highlights items expiring soon, and can later be expanded with more
+advanced notification features.</li>
+<li>Basic Security Measures
+<ul>
+<li>Input validation: Ensuring that all user inputs (e.g., item names, expiration dates, and
+quantities) are clean and free from malicious code.</li>
+<li>Role-based access control: Users can only see and edit their own pantry items.</li>
+<li>Session management: Ensures that the user stays logged in securely during their
+interaction with the system.</li>
+</ul>
+</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>we are using PHP for the backend MySQL for the database and HTML/CSS/JS for the front end. Uploaded to InfinityFree.</p>
+<h2 id="documents">Documents</h2>
+<ul>
+<li><a href="https://nickolasddiaz.github.io/CEN-4033-Pantry-Inventory-Management-System/Project%20Description.pdf">Project Description</a></li>
+<li><a href="https://nickolasddiaz.github.io/CEN-4033-Pantry-Inventory-Management-System/FINAL%20Final%20Document.pdf">Final Document</a></li>
+<li><a href="https://nickolasddiaz.github.io/CEN-4033-Pantry-Inventory-Management-System/Software%20Design%20Specification.pdf">Design Specification</a></li>
+<li><a href="https://nickolasddiaz.github.io/CEN-4033-Pantry-Inventory-Management-System/Software%20Requirements%20Specification.pdf">Requirements Specification</a></li>
+<li><a href="https://nickolasddiaz.github.io/CEN-4033-Pantry-Inventory-Management-System/secure_software_engineering_notes.pdf">Class Notes</a></li>
+</ul>
+<h2 id="credits">Credits</h2>
+<ul>
+<li>Andrew Feran</li>
+<li>Arselle Conteh</li>
+<li>Benjamin Bruinsma</li>
+<li>Davi Borges</li>
+<li>Nickolas Diaz</li>
+</ul>
+<h2 id="screen-shots">Screen Shots</h2>
+<h3 id="home-page">Home page</h3>
+<img width="1907" height="721" alt="Home Page" src="https://github.com/user-attachments/assets/31b0c642-61ae-4615-8dfc-f92d47a0aead" />
+<h3 id="sign-up">Sign Up</h3>
+<img width="363" height="462" alt="Sign Up" src="https://github.com/user-attachments/assets/86d8ae41-44cb-49f5-a0f6-d85fc4482e53" />
+<h3 id="login">Login</h3>
+<img width="353" height="462" alt="Login" src="https://github.com/user-attachments/assets/18138ee5-dcb6-4907-8597-0451278fc83f" />
+<h3 id="shoping-cart">Shoping Cart</h3>
+<img width="1494" height="788" alt="Shoping Cart" src="https://github.com/user-attachments/assets/14bfab15-af90-48b3-95d1-4eab23dcebc7" />
+<h3 id="add-to-pantry">Add to Pantry</h3>
+<img width="364" height="606" alt="Add to Pantry" src="https://github.com/user-attachments/assets/f09979ce-75b0-4471-b51e-3fe8e2b01b1b" />
+<h3 id="shopping-list">Shopping List</h3>
+<img width="1493" height="637" alt="Shopping List" src="https://github.com/user-attachments/assets/85a7a785-fca4-405b-9a91-aee4eaf57706" />
+<h3 id="settings">Settings</h3>
+<img width="1222" height="701" alt="Settings" src="https://github.com/user-attachments/assets/f4ddf89a-3e73-419f-bea4-2aa8d9864125" />
+            
+            
+        </body>
+        </html>

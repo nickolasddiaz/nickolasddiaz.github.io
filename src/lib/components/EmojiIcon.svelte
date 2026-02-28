@@ -1,8 +1,16 @@
 <!-- EmojiIcon.svelte -->
 <script lang="ts">
-  export let bgColor: string = 'lightblue';
-  export let emoji: string = '🤩';
-  export let sizeClass: string = 'w-12 h-12'; // controllable from outside
+  interface Props {
+    bgColor?: string;
+    emoji?: string;
+    sizeClass?: string;
+  }
+
+  let { 
+    bgColor = 'lightblue', 
+    emoji = '🤩', 
+    sizeClass = 'w-12 h-12' 
+  }: Props = $props();
 </script>
 
 <svg class={sizeClass} viewBox="0 0 100 100" aria-label={emoji}>

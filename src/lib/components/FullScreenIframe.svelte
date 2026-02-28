@@ -1,6 +1,8 @@
 <script lang="ts">
     import title_from_url from '$lib/utils/title_from_url'
-    export let url: string = "/";
+    
+    interface Props { url: string; }
+    let { url = "/" }: Props = $props();
 </script>
 
 <div class="w-full h-screen flex flex-col">

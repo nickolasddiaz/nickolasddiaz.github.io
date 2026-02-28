@@ -11,7 +11,8 @@ export const navlist: NavList = {
               ['Academic Papers', '/about_me/papers'],
               ['Awards', '/about_me/awards'],
               ['Resume', '/about_me/resume'],
-              ['Leetcode', '/about_me/leetcode']],
+              ['Leetcode', '/about_me/leetcode'],
+              ["Github Projects", '/about_me/github']],
   
   "Classes": [['Computer Graphics', '/classes/computer_graphics'],
               ['C++', '/classes/cpp'],
@@ -19,10 +20,6 @@ export const navlist: NavList = {
               ['Database 1', '/classes/database'],
               ['Python', '/classes/py']],
   
-  "Github Projects": [['Password Manager', '/github/NickolasDanielPassManager'],
-              ['Text Editor', '/github/NickolasDiaz-Text-Editor'],
-              ['Tank Game', '/github/Tank_Game'],
-              ['Pantry Manager', '/github/CEN-4033-Pantry-Inventory-Management-System'],
-              ['Client Server', '/github/CNT-3004-client-server-project'],
-              ['Programming Language', '/github/16bitcomputer']], 
+  "etc.": [["Minecraft Map", "/etc/minecraft_map"],
+          ["My Meme", "/etc/meme"]],
 }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&lbrack;NickolasDDiazTextEditor&rbrack;&lpar;https&colon;&sol;&sol;github&period;com&sol;nickolasddiaz&sol;NickolasDiaz-Text-Editor&rpar;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="nickolasddiaztexteditor"><a href="https://github.com/nickolasddiaz/NickolasDiaz-Text-Editor">NickolasDDiazTextEditor</a></h1>
+<p>A text editor built using C++ and Windows API.</p>
+<p><img src="https://github.com/user-attachments/assets/c97cb56a-fb64-4857-b79d-3186279850f8" alt="image"></p>
+<h2 id="features">Features</h2>
+<h3 id="multi-document-interface">Multi-Document Interface</h3>
+<ul>
+<li><strong>Tabbed Interface</strong>:</li>
+<li><strong>Create New Files</strong>:</li>
+<li><strong>Open Existing Files</strong>:</li>
+</ul>
+<h3 id="file-operations">File Operations</h3>
+<ul>
+<li><strong>Save</strong>:</li>
+<li><strong>Save As</strong>:</li>
+<li><strong>Save All</strong>:</li>
+</ul>
+<h3 id="editing-capabilities">Editing Capabilities</h3>
+<ul>
+<li><strong>Undo/Redo</strong></li>
+<li><strong>Cut, Copy, and Paste</strong></li>
+</ul>
+<h2 id="technical-details">Technical Details</h2>
+<ul>
+<li><strong>Language</strong>: C++</li>
+<li><strong>Build System</strong>: CMake</li>
+<li><strong>Main Components</strong>:
+<ul>
+<li><code>TextEditor</code>: Main application class</li>
+<li><code>TabControl</code>: Manages the tabbed interface</li>
+<li><code>DocumentText</code>: Handles text storage and manipulation</li>
+</ul>
+</li>
+<li><strong>Key Files</strong>:
+<ul>
+<li><code>TextEditor.cpp</code>: Core editor functionality</li>
+<li><code>TabControl.cpp</code>: Tab management</li>
+<li><code>DocumentText.cpp</code>: Text document handling</li>
+</ul>
+</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>Download from the release <a href="https://github.com/nickolasddiaz/NickolasDiaz-Text-Editor/releases">https://github.com/nickolasddiaz/NickolasDiaz-Text-Editor/blob/master/nickolasddiazeditor.exe</a></p>
+<p>To build and run NickolasDDiazTextEditor:</p>
+<ol>
+<li>Ensure you have CMake and a C++ compiler installed.</li>
+<li>Clone the repository.</li>
+<li>Navigate to the project directory.</li>
+<li>Run the following commands:<pre><code>mkdir build
+cd build
+cmake ..
+cmake --build .
+</code></pre>
+</li>
+</ol>
+<h2 id="inspired-by">Inspired by</h2>
+<p><a href="https://austinhenley.com/blog/challengingprojects.html">https://austinhenley.com/blog/challengingprojects.html</a></p>
+<p><a href="https://www.catch22.net/tuts/neatpad/">https://www.catch22.net/tuts/neatpad/</a></p>
+<h2 id="gap-buffer-implementation">Gap Buffer Implementation</h2>
+<p>The Gap Buffer is a data structure used in text editing to efficiently manage text insertion and deletion. It involves an array with a &quot;gap&quot; between two pieces of text, which allows for efficient editing around that gap</p>
+<p>Structure: The gap buffer is implemented in the DocumentText class. It consists of a character array (buffer) with a &quot;gap&quot; in the middle.
+Gap Positioning: The gap is defined by two indices: gapStart and gaspEnd. Text before gapStart and after gapEnd represents the actual document content.
+Insertion: When text is inserted, it's placed at the start of the gap. The gapStart is then moved forward, effectively shrinking the gap.
+Deletion: When text is deleted, the gap expands to cover the deleted region. This is done by adjusting gapStart or gapEnd.
+Cursor Movement: When the cursor moves, the gap is relocated to the cursor position using the moveGap function. This involves copying text from one side of the gap to the other.
+Efficiency: This approach makes insertions and deletions at or near the cursor position very efficient, typically O(1) operations.
+Buffer Expansion: If the gap becomes too small to accommodate new text, the expandBuffer function is called to increase the buffer size.</p>
+<h2 id="command-pattern-for-undoredo">Command Pattern for Undo/Redo</h2>
+<p>The editor implements the Command Pattern to provide undo and redo functionality:</p>
+<p>Command Interface: An abstract Command class defines the interface for all commands with execute() and undo() methods.
+Concrete Commands:</p>
+<p>InsertCommand: Represents text insertion operations.
+DeleteCommand: Represents text deletion operations.</p>
+<p>Command Execution: When a user types or deletes text, a corresponding command object is created and executed. The command object stores all necessary information to perform and reverse the action.
+Command History: The CommandHistory class maintains two stacks:</p>
+<p>undoStack: Stores executed commands
+redoStack: Stores undone commands</p>
+<p>Undo Operation:</p>
+<p>Pops the top command from the undoStack
+Calls its undo() method
+Pushes the command onto the redoStack</p>
+<p>Redo Operation:</p>
+<p>Pops the top command from the redoStack
+Calls its execute() method
+Pushes the command back onto the undoStack</p>
+<p>Cursor Position Tracking: Each command stores the cursor position after its execution, allowing for accurate cursor placement during undo/redo operations.</p>
+
+            
+            
+        </body>
+        </html>

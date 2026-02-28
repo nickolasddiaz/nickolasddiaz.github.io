@@ -5,7 +5,8 @@
   import type Accordiontype from '$lib/stores/accordion_tabs_types'
   import CodeBlock from '$lib/components/CodeBlock.svelte';
   
-  export let data: Accordiontype[] = []
+  interface Props { data: Accordiontype; }
+  let { data }: Props = $props();
   
   function getextention(str: string){
     let exten = str.split(".").pop()

@@ -1,14 +1,19 @@
-import CySAImg from "$lib/assets/CompTIA_CySA+.png";
-import AImg from "$lib/assets/CompTIA_A+.png";
-import advImg from "$lib/assets/Advent_of_Cyber_2022.png";
-import itImg from "$lib/assets/CompTIA_IT_Fundamentals+.png";
-import penTestImg from "$lib/assets/CompTIA_PenTest+_Path.png";
-import securityImg from "$lib/assets/CompTIA_Security+.png";
-import cyberDefenseImg from "$lib/assets/Cyber Defense_Certificate.png";
-import webFundamentalsImg from "$lib/assets/Web_Fundamentals_Certificate.png";
-import pythonCoreImg from "$lib/assets/Python_Core_Certificate.png";
-import LeetCodeImg from "$lib/assets/LeetCode_75.png";
-import PenImg from "$lib/assets/CompTIA_PenTest+_Path.png";
+import CCNAImg from '$lib/assets/ccna-logo.webp'
+import CySAImg from "$lib/assets/CySA+.webp";
+import AImg from "$lib/assets/A+.webp";
+import advImg from "$lib/assets/Advent_of_Cyber_2022.webp";
+import itImg from "$lib/assets/ITF+.webp";
+import penTestImg from "$lib/assets/CompTIA_PenTest+_Path.webp";
+import securityImg from "$lib/assets/Security+.webp";
+import SecEngImg from "$lib/assets/Security Engineer.webp";
+import Soc2Img from "$lib/assets/SOC_Level_2.webp";
+import Soc1Img from "$lib/assets/SOC_Level_1.webp";
+import cyberDefenseImg from "$lib/assets/Cyber Defense_Certificate.webp";
+import webFundamentalsImg from "$lib/assets/Web_Fundamentals_Certificate.webp";
+import pythonCoreImg from "$lib/assets/Python_Core_Certificate.webp";
+import LeetCode150Img from "$lib/assets/Interview_150.webp";
+import LeetCode75Img from "$lib/assets/LeetCode_75.webp";
+import PenImg from "$lib/assets/CompTIA_PenTest+_Path.webp";
 
 interface MediaItem {
   description: string;
@@ -21,6 +26,13 @@ export const title =
   "The awards page displays all of my awards, accompanied by clickable links that serve as evidence of my achievement. Each award is listed with a description.";
 
 export const awards: Record<string, MediaItem> = {
+  "CCNA": {
+    description:
+      "Demonstrated skills of network fundamentals, network access, IP connectivity, and IP services.",
+    link: "https://www.credly.com/badges/81918252-2c3b-4fe1-8c05-6ebba99745c2/embedded",
+    image_link: CCNAImg,
+    issued_date: new Date(2025, 5),
+  },
   "CompTIA CySA+": {
     description:
       "Cybersecurity Analyst certification, demonstrating expertise in security analytics and monitoring.",
@@ -56,16 +68,37 @@ export const awards: Record<string, MediaItem> = {
     image_link: cyberDefenseImg,
     issued_date: new Date(2023, 3),
   },
+  "Security Engineer Certificate": {
+    description:
+      "Recognizes my skills in defending systems from cyber threats on TryHackMe.",
+    link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-JIJXIEKRAO.pdf",
+    image_link: SecEngImg,
+    issued_date: new Date(2025, 7),
+  },
+  "SOC Level 2 Certificate": {
+    description:
+      "Recognizes my skills in defending systems from cyber threats on TryHackMe.",
+    link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-YMUWRJIY5T.pdf",
+    image_link: Soc2Img,
+    issued_date: new Date(2025, 7),
+  },
+  "SOC Level 1 Certificate": {
+    description:
+      "Built knowledge on network, system, software security engineering on TryHackMe.",
+    link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-I7ETUDPSQX.pdf",
+    image_link: Soc1Img,
+    issued_date: new Date(2025, 6),
+  },
   "Web Fundamentals Certificate": {
     description:
-      "Awarded for mastering core web technologies and techniques on TryHackMe.",
+      "Hands on skills on security operations, incident response and malware analysis on TryHackMe.",
     link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OZ9ZLKUMU2.png",
     image_link: webFundamentalsImg,
     issued_date: new Date(2022, 7),
   },
   "Junior Penetration Tester Certificate": {
     description:
-      "A certification showcasing my penetration testing skills on TryHackMe.",
+      "Hands on skills on SOC tools, and monitored endpoints for threats on TryHackMe.",
     link: "https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-OY8DJDHOPE.png",
     image_link: penTestImg,
     issued_date: new Date(2022, 6),
@@ -91,11 +124,18 @@ export const awards: Record<string, MediaItem> = {
     image_link: pythonCoreImg,
     issued_date: new Date(2022, 1),
   },
-  LeetCode_75: {
+  "LeetCode 150": {
     description:
-      "Awarded for successfully completing the LeetCode_75 on Leetcode.",
-    link: "https://leetcode.com/u/nickolasddiaz/",
-    image_link: LeetCodeImg,
+      "Awarded for successfully completing the Interview LeetCode 150 on Leetcode.",
+    link: "https://leetcode.com/medal/?showImg=0&id=9183240",
+    image_link: LeetCode150Img,
+    issued_date: new Date(2025, 11),
+  },
+  "LeetCode 75": {
+    description:
+      "Awarded for successfully completing the LeetCode 75 on Leetcode.",
+    link: "https://leetcode.com/medal/?showImg=0&id=8505897",
+    image_link: LeetCode75Img,
     issued_date: new Date(2024, 6),
   },
 };

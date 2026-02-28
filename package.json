@@ -44,6 +44,7 @@
 		"shiki": "^3.22.0",
 		"svelte": "^5.45.6",
 		"svelte-check": "^4.3.4",
+		"svelte-youtube-embed": "^0.4.6",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.48.1",
@@ -54,7 +55,6 @@
 	},
 	"dependencies": {
 		"@sveltejs/adapter-static": "^3.0.10",
-		"flexsearch": "^0.8.212",
-		"marked": "^17.0.1"
+		"flexsearch": "^0.8.212"
 	}
 }

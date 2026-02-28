@@ -4,8 +4,7 @@
 </script>
 
 <MainContent>
-    <h1>Carreer Summary</h1>
-    <p>
+    <p class="text-lg max-w-5xl place-self-center">
         I am a cybersecurity professional in training with a focused interest in defensive security, aiming to secure systems against cyber threats. My career goals include becoming a Cybersecurity Engineer, where I would design, implement, and maintain robust security systems, or a Security Analyst, where I would monitor and investigate security incidents.
         Currently pursuing a Bachelor of Science in Computer Science with a concentration in Information Assurance and Cyber Security at Florida Polytechnic University, I have developed strong foundational skills in Python and C++, along with proficiency in Windows and Debian-based Linux operating systems. My understanding of networking concepts, including the OSI model and protocols such as HTTP, SMTP, and FTP, complements my knowledge of tools like Wireshark, Splunk, and Autopsy.
         I hold industry-recognized certifications, including CompTIA A+, Security+, and CySA+, which have equipped me with a comprehensive understanding of core cybersecurity principles and hands-on threat analysis skills.

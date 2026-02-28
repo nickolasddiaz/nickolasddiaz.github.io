@@ -1,5 +1,5 @@
 const year_day_formatter = new Intl.DateTimeFormat('en-CA'); // 2026-1-1
-const year_month_formatter = new Intl.DateTimeFormat('en-GB', { year: '2-digit', month: 'short' }); // Jan 26
+const year_month_formatter = new Intl.DateTimeFormat('en-GB', { year: 'numeric', month: 'short' }); // Jan 26
 
 
 export function year_day_formatDate(date: Date): string {

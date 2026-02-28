@@ -41,3 +41,10 @@
     cursor: pointer;
   }
 }
+
+@layer components {
+  .link-primary {
+    @apply inline text-blue-600 underline cursor-pointer transition-colors duration-200;
+    @apply hover:text-blue-800 hover:no-underline;
+  }
+}

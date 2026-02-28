@@ -1,6 +1,6 @@
 # Welcome to my website
 
-## To start 
+## To start
 
 ```sh
 bun install
@@ -31,6 +31,7 @@ To deploy to github pages:
 ```sh
 npm run deploy
 ```
+
 ## Format
 
 To the tailwind CSS:
