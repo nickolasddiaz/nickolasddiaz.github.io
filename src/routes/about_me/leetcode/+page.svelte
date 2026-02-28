@@ -67,7 +67,7 @@
 </script>
 
 <MainContent>
-    <p>Here serves all of my {Object.keys(data).length} Leetcode Submissions. <a class="link-primary" title="Leetcode" href="https://leetcode.com/u/nickolasddiaz/">Leetcode Link</a></p>
+    <p class="text-lg max-w-5xl place-self-center">Here serves all of my {Object.keys(data).length} Leetcode Submissions. <a class="link-primary" title="Leetcode" href="https://leetcode.com/u/nickolasddiaz/">Leetcode Link</a></p>
 
     <div class="flex flex-wrap gap-4 items-center justify-between">
         <Search bind:value={searchQuery} class="w-full md:flex-1"/>

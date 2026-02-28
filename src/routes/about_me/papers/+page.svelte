@@ -84,7 +84,7 @@
 </script>
 
 <MainContent>
-    <h3>The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework. The total number of essays displayed are {papers.length}, total pages: {total_pages}, total words: {total_words}.</h3>
+    <p class="text-lg max-w-5xl place-self-center">The following collection comprises all of my academic papers, ranging from my 9th-grade assignments to my college-level coursework. The total number of essays displayed are {papers.length}, total pages: {total_pages}, total words: {total_words}.</p>
     <div class="flex flex-wrap gap-4 items-center justify-between">
         <Search bind:value={searchQuery} class="w-full md:flex-1"/>
         <Datepicker range bind:rangeFrom={dateRange.from} bind:rangeTo={dateRange.to} color="blue" class="w-auto"/>
@@ -113,7 +113,7 @@
           emoji={topic_types[item.topic]?.emoji ?? ''}
         />
       </div>
-      <div class="min-w-0 text-xs md:text-sm lg:text-base group-hover:text-fuchsia-500">
+      <div class="min-w-0 text-xs md:text-sm lg:text-base group-hover:text-fuchsia-500 p-6 ">
         <div class="font-medium trunca">
           {@html highlightText(item.title, searchQuery)}
         </div>

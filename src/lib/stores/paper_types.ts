@@ -83,7 +83,7 @@ for (const line of paperRaw.split(/\r?\n/)) {
         
     let title = values[0];
     const url = resolve(`/papers/${encodeURIComponent(title)}.pdf`);
-    title = title.replace('_',"'");
+    title = title.replace('_', "'");
     const date = new Date(values[1]);
     const topic = values[2];
     const page_count = Number(values[3]);
