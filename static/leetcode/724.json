@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>724 - Find Pivot Index</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/find-pivot-index/>find-pivot-index</a></h2><p>Given an array of integers <code>nums</code>, calculate the <strong>pivot index</strong> of this array.<p>The <strong>pivot index</strong> is the index where the sum of all the numbers <strong>strictly</strong> to the left of the index is equal to the sum of all the numbers <strong>strictly</strong> to the index's right.<p>If the index is on the left edge of the array, then the left sum is <code>0</code> because there are no elements to the left. This also applies to the right edge of the array.<p>Return <em>the <strong>leftmost pivot index</strong></em>. If no such index exists, return <code>-1</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,7,3,6,5,6]\n<strong>Output:</strong> 3\n<strong>Explanation:</strong>\nThe pivot index is 3.\nLeft sum = nums[0] + nums[1] + nums[2] = 1 + 7 + 3 = 11\nRight sum = nums[4] + nums[5] = 5 + 6 = 11\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [1,2,3]\n<strong>Output:</strong> -1\n<strong>Explanation:</strong>\nThere is no index that satisfies the conditions in the problem statement.</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [2,1,-1]\n<strong>Output:</strong> 0\n<strong>Explanation:</strong>\nThe pivot index is 0.\nLeft sum = 0 (no elements to the left of index 0)\nRight sum = nums[1] + nums[2] = 1 + -1 = 0\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code><li><code>-1000 &lt;= nums[i] &lt;= 1000</code></ul><p>\u00a0<p><strong>Note:</strong> This question is the same as\u00a01991:\u00a0<a href=https://leetcode.com/problems/find-the-middle-index-in-array/ target=_blank>https://leetcode.com/problems/find-the-middle-index-in-array/</a>",
+"submissions": [
+{
+"time": 1706410956,
+"language": "cpp",
+"runtime": 18,
+"memory": 33.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int pivotIndex(vector<int>& nums) {\n        int rightsum = accumulate(nums.begin(), nums.end(), 0);\n        int leftsum = 0; \n        for (int i = 0; i < nums.size(); i++) {\n            rightsum -= nums[i];\n            if(leftsum == rightsum){\n                return i;\n            }\n            leftsum += nums[i];\n        }\n        return -1;\n    }\n};"
+}
+]
+}

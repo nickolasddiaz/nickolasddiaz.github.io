@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>433 - Minimum Genetic Mutation</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/minimum-genetic-mutation/>minimum-genetic-mutation</a></h2><p>A gene string can be represented by an 8-character long string, with choices from <code>'A'</code>, <code>'C'</code>, <code>'G'</code>, and <code>'T'</code>.<p>Suppose we need to investigate a mutation from a gene string <code>startGene</code> to a gene string <code>endGene</code> where one mutation is defined as one single character changed in the gene string.<ul><li>For example, <code>\"AACCGGTT\" --> \"AACCGGTA\"</code> is one mutation.</ul><p>There is also a gene bank <code>bank</code> that records all the valid gene mutations. A gene must be in <code>bank</code> to make it a valid gene string.<p>Given the two gene strings <code>startGene</code> and <code>endGene</code> and the gene bank <code>bank</code>, return <em>the minimum number of mutations needed to mutate from </em><code>startGene</code><em> to </em><code>endGene</code>. If there is no such a mutation, return <code>-1</code>.<p>Note that the starting point is assumed to be valid, so it might not be included in the bank.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> startGene = \"AACCGGTT\", endGene = \"AACCGGTA\", bank = [\"AACCGGTA\"]\n<strong>Output:</strong> 1\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> startGene = \"AACCGGTT\", endGene = \"AAACGGTA\", bank = [\"AACCGGTA\",\"AACCGCTA\",\"AAACGGTA\"]\n<strong>Output:</strong> 2\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= bank.length &lt;= 10</code><li><code>startGene.length == endGene.length == bank[i].length == 8</code><li><code>startGene</code>, <code>endGene</code>, and <code>bank[i]</code> consist of only the characters <code>['A', 'C', 'G', 'T']</code>.</ul>",
+"submissions": [
+{
+"time": 1768317409,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:\n        bank_set = set(bank)\n        if endGene not in bank_set and startGene != endGene:\n            return -1\n\n        queue = deque()\n        queue.append((startGene,0))\n        visited = set()\n\n        while queue:\n            thisGene, depth = queue.pop()\n            if thisGene == endGene:\n                return depth\n            string = list(thisGene)\n\n            for i in range(len(string)):\n                char = string[i]\n                for ch in ['A','C','G','T']:\n                    string[i] = ch\n                    new_gene = ''.join(string)\n                    if new_gene not in visited and new_gene in bank:\n                        queue.append((new_gene, depth + 1))\n                        visited.add(new_gene)\n\n                string[i] = char\n\n        return -1"
+},
+{
+"time": 1768317750,
+"language": "py",
+"runtime": 0,
+"memory": 19.0,
+"accepted": true,
+"code_content": "class Solution:\n    def minMutation(self, startGene: str, endGene: str, bank: List[str]) -> int:\n        bank_set = set(bank)\n        if endGene not in bank_set and startGene != endGene:\n            return -1\n\n        queue = deque()\n        queue.append((startGene,0))\n        visited = set()\n\n        while queue:\n            thisGene, depth = queue.popleft()\n            if thisGene == endGene:\n                return depth\n            thisGene = list(thisGene)\n\n            for i in range(len(thisGene)):\n                char = thisGene[i]\n                for ch in ['A','C','G','T']:\n                    thisGene[i] = ch\n                    new_gene = ''.join(thisGene)\n                    if new_gene not in visited and new_gene in bank:\n                        queue.append((new_gene, depth + 1))\n                        visited.add(new_gene)\n\n                thisGene[i] = char\n\n        return -1"
+}
+]
+}

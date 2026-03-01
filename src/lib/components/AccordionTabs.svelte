@@ -26,7 +26,7 @@
     {#each data as accord (accord.header)}
         <AccordionItem>
             {#snippet header()}{accord.header}{/snippet}
-            <Tabs tabStyle="underline">
+            <Tabs tabStyle="underline" class="overflow-x-auto whitespace-nowrap">
                 {#each accord.tab_list as tab (tab.tab_name)}
                     <TabItem title={tab.tab_name}>
                         {#if tab.isCode}

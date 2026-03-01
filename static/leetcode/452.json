@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>452 - Minimum Number of Arrows to Burst Balloons</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/>minimum-number-of-arrows-to-burst-balloons</a></h2><p>There are some spherical balloons taped onto a flat wall that represents the XY-plane. The balloons are represented as a 2D integer array <code>points</code> where <code>points[i] = [x<sub>start</sub>, x<sub>end</sub>]</code> denotes a balloon whose <strong>horizontal diameter</strong> stretches between <code>x<sub>start</sub></code> and <code>x<sub>end</sub></code>. You do not know the exact y-coordinates of the balloons.<p>Arrows can be shot up <strong>directly vertically</strong> (in the positive y-direction) from different points along the x-axis. A balloon with <code>x<sub>start</sub></code> and <code>x<sub>end</sub></code> is <strong>burst</strong> by an arrow shot at <code>x</code> if <code>x<sub>start</sub> &lt;= x &lt;= x<sub>end</sub></code>. There is <strong>no limit</strong> to the number of arrows that can be shot. A shot arrow keeps traveling up infinitely, bursting any balloons in its path.<p>Given the array <code>points</code>, return <em>the <strong>minimum</strong> number of arrows that must be shot to burst all balloons</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> points = [[10,16],[2,8],[1,6],[7,12]]\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> The balloons can be burst by 2 arrows:\n- Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].\n- Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> points = [[1,2],[3,4],[5,6],[7,8]]\n<strong>Output:</strong> 4\n<strong>Explanation:</strong> One arrow needs to be shot for each balloon for a total of 4 arrows.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> points = [[1,2],[2,3],[3,4],[4,5]]\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> The balloons can be burst by 2 arrows:\n- Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].\n- Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= points.length &lt;= 10<sup>5</sup></code><li><code>points[i].length == 2</code><li><code>-2<sup>31</sup> &lt;= x<sub>start</sub> &lt; x<sub>end</sub> &lt;= 2<sup>31</sup> - 1</code></ul>",
+"submissions": [
+{
+"time": 1721679647,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int findMinArrowShots(vector<vector<int>>& points) {\n        sort(points.begin(), points.end(), cmp);\n        int xs = INT_MIN;\n        int xe = INT_MIN;\n        int shots = 0;\n        for(auto i : points){\n            if(xe < i[0]){\n                shots++;\n                xs = i[0];\n                xe = i[1];\n            }\n            else {\n                xs = max(xs, i[0]);\n                xe = min(xe, i[1]);\n            }\n        }\n        return shots;\n    }\nprivate:\n    static bool cmp(vector<int>& a, vector<int>& b){\n        return a[0] < b[0];\n    }\n};"
+},
+{
+"time": 1721680944,
+"language": "cpp",
+"runtime": 303,
+"memory": 106.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int findMinArrowShots(vector<vector<int>>& points) {\n        sort(points.begin(), points.end(), cmp);\n        int xs = points[0][1];\n        int shots = 1;\n        for(auto i : points){\n            if(i[0] > xs){\n                shots++;\n                xs = i[1];\n            }\n        }\n        return shots;\n    }\nprivate:\n    static bool cmp(vector<int>& a, vector<int>& b){\n        return a[1] < b[1];\n    }\n\n};"
+}
+]
+}

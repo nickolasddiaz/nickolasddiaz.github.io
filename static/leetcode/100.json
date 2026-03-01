@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>100 - Same Tree</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/same-tree/>same-tree</a></h2><p>Given the roots of two binary trees <code>p</code> and <code>q</code>, write a function to check if they are the same or not.<p>Two binary trees are considered the same if they are structurally identical, and the nodes have the same value.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/12/20/ex1.jpg style=width:622px;height:182px><pre>\n<strong>Input:</strong> p = [1,2,3], q = [1,2,3]\n<strong>Output:</strong> true\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/12/20/ex2.jpg style=width:382px;height:182px><pre>\n<strong>Input:</strong> p = [1,2], q = [1,null,2]\n<strong>Output:</strong> false\n</pre><p><strong class=example>Example 3:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/12/20/ex3.jpg style=width:622px;height:182px><pre>\n<strong>Input:</strong> p = [1,2,1], q = [1,1,2]\n<strong>Output:</strong> false\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in both trees is in the range <code>[0, 100]</code>.<li><code>-10<sup>4</sup> &lt;= Node.val &lt;= 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1764689354,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:\n        stack1 = deque()\n        stack2 = deque()\n\n        stack1.append(p)\n        stack2.append(q)\n\n        while stack1:\n            tree1 = stack1.pop()\n            tree2 = stack2.pop()\n            if (tree1 is None) ^ (tree2 is None):\n                return False\n\n            if tree1 is None:\n                continue\n\n            if tree1.val == tree2.val:\n                stack1.append(tree1.right)\n                stack1.append(tree1.left)\n                stack2.append(tree2.right)\n                stack2.append(tree2.left)\n            else:\n                return False\n                \n        return True\n\n\n\n        "
+}
+]
+}

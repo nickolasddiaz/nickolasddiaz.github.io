@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>190 - Reverse Bits</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/reverse-bits/>reverse-bits</a></h2><p>Reverse bits of a given 32 bits signed integer.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>n = 43261596</span><p><strong>Output:</strong> <span class=example-io>964176192</span><p><strong>Explanation:</strong><table><tbody><tr><th>Integer<th>Binary<tr><td>43261596<td>00000010100101000001111010011100<tr><td>964176192<td>00111001011110000010100101000000</table></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>n = 2147483644</span><p><strong>Output:</strong> <span class=example-io>1073741822</span><p><strong>Explanation:</strong><table><tbody><tr><th>Integer<th>Binary<tr><td>2147483644<td>01111111111111111111111111111100<tr><td>1073741822<td>00111111111111111111111111111110</table></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= n &lt;= 2<sup>31</sup> - 2</code><li><code>n</code> is even.</ul><p>\u00a0<p><strong>Follow up:</strong> If this function is called many times, how would you optimize it?",
+"submissions": [
+{
+"time": 1767022501,
+"language": "py",
+"runtime": 36,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def reverseBits(self, n: int) -> int:\n        result = 0\n        for i in range(31):\n            result += n & 1\n            result <<= 1\n            n >>= 1\n\n        return result"
+}
+]
+}

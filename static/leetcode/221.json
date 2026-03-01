@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>221 - Maximal Square</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/maximal-square/>maximal-square</a></h2><p>Given an <code>m x n</code> binary <code>matrix</code> filled with <code>0</code>'s and <code>1</code>'s, <em>find the largest square containing only</em> <code>1</code>'s <em>and return its area</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/26/max1grid.jpg style=width:400px;height:319px><pre>\n<strong>Input:</strong> matrix = [[\"1\",\"0\",\"1\",\"0\",\"0\"],[\"1\",\"0\",\"1\",\"1\",\"1\"],[\"1\",\"1\",\"1\",\"1\",\"1\"],[\"1\",\"0\",\"0\",\"1\",\"0\"]]\n<strong>Output:</strong> 4\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/26/max2grid.jpg style=width:165px;height:165px><pre>\n<strong>Input:</strong> matrix = [[\"0\",\"1\"],[\"1\",\"0\"]]\n<strong>Output:</strong> 1\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> matrix = [[\"0\"]]\n<strong>Output:</strong> 0\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>m == matrix.length</code><li><code>n == matrix[i].length</code><li><code>1 &lt;= m, n &lt;= 300</code><li><code>matrix[i][j]</code> is <code>'0'</code> or <code>'1'</code>.</ul>",
+"submissions": [
+{
+"time": 1768864830,
+"language": "py",
+"runtime": 87,
+"memory": 33.0,
+"accepted": true,
+"code_content": "class Solution:\n    def maximalSquare(self, matrix: List[List[str]]) -> int:\n        if matrix is None or len(matrix) < 1:\n            return 0\n\n        rows = len(matrix)\n        cols = len(matrix[0])\n\n        dp_grid = [[0] * (cols + 1) for _ in range(rows + 1)]\n        max_side = 0\n\n        for x in range(rows):\n            for y in range(cols):\n                if matrix[x][y] == \"1\":\n                    dp_grid[x+1][y+1] = min(dp_grid[x][y], dp_grid[x+1][y], dp_grid[x][y+1]) + 1\n                    max_side = max(max_side, dp_grid[x+1][y+1])\n\n\n        return max_side * max_side"
+}
+]
+}

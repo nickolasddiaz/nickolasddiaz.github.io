@@ -1,6 +1,6 @@
 import type Accordiontype from '$lib/stores/accordion_tabs_types'
 
-export const data: Accordiontype[] = [
+export default [
   {
     header: "Password Manager:  Aug 10, 2024 - Oct 22, 2024",
     tab_list: [
@@ -52,4 +52,4 @@ export const data: Accordiontype[] = [
       { tab_name: "Site", resource: "https://nickolasddiaz.github.io/16bitcomputer/", isCode: false },
     ]
   },
-];
+] as Accordiontype[];

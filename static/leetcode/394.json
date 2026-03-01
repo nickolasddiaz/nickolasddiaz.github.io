@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>394 - Decode String</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/decode-string/>decode-string</a></h2><p>Given an encoded string, return its decoded string.<p>The encoding rule is: <code>k[encoded_string]</code>, where the <code>encoded_string</code> inside the square brackets is being repeated exactly <code>k</code> times. Note that <code>k</code> is guaranteed to be a positive integer.<p>You may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, <code>k</code>. For example, there will not be input like <code>3a</code> or <code>2[4]</code>.<p>The test cases are generated so that the length of the output will never exceed <code>10<sup>5</sup></code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"3[a]2[bc]\"\n<strong>Output:</strong> \"aaabcbc\"\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"3[a2[c]]\"\n<strong>Output:</strong> \"accaccacc\"\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \"2[abc]3[cd]ef\"\n<strong>Output:</strong> \"abcabccdcdcdef\"\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 30</code><li><code>s</code> consists of lowercase English letters, digits, and square brackets <code>'[]'</code>.<li><code>s</code> is guaranteed to be <strong>a valid</strong> input.<li>All the integers in <code>s</code> are in the range <code>[1, 300]</code>.</ul>",
+"submissions": [
+{
+"time": 1717890282,
+"language": "cpp",
+"runtime": 0,
+"memory": 7.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string decodeString(string s) {\n        string ans;\n        int i = 0;\n        while (i < s.length()) {\n            if (isdigit(s[i])) {\n                int mult = 0;\n                while (isdigit(s[i])) {\n                    mult = mult * 10 + (s[i] - '0');\n                    i++;\n                }\n                i++;\n                int fbracket = 1;\n                int start = i;\n                while (fbracket != 0) {\n                    if (s[i] == '[') fbracket++;\n                    if (s[i] == ']') fbracket--;\n                    i++;\n                }\n                string temp = decodeString(s.substr(start, i - start - 1));\n                for (int j = 0; j < mult; j++) {\n                    ans += temp;\n                }\n            } else {\n                ans += s[i];\n                i++;\n            }\n        }\n        return ans;\n    }\n};\n"
+}
+]
+}

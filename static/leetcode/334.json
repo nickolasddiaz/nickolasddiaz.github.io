@@ -1,0 +1,85 @@
+{
+"html_content": "<h1>334 - Increasing Triplet Subsequence</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/increasing-triplet-subsequence/>increasing-triplet-subsequence</a></h2><p>Given an integer array <code>nums</code>, return <code>true</code><em> if there exists a triple of indices </em><code>(i, j, k)</code><em> such that </em><code>i &lt; j &lt; k</code><em> and </em><code>nums[i] &lt; nums[j] &lt; nums[k]</code>. If no such indices exists, return <code>false</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,2,3,4,5]\n<strong>Output:</strong> true\n<strong>Explanation:</strong> Any triplet where i &lt; j &lt; k is valid.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [5,4,3,2,1]\n<strong>Output:</strong> false\n<strong>Explanation:</strong> No triplet exists.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [2,1,5,0,4,6]\n<strong>Output:</strong> true\n<strong>Explanation:</strong> One of the valid triplet is (1, 4, 5), because nums[1] == 1 &lt; nums[4] == 4 &lt; nums[5] == 6.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 5 * 10<sup>5</sup></code><li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code></ul><p>\u00a0<p><strong>Follow up:</strong> Could you implement a solution that runs in <code>O(n)</code> time complexity and <code>O(1)</code> space complexity?",
+"submissions": [
+{
+"time": 1693003966,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        for (int i = 0; i < n; ++i) {\n        if(i != 0 && (i != n)){\n        if((nums[i+1] < nums[i]) && (nums[i-1] < nums[i]))\n            return(true);\n        }}\n\n        return(false);\n    }\n};"
+},
+{
+"time": 1693004029,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        for (int i = 0; i < n; ++i) {\n        if(i != 0 && (i != n)){\n        if((nums[i+1] > nums[i]) && (nums[i-1] < nums[i]))\n            return(true);\n        }}\n\n        return(false);\n    }\n};"
+},
+{
+"time": 1693004256,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        for (int i = 1; i < n-1; ++i) {\n        if((nums[i+1] > nums[i]) && (nums[i-1] < nums[i]))\n            return(true);\n        }\n\n        return(false);\n    }\n};"
+},
+{
+"time": 1693004320,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        for (int i = 1; i < n-1; ++i) {\n        if((nums[i+1] > nums[i]) && (nums[i-1] < nums[i]))\n            return(true);\n        }\n\n        return(false);\n    }\n};"
+},
+{
+"time": 1693005552,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        int low = nums[0];\n        int sec;\n        for (int i = 1; i < n-1; ++i) {\n            if (low < nums[i]){\n                sec = nums[i];\n                for (int t = 1; t < n-1; ++t) \n                    if (sec < nums[t]){\n                        return(true);\n                    }\n            }\n            if(low > nums[i])\n            low = nums[i];\n        }\n        return(false);\n    }\n};"
+},
+{
+"time": 1693006034,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        int low = nums[0];\n        int sec;\n        for (int i = 1; i < n-1; i++) {\n            if (low < nums[i]){\n                sec = nums[i];\n                for (int t = i + 1; t < n; ++t) {\n                    if (sec < nums[t]) {\n                    return true;\n                }\n}\n\n            }\n            if(low > nums[i])\n            low = nums[i];\n        }\n        return(false);\n    }\n};"
+},
+{
+"time": 1693006663,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        int low = 9999999;\n        int sec = 9999999;\n        for (int num : nums) {\n            if (num <= low){\n                low = num;}\n             else if (num <= sec){\n                sec = num;\n            } else {\n                return true;\n            }\n\n        \n    }return(false);}\n};"
+},
+{
+"time": 1693006725,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        int low = 100000001;\n        int sec = 100000001;\n        for (int num : nums) {\n            if (num <= low){\n                low = num;}\n             else if (num <= sec){\n                sec = num;\n            } else {\n                return true;\n            }\n\n        \n    }return(false);}\n};"
+},
+{
+"time": 1693006803,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        int low = 294967294;\n        int sec = 294967294;\n        for (int num : nums) {\n            if (num <= low){\n                low = num;}\n             else if (num <= sec){\n                sec = num;\n            } else {\n                return true;\n            }\n\n        \n    }return(false);}\n};"
+},
+{
+"time": 1693006862,
+"language": "cpp",
+"runtime": 87,
+"memory": 111.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool increasingTriplet(vector<int>& nums) {\n        int n = nums.size();\n        int low = 2147483647;\n        int sec = 2147483647;\n        for (int num : nums) {\n            if (num <= low){\n                low = num;}\n             else if (num <= sec){\n                sec = num;\n            } else {\n                return true;\n            }\n\n        \n    }return(false);}\n};"
+}
+]
+}

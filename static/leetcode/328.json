@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>328 - Odd Even Linked List</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/odd-even-linked-list/>odd-even-linked-list</a></h2><p>Given the <code>head</code> of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return <em>the reordered list</em>.<p>The <strong>first</strong> node is considered <strong>odd</strong>, and the <strong>second</strong> node is <strong>even</strong>, and so on.<p>Note that the relative order inside both the even and odd groups should remain as it was in the input.<p>You must solve the problem\u00a0in <code>O(1)</code>\u00a0extra space complexity and <code>O(n)</code> time complexity.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/03/10/oddeven-linked-list.jpg style=width:300px;height:123px><pre>\n<strong>Input:</strong> head = [1,2,3,4,5]\n<strong>Output:</strong> [1,3,5,2,4]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/03/10/oddeven2-linked-list.jpg style=width:500px;height:142px><pre>\n<strong>Input:</strong> head = [2,1,3,5,6,4,7]\n<strong>Output:</strong> [2,3,6,7,1,5,4]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the linked list is in the range <code>[0, 10<sup>4</sup>]</code>.<li><code>-10<sup>6</sup> &lt;= Node.val &lt;= 10<sup>6</sup></code></ul>",
+"submissions": [
+{
+"time": 1719270259,
+"language": "cpp",
+"runtime": 3,
+"memory": 13.0,
+"accepted": true,
+"code_content": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     ListNode *next;\n *     ListNode() : val(0), next(nullptr) {}\n *     ListNode(int x) : val(x), next(nullptr) {}\n *     ListNode(int x, ListNode *next) : val(x), next(next) {}\n * };\n */\nclass Solution {\npublic:\n    ListNode* oddEvenList(ListNode* head) {\n    if (!head || !head->next) {\n            return head;\n        }   \n    ListNode* odd = head;\n    ListNode* even = head->next;\n    ListNode* evenHead = even;\n\n    while(even && even->next){\n        odd->next = even->next;\n        odd = even->next;\n        even->next = odd->next;\n        even = odd->next;\n    }\n    odd->next = evenHead;\n    return head;\n\n    }\n};"
+}
+]
+}

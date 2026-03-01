@@ -1,6 +1,6 @@
 import type Accordiontype from '$lib/stores/accordion_tabs_types'
 
-export const data: Accordiontype[] = [
+export default [
   {
     header: "Lucky Number Game",
     tab_list: [
@@ -58,4 +58,4 @@ export const data: Accordiontype[] = [
       { tab_name: "Circle", resource: "/computer_graphics/Perdition/src/Circle.ts", isCode: true },
     ],
   },
-];
+] as Accordiontype[];

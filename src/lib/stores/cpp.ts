@@ -1,6 +1,6 @@
 import type Accordiontype from '$lib/stores/accordion_tabs_types'
 
-export const data: Accordiontype[] = [
+export default [
   {
     header: "Homework 1-10",
     tab_list: [
@@ -242,4 +242,4 @@ export const data: Accordiontype[] = [
         { tab_name: "ex 2", resource: "/cpp/labs/ex15_2.cpp", isCode: true }
       ]
     },
-];
+] as Accordiontype[];

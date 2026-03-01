@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>125 - Valid Palindrome</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/valid-palindrome/>valid-palindrome</a></h2><p>A phrase is a <strong>palindrome</strong> if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.<p>Given a string <code>s</code>, return <code>true</code><em> if it is a <strong>palindrome</strong>, or </em><code>false</code><em> otherwise</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"A man, a plan, a canal: Panama\"\n<strong>Output:</strong> true\n<strong>Explanation:</strong> \"amanaplanacanalpanama\" is a palindrome.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"race a car\"\n<strong>Output:</strong> false\n<strong>Explanation:</strong> \"raceacar\" is not a palindrome.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \" \"\n<strong>Output:</strong> true\n<strong>Explanation:</strong> s is an empty string \"\" after removing non-alphanumeric characters.\nSince an empty string reads the same forward and backward, it is a palindrome.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 2 * 10<sup>5</sup></code><li><code>s</code> consists only of printable ASCII characters.</ul>",
+"submissions": [
+{
+"time": 1762097447,
+"language": "cpp",
+"runtime": 3,
+"memory": 9.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool isPalindrome(string s) {    \n        int n = s.size();\n        for(int x = 0, y = n-1; x < y; x++, y--){\n            while(x < n && !isalnum(s[x])){\n                x++;\n            }\n            while(y > 0 && !isalnum(s[y])){\n                y--;\n            }\n            if(x >= y)\n                return true;\n\n            if(toupper(s[x]) != toupper(s[y]))\n                return false;\n        }\n        return true;\n        \n    }\n};"
+}
+]
+}

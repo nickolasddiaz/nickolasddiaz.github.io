@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>2470 - Removing Stars From a String</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/removing-stars-from-a-string/>removing-stars-from-a-string</a></h2><p>You are given a string <code>s</code>, which contains stars <code>*</code>.<p>In one operation, you can:<ul><li>Choose a star in <code>s</code>.<li>Remove the closest <strong>non-star</strong> character to its <strong>left</strong>, as well as remove the star itself.</ul><p>Return <em>the string after <strong>all</strong> stars have been removed</em>.<p><strong>Note:</strong><ul><li>The input will be generated such that the operation is always possible.<li>It can be shown that the resulting string will always be unique.</ul><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"leet**cod*e\"\n<strong>Output:</strong> \"lecoe\"\n<strong>Explanation:</strong> Performing the removals from left to right:\n- The closest character to the 1<sup>st</sup> star is 't' in \"lee<strong><u>t</u></strong>**cod*e\". s becomes \"lee*cod*e\".\n- The closest character to the 2<sup>nd</sup> star is 'e' in \"le<strong><u>e</u></strong>*cod*e\". s becomes \"lecod*e\".\n- The closest character to the 3<sup>rd</sup> star is 'd' in \"leco<strong><u>d</u></strong>*e\". s becomes \"lecoe\".\nThere are no more stars, so we return \"lecoe\".</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"erase*****\"\n<strong>Output:</strong> \"\"\n<strong>Explanation:</strong> The entire string is removed, so we return an empty string.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code><li><code>s</code> consists of lowercase English letters and stars <code>*</code>.<li>The operation above can be performed on <code>s</code>.</ul>",
+"submissions": [
+{
+"time": 1717644271,
+"language": "cpp",
+"runtime": 674,
+"memory": 24.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string removeStars(string s) {\n        int rem = 0;\n        for(int i = s.size() - 1; i >= 0; i--){\n            if(s[i] == '*'){\n                rem++;\n            } else if (rem > 0) {\n                rem--;\n            } else {\n                continue;\n            }\n            s.erase(i, 1); \n        }\n        return s;\n    }\n};"
+}
+]
+}

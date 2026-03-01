@@ -1,0 +1,69 @@
+{
+"html_content": "<h1>605 - Can Place Flowers</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/can-place-flowers/>can-place-flowers</a></h2><p>You have a long flowerbed in which some of the plots are planted, and some are not. However, flowers cannot be planted in <strong>adjacent</strong> plots.<p>Given an integer array <code>flowerbed</code> containing <code>0</code>'s and <code>1</code>'s, where <code>0</code> means empty and <code>1</code> means not empty, and an integer <code>n</code>, return <code>true</code>\u00a0<em>if</em> <code>n</code> <em>new flowers can be planted in the</em> <code>flowerbed</code> <em>without violating the no-adjacent-flowers rule and</em> <code>false</code> <em>otherwise</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> flowerbed = [1,0,0,0,1], n = 1\n<strong>Output:</strong> true\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> flowerbed = [1,0,0,0,1], n = 2\n<strong>Output:</strong> false\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= flowerbed.length &lt;= 2 * 10<sup>4</sup></code><li><code>flowerbed[i]</code> is <code>0</code> or <code>1</code>.<li>There are no two adjacent flowers in <code>flowerbed</code>.<li><code>0 &lt;= n &lt;= flowerbed.length</code></ul>",
+"submissions": [
+{
+"time": 1686952692,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        for(int i = 1; i > flowerbed.size(); i++){\n            if(!(flowerbed[i-1] || flowerbed[i] || flowerbed[i+1])){\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};"
+},
+{
+"time": 1686952846,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        for(int i = 1; i < flowerbed.size(); i++){\n            if(!(flowerbed[i-1] || flowerbed[i] || flowerbed[i+1])){\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};"
+},
+{
+"time": 1686952958,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        if(!(flowerbed[0] || flowerbed[1])){\n            num++;\n            flowerbed[0] = 1;\n        }\n        for(int i = 1; i < flowerbed.size(); i++){\n            if(!(flowerbed[i-1] || flowerbed[i] || flowerbed[i+1])){\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};"
+},
+{
+"time": 1686953232,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        if(!(flowerbed[0] || flowerbed[1])){\n            num++;\n            flowerbed[0] = 1;\n        }\n        if(!(flowerbed[flowerbed.size()-2] || flowerbed[flowerbed.size()-1])){\n            num++;\n            flowerbed[flowerbed.size() -1] = 1;\n        }\n        for(int i = 1; i < flowerbed.size()-1; i++){\n            if(!(flowerbed[i-1] || flowerbed[i] || flowerbed[i+1])){\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};"
+},
+{
+"time": 1686953251,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        if(!(flowerbed[0] || flowerbed[1])){\n            num++;\n            flowerbed[0] = 1;\n        }\n        if(!(flowerbed[flowerbed.size()-2] || flowerbed[flowerbed.size()-1])){\n            num++;\n            flowerbed[flowerbed.size() -1] = 1;\n        }\n        for(int i = 1; i < flowerbed.size()-1; i++){\n            if(!(flowerbed[i-1] || flowerbed[i] || flowerbed[i+1])){\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};"
+},
+{
+"time": 1686953264,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        if (!(flowerbed[0] || flowerbed[1])) {\n            num++;\n            flowerbed[0] = 1;\n        }\n        if (!(flowerbed[flowerbed.size() - 1] || flowerbed[flowerbed.size() - 2])) {\n            num++;\n            flowerbed[flowerbed.size() - 1] = 1;\n        }\n        for (int i = 1; i < flowerbed.size() - 1; i++) {\n            if (!(flowerbed[i - 1] || flowerbed[i] || flowerbed[i + 1])) {\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};\n"
+},
+{
+"time": 1686953421,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        if (!(flowerbed[0] || flowerbed[1])) {\n            num++;\n            flowerbed[0] = 1;\n        }\n        if(flowerbed.size() >= 2){\n        if (!(flowerbed[flowerbed.size() - 1] || flowerbed[flowerbed.size() - 2])) {\n            num++;\n            flowerbed[flowerbed.size() - 1] = 1;\n        }}\n        for (int i = 1; i < flowerbed.size() - 1; i++) {\n            if (!(flowerbed[i - 1] || flowerbed[i] || flowerbed[i + 1])) {\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};\n"
+},
+{
+"time": 1686953665,
+"language": "cpp",
+"runtime": 17,
+"memory": 20.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool canPlaceFlowers(vector<int>& flowerbed, int n) {\n        int num = 0;\n        if(flowerbed.size() == 1){\n            if (!(flowerbed[0]))\n                num++;\n            return num >= n;\n        }\n        if (!(flowerbed[0] || flowerbed[1])) {\n            num++;\n            flowerbed[0] = 1;\n        }\n        if(flowerbed.size() >= 2){\n        if (!(flowerbed[flowerbed.size() - 1] || flowerbed[flowerbed.size() - 2])) {\n            num++;\n            flowerbed[flowerbed.size() - 1] = 1;\n        }}\n        for (int i = 1; i < flowerbed.size() - 1; i++) {\n            if (!(flowerbed[i - 1] || flowerbed[i] || flowerbed[i + 1])) {\n                num++;\n                flowerbed[i] = 1;\n            }\n        }\n        return num >= n;\n    }\n};\n"
+}
+]
+}

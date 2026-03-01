@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>1576 - Reorder Routes to Make All Paths Lead to the City Zero</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/>reorder-routes-to-make-all-paths-lead-to-the-city-zero</a></h2><p>There are <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code> and <code>n - 1</code> roads such that there is only one way to travel between two different cities (this network form a tree). Last year, The ministry of transport decided to orient the roads in one direction because they are too narrow.<p>Roads are represented by <code>connections</code> where <code>connections[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> represents a road from city <code>a<sub>i</sub></code> to city <code>b<sub>i</sub></code>.<p>This year, there will be a big event in the capital (city <code>0</code>), and many people want to travel to this city.<p>Your task consists of reorienting some roads such that each city can visit the city <code>0</code>. Return the <strong>minimum</strong> number of edges changed.<p>It's <strong>guaranteed</strong> that each city can reach city <code>0</code> after reorder.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/05/13/sample_1_1819.png style=width:311px;height:189px><pre>\n<strong>Input:</strong> n = 6, connections = [[0,1],[1,3],[2,3],[4,0],[4,5]]\n<strong>Output:</strong> 3\n<strong>Explanation: </strong>Change the direction of edges show in red such that each node can reach the node 0 (capital).\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/05/13/sample_2_1819.png style=width:509px;height:79px><pre>\n<strong>Input:</strong> n = 5, connections = [[1,0],[1,2],[3,2],[3,4]]\n<strong>Output:</strong> 2\n<strong>Explanation: </strong>Change the direction of edges show in red such that each node can reach the node 0 (capital).\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> n = 3, connections = [[1,0],[2,0]]\n<strong>Output:</strong> 0\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>2 &lt;= n &lt;= 5 * 10<sup>4</sup></code><li><code>connections.length == n - 1</code><li><code>connections[i].length == 2</code><li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt;= n - 1</code><li><code>a<sub>i</sub> != b<sub>i</sub></code></ul>",
+"submissions": [
+{
+"time": 1720037574,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int minReorder(int n, vector<vector<int>>& connections) {\n        int change = 0;\n        set<int> connected;\n        connected.insert(0);\n        vector<vector<int>>::iterator ptr;\n        for (ptr = connections.begin(); ptr < connections.end(); ptr++) {\n            checks(*ptr, connected, change);\n        }\n        return change;\n    }\nprivate:\n    void checks(vector<int> connect, set<int>& connected, int& change){\n        if(connected.contains(connect[1])){\n            connected.insert(connect[0]);\n        }\n        else{\n            change++;\n            connected.insert(connect[1]);\n        }\n    }\n};"
+},
+{
+"time": 1720039731,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int minReorder(int n, vector<vector<int>>& connections) {\n        int change = 0;\n        set<int> connected;\n        connected.insert(0);\n        stack<int> fstack;\n        stack<int> lstack;\n        vector<vector<int>>::iterator ptr;\n        for (ptr = connections.begin(); ptr < connections.end(); ptr++) {\n            checks(*ptr, connected, fstack, lstack);\n        }\n\n        while (!fstack.empty()) {\n            stackcheck(fstack.top(), lstack.top(), change, connected);\n            fstack.pop();\n            lstack.pop();\n        }\n\n        return change;\n    }\nprivate:\n    void checks(vector<int> connect, set<int>& connected, stack<int>& fstack, stack<int>& lstack){\n        if(connected.contains(connect[1])){\n            connected.insert(connect[0]);\n        }\n        else{\n            fstack.push(connect[0]);\n            lstack.push(connect[1]);\n        }\n    }\n    void stackcheck(int fstack, int lstack, int& change, set<int>& connected){\n        if(connected.contains(lstack)){\n            connected.insert(fstack);\n        }\n        else{\n            change++;\n            connected.insert(lstack);\n        }\n    }\n};"
+},
+{
+"time": 1720039974,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int minReorder(int n, vector<vector<int>>& connections) {\n        int change = 0;\n        set<int> connected;\n        connected.insert(0);\n        queue<int> fstack;\n        queue<int> lstack;\n        vector<vector<int>>::iterator ptr;\n        for (ptr = connections.begin(); ptr < connections.end(); ptr++) {\n            checks(*ptr, connected, fstack, lstack);\n        }\n\n        while (!fstack.empty()) {\n            stackcheck(fstack.front(), lstack.front(), change, connected);\n            fstack.pop();\n            lstack.pop();\n        }\n\n        return change;\n    }\nprivate:\n    void checks(vector<int> connect, set<int>& connected, queue<int>& fstack, queue<int>& lstack){\n        if(connected.contains(connect[1])){\n            connected.insert(connect[0]);\n        }\n        else{\n            fstack.push(connect[0]);\n            lstack.push(connect[1]);\n        }\n    }\n    void stackcheck(int fstack, int lstack, int& change, set<int>& connected){\n        if(connected.contains(lstack)){\n            connected.insert(fstack);\n        }\n        else{\n            change++;\n            connected.insert(lstack);\n        }\n    }\n};"
+},
+{
+"time": 1720200962,
+"language": "cpp",
+"runtime": 284,
+"memory": 110.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int minReorder(int n, vector<vector<int>>& connections) {\n        vector<int> adj[n];\n        vector<int> rvadj[n];\n\n        for(auto connection : connections)\n        {\n            adj[connection[0]].push_back(connection[1]);\n            rvadj[connection[1]].push_back(connection[0]);\n        }\n\n        queue<int> q;\n        int op = 0;\n        vector<int> vis(n, 0);\n\n        q.push(0);\n        vis[0] = 1;\n\n        while(!q.empty())\n        {\n            int l = q.size();\n            while(l--)\n            {\n                int node = q.front();\n                q.pop();\n\n                for(auto x : adj[node])\n                {\n                    if(vis[x] != 1)\n                    {\n                        vis[x] = 1;\n                        op++;\n                        q.push(x);\n                    }\n                }\n                for(auto x : rvadj[node])\n                {\n                    if(vis[x] != 1)\n                    {\n                        vis[x] = 1;\n                        q.push(x);\n                    }\n                }\n            }\n        }\n\n        return op;\n\n    }\n};"
+}
+]
+}

@@ -1,0 +1,101 @@
+{
+"html_content": "<h1>238 - Product of Array Except Self</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/product-of-array-except-self/>product-of-array-except-self</a></h2><p>Given an integer array <code>nums</code>, return <em>an array</em> <code>answer</code> <em>such that</em> <code>answer[i]</code> <em>is equal to the product of all the elements of</em> <code>nums</code> <em>except</em> <code>nums[i]</code>.<p>The product of any prefix or suffix of <code>nums</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.<p>You must write an algorithm that runs in\u00a0<code>O(n)</code>\u00a0time and without using the division operation.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> nums = [1,2,3,4]\n<strong>Output:</strong> [24,12,8,6]\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> nums = [-1,1,0,-3,3]\n<strong>Output:</strong> [0,0,9,0,0]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>2 &lt;= nums.length &lt;= 10<sup>5</sup></code><li><code>-30 &lt;= nums[i] &lt;= 30</code><li>The input is generated such that <code>answer[i]</code> is <strong>guaranteed</strong> to fit in a <strong>32-bit</strong> integer.</ul><p>\u00a0<p><strong>Follow up:</strong>\u00a0Can you solve the problem in <code>O(1)</code>\u00a0extra\u00a0space complexity? (The output array <strong>does not</strong> count as extra space for space complexity analysis.)",
+"submissions": [
+{
+"time": 1692999313,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n        for (auto & element : nums) \n  {\n    cout << element << \" \";\n  }\n    }\n};"
+},
+{
+"time": 1692999707,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      vector<int> final;\n      int temp = 1;\n for(int i: nums){\n   for(int x: nums){\n     if(i != x){\n       temp = temp * nums[x]\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1692999715,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      vector<int> final;\n      int temp = 1;\n for(int i: nums){\n   for(int x: nums){\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1692999731,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      vector<int> final;\n      int temp = 1;\n for(auto i: nums){\n   for(auto x: nums){\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1692999873,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      int n = nums.size();\n      vector<int> final;\n      int temp = 1;\n for (int i = 0; i < n; ++i) {\n   for (int x = 0; x < n; ++x) {\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1692999906,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      int n = nums.size();\n      vector<int> final;\n      int temp = 1;\n for (int i = 0; i < n; ++i) {\n   for (int x = 0; x < n; ++x) {\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1693000023,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      int n = nums.size();\n      vector<int> final;\n      int temp = 1;\n for (int i = 0; i < n; ++i) {\n   for (int x = 0; x < n; ++x) {\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1693000839,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      int n = nums.size();\n      int test = 1;\n      vector<int> final;\n      int temp = 1;\n      for (int t = 0; t < n; ++t) {\n        if(nums[t] != 1){\n        \n        }\n        else if (nums[t] != -1){temp = -1}\n        else {\n          test = 0;\n          temp = 1\n          break;}\n      }\n      if (test){\n        for (int i = 0; i < n; ++i) {\n          final.push_back(temp * nums[x]);\n        }\n        return(final);\n      }\n for (int i = 0; i < n; ++i) {\n   for (int x = 0; x < n; ++x) {\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};"
+},
+{
+"time": 1693002522,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "bool reverse(bool boolean) \n{\n  if(boolean == true){\n    return false;\n  }\n  else\n    return true;\n}\n\nclass Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n      int n = nums.size();\n      int test = 1;\n      bool test2 = true;\n      vector<int> final;\n      int temp = 1;\n      for (int t = 0; t < n; ++t) {\n        if(nums[t] == 1){\n          \n        }\n        else if(nums[t] == -1){\n          reverse(test2);\n        }\n        else {\n          test = 0;\n          }\n\n      }\n      int test3;\n      if (test2)\n      test3 = -1;\n      else \n      test3 = 1;\n      if (test){\n        for (int y = 0; y < n; ++y) {\n          final.push_back(test3 * nums[y]);\n        }\n        return(final);\n      }\n for (int i = 0; i < n; ++i) {\n   for (int x = 0; x < n; ++x) {\n     if(i != x){\n       temp = temp * nums[x];\n     }\n   }\n  final.push_back(temp);\n  temp = 1;\n}\nreturn(final);\n    }\n};\n"
+},
+{
+"time": 1721697336,
+"language": "cpp",
+"runtime": 28,
+"memory": 40.0,
+"accepted": true,
+"code_content": "class Solution {\n\npublic:\n\n    vector<int> productExceptSelf(vector<int>& nums) {\n\n        int sum = 1;\n\n        int zero = 0;\n\n        int index = -1;\n\n        for(int i = 0; i < nums.size(); i++){\n\n            if(nums[i]){\n\n                sum *= nums[i];\n\n            }\n\n            else{\n\n                zero++;\n\n                index = i;\n\n            }\n\n        }\n\n        if(zero >= 2){\n\n            vector<int> temp(nums.size(), 0);\n\n            return temp;\n\n        }\n\n        else if(zero == 1){\n\n            vector<int> temp(nums.size(), 0);\n\n            temp[index] = sum;\n\n            return temp;\n\n        }\n\n        else{\n\n            vector<int> temp;\n\n            for(auto i : nums){\n\n                temp.push_back(sum / i);\n\n            }\n\n            return temp;\n\n        }\n\n    }\n\n};"
+},
+{
+"time": 1761403048,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n        int n = nums.size();\n        if(n <= 2){\n            return nums;\n        }\n\n        int* prefix = new int[n];\n        int* postfix = new int[n];\n\n        prefix[0] = nums[0];\n        postfix[n-1] = nums[n-1];\n\n        for(int i =1; i<n; i++){\n            prefix[i] = prefix[i-1] * nums[i];\n        }\n        for(int i =n-2; i>0; i--){\n            postfix[i] = postfix[i+1] * nums[i];\n        }\n\n        for(int i =1; i<n-1; i++){\n            nums[i] = prefix[i-1] * postfix[i+1];\n\n        }\n\n        nums[0] = postfix[1];\n        nums[n-1] = prefix[n-2];\n\n        return nums;\n\n        \n    }\n};"
+},
+{
+"time": 1761403189,
+"language": "cpp",
+"runtime": 0,
+"memory": 42.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    vector<int> productExceptSelf(vector<int>& nums) {\n        int n = nums.size();\n        if(n <= 1){\n            return nums;\n        }\n        if(n <= 2){\n            vector<int> t = {nums[1],nums[0]};\n            return t;\n        }\n\n        int* prefix = new int[n];\n        int* postfix = new int[n];\n\n        prefix[0] = nums[0];\n        postfix[n-1] = nums[n-1];\n\n        for(int i =1; i<n; i++){\n            prefix[i] = prefix[i-1] * nums[i];\n        }\n        for(int i =n-2; i>0; i--){\n            postfix[i] = postfix[i+1] * nums[i];\n        }\n\n        for(int i =1; i<n-1; i++){\n            nums[i] = prefix[i-1] * postfix[i+1];\n\n        }\n\n        nums[0] = postfix[1];\n        nums[n-1] = prefix[n-2];\n\n        return nums;\n\n        \n    }\n};"
+}
+]
+}

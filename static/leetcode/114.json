@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>114 - Flatten Binary Tree to Linked List</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/flatten-binary-tree-to-linked-list/>flatten-binary-tree-to-linked-list</a></h2><p>Given the <code>root</code> of a binary tree, flatten the tree into a \"linked list\":<ul><li>The \"linked list\" should use the same <code>TreeNode</code> class where the <code>right</code> child pointer points to the next node in the list and the <code>left</code> child pointer is always <code>null</code>.<li>The \"linked list\" should be in the same order as a <a href=https://en.wikipedia.org/wiki/Tree_traversal#Pre-order,_NLR target=_blank><strong>pre-order</strong><strong> traversal</strong></a> of the binary tree.</ul><p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/01/14/flaten.jpg style=width:500px;height:226px><pre>\n<strong>Input:</strong> root = [1,2,5,3,4,null,6]\n<strong>Output:</strong> [1,null,2,null,3,null,4,null,5,null,6]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> root = []\n<strong>Output:</strong> []\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> root = [0]\n<strong>Output:</strong> [0]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[0, 2000]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code></ul><p>\u00a0<p><strong>Follow up:</strong> Can you flatten the tree in-place (with <code>O(1)</code> extra space)?",
+"submissions": [
+{
+"time": 1764885301,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def flatten(self, root: Optional[TreeNode]) -> None:\n        \"\"\"\n        Do not return anything, modify root in-place instead.\n        \"\"\"\n        stack = deque()\n        head = TreeNode()\n        prev = head\n\n        if root is not None:\n            stack.append(root)\n\n        while stack:\n            node = stack.pop()\n\n            if node.right:\n                stack.append(node.right)\n\n            if node.left:\n                stack.append(node.left)\n\n            node.left = None\n            node.right = None\n            prev.right = node\n            prev = node\n\n\n        return head.right\n        "
+}
+]
+}

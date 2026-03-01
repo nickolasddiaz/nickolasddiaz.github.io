@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>117 - Populating Next Right Pointers in Each Node II</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/>populating-next-right-pointers-in-each-node-ii</a></h2><p>Given a binary tree<pre>\nstruct Node {\n  int val;\n  Node *left;\n  Node *right;\n  Node *next;\n}\n</pre><p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to <code>NULL</code>.<p>Initially, all next pointers are set to <code>NULL</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2019/02/15/117_sample.png style=width:500px;height:171px><pre>\n<strong>Input:</strong> root = [1,2,3,4,5,null,7]\n<strong>Output:</strong> [1,#,2,3,#,4,5,7,#]\n<strong>Explanation: </strong>Given the above binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> root = []\n<strong>Output:</strong> []\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[0, 6000]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code></ul><p>\u00a0<p><strong>Follow-up:</strong><ul><li>You may only use constant extra space.<li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</ul>",
+"submissions": [
+{
+"time": 1764884606,
+"language": "py",
+"runtime": 40,
+"memory": 19.0,
+"accepted": true,
+"code_content": "\"\"\"\n# Definition for a Node.\nclass Node:\n    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):\n        self.val = val\n        self.left = left\n        self.right = right\n        self.next = next\n\"\"\"\n\nclass Solution:\n    def connect(self, root: 'Node') -> 'Node':\n\n        temp_head = root\n        while temp_head:\n            temp = Node()\n            tail = temp\n\n            while temp_head:\n                if temp_head.left:\n                    tail.next = temp_head.left\n                    tail = tail.next\n                if temp_head.right:\n                    tail.next = temp_head.right\n                    tail = tail.next\n                temp_head = temp_head.next\n            \n            \n            temp_head = temp.next\n\n        return root"
+}
+]
+}

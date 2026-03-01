@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>1116 - Maximum Level Sum of a Binary Tree</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/>maximum-level-sum-of-a-binary-tree</a></h2><p>Given the <code>root</code> of a binary tree, the level of its root is <code>1</code>, the level of its children is <code>2</code>, and so on.<p>Return the <strong>smallest</strong> level <code>x</code> such that the sum of all the values of nodes at level <code>x</code> is <strong>maximal</strong>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2019/05/03/capture.JPG style=width:200px;height:175px><pre>\n<strong>Input:</strong> root = [1,7,0,7,-8,null,null]\n<strong>Output:</strong> 2\n<strong>Explanation: </strong>\nLevel 1 sum = 1.\nLevel 2 sum = 7 + 0 = 7.\nLevel 3 sum = 7 + -8 = -1.\nSo we return the level with the maximum sum which is level 2.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> root = [989,null,10250,98693,-89388,null,null,null,-32127]\n<strong>Output:</strong> 2\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code></ul>",
+"submissions": [
+{
+"time": 1719857544,
+"language": "cpp",
+"runtime": 134,
+"memory": 104.0,
+"accepted": true,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int maxLevelSum(TreeNode* root) {\n    map<int, int> dictionary;\n    bfs(root, dictionary, 0);\n    int max = root->val;\n    int level = 0;\n    for (const auto& pair : dictionary) {\n        if(max < pair.second){\n            level = pair.first;\n            max = pair.second;\n        }\n    }\n    return level +1;\n\n    }\nprivate:\n    void bfs(TreeNode* root, map<int, int>& dictionary, int level){\n        if (root) {\n        dictionary[level] += root->val;\n        \n        level++;\n\n        bfs(root->right, dictionary, level);\n        bfs(root->left, dictionary, level);\n        }\n    }\n};"
+}
+]
+}

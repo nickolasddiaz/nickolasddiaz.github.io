@@ -1,5 +1,18 @@
 # Welcome to my website
 
+## Tech used
+
+- Sveltekit
+- Vite
+- Typescript
+- Tailwind
+- Flowbite Svelte
+- Github Pages Adapter
+- FlexSearch
+- Shiki
+- Youtube Embed
+- Web3Forms
+
 ## To start
 
 ```sh
@@ -22,20 +35,20 @@ To create a production version of your app:
 bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `bun run preview`.
 
 ## Deploy
 
 To deploy to github pages:
 
 ```sh
-npm run deploy
+bun run deploy
 ```
 
 ## Format
 
-To the tailwind CSS:
+Format the tailwind CSS:
 
 ```sh
-npm run format
+bun run format
 ```

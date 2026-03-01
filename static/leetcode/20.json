@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>20 - Valid Parentheses</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/valid-parentheses/>valid-parentheses</a></h2><p>Given a string <code>s</code> containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.<p>An input string is valid if:<ol><li>Open brackets must be closed by the same type of brackets.<li>Open brackets must be closed in the correct order.<li>Every close bracket has a corresponding open bracket of the same type.</ol><p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"()\"</span><p><strong>Output:</strong> <span class=example-io>true</span></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"()[]{}\"</span><p><strong>Output:</strong> <span class=example-io>true</span></div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"(]\"</span><p><strong>Output:</strong> <span class=example-io>false</span></div><p><strong class=example>Example 4:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"([])\"</span><p><strong>Output:</strong> <span class=example-io>true</span></div><p><strong class=example>Example 5:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"([)]\"</span><p><strong>Output:</strong> <span class=example-io>false</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code><li><code>s</code> consists of parentheses only <code>'()[]{}'</code>.</ul>",
+"submissions": [
+{
+"time": 1764004802,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def isValid(self, s: str) -> bool:\n        stack = deque()\n        negate = {')':'(', '}':'{', ']':'['}\n\n        for ch in s:\n            if ord(ch) % 4 == 1:\n                if not stack or stack.pop() != negate[ch]:\n                    return False\n            else:\n                stack.append(ch)\n\n        return not bool(stack)"
+}
+]
+}

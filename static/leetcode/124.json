@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>124 - Binary Tree Maximum Path Sum</h1><h2>Difficulty: Hard - <a href=https://leetcode.com/problems/binary-tree-maximum-path-sum/>binary-tree-maximum-path-sum</a></h2><p>A <strong>path</strong> in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence <strong>at most once</strong>. Note that the path does not need to pass through the root.<p>The <strong>path sum</strong> of a path is the sum of the node's values in the path.<p>Given the <code>root</code> of a binary tree, return <em>the maximum <strong>path sum</strong> of any <strong>non-empty</strong> path</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/10/13/exx1.jpg style=width:322px;height:182px><pre>\n<strong>Input:</strong> root = [1,2,3]\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6.\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/10/13/exx2.jpg><pre>\n<strong>Input:</strong> root = [-10,9,20,null,null,15,7]\n<strong>Output:</strong> 42\n<strong>Explanation:</strong> The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[1, 3 * 10<sup>4</sup>]</code>.<li><code>-1000 &lt;= Node.val &lt;= 1000</code></ul>",
+"submissions": [
+{
+"time": 1764890255,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def __init__(self):\n        self.result = -0xFFFFFFF\n\n    def maxPathSum(self, root: Optional[TreeNode]) -> int:\n        self.dfs(root)\n        return self.result\n\n    def dfs(self, root: Optional[TreeNode]) -> int:\n\n        if root.left is None and root.right is None:\n            return root.val\n\n        if root.left:\n            left = self.dfs(root.left)\n        else:\n            left = 0\n\n        if root.right:\n            right = self.dfs(root.right)\n        else:\n            right = 0\n\n        self.result = max(self.result, left)\n        self.result = max(self.result, right)\n        temp = root.val\n        if right > 0:\n            temp += right\n        if left > 0:\n            temp += left\n        self.result = max(self.result, temp)\n        return temp"
+},
+{
+"time": 1764890331,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def __init__(self):\n        self.result = -0xFFFFFFF\n\n    def maxPathSum(self, root: Optional[TreeNode]) -> int:\n        self.result = max(self.dfs(root), self.result)\n        return self.result\n\n    def dfs(self, root: Optional[TreeNode]) -> int:\n\n        if root.left is None and root.right is None:\n            return root.val\n\n        if root.left:\n            left = self.dfs(root.left)\n        else:\n            left = 0\n\n        if root.right:\n            right = self.dfs(root.right)\n        else:\n            right = 0\n\n        self.result = max(self.result, left)\n        self.result = max(self.result, right)\n        temp = root.val\n        if right > 0:\n            temp += right\n        if left > 0:\n            temp += left\n        self.result = max(self.result, temp)\n        return temp\n"
+},
+{
+"time": 1764890459,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def __init__(self):\n        self.result = -0xFFFFFFF\n\n    def maxPathSum(self, root: Optional[TreeNode]) -> int:\n        self.result = max(self.dfs(root), self.result)\n        return self.result\n\n    def dfs(self, root: Optional[TreeNode]) -> int:\n\n        if root.left is None and root.right is None:\n            return root.val\n\n        if root.left:\n            left = self.dfs(root.left)\n            self.result = max(self.result, left)\n        else:\n            left = 0\n\n        if root.right:\n            right = self.dfs(root.right)\n            self.result = max(self.result, right)\n        else:\n            right = 0\n\n        temp = root.val\n        if right > 0:\n            temp += right\n        if left > 0:\n            temp += left\n        self.result = max(self.result, temp)\n        return temp"
+},
+{
+"time": 1764891194,
+"language": "py",
+"runtime": 7,
+"memory": 23.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def __init__(self):\n        self.result = -0xFFFFFFF\n\n    def maxPathSum(self, root: Optional[TreeNode]) -> int:\n        self.result = max(self.dfs(root), self.result)\n        return self.result\n\n    def dfs(self, root: Optional[TreeNode]) -> int:\n\n        if root.left is None and root.right is None:\n            return root.val\n\n        if root.left:\n            left = self.dfs(root.left)\n            self.result = max(self.result, left)\n        else:\n            left = 0\n\n        if root.right:\n            right = self.dfs(root.right)\n            self.result = max(self.result, right)\n        else:\n            right = 0\n\n        temp = root.val\n        if right > 0:\n            temp += right\n        if left > 0:\n            temp += left\n        self.result = max(self.result, temp)\n        \n        branch = max(right, left)\n        branch = max(root.val, branch + root.val)\n        return branch"
+}
+]
+}

@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>54 - Spiral Matrix</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/spiral-matrix/>spiral-matrix</a></h2><p>Given an <code>m x n</code> <code>matrix</code>, return <em>all elements of the</em> <code>matrix</code> <em>in spiral order</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/13/spiral1.jpg style=width:242px;height:242px><pre>\n<strong>Input:</strong> matrix = [[1,2,3],[4,5,6],[7,8,9]]\n<strong>Output:</strong> [1,2,3,6,9,8,7,4,5]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/13/spiral.jpg style=width:322px;height:242px><pre>\n<strong>Input:</strong> matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]\n<strong>Output:</strong> [1,2,3,4,8,12,11,10,9,5,6,7]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>m == matrix.length</code><li><code>n == matrix[i].length</code><li><code>1 &lt;= m, n &lt;= 10</code><li><code>-100 &lt;= matrix[i][j] &lt;= 100</code></ul>",
+"submissions": [
+{
+"time": 1763583511,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:\n        n_row = len(matrix[0])\n        n_column = len(matrix)\n\n        min_layer = min(n_column, n_row)\n        layer = min_layer\n\n        result = []\n        top = 0\n        bottom = n_column -1\n        right = n_row - 1\n        left = 0\n\n        while layer >= 1:\n            # top\n            result.extend(matrix[top][left:right+1])\n\n            # right side\n            for row in matrix[top+1:bottom]:\n                result.append(row[right])\n\n            # bottom\n            if bottom != top:\n                result.extend(matrix[bottom][left:right+1][::-1])\n\n            # left side\n            for row in matrix[top+1:bottom][::-1]:\n                result.append(row[left])\n\n            top += 1\n            bottom -= 1\n            right -= 1\n            left += 1\n            layer -= 2\n\n        return result"
+},
+{
+"time": 1763584061,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:\n        n_row = len(matrix[0])\n        n_column = len(matrix)\n\n        min_layer = min(n_column, n_row)\n        layer = min_layer\n\n        result = []\n        top = 0\n        bottom = n_column -1\n        right = n_row - 1\n        left = 0\n\n        while layer >= 1:\n            # top\n\n            result.extend(matrix[top][left:right+1])\n\n            # right side\n            for row in matrix[top+1:bottom]:\n                result.append(row[right])\n\n            # bottom\n\n            if bottom != top:\n                result.extend(matrix[bottom][left:right+1][::-1])\n\n            # left side\n            if left != right:\n                for row in matrix[top+1:bottom][::-1]:\n                    result.append(row[left])\n\n            top += 1\n            bottom -= 1\n            right -= 1\n            left += 1\n            layer -= 2\n\n        return result\n"
+}
+]
+}

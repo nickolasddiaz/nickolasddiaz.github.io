@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>141 - Linked List Cycle</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/linked-list-cycle/>linked-list-cycle</a></h2><p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.<p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the\u00a0<code>next</code>\u00a0pointer. Internally, <code>pos</code>\u00a0is used to denote the index of the node that\u00a0tail's\u00a0<code>next</code>\u00a0pointer is connected to.\u00a0<strong>Note that\u00a0<code>pos</code>\u00a0is not passed as a parameter</strong>.<p>Return\u00a0<code>true</code><em> if there is a cycle in the linked list</em>. Otherwise, return <code>false</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png style=width:300px;height:97px;margin-top:8px;margin-bottom:8px><pre>\n<strong>Input:</strong> head = [3,2,0,-4], pos = 1\n<strong>Output:</strong> true\n<strong>Explanation:</strong> There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png style=width:141px;height:74px><pre>\n<strong>Input:</strong> head = [1,2], pos = 0\n<strong>Output:</strong> true\n<strong>Explanation:</strong> There is a cycle in the linked list, where the tail connects to the 0th node.\n</pre><p><strong class=example>Example 3:</strong><p><img alt src=https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png style=width:45px;height:45px><pre>\n<strong>Input:</strong> head = [1], pos = -1\n<strong>Output:</strong> false\n<strong>Explanation:</strong> There is no cycle in the linked list.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of the nodes in the list is in the range <code>[0, 10<sup>4</sup>]</code>.<li><code>-10<sup>5</sup> &lt;= Node.val &lt;= 10<sup>5</sup></code><li><code>pos</code> is <code>-1</code> or a <strong>valid index</strong> in the linked-list.</ul><p>\u00a0<p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?",
+"submissions": [
+{
+"time": 1764166933,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, x):\n#         self.val = x\n#         self.next = None\n\nclass Solution:\n    def hasCycle(self, head: Optional[ListNode]) -> bool:\n        check = set()\n        while head.next is not None:\n            if head.next in check:\n                return True\n            check.add(head.next)\n            head = head.next\n        return False"
+},
+{
+"time": 1764167045,
+"language": "py",
+"runtime": 51,
+"memory": 20.0,
+"accepted": true,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, x):\n#         self.val = x\n#         self.next = None\n\nclass Solution:\n    def hasCycle(self, head: Optional[ListNode]) -> bool:\n        check = set()\n        while head is not None:\n            if head in check:\n                return True\n            check.add(head)\n            head = head.next\n        return False"
+}
+]
+}

@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>72 - Edit Distance</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/edit-distance/>edit-distance</a></h2><p>Given two strings <code>word1</code> and <code>word2</code>, return <em>the minimum number of operations required to convert <code>word1</code> to <code>word2</code></em>.<p>You have the following three operations permitted on a word:<ul><li>Insert a character<li>Delete a character<li>Replace a character</ul><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> word1 = \"horse\", word2 = \"ros\"\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> \nhorse -> rorse (replace 'h' with 'r')\nrorse -> rose (remove 'r')\nrose -> ros (remove 'e')\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> word1 = \"intention\", word2 = \"execution\"\n<strong>Output:</strong> 5\n<strong>Explanation:</strong> \nintention -> inention (remove 't')\ninention -> enention (replace 'i' with 'e')\nenention -> exention (replace 'n' with 'x')\nexention -> exection (replace 'n' with 'c')\nexection -> execution (insert 'u')\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= word1.length, word2.length &lt;= 500</code><li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</ul>",
+"submissions": [
+{
+"time": 1721422802,
+"language": "cpp",
+"runtime": 8,
+"memory": 12.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int minDistance(string word1, string word2) {\n        if (word1.empty() || word2.empty())\n            return max(word1.size(), word2.size());\n        if (word1 == word2)\n            return 0;\n\n        int m = word1.size();\n        int n = word2.size();\n        vector<vector<int>> dp(m + 1, vector<int>(n + 1));\n\n\n        for (int i = 1; i <= m; ++i)\n            dp[i][0] = i;\n\n        for (int j = 1; j <= n; ++j)\n            dp[0][j] = j;\n\n        for (int i = 1; i <= m; ++i)\n            for (int j = 1; j <= n; ++j)\n                if (word1[i - 1] == word2[j - 1])\n                    dp[i][j] = dp[i - 1][j - 1];\n                else\n                    dp[i][j] = min({dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]}) + 1;\n\n\n        return dp[m][n];\n    }\n};"
+}
+]
+}

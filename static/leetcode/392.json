@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>392 - Is Subsequence</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/is-subsequence/>is-subsequence</a></h2><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code><em> if </em><code>s</code><em> is a <strong>subsequence</strong> of </em><code>t</code><em>, or </em><code>false</code><em> otherwise</em>.<p>A <strong>subsequence</strong> of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., <code>\"ace\"</code> is a subsequence of <code>\"<u>a</u>b<u>c</u>d<u>e</u>\"</code> while <code>\"aec\"</code> is not).<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> s = \"abc\", t = \"ahbgdc\"\n<strong>Output:</strong> true\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> s = \"axc\", t = \"ahbgdc\"\n<strong>Output:</strong> false\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= s.length &lt;= 100</code><li><code>0 &lt;= t.length &lt;= 10<sup>4</sup></code><li><code>s</code> and <code>t</code> consist only of lowercase English letters.</ul><p>\u00a0<p><strong>Follow up:</strong> Suppose there are lots of incoming <code>s</code>, say <code>s<sub>1</sub>, s<sub>2</sub>, ..., s<sub>k</sub></code> where <code>k >= 10<sup>9</sup></code>, and you want to check one by one to see if <code>t</code> has its subsequence. In this scenario, how would you change your code?",
+"submissions": [
+{
+"time": 1693074884,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool isSubsequence(string s, string t) {\n        for (int i = 0; i < s.length(); i++) {\n            if(t.find(s[i]) == std::string::npos){\n                return false;\n            }\n        }\n        return true;\n    }\n};"
+},
+{
+"time": 1693078700,
+"language": "cpp",
+"runtime": 3,
+"memory": 6.0,
+"accepted": true,
+"code_content": "class Solution {\n  public: bool isSubsequence(string s, string t) {\n    int x = 0; int i = 0;\n    while(i < s.length() && x < t.length()){\n        if (s[i] == t[x]) {\n                i++;\n            }\n            x++;\n    }\n\nreturn i == s.length();\n\n  }\n\n};"
+}
+]
+}

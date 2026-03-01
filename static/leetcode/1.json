@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>1 - Two Sum</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/two-sum/>two-sum</a></h2><p>Given an array of integers <code>nums</code>\u00a0and an integer <code>target</code>, return <em>indices of the two numbers such that they add up to <code>target</code></em>.<p>You may assume that each input would have <strong><em>exactly</em> one solution</strong>, and you may not use the <em>same</em> element twice.<p>You can return the answer in any order.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [2,7,11,15], target = 9\n<strong>Output:</strong> [0,1]\n<strong>Explanation:</strong> Because nums[0] + nums[1] == 9, we return [0, 1].\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [3,2,4], target = 6\n<strong>Output:</strong> [1,2]\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [3,3], target = 6\n<strong>Output:</strong> [0,1]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>2 &lt;= nums.length &lt;= 10<sup>4</sup></code><li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code><li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code><li><strong>Only one valid answer exists.</strong></ul><p>\u00a0<p><strong>Follow-up:\u00a0</strong>Can you come up with an algorithm that is less than <code>O(n<sup>2</sup>)</code><font face=monospace>\u00a0</font>time complexity?",
+"submissions": [
+{
+"time": 1763768210,
+"language": "py",
+"runtime": 7,
+"memory": 19.0,
+"accepted": true,
+"code_content": "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        left, right = 0, len(nums) -1\n\n        indexed_list = list(enumerate(nums))\n        sorted_indexed_list = sorted(indexed_list, key=lambda x: x[1])\n\n        sorted_list = [item[1] for item in sorted_indexed_list]\n        sorted_indices = [item[0] for item in sorted_indexed_list]\n\n        while left <= right:\n            test = sorted_list[left] + sorted_list[right]\n            if test < target:\n                left += 1\n            elif test == target:\n                return [sorted_indices[left], sorted_indices[right]]\n            else:\n                right -= 1\n\n        return []"
+}
+]
+}

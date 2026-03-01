@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>135 - Candy</h1><h2>Difficulty: Hard - <a href=https://leetcode.com/problems/candy/>candy</a></h2><p>There are <code>n</code> children standing in a line. Each child is assigned a rating value given in the integer array <code>ratings</code>.<p>You are giving candies to these children subjected to the following requirements:<ul><li>Each child must have at least one candy.<li>Children with a higher rating get more candies than their neighbors.</ul><p>Return <em>the minimum number of candies you need to have to distribute the candies to the children</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> ratings = [1,0,2]\n<strong>Output:</strong> 5\n<strong>Explanation:</strong> You can allocate to the first, second and third child with 2, 1, 2 candies respectively.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> ratings = [1,2,2]\n<strong>Output:</strong> 4\n<strong>Explanation:</strong> You can allocate to the first, second and third child with 1, 2, 1 candies respectively.\nThe third child gets 1 candy because it satisfies the above two conditions.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == ratings.length</code><li><code>1 &lt;= n &lt;= 2 * 10<sup>4</sup></code><li><code>0 &lt;= ratings[i] &lt;= 2 * 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1761486533,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int candy(vector<int>& ratings) {\n        int n = ratings.size();\n        \n        int total = 0;\n        int num_top = 0;\n        int prev = -1;\n        bool inc = true;\n\n        for(int i = 0; i < n; i++){\n            num_top++;\n            bool change = prev < ratings[i];\n            if(change ^ inc && prev != ratings[i]){\n                inc = !inc;\n                prev = ratings[i];\n                total += \n\n            } \n\n        }\n        \n\n        return total;\n    }\n};"
+},
+{
+"time": 1761505472,
+"language": "cpp",
+"runtime": 0,
+"memory": 22.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int candy(vector<int>& ratings) {\n        int n = ratings.size();\n        \n        int total = n;\n        int peek, valley;\n        \n\n        for(int i = 1; i < n;){\n            if (ratings[i-1] == ratings[i]){\n                i++; continue;\n            }\n            peek = 0;\n            while(i < n && ratings[i] > ratings[i - 1]){\n                peek++;\n                i++;\n            }\n            total += peek * (peek+1) / 2; // sum of ints from 1 to n\n\n            if (i == n) {\n                return total;\n            }\n\n            valley = 0;\n            while(i < n && ratings[i] < ratings[i - 1]){\n                valley++;\n                i++;\n            }\n            total += valley * (valley+1) / 2;\n\n            total -= min(peek,valley);\n\n        }\n  \n        return total;\n    }\n};\n"
+}
+]
+}

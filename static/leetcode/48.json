@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>48 - Rotate Image</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/rotate-image/>rotate-image</a></h2><p>You are given an <code>n x n</code> 2D <code>matrix</code> representing an image, rotate the image by <strong>90</strong> degrees (clockwise).<p>You have to rotate the image <a href=https://en.wikipedia.org/wiki/In-place_algorithm target=_blank><strong>in-place</strong></a>, which means you have to modify the input 2D matrix directly. <strong>DO NOT</strong> allocate another 2D matrix and do the rotation.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/08/28/mat1.jpg style=width:500px;height:188px><pre>\n<strong>Input:</strong> matrix = [[1,2,3],[4,5,6],[7,8,9]]\n<strong>Output:</strong> [[7,4,1],[8,5,2],[9,6,3]]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/08/28/mat2.jpg style=width:500px;height:201px><pre>\n<strong>Input:</strong> matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]\n<strong>Output:</strong> [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == matrix.length == matrix[i].length</code><li><code>1 &lt;= n &lt;= 20</code><li><code>-1000 &lt;= matrix[i][j] &lt;= 1000</code></ul>",
+"submissions": [
+{
+"time": 1763652992,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def rotate(self, matrix: List[List[int]]) -> None:\n        \"\"\"\n        Do not return anything, modify matrix in-place instead.\n        \"\"\"\n        max_layer = len(matrix)\n        layer = len(matrix)\n        top = max_layer - layer\n        bottom = layer -1\n        left = top\n        right = bottom\n\n        while layer > 2:\n            temp_list = matrix[top][left+1:right]\n            t = len(temp_list)\n            a = t -1\n\n            for i in range(t):\n                matrix[i+1][right], temp_list[i] = temp_list[i], matrix[i+1][right]\n\n            for i in range(t):\n                matrix[bottom][i+1], temp_list[a-i] = temp_list[a-i], matrix[bottom][i+1]\n\n            for i in range(t):\n                matrix[i+1][top], temp_list[a-i] = temp_list[a-i], matrix[i+1][top]\n\n            for i in range(t):\n                matrix[top][i + 1], temp_list[i] = temp_list[i], matrix[top][i + 1]\n\n            matrix[top][left], matrix[top][right], matrix[bottom][right], matrix[bottom][left] = matrix[bottom][left], matrix[top][left], matrix[top][right], matrix[bottom][right]\n\n            top += 1\n            left += 1\n            bottom -= 1\n            right -= 1\n\n            layer //= 2\n\n        if layer == 2:\n            matrix[top][left], matrix[top][right], matrix[bottom][right], matrix[bottom][left] = matrix[bottom][left], matrix[top][left], matrix[top][right], matrix[bottom][right]\n"
+},
+{
+"time": 1763654251,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def rotate(self, matrix: List[List[int]]) -> None:\n        \"\"\"\n        Do not return anything, modify matrix in-place instead.\n        \"\"\"\n        max_layer = len(matrix)\n        layer = len(matrix)\n        top = max_layer - layer\n        bottom = layer -1\n        left = top\n        right = bottom\n\n        while layer > 2:\n            temp_list = matrix[top][left+1:right]\n            t = len(temp_list)\n            a = t -1\n\n            subs = max_layer - layer\n            if subs == 0:\n                subs = 1\n\n            for i in range(t):\n                matrix[i+subs][right], temp_list[i] = temp_list[i], matrix[i+subs][right]\n\n            for i in range(t):\n                matrix[bottom][i+subs], temp_list[a-i] = temp_list[a-i], matrix[bottom][i+subs]\n\n            for i in range(t):\n                matrix[i+subs][top], temp_list[a-i] = temp_list[a-i], matrix[i+subs][top]\n\n            for i in range(t):\n                matrix[top][i + subs], temp_list[i] = temp_list[i], matrix[top][i + subs]\n\n            matrix[top][left], matrix[top][right], matrix[bottom][right], matrix[bottom][left] = matrix[bottom][left], matrix[top][left], matrix[top][right], matrix[bottom][right]\n\n            top += 1\n            left += 1\n            bottom -= 1\n            right -= 1\n\n            layer -= 2\n\n        if layer == 2:\n            matrix[top][left], matrix[top][right], matrix[bottom][right], matrix[bottom][left] = matrix[bottom][left], matrix[top][left], matrix[top][right], matrix[bottom][right]\n"
+},
+{
+"time": 1763655494,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def rotate(self, matrix: List[List[int]]) -> None:\n        \"\"\"\n        Do not return anything, modify matrix in-place instead.\n        \"\"\"\n        layer = len(matrix[0])\n\n        top = 0\n        bottom = len(matrix) -1\n        left = 0\n        right = len(matrix[0]) -1\n\n        while layer > 1:\n            for i in range(right - left):\n\n                temp_list = matrix[top][left+i]\n\n                matrix[top][left + i] = matrix[bottom-i][left]\n                matrix[bottom-i][left] = matrix[bottom][right-i]\n                matrix[bottom][right-i] = matrix[top+i][right]\n                matrix[top + i][right] = temp_list\n\n\n            top += 1\n            left += 1\n            bottom -= 1\n            right -= 1\n\n            layer -= 2"
+}
+]
+}

@@ -1,6 +1,6 @@
 import type Accordiontype from '$lib/stores/accordion_tabs_types'
 
-export const data: Accordiontype[] = [
+export default [
   {
     header: "Labs 1-6",
     tab_list: [
@@ -42,4 +42,4 @@ export const data: Accordiontype[] = [
       { tab_name: "Extra Credit", resource: "/py/Extra Credit.py", isCode: true },
     ]
   },
-];
+] as Accordiontype[];

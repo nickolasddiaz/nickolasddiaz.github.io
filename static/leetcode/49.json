@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>49 - Group Anagrams</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/group-anagrams/>group-anagrams</a></h2><p>Given an array of strings <code>strs</code>, group the <span data-keyword=anagram>anagrams</span> together. You can return the answer in <strong>any order</strong>.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]</span><p><strong>Output:</strong> <span class=example-io>[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]</span><p><strong>Explanation:</strong><ul><li>There is no string in strs that can be rearranged to form <code>\"bat\"</code>.<li>The strings <code>\"nat\"</code> and <code>\"tan\"</code> are anagrams as they can be rearranged to form each other.<li>The strings <code>\"ate\"</code>, <code>\"eat\"</code>, and <code>\"tea\"</code> are anagrams as they can be rearranged to form each other.</ul></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>strs = [\"\"]</span><p><strong>Output:</strong> <span class=example-io>[[\"\"]]</span></div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>strs = [\"a\"]</span><p><strong>Output:</strong> <span class=example-io>[[\"a\"]]</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= strs.length &lt;= 10<sup>4</sup></code><li><code>0 &lt;= strs[i].length &lt;= 100</code><li><code>strs[i]</code> consists of lowercase English letters.</ul>",
+"submissions": [
+{
+"time": 1763766894,
+"language": "py",
+"runtime": 7,
+"memory": 20.0,
+"accepted": true,
+"code_content": "class Solution:\n    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:\n        sdict = defaultdict(list)\n\n        for st in strs:\n            sdict[\"\".join(sorted(st))].append(st)\n\n        result = []\n\n        for value in sdict.values():\n            result.append(value)\n\n        return result"
+}
+]
+}

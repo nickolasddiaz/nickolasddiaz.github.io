@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>2428 - Equal Row and Column Pairs</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/equal-row-and-column-pairs/>equal-row-and-column-pairs</a></h2><p>Given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code>, <em>return the number of pairs </em><code>(r<sub>i</sub>, c<sub>j</sub>)</code><em> such that row </em><code>r<sub>i</sub></code><em> and column </em><code>c<sub>j</sub></code><em> are equal</em>.<p>A row and column pair is considered equal if they contain the same elements in the same order (i.e., an equal array).<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2022/06/01/ex1.jpg style=width:150px;height:153px><pre>\n<strong>Input:</strong> grid = [[3,2,1],[1,7,6],[2,7,7]]\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> There is 1 equal row and column pair:\n- (Row 2, Column 1): [2,7,7]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2022/06/01/ex2.jpg style=width:200px;height:209px><pre>\n<strong>Input:</strong> grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> There are 3 equal row and column pairs:\n- (Row 0, Column 0): [3,1,2,2]\n- (Row 2, Column 2): [2,4,2,2]\n- (Row 3, Column 2): [2,4,2,2]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == grid.length == grid[i].length</code><li><code>1 &lt;= n &lt;= 200</code><li><code>1 &lt;= grid[i][j] &lt;= 10<sup>5</sup></code></ul>",
+"submissions": [
+{
+"time": 1717637846,
+"language": "cpp",
+"runtime": 58,
+"memory": 29.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int equalPairs(vector<vector<int>>& grid) {\n        int size = grid.size();\n        std::map<std::vector<int>, int> pair;\n        int count = 0;\n\n        for (auto row : grid) {\n            pair[row]++;\n        }\n\n        std::vector<int> myvector(size); \n        for (int x = 0; x < size; x++) {\n            for (int y = 0; y < size; y++) {\n                myvector[y] = grid[y][x];\n            }\n            if (pair.find(myvector) != pair.end()) {\n                count += pair[myvector];\n            }\n        }\n\n        return count;\n    }\n};"
+}
+]
+}

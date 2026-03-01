@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>1894 - Merge Strings Alternately</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/merge-strings-alternately/>merge-strings-alternately</a></h2><p>You are given two strings <code>word1</code> and <code>word2</code>. Merge the strings by adding letters in alternating order, starting with <code>word1</code>. If a string is longer than the other, append the additional letters onto the end of the merged string.<p>Return <em>the merged string.</em><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n\n<strong>Input:</strong> word1 = \"abc\", word2 = \"pqr\"\n\n<strong>Output:</strong> \"apbqcr\"\n\n<strong>Explanation:</strong>\u00a0The merged string will be merged as so:\n\nword1:  a   b   c\n\nword2:    p   q   r\n\nmerged: a p b q c r\n\n</pre><p><strong class=example>Example 2:</strong><pre>\n\n<strong>Input:</strong> word1 = \"ab\", word2 = \"pqrs\"\n\n<strong>Output:</strong> \"apbqrs\"\n\n<strong>Explanation:</strong>\u00a0Notice that as word2 is longer, \"rs\" is appended to the end.\n\nword1:  a   b \n\nword2:    p   q   r   s\n\nmerged: a p b q   r   s\n\n</pre><p><strong class=example>Example 3:</strong><pre>\n\n<strong>Input:</strong> word1 = \"abcd\", word2 = \"pq\"\n\n<strong>Output:</strong> \"apbqcd\"\n\n<strong>Explanation:</strong>\u00a0Notice that as word1 is longer, \"cd\" is appended to the end.\n\nword1:  a   b   c   d\n\nword2:    p   q \n\nmerged: a p b q c   d\n\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= word1.length, word2.length &lt;= 100</code><li><code>word1</code> and <code>word2</code> consist of lowercase English letters.</ul>",
+"submissions": [
+{
+"time": 1686537715,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string mergeAlternately(string word1, string word2) {\n        char word[100];\n        int biggest;\n        if word1.length <= word2.length\n            biggest = word2.length;\n        else \n            biggest = word1.length;\n        for (int i = 0; i < biggest; i++){\n            if(word1.length >= i)\n                word[2 * i] = word1[i];\n        }\n        if(word2.length >= i)\n                word[2 * i + 1] = word2[i];\n        }\n\n\n\n\n\n\n    }\n};"
+},
+{
+"time": 1686538032,
+"language": "cpp",
+"runtime": 0,
+"memory": 6.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string mergeAlternately(string word1, string word2) {\n        string word;\n        int biggest;\n        if (word1.length() <= word2.length())\n            biggest = word2.length();\n        else \n            biggest = word1.length();\n        for (int i = 0; i < biggest; i++) {\n            if (word1.length() > i)\n                word += word1[i];\n            if (word2.length() > i)\n                word += word2[i];\n        }\n        return word;\n    }\n};\n"
+},
+{
+"time": 1686538176,
+"language": "cpp",
+"runtime": 0,
+"memory": 6.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string mergeAlternately(string word1, string word2) {\n        string word;\n        int biggest;\n        biggest = (word1.length() <= word2.length()) ? word2.length() : word1.length();\n        for (int i = 0; i < biggest; i++) {\n            if (word1.length() > i)\n                word += word1[i];\n            if (word2.length() > i)\n                word += word2[i];\n        }\n        return word;\n    }\n};\n"
+},
+{
+"time": 1721766539,
+"language": "cpp",
+"runtime": 0,
+"memory": 7.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string mergeAlternately(string word1, string word2) {\n        string word;\n        int biggest;\n        biggest = (word1.length() <= word2.length()) ? word2.length() : word1.length();\n        for (int i = 0; i < biggest; i++) {\n            if (word1.length() > i)\n                word += word1[i];\n            if (word2.length() > i)\n                word += word2[i];\n        }\n        return word;\n    }\n};\n"
+}
+]
+}

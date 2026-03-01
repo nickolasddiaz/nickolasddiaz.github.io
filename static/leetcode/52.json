@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>52 - N-Queens II</h1><h2>Difficulty: Hard - <a href=https://leetcode.com/problems/n-queens-ii/>n-queens-ii</a></h2><p>The <strong>n-queens</strong> puzzle is the problem of placing <code>n</code> queens on an <code>n x n</code> chessboard such that no two queens attack each other.<p>Given an integer <code>n</code>, return <em>the number of distinct solutions to the\u00a0<strong>n-queens puzzle</strong></em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/13/queens.jpg style=width:600px;height:268px><pre>\n<strong>Input:</strong> n = 4\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> There are two distinct solutions to the 4-queens puzzle as shown.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> n = 1\n<strong>Output:</strong> 1\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= n &lt;= 9</code></ul>",
+"submissions": [
+{
+"time": 1766085741,
+"language": "py",
+"runtime": 7,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def totalNQueens(self, n: int) -> int:\n        self.result: int = 0\n\n\n        def dfs(row: int, available_side: list[int], left_set: set[int], right_set: set[int]) -> None:\n            for index, column in enumerate(available_side):\n                if column + row not in right_set and  column - row not in left_set:\n                    if len(available_side) == 1:\n                        self.result += 1\n                        continue\n                    temp = available_side.copy()\n                    temp.pop(index)\n                    temp_right = right_set.copy()\n                    temp_right.add(column + row)\n                    temp_left = left_set.copy()\n                    temp_left.add(column - row)\n                    #print(f\"{row}:{column}\")\n                    dfs(row+1, temp, temp_left, temp_right)\n\n        dfs(0, list(range(n)), set(), set())\n\n\n        return self.result"
+},
+{
+"time": 1766086317,
+"language": "py",
+"runtime": 8,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def totalNQueens(self, n: int) -> int:\n        self.result: int = 0\n\n\n        def dfs(row: int, available_side: list[int], left_set: set[int], right_set: set[int]) -> None:\n            for index, column in enumerate(available_side):\n                if column + row not in right_set and  column - row not in left_set:\n                    if len(available_side) == 1:\n                        self.result += 1\n                        continue\n                    available_side.pop(index)\n                    right_set.add(column + row)\n                    left_set.add(column - row)\n                    #print(f\"{row}:{column}\")\n                    dfs(row+1, available_side, left_set, right_set)\n                    available_side.insert(index, column)\n                    right_set.remove(column + row)\n                    left_set.remove(column - row)\n\n        dfs(0, list(range(n)), set(), set())\n\n\n        return self.result"
+}
+]
+}

@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>242 - Valid Anagram</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/valid-anagram/>valid-anagram</a></h2><p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an <span data-keyword=anagram>anagram</span> of <code>s</code>, and <code>false</code> otherwise.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"anagram\", t = \"nagaram\"</span><p><strong>Output:</strong> <span class=example-io>true</span></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"rat\", t = \"car\"</span><p><strong>Output:</strong> <span class=example-io>false</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length, t.length &lt;= 5 * 10<sup>4</sup></code><li><code>s</code> and <code>t</code> consist of lowercase English letters.</ul><p>\u00a0<p><strong>Follow up:</strong> What if the inputs contain Unicode characters? How would you adapt your solution to such a case?",
+"submissions": [
+{
+"time": 1763749565,
+"language": "py",
+"runtime": 7,
+"memory": 18.0,
+"accepted": true,
+"code_content": "class Solution:\n    def isAnagram(self, s: str, t: str) -> bool:\n        validate = defaultdict(int)\n        for ch in t:\n            validate[ch] += 1\n\n        for ch in s:\n            validate[ch] -= 1\n\n        return not any(value != 0 for value in validate.values())\n        \n        "
+}
+]
+}

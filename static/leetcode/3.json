@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>3 - Longest Substring Without Repeating Characters</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/longest-substring-without-repeating-characters/>longest-substring-without-repeating-characters</a></h2><p>Given a string <code>s</code>, find the length of the <strong>longest</strong> <span data-keyword=substring-nonempty><strong>substring</strong></span> without duplicate characters.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"abcabcbb\"\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The answer is \"abc\", with the length of 3. Note that <code>\"bca\"</code> and <code>\"cab\"</code> are also correct answers.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"bbbbb\"\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> The answer is \"b\", with the length of 1.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \"pwwkew\"\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The answer is \"wke\", with the length of 3.\nNotice that the answer must be a substring, \"pwke\" is a subsequence and not a substring.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code><li><code>s</code> consists of English letters, digits, symbols and spaces.</ul>",
+"submissions": [
+{
+"time": 1762351267,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        unordered_map<char, int> myBiMap;\n\n        int l = 0, r = 0;\n        int count = 0;\n        int max_count = 0;\n        while(r < s.size()-1){\n            if(myBiMap.count(s[r])){\n                l = myBiMap[s[r]] +1;\n                r = l;\n                max_count = max(count, max_count);\n                count = 0;\n                myBiMap = {};\n            } else{\n                count++;\n                myBiMap[s[r]] = r;\n                r++;\n            }\n        }\n\n        return max(count, max_count);\n        \n    }\n};"
+},
+{
+"time": 1762351475,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        unordered_map<char, int> myBiMap;\n        cout << s.size();\n        if(s.size() == 0){\n            return 0;\n        }\n\n        int l = 0, r = 0;\n        int count = 0;\n        int max_count = 0;\n        while(r < s.size()-1){\n            if(myBiMap.count(s[r])){\n                l = myBiMap[s[r]] +1;\n                r = l;\n                max_count = max(count, max_count);\n                count = 0;\n                myBiMap = {};\n            } else{\n                count++;\n                myBiMap[s[r]] = r;\n                r++;\n            }\n        }\n\n        return max(count, max_count);\n        \n    }\n};"
+},
+{
+"time": 1762351561,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        if(s.size() <= 1){\n            return s.size();\n        }\n        \n        unordered_map<char, int> myBiMap;\n\n        int l = 0, r = 0;\n        int count = 0;\n        int max_count = 0;\n        while(r < s.size()-1){\n            if(myBiMap.count(s[r])){\n                l = myBiMap[s[r]] +1;\n                r = l;\n                max_count = max(count, max_count);\n                count = 0;\n                myBiMap = {};\n            } else{\n                count++;\n                myBiMap[s[r]] = r;\n                r++;\n            }\n        }\n\n        return max(count, max_count);\n        \n    }\n};"
+},
+{
+"time": 1762351615,
+"language": "cpp",
+"runtime": 519,
+"memory": 144.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int lengthOfLongestSubstring(string s) {\n        unordered_map<char, int> myBiMap;\n\n        int l = 0, r = 0;\n        int count = 0;\n        int max_count = 0;\n        while(r < s.size()){\n            if(myBiMap.count(s[r])){\n                l = myBiMap[s[r]] +1;\n                r = l;\n                max_count = max(count, max_count);\n                count = 0;\n                myBiMap = {};\n            } else{\n                count++;\n                myBiMap[s[r]] = r;\n                r++;\n            }\n        }\n\n        return max(count, max_count);\n        \n    }\n};"
+}
+]
+}

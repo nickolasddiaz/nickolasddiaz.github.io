@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>290 - Word Pattern</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/word-pattern/>word-pattern</a></h2><p>Given a <code>pattern</code> and a string <code>s</code>, find if <code>s</code>\u00a0follows the same pattern.<p>Here <b>follow</b> means a full match, such that there is a bijection between a letter in <code>pattern</code> and a <b>non-empty</b> word in <code>s</code>. Specifically:<ul><li>Each letter in <code>pattern</code> maps to <strong>exactly</strong> one unique word in <code>s</code>.<li>Each unique word in <code>s</code> maps to <strong>exactly</strong> one letter in <code>pattern</code>.<li>No two letters map to the same word, and no two words map to the same letter.</ul><p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>pattern = \"abba\", s = \"dog cat cat dog\"</span><p><strong>Output:</strong> <span class=example-io>true</span><p><strong>Explanation:</strong><p>The bijection can be established as:<ul><li><code>'a'</code> maps to <code>\"dog\"</code>.<li><code>'b'</code> maps to <code>\"cat\"</code>.</ul></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>pattern = \"abba\", s = \"dog cat cat fish\"</span><p><strong>Output:</strong> <span class=example-io>false</span></div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>pattern = \"aaaa\", s = \"dog cat cat dog\"</span><p><strong>Output:</strong> <span class=example-io>false</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= pattern.length &lt;= 300</code><li><code>pattern</code> contains only lower-case English letters.<li><code>1 &lt;= s.length &lt;= 3000</code><li><code>s</code> contains only lowercase English letters and spaces <code>' '</code>.<li><code>s</code> <strong>does not contain</strong> any leading or trailing spaces.<li>All the words in <code>s</code> are separated by a <strong>single space</strong>.</ul>",
+"submissions": [
+{
+"time": 1763748078,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def wordPattern(self, pattern: str, s: str) -> bool:\n        words = defaultdict(int)\n        for word in s.split():\n            words[word] += 1\n\n        patset = defaultdict(int)\n        for ch in pattern:\n            patset[ch] += 1\n\n        validate = defaultdict(int)\n        for nums in words.values():\n            validate[nums] += 1\n        for nums in patset.values():\n            validate[nums] -= 1\n\n        return not any(value != 0 for value in validate.values())"
+},
+{
+"time": 1763748276,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def wordPattern(self, pattern: str, s: str) -> bool:\n        set1 = defaultdict(int)\n        set2 = defaultdict(int)\n        words = s.split()\n\n        for i in range(len(pattern)):\n            if words[i] not in set1:\n                set1[words[i]] = i\n\n            if pattern[i] not in set2:\n                set2[pattern[i]] = i\n\n            if set1[words[i]] != set2[pattern[i]]:\n                return False\n\n        return True"
+},
+{
+"time": 1763748417,
+"language": "py",
+"runtime": 1,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def wordPattern(self, pattern: str, s: str) -> bool:\n        set1 = defaultdict(int)\n        set2 = defaultdict(int)\n        words = s.split()\n        if len(words) != len(pattern):\n            return False\n\n        for i in range(len(pattern)):\n            if words[i] not in set1:\n                set1[words[i]] = i\n\n            if pattern[i] not in set2:\n                set2[pattern[i]] = i\n\n            if set1[words[i]] != set2[pattern[i]]:\n                return False\n\n        return True"
+}
+]
+}

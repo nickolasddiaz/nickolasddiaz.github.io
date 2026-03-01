@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>230 - Kth Smallest Element in a BST</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/kth-smallest-element-in-a-bst/>kth-smallest-element-in-a-bst</a></h2><p>Given the <code>root</code> of a binary search tree, and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>smallest value (<strong>1-indexed</strong>) of all the values of the nodes in the tree</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/01/28/kthtree1.jpg style=width:212px;height:301px><pre>\n<strong>Input:</strong> root = [3,1,4,null,2], k = 1\n<strong>Output:</strong> 1\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/01/28/kthtree2.jpg style=width:382px;height:302px><pre>\n<strong>Input:</strong> root = [5,3,6,2,4,null,null,1], k = 3\n<strong>Output:</strong> 3\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is <code>n</code>.<li><code>1 &lt;= k &lt;= n &lt;= 10<sup>4</sup></code><li><code>0 &lt;= Node.val &lt;= 10<sup>4</sup></code></ul><p>\u00a0<p><strong>Follow up:</strong> If the BST is modified often (i.e., we can do insert and delete operations) and you need to find the kth smallest frequently, how would you optimize?",
+"submissions": [
+{
+"time": 1765295451,
+"language": "py",
+"runtime": 0,
+"memory": 21.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def __init__(self):\n        self.k: int = 0\n        self.result = -1\n        self.count = 0\n\n    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:\n        self.count = 0\n        self.result = -1\n\n        self.k = k\n        self.Inorder(root)\n\n        return self.result\n\n\n    def Inorder(self, root) -> None:\n        if root is None or self.count >= self.k:\n            return\n\n        self.Inorder(root.left)\n\n        self.count += 1\n\n        if self.count == self.k:\n            self.result = root.val\n            return\n\n        self.Inorder(root.right)\n\n        "
+}
+]
+}

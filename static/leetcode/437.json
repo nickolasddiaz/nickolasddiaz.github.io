@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>437 - Path Sum III</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/path-sum-iii/>path-sum-iii</a></h2><p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <em>the number of paths where the sum of the values\u00a0along the path equals</em>\u00a0<code>targetSum</code>.<p>The path does not need to start or end at the root or a leaf, but it must go downwards (i.e., traveling only from parent nodes to child nodes).<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/04/09/pathsum3-1-tree.jpg style=width:450px;height:386px><pre>\n<strong>Input:</strong> root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The paths that sum to 8 are shown.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22\n<strong>Output:</strong> 3\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[0, 1000]</code>.<li><code>-10<sup>9</sup> &lt;= Node.val &lt;= 10<sup>9</sup></code><li><code>-1000 &lt;= targetSum &lt;= 1000</code></ul>",
+"submissions": [
+{
+"time": 1719460226,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int pathSum(TreeNode* root, int targetSum) {\n        stack<int> v;\n        return recurse(root, targetSum, v);\n    }\nprivate:\n    int recurse(TreeNode* root, int targetSum, stack<int> v){\n        int value = 0;\n        if(root->left){\n        v.push(root->left);\n        value += recurse(root->left, targetSum, v);\n        v.pop();\n        }\n        if(root->right){\n        v.push(root->right);\n        value += recurse(root->right, targetSum, v);\n        v.pop();\n        }\n\n        if(root->left == nullptr && root->right == nullptr){\n            while(!v.empty()){\n            \n            value += combinations(targetSum, v);\n            v.pop();\n            }\n        }\n        return value;\n\n    }\n    int combinations(int targetSum, stack<int> v){\n    int value = 0;\n    while (!v.empty()) {\n        value += v.top();\n        v.pop();\n    }\n    if (value == targetSum)\n        return 1;\n        return 0;\n    }\n};"
+},
+{
+"time": 1719787771,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int pathSum(TreeNode* root, int targetSum) {\n        map<int, int> sumcount;\n        sumcount[0] = 1;\n        return traverse(root, targetSum, 0 , sumcount);\n    }\n\nprivate: \n    int traverse(TreeNode* root, int targetSum, int currentsum, map<int, int> sumcount){\n        if(root == nullptr) return 0;\n        currentsum += root->val;\n\n        int numPathsToCurrent  = sumcount[currentsum - targetSum];\n        sumcount[currentsum]++;\n\n        int result = numPathsToCurrent \n        + traverse(root->left, targetSum, currentsum, sumcount)\n        + traverse(root->right, targetSum, currentsum, sumcount);\n        sumcount[currentsum]--;\n        return result;\n    }\n};"
+},
+{
+"time": 1719787922,
+"language": "cpp",
+"runtime": 1202,
+"memory": 375.0,
+"accepted": true,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int pathSum(TreeNode* root, int targetSum) {\n        map<long, int> sumcount;\n        sumcount[0] = 1;\n        return traverse(root, targetSum, 0 , sumcount);\n    }\n\nprivate: \n    int traverse(TreeNode* root, int targetSum, long currentsum, map<long, int> sumcount){\n        if(root == nullptr) return 0;\n        currentsum += root->val;\n\n        int numPathsToCurrent  = sumcount[currentsum - targetSum];\n        sumcount[currentsum]++;\n\n        int result = numPathsToCurrent \n        + traverse(root->left, targetSum, currentsum, sumcount)\n        + traverse(root->right, targetSum, currentsum, sumcount);\n        sumcount[currentsum]--;\n        return result;\n    }\n};"
+}
+]
+}

@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>1236 - N-th Tribonacci Number</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/n-th-tribonacci-number/>n-th-tribonacci-number</a></h2><p>The Tribonacci sequence T<sub>n</sub> is defined as follows:\u00a0<p>T<sub>0</sub> = 0, T<sub>1</sub> = 1, T<sub>2</sub> = 1, and T<sub>n+3</sub> = T<sub>n</sub> + T<sub>n+1</sub> + T<sub>n+2</sub> for n >= 0.<p>Given <code>n</code>, return the value of T<sub>n</sub>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> n = 4\n<strong>Output:</strong> 4\n<strong>Explanation:</strong>\nT_3 = 0 + 1 + 1 = 2\nT_4 = 1 + 1 + 2 = 4\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> n = 25\n<strong>Output:</strong> 1389537\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= n &lt;= 37</code><li>The answer is guaranteed to fit within a 32-bit integer, ie. <code>answer &lt;= 2^31 - 1</code>.</ul>",
+"submissions": [
+{
+"time": 1721086473,
+"language": "cpp",
+"runtime": 2,
+"memory": 7.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int tribonacci(int n) {\n        if(!n)\n        return 0;\n        if(n == 1 || n == 2)\n        return 1;\n        queue<int> tri;\n        tri.push(0); tri.push(1); tri.push(1);\n        int mid = 1;\n        int temp;\n        for (int i = 2; i < n; i++){\n            temp = tri.front() + mid + tri.back();\n            mid = tri.back();\n            tri.pop();\n            tri.push(temp);\n        }\n        return temp;\n    }\n};"
+}
+]
+}

@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>219 - Contains Duplicate II</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/contains-duplicate-ii/>contains-duplicate-ii</a></h2><p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <code>true</code> <em>if there are two <strong>distinct indices</strong> </em><code>i</code><em> and </em><code>j</code><em> in the array such that </em><code>nums[i] == nums[j]</code><em> and </em><code>abs(i - j) &lt;= k</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,2,3,1], k = 3\n<strong>Output:</strong> true\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [1,0,1,1], k = 1\n<strong>Output:</strong> true\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [1,2,3,1,2,3], k = 2\n<strong>Output:</strong> false\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code><li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code><li><code>0 &lt;= k &lt;= 10<sup>5</sup></code></ul>",
+"submissions": [
+{
+"time": 1763841106,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:\n\n        check = defaultdict(int)\n\n        for i, val in enumerate(nums):\n            check[val] += 1\n            if i-k >= 0:\n                check[i-k] -= 1\n\n            if check[val] >= 2:\n                return True\n\n        return False"
+},
+{
+"time": 1763841580,
+"language": "py",
+"runtime": 79,
+"memory": 33.0,
+"accepted": true,
+"code_content": "class Solution:\n    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:\n\n        check = defaultdict(int)\n\n        for i, val in enumerate(nums):\n            check[val] += 1\n\n            if check[val] >= 2:\n                return True\n\n            if i-k >= 0:\n                check[nums[i-k]] -= 1\n\n        return False"
+}
+]
+}

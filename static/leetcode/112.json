@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>112 - Path Sum</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/path-sum/>path-sum</a></h2><p>Given the <code>root</code> of a binary tree and an integer <code>targetSum</code>, return <code>true</code> if the tree has a <strong>root-to-leaf</strong> path such that adding up all the values along the path equals <code>targetSum</code>.<p>A <strong>leaf</strong> is a node with no children.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/01/18/pathsum1.jpg style=width:500px;height:356px><pre>\n<strong>Input:</strong> root = [5,4,8,11,null,13,4,7,2,null,null,null,1], targetSum = 22\n<strong>Output:</strong> true\n<strong>Explanation:</strong> The root-to-leaf path with the target sum is shown.\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/01/18/pathsum2.jpg><pre>\n<strong>Input:</strong> root = [1,2,3], targetSum = 5\n<strong>Output:</strong> false\n<strong>Explanation:</strong> There are two root-to-leaf paths in the tree:\n(1 --> 2): The sum is 3.\n(1 --> 3): The sum is 4.\nThere is no root-to-leaf path with sum = 5.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> root = [], targetSum = 0\n<strong>Output:</strong> false\n<strong>Explanation:</strong> Since the tree is empty, there are no root-to-leaf paths.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[0, 5000]</code>.<li><code>-1000 &lt;= Node.val &lt;= 1000</code><li><code>-1000 &lt;= targetSum &lt;= 1000</code></ul>",
+"submissions": [
+{
+"time": 1764887808,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:\n        if not root:\n            return False\n\n        stack = deque()\n        stack.append((root, root.val))\n\n        while stack:\n            node, target = stack.pop()\n\n            if node.left:\n                stack.append((node.left, target + node.left.val))\n            else:\n                if target == targetSum:\n                    return True\n\n            if node.right:\n                stack.append((node.right, target + node.right.val))\n            else:\n                if target == targetSum:\n                    return True\n\n        return False\n        "
+},
+{
+"time": 1764887939,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:\n        if not root:\n            return False\n\n        stack = deque()\n        stack.append((root, root.val))\n\n        while stack:\n            node, target = stack.pop()\n\n            if node.left:\n                stack.append((node.left, target + node.left.val))\n            else:\n                if target == targetSum and node != root:\n                    return True\n\n            if node.right:\n                stack.append((node.right, target + node.right.val))\n            else:\n                if target == targetSum and node != root:\n                    return True\n\n        return False\n\n        "
+},
+{
+"time": 1764888017,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:\n        if not root:\n            return False\n        \n        if root.val == targetSum and root.left is None and root.right is None:\n            return True\n\n        stack = deque()\n        stack.append((root, root.val))\n\n        while stack:\n            node, target = stack.pop()\n\n            if node.left:\n                stack.append((node.left, target + node.left.val))\n            else:\n                if target == targetSum and node != root:\n                    return True\n\n            if node.right:\n                stack.append((node.right, target + node.right.val))\n            else:\n                if target == targetSum and node != root:\n                    return True\n\n        return False\n\n        "
+},
+{
+"time": 1764888350,
+"language": "py",
+"runtime": 0,
+"memory": 19.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:\n        if not root:\n            return False\n\n        if root.val == targetSum and root.left is None and root.right is None:\n            return True\n\n        stack = deque()\n        stack.append((root, root.val))\n\n        while stack:\n            node, target = stack.pop()\n            \n            leaf: bool = node.left is None and node.right is None\n\n            if node.left:\n                stack.append((node.left, target + node.left.val))\n            else:\n                if target == targetSum and leaf:\n                    return True\n\n            if node.right:\n                stack.append((node.right, target + node.right.val))\n            else:\n                if target == targetSum and leaf:\n                    return True\n\n        return False"
+}
+]
+}

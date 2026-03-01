@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>73 - Set Matrix Zeroes</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/set-matrix-zeroes/>set-matrix-zeroes</a></h2><p>Given an <code>m x n</code> integer matrix <code>matrix</code>, if an element is <code>0</code>, set its entire row and column to <code>0</code>'s.<p>You must do it <a href=https://en.wikipedia.org/wiki/In-place_algorithm target=_blank>in place</a>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/08/17/mat1.jpg style=width:450px;height:169px><pre>\n<strong>Input:</strong> matrix = [[1,1,1],[1,0,1],[1,1,1]]\n<strong>Output:</strong> [[1,0,1],[0,0,0],[1,0,1]]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/08/17/mat2.jpg style=width:450px;height:137px><pre>\n<strong>Input:</strong> matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]\n<strong>Output:</strong> [[0,0,0,0],[0,4,5,0],[0,3,1,0]]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>m == matrix.length</code><li><code>n == matrix[0].length</code><li><code>1 &lt;= m, n &lt;= 200</code><li><code>-2<sup>31</sup> &lt;= matrix[i][j] &lt;= 2<sup>31</sup> - 1</code></ul><p>\u00a0<p><strong>Follow up:</strong><ul><li>A straightforward solution using <code>O(mn)</code> space is probably a bad idea.<li>A simple improvement uses <code>O(m + n)</code> space, but still not the best solution.<li>Could you devise a constant space solution?</ul>",
+"submissions": [
+{
+"time": 1763658471,
+"language": "py",
+"runtime": 3,
+"memory": 18.0,
+"accepted": true,
+"code_content": "class Solution:\n    def setZeroes(self, matrix: List[List[int]]) -> None:\n        \"\"\"\n        Do not return anything, modify matrix in-place instead.\n        \"\"\"\n        x_set = set()\n        y_set = set()\n\n        for x in range(len(matrix)):\n            for y in range(len(matrix[0])):\n                if matrix[x][y] == 0:\n                    x_set.add(x)\n                    y_set.add(y)\n\n        for row in x_set:\n            for col_index in range(len(matrix[row])):\n                matrix[row][col_index] = 0\n\n        for column in y_set:\n            for row_index in range(len(matrix)):\n                matrix[row_index][column] = 0"
+}
+]
+}

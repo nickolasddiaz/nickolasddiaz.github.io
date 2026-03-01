@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>33 - Search in Rotated Sorted Array</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/search-in-rotated-sorted-array/>search-in-rotated-sorted-array</a></h2><p>There is an integer array <code>nums</code> sorted in ascending order (with <strong>distinct</strong> values).<p>Prior to being passed to your function, <code>nums</code> is <strong>possibly left rotated</strong> at an unknown index <code>k</code> (<code>1 &lt;= k &lt; nums.length</code>) such that the resulting array is <code>[nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]]</code> (<strong>0-indexed</strong>). For example, <code>[0,1,2,4,5,6,7]</code> might be left rotated by\u00a0<code>3</code>\u00a0indices and become <code>[4,5,6,7,0,1,2]</code>.<p>Given the array <code>nums</code> <strong>after</strong> the possible rotation and an integer <code>target</code>, return <em>the index of </em><code>target</code><em> if it is in </em><code>nums</code><em>, or </em><code>-1</code><em> if it is not in </em><code>nums</code>.<p>You must write an algorithm with <code>O(log n)</code> runtime complexity.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0\n<strong>Output:</strong> 4\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 3\n<strong>Output:</strong> -1\n</pre><p><strong class=example>Example 3:</strong><pre><strong>Input:</strong> nums = [1], target = 0\n<strong>Output:</strong> -1\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 5000</code><li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code><li>All values of <code>nums</code> are <strong>unique</strong>.<li><code>nums</code> is an ascending array that is possibly rotated.<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1766585844,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def find_rotation(self, nums:List[int]) -> int:\n        left = 0\n        right = len(nums) - 1\n        test = len(nums) - 1\n\n        while left <= right:\n            mid = (left + right) // 2\n\n            if mid + 1 >= len(nums) or nums[mid] > nums[mid + 1]:\n                return mid + 1\n            elif nums[mid] > nums[test]:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return 0\n\n\n    def search(self, nums: List[int], target: int) -> int:\n        rotation = self.find_rotation(nums)\n        if rotation == 0:\n            new_list = nums\n        else:\n            new_list = nums[rotation:] + nums[:rotation]\n\n        result = bisect.bisect_left(new_list, target)\n\n        if len(new_list) > result and new_list[result] == target:\n            return result + rotation\n        else:\n            return -1"
+},
+{
+"time": 1766585975,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def find_rotation(self, nums:List[int]) -> int:\n        left = 0\n        right = len(nums) - 1\n        test = len(nums) - 1\n\n        while left <= right:\n            mid = (left + right) // 2\n\n            if mid + 1 >= len(nums):\n                return mid\n            elif nums[mid] > nums[mid + 1]:\n                return mid + 1\n            elif nums[mid] > nums[test]:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return 0\n\n\n    def search(self, nums: List[int], target: int) -> int:\n        rotation = self.find_rotation(nums)\n        if rotation == 0:\n            new_list = nums\n        else:\n            new_list = nums[rotation:] + nums[:rotation]\n\n        result = bisect.bisect_left(new_list, target)\n\n        if len(new_list) > result and new_list[result] == target:\n            return result + rotation\n        else:\n            return -1"
+},
+{
+"time": 1766586305,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def find_rotation(self, nums:List[int]) -> int:\n        left = 0\n        right = len(nums) - 1\n        test = len(nums) - 1\n\n        while left <= right:\n            mid = (left + right) // 2\n\n            if mid + 1 >= len(nums):\n                return mid\n            elif nums[mid] > nums[mid + 1]:\n                return mid + 1\n            elif nums[mid] > nums[test]:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return 0\n\n\n    def search(self, nums: List[int], target: int) -> int:\n        rotation = self.find_rotation(nums)\n        if rotation == 0:\n            new_list = nums\n        else:\n            new_list = nums[rotation:] + nums[:rotation]\n\n        result = bisect.bisect_left(new_list, target)\n\n        if len(new_list) > result and new_list[result] == target:\n            return (result + rotation) % (len(new_list))\n        else:\n            return -1"
+}
+]
+}

@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>50 - Pow(x, n)</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/powx-n/>powx-n</a></h2><p>Implement <a href=http://www.cplusplus.com/reference/valarray/pow/ target=_blank>pow(x, n)</a>, which calculates <code>x</code> raised to the power <code>n</code> (i.e., <code>x<sup>n</sup></code>).<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> x = 2.00000, n = 10\n<strong>Output:</strong> 1024.00000\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> x = 2.10000, n = 3\n<strong>Output:</strong> 9.26100\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> x = 2.00000, n = -2\n<strong>Output:</strong> 0.25000\n<strong>Explanation:</strong> 2<sup>-2</sup> = 1/2<sup>2</sup> = 1/4 = 0.25\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>-100.0 &lt; x &lt; 100.0</code><li><code>-2<sup>31</sup> &lt;= n &lt;= 2<sup>31</sup>-1</code><li><code>n</code> is an integer.<li>Either <code>x</code> is not zero or <code>n > 0</code>.<li><code>-10<sup>4</sup> &lt;= x<sup>n</sup> &lt;= 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1767110399,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def myPow(self, x: float, n: int) -> float:\n        if n < 0:\n            return 1 / self.myPow(x, -n)\n\n        match n:\n            case 0:\n                return 1\n            case 1:\n                return x\n            case 2:\n                return x * x\n            case 3:\n                return x * x * x\n            case _:\n                one = n //2\n                two = n % 2\n                temp = self.myPow(x, one)\n                return temp * temp * self.myPow(x, two)"
+}
+]
+}

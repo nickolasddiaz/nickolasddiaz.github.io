@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>67 - Add Binary</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/add-binary/>add-binary</a></h2><p>Given two binary strings <code>a</code> and <code>b</code>, return <em>their sum as a binary string</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> a = \"11\", b = \"1\"\n<strong>Output:</strong> \"100\"\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> a = \"1010\", b = \"1011\"\n<strong>Output:</strong> \"10101\"\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= a.length, b.length &lt;= 10<sup>4</sup></code><li><code>a</code> and <code>b</code> consist\u00a0only of <code>'0'</code> or <code>'1'</code> characters.<li>Each string does not contain leading zeros except for the zero itself.</ul>",
+"submissions": [
+{
+"time": 1766791271,
+"language": "rs",
+"runtime": 0,
+"memory": 2.0,
+"accepted": true,
+"code_content": "impl Solution {\n    pub fn add_binary(a: String, b: String) -> String {\n        if a.len() > b.len() {\n            return Solution::add_binary(b, a);\n        }\n\n        let mut carry = 0;\n        let a_chars: Vec<char> = a.chars().collect();\n        let mut b_chars: Vec<char> = b.chars().collect();\n        \n        let offset = b_chars.len() - a_chars.len();\n\n        for i in (0..a_chars.len()).rev() {\n            let a_bit = if a_chars[i] == '1' { 1 } else { 0 };\n            let b_idx = i + offset;\n            let b_bit = if b_chars[b_idx] == '1' { 1 } else { 0 };\n            \n            let sum = a_bit + b_bit + carry;\n            carry = sum / 2;\n            b_chars[b_idx] = if sum % 2 == 1 { '1' } else { '0' };\n        }\n\n        for i in (0..offset).rev() {\n            if carry == 0 { break; }\n            let b_bit = if b_chars[i] == '1' { 1 } else { 0 };\n            let sum = b_bit + carry;\n            carry = sum / 2;\n            b_chars[i] = if sum % 2 == 1 { '1' } else { '0' };\n        }\n\n        let mut result: String = b_chars.iter().collect();\n        if carry == 1 {\n            result.insert(0, '1');\n        }\n        \n        result\n    }\n}\n"
+}
+]
+}

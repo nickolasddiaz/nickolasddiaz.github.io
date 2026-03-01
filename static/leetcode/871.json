@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>871 - Keys and Rooms</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/keys-and-rooms/>keys-and-rooms</a></h2><p>There are <code>n</code> rooms labeled from <code>0</code> to <code>n - 1</code>\u00a0and all the rooms are locked except for room <code>0</code>. Your goal is to visit all the rooms. However, you cannot enter a locked room without having its key.<p>When you visit a room, you may find a set of <strong>distinct keys</strong> in it. Each key has a number on it, denoting which room it unlocks, and you can take all of them with you to unlock the other rooms.<p>Given an array <code>rooms</code> where <code>rooms[i]</code> is the set of keys that you can obtain if you visited room <code>i</code>, return <code>true</code> <em>if you can visit <strong>all</strong> the rooms, or</em> <code>false</code> <em>otherwise</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> rooms = [[1],[2],[3],[]]\n<strong>Output:</strong> true\n<strong>Explanation:</strong> \nWe visit room 0 and pick up key 1.\nWe then visit room 1 and pick up key 2.\nWe then visit room 2 and pick up key 3.\nWe then visit room 3.\nSince we were able to visit every room, we return true.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> rooms = [[1,3],[3,0,1],[2],[0]]\n<strong>Output:</strong> false\n<strong>Explanation:</strong> We can not enter room number 2 since the only key that unlocks it is in that room.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == rooms.length</code><li><code>2 &lt;= n &lt;= 1000</code><li><code>0 &lt;= rooms[i].length &lt;= 1000</code><li><code>1 &lt;= sum(rooms[i].length) &lt;= 3000</code><li><code>0 &lt;= rooms[i][j] &lt; n</code><li>All the values of <code>rooms[i]</code> are <strong>unique</strong>.</ul>",
+"submissions": [
+{
+"time": 1719966639,
+"language": "cpp",
+"runtime": 10,
+"memory": 14.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool canVisitAllRooms(vector<vector<int>>& rooms) {\n        int size = rooms.size();\n        set<int> mp;\n        stack<int> stack;\n        stack.push(0);\n\n        while (!stack.empty()) {\n        mp.insert(stack.top());\n        assign(rooms[stack.top()], stack, mp);\n    }\n        if(size == mp.size())\n        return true;\n        return false;\n\n\n\n    }\nprivate:\n    void assign(vector<int> room, stack<int>& stack, set<int>& mp){\n        stack.pop();\n        vector<int>::iterator ptr;\n        for (ptr = room.begin(); ptr < room.end(); ptr++) {\n        if(mp.contains(*ptr)){\n            continue;\n        } else{\n            stack.push(*ptr);\n        }\n        }\n\n\n    }\n};"
+}
+]
+}

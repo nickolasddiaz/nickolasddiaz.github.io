@@ -6,7 +6,7 @@
 
 <MainContent>
     
-    <p class="text-lg max-w-5xl place-self-center" >Here is my meme called "DaBaby Nuke". Inspired by the 
+    <p class="paragraph-text" >Here is my meme called "DaBaby Nuke". Inspired by the 
         <a class="link-primary" href="https://en.wikipedia.org/wiki/File:Dababy_BabyOnBaby.jpg">DaBaby</a> 
         and 
         <a class="link-primary" href="https://x.com/_OhhBass/status/854609365822779392">Trump Nuke</a>

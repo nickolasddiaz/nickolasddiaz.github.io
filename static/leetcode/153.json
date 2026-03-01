@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>153 - Find Minimum in Rotated Sorted Array</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/>find-minimum-in-rotated-sorted-array</a></h2><p>Suppose an array of length <code>n</code> sorted in ascending order is <strong>rotated</strong> between <code>1</code> and <code>n</code> times. For example, the array <code>nums = [0,1,2,4,5,6,7]</code> might become:<ul><li><code>[4,5,6,7,0,1,2]</code> if it was rotated <code>4</code> times.<li><code>[0,1,2,4,5,6,7]</code> if it was rotated <code>7</code> times.</ul><p>Notice that <strong>rotating</strong> an array <code>[a[0], a[1], a[2], ..., a[n-1]]</code> 1 time results in the array <code>[a[n-1], a[0], a[1], a[2], ..., a[n-2]]</code>.<p>Given the sorted rotated array <code>nums</code> of <strong>unique</strong> elements, return <em>the minimum element of this array</em>.<p>You must write an algorithm that runs in\u00a0<code>O(log n) time</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [3,4,5,1,2]\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> The original array was [1,2,3,4,5] rotated 3 times.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [4,5,6,7,0,1,2]\n<strong>Output:</strong> 0\n<strong>Explanation:</strong> The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [11,13,15,17]\n<strong>Output:</strong> 11\n<strong>Explanation:</strong> The original array was [11,13,15,17] and it was rotated 4 times. \n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == nums.length</code><li><code>1 &lt;= n &lt;= 5000</code><li><code>-5000 &lt;= nums[i] &lt;= 5000</code><li>All the integers of <code>nums</code> are <strong>unique</strong>.<li><code>nums</code> is sorted and rotated between <code>1</code> and <code>n</code> times.</ul>",
+"submissions": [
+{
+"time": 1766616715,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def findMin(self, nums: List[int]) -> int:\n        left = 0\n        right = len(nums) - 1\n        test = len(nums) - 1\n\n        while left <= right:\n            mid = (left + right) // 2\n\n            if mid + 1 >= len(nums):\n                return nums[mid + 1]\n            elif nums[mid] > nums[mid + 1]:\n                return nums[mid + 1]\n            elif nums[mid] > nums[test]:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return nums[0]"
+},
+{
+"time": 1766616835,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def findMin(self, nums: List[int]) -> int:\n        left = 0\n        right = len(nums) - 1\n        test = len(nums) - 1\n\n        while left <= right:\n            mid = (left + right) // 2\n\n            if mid + 1 >= len(nums):\n                return nums[mid]\n            elif nums[mid] > nums[mid + 1]:\n                return nums[mid + 1]\n            elif nums[mid] > nums[test]:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return nums[0]"
+}
+]
+}

@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>435 - Non-overlapping Intervals</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/non-overlapping-intervals/>non-overlapping-intervals</a></h2><p>Given an array of intervals <code>intervals</code> where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, return <em>the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping</em>.<p><strong>Note</strong> that intervals which only touch at a point are <strong>non-overlapping</strong>. For example, <code>[1, 2]</code> and <code>[2, 3]</code> are non-overlapping.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> intervals = [[1,2],[2,3],[3,4],[1,3]]\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> [1,3] can be removed and the rest of the intervals are non-overlapping.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> intervals = [[1,2],[1,2],[1,2]]\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> You need to remove two [1,2] to make the rest of the intervals non-overlapping.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> intervals = [[1,2],[2,3]]\n<strong>Output:</strong> 0\n<strong>Explanation:</strong> You don't need to remove any of the intervals since they're already non-overlapping.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= intervals.length &lt;= 10<sup>5</sup></code><li><code>intervals[i].length == 2</code><li><code>-5 * 10<sup>4</sup> &lt;= start<sub>i</sub> &lt; end<sub>i</sub> &lt;= 5 * 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1721679471,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int eraseOverlapIntervals(vector<vector<int>>& intervals) {\n        int solution = 1;\n        int n = intervals.size();\n        sort(intervals.begin(), intervals.end(), cmp);\n        int prev = 0;\n        for (int i = 1; i < n; i++){\n            if(intervals[i][0] >= intervals[prev][1]){\n                prev = i;\n                solution++;\n            }\n            \n        }\n\n        return n - solution;\n    }\nprivate:\n    static bool cmp(vector<int>& a, vector<int>& b){\n        if(a[0] == b[0])\n        return a[1] < b[1];\n        return a[0] < b[0];\n    }\n};"
+},
+{
+"time": 1721679626,
+"language": "cpp",
+"runtime": 222,
+"memory": 93.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int eraseOverlapIntervals(vector<vector<int>>& intervals) {\n        int solution = 1;\n        int n = intervals.size();\n        sort(intervals.begin(), intervals.end(), cmp);\n        int prev = 0;\n        for (int i = 1; i < n; i++){\n            if(intervals[i][0] >= intervals[prev][1]){\n                prev = i;\n                solution++;\n            }\n            \n        }\n\n        return n - solution;\n    }\nprivate:\n    static bool cmp(vector<int>& a, vector<int>& b){\n        return a[1] < b[1];\n    }\n};"
+}
+]
+}

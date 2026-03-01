@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>206 - Reverse Linked List</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/reverse-linked-list/>reverse-linked-list</a></h2><p>Given the <code>head</code> of a singly linked list, reverse the list, and return <em>the reversed list</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/rev1ex1.jpg style=width:542px;height:222px><pre>\n<strong>Input:</strong> head = [1,2,3,4,5]\n<strong>Output:</strong> [5,4,3,2,1]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/rev1ex2.jpg style=width:182px;height:222px><pre>\n<strong>Input:</strong> head = [1,2]\n<strong>Output:</strong> [2,1]\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> head = []\n<strong>Output:</strong> []\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the list is the range <code>[0, 5000]</code>.<li><code>-5000 &lt;= Node.val &lt;= 5000</code></ul><p>\u00a0<p><strong>Follow up:</strong> A linked list can be reversed either iteratively or recursively. Could you implement both?",
+"submissions": [
+{
+"time": 1719423052,
+"language": "cpp",
+"runtime": 3,
+"memory": 11.0,
+"accepted": true,
+"code_content": "/**\n * Definition for singly-linked list.\n * struct ListNode {\n *     int val;\n *     ListNode *next;\n *     ListNode() : val(0), next(nullptr) {}\n *     ListNode(int x) : val(x), next(nullptr) {}\n *     ListNode(int x, ListNode *next) : val(x), next(next) {}\n * };\n */\nclass Solution {\npublic:\n    ListNode* reverseList(ListNode* head) {\n        ListNode* prev = nullptr;\n        ListNode* curr = head;\n        ListNode* next = nullptr;\n\n        while(curr){\n            next = curr->next;\n            curr->next = prev;\n            prev = curr;\n            curr = next;\n        }\n        return prev;\n    }\n};"
+}
+]
+}

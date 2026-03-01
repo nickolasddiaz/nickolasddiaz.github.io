@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>88 - Merge Sorted Array</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/merge-sorted-array/>merge-sorted-array</a></h2><p>You are given two integer arrays <code>nums1</code> and <code>nums2</code>, sorted in <strong>non-decreasing order</strong>, and two integers <code>m</code> and <code>n</code>, representing the number of elements in <code>nums1</code> and <code>nums2</code> respectively.<p><strong>Merge</strong> <code>nums1</code> and <code>nums2</code> into a single array sorted in <strong>non-decreasing order</strong>.<p>The final sorted array should not be returned by the function, but instead be <em>stored inside the array </em><code>nums1</code>. To accommodate this, <code>nums1</code> has a length of <code>m + n</code>, where the first <code>m</code> elements denote the elements that should be merged, and the last <code>n</code> elements are set to <code>0</code> and should be ignored. <code>nums2</code> has a length of <code>n</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3\n<strong>Output:</strong> [1,2,2,3,5,6]\n<strong>Explanation:</strong> The arrays we are merging are [1,2,3] and [2,5,6].\nThe result of the merge is [<u>1</u>,<u>2</u>,2,<u>3</u>,5,6] with the underlined elements coming from nums1.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums1 = [1], m = 1, nums2 = [], n = 0\n<strong>Output:</strong> [1]\n<strong>Explanation:</strong> The arrays we are merging are [1] and [].\nThe result of the merge is [1].\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums1 = [0], m = 0, nums2 = [1], n = 1\n<strong>Output:</strong> [1]\n<strong>Explanation:</strong> The arrays we are merging are [] and [1].\nThe result of the merge is [1].\nNote that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>nums1.length == m + n</code><li><code>nums2.length == n</code><li><code>0 &lt;= m, n &lt;= 200</code><li><code>1 &lt;= m + n &lt;= 200</code><li><code>-10<sup>9</sup> &lt;= nums1[i], nums2[j] &lt;= 10<sup>9</sup></code></ul><p>\u00a0<p><strong>Follow up: </strong>Can you come up with an algorithm that runs in <code>O(m + n)</code> time?",
+"submissions": [
+{
+"time": 1760965927,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {\n        \n        \n    }\n};"
+},
+{
+"time": 1760968030,
+"language": "cpp",
+"runtime": 0,
+"memory": 12.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {\n        int num1p = m -1;\n        int num2p = n -1;\n        int point = n + m -1;\n\n        while (num1p >= 0 && num2p >= 0){\n            if (nums1[num1p] > nums2[num2p]){\n                nums1[point] = nums1[num1p];\n                num1p--;\n            } else{\n                nums1[point] = nums2[num2p];\n                num2p--;\n            }\n            point--;\n        }\n\n        while(num2p >= 0){\n            nums1[point] = nums2[num2p];\n            num2p--;\n            point--;\n        }\n        \n    }\n};"
+}
+]
+}

@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>205 - Isomorphic Strings</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/isomorphic-strings/>isomorphic-strings</a></h2><p>Given two strings <code>s</code> and <code>t</code>, <em>determine if they are isomorphic</em>.<p>Two strings <code>s</code> and <code>t</code> are isomorphic if the characters in <code>s</code> can be replaced to get <code>t</code>.<p>All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"egg\", t = \"add\"</span><p><strong>Output:</strong> <span class=example-io>true</span><p><strong>Explanation:</strong><p>The strings <code>s</code> and <code>t</code> can be made identical by:<ul><li>Mapping <code>'e'</code> to <code>'a'</code>.<li>Mapping <code>'g'</code> to <code>'d'</code>.</ul></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"foo\", t = \"bar\"</span><p><strong>Output:</strong> <span class=example-io>false</span><p><strong>Explanation:</strong><p>The strings <code>s</code> and <code>t</code> can not be made identical as <code>'o'</code> needs to be mapped to both <code>'a'</code> and <code>'r'</code>.</div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"paper\", t = \"title\"</span><p><strong>Output:</strong> <span class=example-io>true</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 5 * 10<sup>4</sup></code><li><code>t.length == s.length</code><li><code>s</code> and <code>t</code> consist of any valid ascii character.</ul>",
+"submissions": [
+{
+"time": 1763745769,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def isIsomorphic(self, s: str, t: str) -> bool:\n        set1 = defaultdict(int)\n        for c in s:\n            set1[c] += 1\n        set2 = defaultdict(int)\n        for c in t:\n            set2[c] += 1\n\n        validate = defaultdict(int)\n        for nums in set1.values():\n            validate[nums] += 1\n        for nums in set2.values():\n            validate[nums] -= 1\n\n        return not any(value < 0 for value in validate.values())"
+},
+{
+"time": 1763746530,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def isIsomorphic(self, s: str, t: str) -> bool:\n        if len(s) == 0:\n            return True\n\n        prev1 = s[0]\n        prev2 = t[0]\n        for i in range(len(s)):\n            if (prev1 == s[i]) ^ (prev2 == t[i]):\n                return False\n            prev1, prev2 = s[i], t[i]\n\n        return True"
+},
+{
+"time": 1763746653,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def isIsomorphic(self, s: str, t: str) -> bool:\n        if len(s) == 0:\n            return True\n\n        prev1 = s[0]\n        prev2 = t[0]\n        for i in range(len(s)):\n            if (prev1 == s[i]) ^ (prev2 == t[i]):\n                return False\n            prev1, prev2 = s[i], t[i]\n\n        set1 = defaultdict(int)\n        for c in s:\n            set1[c] += 1\n        set2 = defaultdict(int)\n        for c in t:\n            set2[c] += 1\n\n        validate = defaultdict(int)\n        for nums in set1.values():\n            validate[nums] += 1\n        for nums in set2.values():\n            validate[nums] -= 1\n\n        return not any(value < 0 for value in validate.values())"
+},
+{
+"time": 1763747201,
+"language": "py",
+"runtime": 7,
+"memory": 18.0,
+"accepted": true,
+"code_content": "class Solution:\n    def isIsomorphic(self, s: str, t: str) -> bool:\n        set1 = defaultdict(int)\n        set2 = defaultdict(int)\n\n        for i in range(len(s)):\n            if s[i] not in set1:\n                set1[s[i]] = i\n\n            if t[i] not in set2:\n                set2[t[i]] = i\n\n            if set1[s[i]] != set2[t[i]]:\n                return False\n\n        return True"
+}
+]
+}

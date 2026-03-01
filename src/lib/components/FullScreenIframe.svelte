@@ -5,10 +5,12 @@
     let { url = "/" }: Props = $props();
 </script>
 
-<div class="w-full h-screen flex flex-col">
-    <iframe 
-        title={title_from_url(url)} 
-        src={url + "#zoom=FitW"}
-        class="w-full grow border-none"
-    ></iframe>
+<div class="w-full h-screen flex flex-col overflow-hidden">
+    <div class="w-full grow overflow-auto [-webkit-overflow-scrolling:touch]">
+        <iframe 
+            title={title_from_url(url)} 
+            src={url + "#zoom=FitW"}
+            class="w-px min-w-full h-full border-none"
+        ></iframe>
+    </div>
 </div>

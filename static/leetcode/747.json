@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>747 - Min Cost Climbing Stairs</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/min-cost-climbing-stairs/>min-cost-climbing-stairs</a></h2><p>You are given an integer array <code>cost</code> where <code>cost[i]</code> is the cost of <code>i<sup>th</sup></code> step on a staircase. Once you pay the cost, you can either climb one or two steps.<p>You can either start from the step with index <code>0</code>, or the step with index <code>1</code>.<p>Return <em>the minimum cost to reach the top of the floor</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> cost = [10,<u>15</u>,20]\n<strong>Output:</strong> 15\n<strong>Explanation:</strong> You will start at index 1.\n- Pay 15 and climb two steps to reach the top.\nThe total cost is 15.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> cost = [<u>1</u>,100,<u>1</u>,1,<u>1</u>,100,<u>1</u>,<u>1</u>,100,<u>1</u>]\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> You will start at index 0.\n- Pay 1 and climb two steps to reach index 2.\n- Pay 1 and climb two steps to reach index 4.\n- Pay 1 and climb two steps to reach index 6.\n- Pay 1 and climb one step to reach index 7.\n- Pay 1 and climb two steps to reach index 9.\n- Pay 1 and climb one step to reach the top.\nThe total cost is 6.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>2 &lt;= cost.length &lt;= 1000</code><li><code>0 &lt;= cost[i] &lt;= 999</code></ul>",
+"submissions": [
+{
+"time": 1721155194,
+"language": "cpp",
+"runtime": 3,
+"memory": 16.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int minCostClimbingStairs(vector<int>& cost) {\n        int n = cost.size();\n        int prev1 = cost[0];\n        int prev2 = cost[1];\n\n        for (int i = 2; i < n; i++) {\n            int curr = cost[i] + min(prev1, prev2);\n            prev1 = prev2;\n            prev2 = curr;\n        }\n\n        return min(prev1, prev2);\n    }\n};\n"
+}
+]
+}

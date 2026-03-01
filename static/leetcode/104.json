@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>104 - Maximum Depth of Binary Tree</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/maximum-depth-of-binary-tree/>maximum-depth-of-binary-tree</a></h2><p>Given the <code>root</code> of a binary tree, return <em>its maximum depth</em>.<p>A binary tree's <strong>maximum depth</strong>\u00a0is the number of nodes along the longest path from the root node down to the farthest leaf node.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/26/tmp-tree.jpg style=width:400px;height:277px><pre>\n<strong>Input:</strong> root = [3,9,20,null,null,15,7]\n<strong>Output:</strong> 3\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> root = [1,null,2]\n<strong>Output:</strong> 2\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[0, 10<sup>4</sup>]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code></ul>",
+"submissions": [
+{
+"time": 1719428017,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int maxDepth(TreeNode* root) {\n        int dephl = 0;\n        int dephr = 0;\n        if(root->left){\n            dephl = maxDepth(root->left);\n            dephl++;\n        }\n\n        if(root->right){\n            dephr = maxDepth(root->right);\n            dephr++;\n        }\n        if(dephl >= dephr)\n        return dephl > 0 ? dephl:dephl+1;\n        return dephr > 0 ? dephr:dephr+1;\n    }\n};"
+},
+{
+"time": 1719428145,
+"language": "cpp",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int maxDepth(TreeNode* root) {\n        if(root == nullptr)\n        return 0;\n        int dephl = 0;\n        int dephr = 0;\n        if(root->left){\n            dephl = maxDepth(root->left);\n            dephl++;\n        }\n\n        if(root->right){\n            dephr = maxDepth(root->right);\n            dephr++;\n        }\n        if(dephl >= dephr)\n        return dephl > 0 ? dephl:dephl+1;\n        return dephr > 0 ? dephr:dephr+1;\n    }\n};"
+}
+]
+}

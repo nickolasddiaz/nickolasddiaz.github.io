@@ -49,4 +49,12 @@
     @apply inline text-blue-600 underline cursor-pointer transition-colors duration-200;
     @apply hover:text-blue-800 hover:no-underline;
   }
+  .paragraph-text {
+    @apply text-lg max-w-5xl place-self-center;
+  }
+  .navbar-text {
+    @apply bg-clip-text text-transparent;
+    @apply bg-linear-to-b from-emerald-200 to-neutral-200;
+    @apply hover:bg-linear-to-b hover:from-fuchsia-300 hover:to-neutral-200;
+  }
 }

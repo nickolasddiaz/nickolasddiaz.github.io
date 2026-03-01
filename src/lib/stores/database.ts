@@ -1,6 +1,6 @@
 import type Accordiontype from '$lib/stores/accordion_tabs_types'
 
-export const data: Accordiontype[] = [
+export default [
   {
     header: "Database 1 Final Project Documents",
     tab_list: [
@@ -25,4 +25,4 @@ export const data: Accordiontype[] = [
       { tab_name: "Drop Tables", resource: "/database/drop_tables.sql", isCode: true },
     ]
   }
-];
+] as Accordiontype[];
