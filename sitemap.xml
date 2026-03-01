@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>https://nickolasddiaz.github.io/</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/about_me/career_summary</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/about_me/contact</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/about_me/papers</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/classes/architecture</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/classes/computer_graphics</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/classes/cpp</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/classes/database</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/classes/py</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/etc/meme</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/etc/minecraft_map</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/portfolio/awards</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/portfolio/github</loc>
+  </url>
+  <url>
+    <loc>https://nickolasddiaz.github.io/portfolio/leetcode</loc>
+  </url>
+</urlset>
