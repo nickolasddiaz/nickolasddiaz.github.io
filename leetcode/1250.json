@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>1250 - Longest Common Subsequence</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/longest-common-subsequence/>longest-common-subsequence</a></h2><p>Given two strings <code>text1</code> and <code>text2</code>, return <em>the length of their longest <strong>common subsequence</strong>. </em>If there is no <strong>common subsequence</strong>, return <code>0</code>.<p>A <strong>subsequence</strong> of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.<ul><li>For example, <code>\"ace\"</code> is a subsequence of <code>\"abcde\"</code>.</ul><p>A <strong>common subsequence</strong> of two strings is a subsequence that is common to both strings.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> text1 = \"abcde\", text2 = \"ace\" \n<strong>Output:</strong> 3  \n<strong>Explanation:</strong> The longest common subsequence is \"ace\" and its length is 3.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> text1 = \"abc\", text2 = \"abc\"\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The longest common subsequence is \"abc\" and its length is 3.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> text1 = \"abc\", text2 = \"def\"\n<strong>Output:</strong> 0\n<strong>Explanation:</strong> There is no such common subsequence, so the result is 0.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= text1.length, text2.length &lt;= 1000</code><li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</ul>",
+"submissions": [
+{
+"time": 1721328443,
+"language": "cpp",
+"runtime": 25,
+"memory": 25.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int longestCommonSubsequence(string text1, string text2) {\n        int n = text1.size();\n        int m = text2.size();\n        vector<vector<int>> DP( n + 1, vector<int>(m+1, -1));\n\n        for(int i = 0; i <= n; i++) DP[i][0] = 0;\n        for(int i = 0; i <= m; i++) DP[0][i] = 0;\n\n        for (int i = 1; i <= n; i++) {\n            for (int j = 1; j <= m; j++) {\n                if (text1[i - 1] == text2[j - 1]) {\n                    DP[i][j] = DP[i - 1][j - 1] + 1;\n                } else {\n                    DP[i][j] = max(DP[i - 1][j], DP[i][j - 1]);\n                }\n            }\n        }\n        \n        return DP[n][m];\n        }\n};"
+}
+]
+}

@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>30 - Substring with Concatenation of All Words</h1><h2>Difficulty: Hard - <a href=https://leetcode.com/problems/substring-with-concatenation-of-all-words/>substring-with-concatenation-of-all-words</a></h2><p>You are given a string <code>s</code> and an array of strings <code>words</code>. All the strings of <code>words</code> are of <strong>the same length</strong>.<p>A <strong>concatenated string</strong> is a string that exactly contains all the strings of any permutation of <code>words</code> concatenated.<ul><li>For example, if <code>words = [\"ab\",\"cd\",\"ef\"]</code>, then <code>\"abcdef\"</code>, <code>\"abefcd\"</code>, <code>\"cdabef\"</code>, <code>\"cdefab\"</code>, <code>\"efabcd\"</code>, and <code>\"efcdab\"</code> are all concatenated strings. <code>\"acdbef\"</code> is not a concatenated string because it is not the concatenation of any permutation of <code>words</code>.</ul><p>Return an array of <em>the starting indices</em> of all the concatenated substrings in <code>s</code>. You can return the answer in <strong>any order</strong>.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"barfoothefoobarman\", words = [\"foo\",\"bar\"]</span><p><strong>Output:</strong> <span class=example-io>[0,9]</span><p><strong>Explanation:</strong><p>The substring starting at 0 is <code>\"barfoo\"</code>. It is the concatenation of <code>[\"bar\",\"foo\"]</code> which is a permutation of <code>words</code>.<br> The substring starting at 9 is <code>\"foobar\"</code>. It is the concatenation of <code>[\"foo\",\"bar\"]</code> which is a permutation of <code>words</code>.</div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"wordgoodgoodgoodbestword\", words = [\"word\",\"good\",\"best\",\"word\"]</span><p><strong>Output:</strong> <span class=example-io>[]</span><p><strong>Explanation:</strong><p>There is no concatenated substring.</div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"barfoofoobarthefoobarman\", words = [\"bar\",\"foo\",\"the\"]</span><p><strong>Output:</strong> <span class=example-io>[6,9,12]</span><p><strong>Explanation:</strong><p>The substring starting at 6 is <code>\"foobarthe\"</code>. It is the concatenation of <code>[\"foo\",\"bar\",\"the\"]</code>.<br> The substring starting at 9 is <code>\"barthefoo\"</code>. It is the concatenation of <code>[\"bar\",\"the\",\"foo\"]</code>.<br> The substring starting at 12 is <code>\"thefoobar\"</code>. It is the concatenation of <code>[\"the\",\"foo\",\"bar\"]</code>.</div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code><li><code>1 &lt;= words.length &lt;= 5000</code><li><code>1 &lt;= words[i].length &lt;= 30</code><li><code>s</code> and <code>words[i]</code> consist of lowercase English letters.</ul>",
+"submissions": [
+{
+"time": 1763509704,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        word_set = set(words)\n        w_length = len(words[0])\n\n        result = []\n\n        for index in range(len(s)):\n            slice = s[index:index + w_length]\n\n            if slice in word_set:\n                temp_set = word_set.copy()\n                temp_set.remove(slice)\n\n                for slices in range(index+w_length, len(s), w_length):\n                    templ_slice = s[slices:slices + w_length]\n\n                    if not temp_set: # check if empty\n                        result.append(index)\n                        break\n\n                    if templ_slice not in temp_set:\n                        break\n\n                    temp_set.remove(templ_slice)\n\n        return result"
+},
+{
+"time": 1763510537,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        word_set = Counter(words)\n        w_length = len(words[0])\n\n        result = []\n\n        for index in range(len(s) - w_length + 1):\n            slice = s[index:index + w_length]\n\n            if slice in word_set:\n                temp_set = word_set.copy()\n                temp_set[slice] -= 1\n                if temp_set[slice] == 0:\n                    temp_set.pop(slice)\n\n                for slices in range(index+w_length, len(s), w_length):\n                    templ_slice = s[slices:slices + w_length]\n\n                    if templ_slice not in temp_set:\n                        break\n\n                    temp_set[templ_slice] -= 1\n\n                    if temp_set[templ_slice] == 0:\n                        temp_set.pop(templ_slice)\n\n                    if not temp_set: # check if empty\n                        result.append(index)\n                        break\n\n        return result"
+},
+{
+"time": 1763510681,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        word_set = Counter(words)\n        w_length = len(words[0])\n\n        result = []\n\n        for index in range(len(s) - w_length + 1):\n            slice = s[index:index + w_length]\n\n            if slice in word_set:\n                temp_set = word_set.copy()\n\n                for slices in range(index, len(s), w_length):\n                    templ_slice = s[slices:slices + w_length]\n\n                    if templ_slice not in temp_set:\n                        break\n\n                    temp_set[templ_slice] -= 1\n\n                    if temp_set[templ_slice] == 0:\n                        temp_set.pop(templ_slice)\n\n                    if not temp_set: # check if empty\n                        result.append(index)\n                        break\n\n        return result"
+},
+{
+"time": 1763512462,
+"language": "py",
+"runtime": 8047,
+"memory": 18.0,
+"accepted": true,
+"code_content": "class Solution:\n    def findSubstring(self, s: str, words: List[str]) -> List[int]:\n        if not s or not words:\n            return []\n\n        word_set = Counter(words)\n        w_length = len(words[0])\n        substr_len = len(words) * len(words[0])\n\n        result = []\n\n        for index in range(len(s) - substr_len + 1):\n\n            temp_set = defaultdict(int)\n\n            for j in range(index, index + substr_len, w_length):\n                jslice = s[j:j+w_length]\n                if jslice in word_set:\n                    temp_set[jslice] += 1\n                    if temp_set[jslice] > word_set[jslice]:\n                        break\n                else:\n                    break\n            else:\n                result.append(index)\n\n\n        return result"
+}
+]
+}

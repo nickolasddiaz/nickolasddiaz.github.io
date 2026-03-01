@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>106 - Construct Binary Tree from Inorder and Postorder Traversal</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/>construct-binary-tree-from-inorder-and-postorder-traversal</a></h2><p>Given two integer arrays <code>inorder</code> and <code>postorder</code> where <code>inorder</code> is the inorder traversal of a binary tree and <code>postorder</code> is the postorder traversal of the same tree, construct and return <em>the binary tree</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/tree.jpg style=width:277px;height:302px><pre>\n<strong>Input:</strong> inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]\n<strong>Output:</strong> [3,9,20,null,null,15,7]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> inorder = [-1], postorder = [-1]\n<strong>Output:</strong> [-1]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= inorder.length &lt;= 3000</code><li><code>postorder.length == inorder.length</code><li><code>-3000 &lt;= inorder[i], postorder[i] &lt;= 3000</code><li><code>inorder</code> and <code>postorder</code> consist of <strong>unique</strong> values.<li>Each value of <code>postorder</code> also appears in <code>inorder</code>.<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.<li><code>postorder</code> is <strong>guaranteed</strong> to be the postorder traversal of the tree.</ul>",
+"submissions": [
+{
+"time": 1764781691,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:\n        if not postorder:\n            return None\n        if len(postorder) == 1:\n            return TreeNode(postorder[0])\n        if len(postorder) == 2:\n            if inorder[0] == postorder[0]:\n                return TreeNode(val=postorder[1], left=TreeNode(val=inorder[0]))\n            else:\n                return TreeNode(val=inorder[0], right=TreeNode(val=postorder[0]))\n\n\n        head_val = postorder[-1]\n\n        inorder_split = inorder.index(postorder[-1])\n\n        in_left, in_right = inorder[:inorder_split], inorder[inorder_split+1:]\n\n        postorder_split = postorder.index(inorder[inorder_split + 1])\n\n        if postorder_split % 2 == 0:\n            postorder_split -= 1\n\n\n        post_left, post_right = postorder[:postorder_split], postorder[postorder_split:-1]\n\n        left_branch = self.buildTree(in_left, post_left)\n        right_branch = self.buildTree(in_right, post_right)\n\n        return TreeNode(val=head_val, left=left_branch, right=right_branch)"
+},
+{
+"time": 1764782007,
+"language": "py",
+"runtime": 70,
+"memory": 53.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:\n        if not inorder:\n            return None\n\n\n        head_val = postorder.pop()\n\n        inorder_index = inorder.index(head_val)\n\n\n        right_branch = self.buildTree(inorder[inorder_index+1:], postorder)\n        left_branch = self.buildTree(inorder[:inorder_index], postorder)\n\n        return TreeNode(val=head_val, left=left_branch, right=right_branch)"
+}
+]
+}

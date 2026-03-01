@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>92 - Reverse Linked List II</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/reverse-linked-list-ii/>reverse-linked-list-ii</a></h2><p>Given the <code>head</code> of a singly linked list and two integers <code>left</code> and <code>right</code> where <code>left &lt;= right</code>, reverse the nodes of the list from position <code>left</code> to position <code>right</code>, and return <em>the reversed list</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/rev2ex2.jpg style=width:542px;height:222px><pre>\n<strong>Input:</strong> head = [1,2,3,4,5], left = 2, right = 4\n<strong>Output:</strong> [1,4,3,2,5]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> head = [5], left = 1, right = 1\n<strong>Output:</strong> [5]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the list is <code>n</code>.<li><code>1 &lt;= n &lt;= 500</code><li><code>-500 &lt;= Node.val &lt;= 500</code><li><code>1 &lt;= left &lt;= right &lt;= n</code></ul><p>\u00a0<p><strong>Follow up:</strong> Could you do it in one pass?",
+"submissions": [
+{
+"time": 1764342516,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:\n        head_temp: ListNode = head\n\n        while head_temp:\n            if left == head_temp.val:\n                head_temp.val = right\n\n            elif right == head_temp.val:\n                head_temp.val = left\n                return head\n\n            head_temp = head_temp.next\n\n        return head\n        "
+},
+{
+"time": 1764344811,
+"language": "py",
+"runtime": 0,
+"memory": 18.0,
+"accepted": true,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:\n        head_temp: ListNode = head\n        prev = None\n        prev_temp = None\n\n        tail = None\n\n        index = 1\n        while head_temp:\n            if left <= index:\n                    temp = ListNode(head_temp.val)\n                    temp.next = prev_temp\n                    prev_temp = temp\n                    if tail is None:\n                        tail = prev_temp\n\n            if right == index:\n                if prev is None:\n                    head = prev_temp\n                else:\n                    prev.next = prev_temp\n                tail.next = head_temp.next\n\n                return head\n\n            if left -1 == index:\n                prev = head_temp\n            head_temp = head_temp.next\n            index += 1\n\n        return head\n        "
+}
+]
+}

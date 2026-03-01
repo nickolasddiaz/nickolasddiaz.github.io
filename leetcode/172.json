@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>172 - Factorial Trailing Zeroes</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/factorial-trailing-zeroes/>factorial-trailing-zeroes</a></h2><p>Given an integer <code>n</code>, return <em>the number of trailing zeroes in </em><code>n!</code>.<p>Note that <code>n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> n = 3\n<strong>Output:</strong> 0\n<strong>Explanation:</strong> 3! = 6, no trailing zero.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> n = 5\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> 5! = 120, one trailing zero.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> n = 0\n<strong>Output:</strong> 0\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= n &lt;= 10<sup>4</sup></code></ul><p>\u00a0<p><strong>Follow up:</strong> Could you write a solution that works in logarithmic time complexity?",
+"submissions": [
+{
+"time": 1767108451,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def trailingZeroes(self, n: int) -> int:\n        twos = 0\n        fives = 0\n        result = 0\n        add = 1\n        for i in range(1, n + 1):\n            add *= i\n            while add % 10 == 0:\n                add //= 10\n                result += 1\n            if add % 2 == 0:\n                twos += 1\n                add //= 2\n            elif add % 5 == 0:\n                fives += 1\n                add //= 5\n\n        return min(twos, fives) + result"
+},
+{
+"time": 1767108954,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def trailingZeroes(self, n: int) -> int:\n        result = 0\n        while n > 0:\n            n //= 5\n            result += n\n\n        return result"
+}
+]
+}

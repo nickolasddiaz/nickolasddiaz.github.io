@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>383 - Ransom Note</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/ransom-note/>ransom-note</a></h2><p>Given two strings <code>ransomNote</code> and <code>magazine</code>, return <code>true</code><em> if </em><code>ransomNote</code><em> can be constructed by using the letters from </em><code>magazine</code><em> and </em><code>false</code><em> otherwise</em>.<p>Each letter in <code>magazine</code> can only be used once in <code>ransomNote</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> ransomNote = \"a\", magazine = \"b\"\n<strong>Output:</strong> false\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> ransomNote = \"aa\", magazine = \"ab\"\n<strong>Output:</strong> false\n</pre><p><strong class=example>Example 3:</strong><pre><strong>Input:</strong> ransomNote = \"aa\", magazine = \"aab\"\n<strong>Output:</strong> true\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= ransomNote.length, magazine.length &lt;= 10<sup>5</sup></code><li><code>ransomNote</code> and <code>magazine</code> consist of lowercase English letters.</ul>",
+"submissions": [
+{
+"time": 1763683093,
+"language": "py",
+"runtime": 19,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def canConstruct(self, ransomNote: str, magazine: str) -> bool:\n        counts = defaultdict(int)\n\n        for ch in ransomNote:\n            counts[ch] -= 1\n\n        for ch in magazine:\n            counts[ch] += 1\n\n        return not any(value < 0 for value in counts.values())\n\n        "
+}
+]
+}

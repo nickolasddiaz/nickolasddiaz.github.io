@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>167 - Two Sum II - Input Array Is Sorted</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/>two-sum-ii-input-array-is-sorted</a></h2><p>Given a <strong>1-indexed</strong> array of integers <code>numbers</code> that is already <strong><em>sorted in non-decreasing order</em></strong>, find two numbers such that they add up to a specific <code>target</code> number. Let these two numbers be <code>numbers[index<sub>1</sub>]</code> and <code>numbers[index<sub>2</sub>]</code> where <code>1 &lt;= index<sub>1</sub> &lt; index<sub>2</sub> &lt;= numbers.length</code>.<p>Return<em> the indices of the two numbers, </em><code>index<sub>1</sub></code><em> and </em><code>index<sub>2</sub></code><em>, <strong>added by one</strong> as an integer array </em><code>[index<sub>1</sub>, index<sub>2</sub>]</code><em> of length 2.</em><p>The tests are generated such that there is <strong>exactly one solution</strong>. You <strong>may not</strong> use the same element twice.<p>Your solution must use only constant extra space.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> numbers = [<u>2</u>,<u>7</u>,11,15], target = 9\n<strong>Output:</strong> [1,2]\n<strong>Explanation:</strong> The sum of 2 and 7 is 9. Therefore, index<sub>1</sub> = 1, index<sub>2</sub> = 2. We return [1, 2].\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> numbers = [<u>2</u>,3,<u>4</u>], target = 6\n<strong>Output:</strong> [1,3]\n<strong>Explanation:</strong> The sum of 2 and 4 is 6. Therefore index<sub>1</sub> = 1, index<sub>2</sub> = 3. We return [1, 3].\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> numbers = [<u>-1</u>,<u>0</u>], target = -1\n<strong>Output:</strong> [1,2]\n<strong>Explanation:</strong> The sum of -1 and 0 is -1. Therefore index<sub>1</sub> = 1, index<sub>2</sub> = 2. We return [1, 2].\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>2 &lt;= numbers.length &lt;= 3 * 10<sup>4</sup></code><li><code>-1000 &lt;= numbers[i] &lt;= 1000</code><li><code>numbers</code> is sorted in <strong>non-decreasing order</strong>.<li><code>-1000 &lt;= target &lt;= 1000</code><li>The tests are generated such that there is <strong>exactly one solution</strong>.</ul>",
+"submissions": [
+{
+"time": 1762136527,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    vector<int> twoSum(vector<int>& numbers, int target) {\n        int n = numbers.size();\n\n        int l = 0, r = 1;\n        while(true){\n            if(l == r){\n                r++;\n                continue;\n            }\n            int val = numbers[l] + numbers[r];\n            if(val == target)\n                return {l+1, r+1};\n            else if (val < target)\n                r++;\n            else\n                l++;\n\n        }\n\n        return {-1};\n        \n    }\n};"
+},
+{
+"time": 1762136857,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\n    public:\n        vector<int> twoSum(vector<int>& numbers, int target) {\n            int n = numbers.size();\n    \n            int l = 0, r = 1;\n            while(true){\n                if(l == r){\n                    r++;\n                    continue;\n                }\n                int val = numbers[l] + numbers[r];\n                if(val == target)\n                    return {l+1, r+1};\n                else if (val < target && r < n - 1)\n                    r++;\n                else\n                    l++;\n    \n            }\n    \n            return {-1};\n            \n        }\n    };"
+},
+{
+"time": 1762137360,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\n    public:\n        vector<int> twoSum(vector<int>& numbers, int target) {\n            int n = numbers.size();\n    \n            int l = 0, r = 1;\n            while(true){\n                if(l == r){\n                    r++;\n                    continue;\n                }\n                int val = numbers[l] + numbers[r];\n                if(val == target)\n                    return {l+1, r+1};\n                else if (val < target && r < n - 1 && numbers[l] + numbers[r+1] <= target)\n                    r++;\n                else\n                    l++;\n    \n            }\n    \n            return {-1};\n            \n        }\n    };"
+},
+{
+"time": 1762137529,
+"language": "cpp",
+"runtime": 0,
+"memory": 19.0,
+"accepted": true,
+"code_content": "class Solution {\n    public:\n        vector<int> twoSum(vector<int>& numbers, int target) {\n            int n = numbers.size();\n    \n            int l = 0, r = n-1;\n            while(true){\n\n                int val = numbers[l] + numbers[r];\n                if(val == target)\n                    return {l+1, r+1};\n                else if (val > target)\n                    r--;\n                else\n                    l++;\n    \n            }\n    \n            return {-1};\n            \n        }\n    };"
+}
+]
+}

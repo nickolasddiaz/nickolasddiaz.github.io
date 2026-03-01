@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>969 - Number of Recent Calls</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/number-of-recent-calls/>number-of-recent-calls</a></h2><p>You have a <code>RecentCounter</code> class which counts the number of recent requests within a certain time frame.<p>Implement the <code>RecentCounter</code> class:<ul><li><code>RecentCounter()</code> Initializes the counter with zero recent requests.<li><code>int ping(int t)</code> Adds a new request at time <code>t</code>, where <code>t</code> represents some time in milliseconds, and returns the number of requests that has happened in the past <code>3000</code> milliseconds (including the new request). Specifically, return the number of requests that have happened in the inclusive range <code>[t - 3000, t]</code>.</ul><p>It is <strong>guaranteed</strong> that every call to <code>ping</code> uses a strictly larger value of <code>t</code> than the previous call.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input</strong>\n[\"RecentCounter\", \"ping\", \"ping\", \"ping\", \"ping\"]\n[[], [1], [100], [3001], [3002]]\n<strong>Output</strong>\n[null, 1, 2, 3, 3]\n\n<strong>Explanation</strong>\nRecentCounter recentCounter = new RecentCounter();\nrecentCounter.ping(1);     // requests = [<u>1</u>], range is [-2999,1], return 1\nrecentCounter.ping(100);   // requests = [<u>1</u>, <u>100</u>], range is [-2900,100], return 2\nrecentCounter.ping(3001);  // requests = [<u>1</u>, <u>100</u>, <u>3001</u>], range is [1,3001], return 3\nrecentCounter.ping(3002);  // requests = [1, <u>100</u>, <u>3001</u>, <u>3002</u>], range is [2,3002], return 3\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= t &lt;= 10<sup>9</sup></code><li>Each test case will call <code>ping</code> with <strong>strictly increasing</strong> values of <code>t</code>.<li>At most <code>10<sup>4</sup></code> calls will be made to <code>ping</code>.</ul>",
+"submissions": [
+{
+"time": 1717903818,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class RecentCounter {\npublic:\n    queue<int> que;\n\n    RecentCounter() {\n        \n    }\n    \n    int ping(int t) {\n        int temp = t - 3000;\n        que.push(t);\n\n        if(que.front() < temp){\n            que.pop();\n        }\n        \n        return que.size();\n    }\n};\n\n/**\n * Your RecentCounter object will be instantiated and called as such:\n * RecentCounter* obj = new RecentCounter();\n * int param_1 = obj->ping(t);\n */"
+},
+{
+"time": 1717904057,
+"language": "cpp",
+"runtime": 136,
+"memory": 61.0,
+"accepted": true,
+"code_content": "class RecentCounter {\npublic:\n    queue<int> que;\n\n    RecentCounter() {\n        \n    }\n    \n    int ping(int t) {\n        int temp = t - 3000;\n        que.push(t);\n\n        while(!que.empty() && que.front() < temp){\n            que.pop();\n        }\n\n        return que.size();\n    }\n};\n\n/**\n * Your RecentCounter object will be instantiated and called as such:\n * RecentCounter* obj = new RecentCounter();\n * int param_1 = obj->ping(t);\n */"
+}
+]
+}

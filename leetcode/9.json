@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>9 - Palindrome Number</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/palindrome-number/>palindrome-number</a></h2><p>Given an integer <code>x</code>, return <code>true</code><em> if </em><code>x</code><em> is a </em><span data-keyword=palindrome-integer><em><strong>palindrome</strong></em></span><em>, and </em><code>false</code><em> otherwise</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> x = 121\n<strong>Output:</strong> true\n<strong>Explanation:</strong> 121 reads as 121 from left to right and from right to left.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> x = -121\n<strong>Output:</strong> false\n<strong>Explanation:</strong> From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> x = 10\n<strong>Output:</strong> false\n<strong>Explanation:</strong> Reads 01 from right to left. Therefore it is not a palindrome.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>-2<sup>31</sup>\u00a0&lt;= x &lt;= 2<sup>31</sup>\u00a0- 1</code></ul><p>\u00a0<p><strong>Follow up:</strong> Could you solve it without converting the integer to a string?",
+"submissions": [
+{
+"time": 1767037047,
+"language": "py",
+"runtime": 8,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def isPalindrome(self, x: int) -> bool:\n        if x < 0:\n            return False\n        \n        test: List[int] = []       \n        while x != 0:\n            test.append(x % 10)\n            x //= 10\n            \n        left = 0\n        right = len(test) - 1\n        while left < right:\n            if test[left] != test[right]:\n                return False\n            left += 1\n            right -= 1\n\n        return True"
+}
+]
+}

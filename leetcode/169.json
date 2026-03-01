@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>169 - Majority Element</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/majority-element/>majority-element</a></h2><p>Given an array <code>nums</code> of size <code>n</code>, return <em>the majority element</em>.<p>The majority element is the element that appears more than <code>\u230an / 2\u230b</code> times. You may assume that the majority element always exists in the array.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> nums = [3,2,3]\n<strong>Output:</strong> 3\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> nums = [2,2,1,1,1,2,2]\n<strong>Output:</strong> 2\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == nums.length</code><li><code>1 &lt;= n &lt;= 5 * 10<sup>4</sup></code><li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code><li>The input is generated such that a majority element will exist in the array.</ul><p>\u00a0<p><strong>Follow-up:</strong> Could you solve the problem in linear time and in <code>O(1)</code> space?",
+"submissions": [
+{
+"time": 1761140680,
+"language": "cpp",
+"runtime": 0,
+"memory": 28.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int majorityElement(vector<int>& nums) {\n        int majority = 0;\n        int count = 0;\n\n        for (int i: nums){\n            if (count == 0){\n                majority = i;\n            }\n\n            if (i == majority)\n                count++;\n            else\n                count--;\n\n        }\n\n        return majority;\n        \n    }\n};"
+}
+]
+}

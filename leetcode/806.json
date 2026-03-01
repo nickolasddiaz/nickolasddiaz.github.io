@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>806 - Domino and Tromino Tiling</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/domino-and-tromino-tiling/>domino-and-tromino-tiling</a></h2><p>You have two types of tiles: a <code>2 x 1</code> domino shape and a tromino shape. You may rotate these shapes.<p><img alt src=https://assets.leetcode.com/uploads/2021/07/15/lc-domino.jpg style=width:362px;height:195px><p>Given an integer n, return <em>the number of ways to tile an</em> <code>2 x n</code> <em>board</em>. Since the answer may be very large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.<p>In a tiling, every square must be covered by a tile. Two tilings are different if and only if there are two 4-directionally adjacent cells on the board such that exactly one of the tilings has both squares occupied by a tile.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/07/15/lc-domino1.jpg style=width:500px;height:226px><pre>\n<strong>Input:</strong> n = 3\n<strong>Output:</strong> 5\n<strong>Explanation:</strong> The five different ways are shown above.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> n = 1\n<strong>Output:</strong> 1\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= n &lt;= 1000</code></ul>",
+"submissions": [
+{
+"time": 1721273716,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int numTilings(int n) {\n        if(n <= 2){return n;}\n        if(n == 3){return 5;}\n        vector<int> dp(n , 0);\n        dp[0] = 1; dp[1] = 2; dp[2] = 5;\n\n        const unsigned int M = 1000000007;\n\n        for(int i = 3; i < n; i++){\n            dp[i] = dp[i-1]%M * 2 + dp[i-3]%M;\n        }\n\n        return dp[n-1];\n    }\n};"
+},
+{
+"time": 1721273832,
+"language": "cpp",
+"runtime": 0,
+"memory": 7.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int numTilings(int n) {\n        if(n <= 2){return n;}\n        if(n == 3){return 5;}\n        vector<int> dp(n , 0);\n        dp[0] = 1; dp[1] = 2; dp[2] = 5;\n\n        const unsigned int M = 1000000007;\n\n        for(int i = 3; i < n; i++){\n            dp[i] = dp[i-1]%M * 2 + dp[i-3]%M;\n            dp[i] = dp[i] %M;\n        }\n\n        return dp[n-1];\n    }\n};"
+}
+]
+}

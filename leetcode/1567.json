@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>1567 - Maximum Number of Vowels in a Substring of Given Length</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/>maximum-number-of-vowels-in-a-substring-of-given-length</a></h2><p>Given a string <code>s</code> and an integer <code>k</code>, return <em>the maximum number of vowel letters in any substring of </em><code>s</code><em> with length </em><code>k</code>.<p><strong>Vowel letters</strong> in English are <code>'a'</code>, <code>'e'</code>, <code>'i'</code>, <code>'o'</code>, and <code>'u'</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"abciiidef\", k = 3\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> The substring \"iii\" contains 3 vowel letters.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"aeiou\", k = 2\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> Any substring of length 2 contains 2 vowels.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \"leetcode\", k = 3\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> \"lee\", \"eet\" and \"ode\" contain 2 vowels.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 10<sup>5</sup></code><li><code>s</code> consists of lowercase English letters.<li><code>1 &lt;= k &lt;= s.length</code></ul>",
+"submissions": [
+{
+"time": 1702669845,
+"language": "cpp",
+"runtime": 19,
+"memory": 10.0,
+"accepted": true,
+"code_content": "bool test(char par){ \n    if(par == 'a' || par == 'e' || par == 'i' || par == 'o' || par == 'u'){\n        return true;\n    }\n    return false;\n}\nclass Solution {\npublic:\n    int maxVowels(string s, int k) {\n        int pts = 0;\n        for(int i = 0; i < k; i++){\n            if(test(s[i]))\n                pts++;\n        }\n\n        int max = pts;\n        for(int i = k; i < s.size(); i++){\n            if(test(s[i -k]))\n                pts--;\n            if(test(s[i]))\n                pts++;\n            max = std::max(max, pts);\n        }\n\n\n        return max;\n    }\n};"
+}
+]
+}

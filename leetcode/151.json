@@ -1,0 +1,357 @@
+{
+"html_content": "<h1>151 - Reverse Words in a String</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/reverse-words-in-a-string/>reverse-words-in-a-string</a></h2><p>Given an input string <code>s</code>, reverse the order of the <strong>words</strong>.<p>A <strong>word</strong> is defined as a sequence of non-space characters. The <strong>words</strong> in <code>s</code> will be separated by at least one space.<p>Return <em>a string of the words in reverse order concatenated by a single space.</em><p><b>Note</b> that <code>s</code> may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"the sky is blue\"\n<strong>Output:</strong> \"blue is sky the\"\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"  hello world  \"\n<strong>Output:</strong> \"world hello\"\n<strong>Explanation:</strong> Your reversed string should not contain leading or trailing spaces.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \"a good   example\"\n<strong>Output:</strong> \"example good a\"\n<strong>Explanation:</strong> You need to reduce multiple spaces between two words to a single space in the reversed string.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 10<sup>4</sup></code><li><code>s</code> contains English letters (upper-case and lower-case), digits, and spaces <code>' '</code>.<li>There is <strong>at least one</strong> word in <code>s</code>.</ul><p>\u00a0<p><b data-stringify-type=bold>Follow-up:\u00a0</b>If the string data type is mutable in your language, can\u00a0you solve it\u00a0<b data-stringify-type=bold>in-place</b>\u00a0with\u00a0<code data-stringify-type=code>O(1)</code>\u00a0extra space?",
+"submissions": [
+{
+"time": 1692982237,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++){\n                        stemp += tem.s;\n                    }\n                    userString.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        cout << vo;\n    }\n};"
+},
+{
+"time": 1692982258,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += tem.s;\n                    }\n                    userString.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        cout << vo;\n    }\n};"
+},
+{
+"time": 1692982309,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    userString.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        cout << vo;\n    }\n};"
+},
+{
+"time": 1692982324,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    vo.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        cout << vo;\n    }\n};"
+},
+{
+"time": 1692982374,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    vo.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        for(int i = 0; i < vo.size(); i++)\n    std::cout << vo[i] << ' ';\n    }\n};"
+},
+{
+"time": 1692982549,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    vo.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        string final = \"\";\n        for(int i = vo.size(); i != 0; i--)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982591,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    vo.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        string final = \"\";\n        for(int i = 0; i < vec.size(); i++)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982602,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    vo.push_back(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        string final = \"\";\n        for(int i = 0; i < vo.size(); i++)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982688,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] != ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982717,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982792,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); i++){\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982843,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); ++i){\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692982930,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i){\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983230,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); ++i){\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983291,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983300,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (tem > tem2; tem++;){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983482,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                     for (int j = tem; j < tem2; ++j){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983507,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        // The condition in the for loop should be \"i < s.size()\" instead of \"i > s.size()\"\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    // The loop should be \"for (int j = tem; j < tem2; ++j)\" instead of \"for (tem > tem2; tem++;)\"\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n        return(final);\n    }\n};\n"
+},
+{
+"time": 1692983562,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i > s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                     for (int j = tem; j < tem2; ++j){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983589,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983799,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[tem];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983836,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983864,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692983872,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984009,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' '){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984064,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984076,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp ;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984135,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp.erase(remove(str.begin(), str.end(), ' '), str.end());\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984152,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp.erase(remove(stemp.begin(), stemp.end(), ' '), stemp.end());\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984192,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp.erase(remove_if(stemp.begin(), stemp.end(), isspace), stemp.end());\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984231,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += trim(stemp);\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984266,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += erase(stemp, ' ');\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984286,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += stemp;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984317,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    final += regex_replace(stemp,regex(\"\\\\s\"),\"\");;\n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984468,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    vo.push_back(regex_replace(stemp,regex(\"\\\\s\"),\"\")); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984517,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    vo.push_back(regex_replace(stemp,regex(\"\\\\s\"),\"\")); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n                for(int i = vo.size(); i != 0; i--)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984561,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    stemp = regex_replace(stemp,regex(\"\\\\s\"),\"\");\n                    vo.push_back(stemp); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n                for(int i = vo.size(); i != 0; i--)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984627,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo(1);\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    stemp = regex_replace(stemp,regex(\"\\\\s\"),\"\");\n                    vo.push_back(stemp); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n                for(int i = vo.size(); i != 0; i--)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984799,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo(1);\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    \n                    vo.push_back(stemp); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n                for(int i = vo.size(); i != 0; i--)\n    final += vo[i] + \" \";\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984951,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n                    stemp = regex_replace(stemp,regex(\"\\\\s\"),\"\");\n                    vo.push_back(stemp); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n\n    return(final);\n    }\n};"
+},
+{
+"time": 1692984981,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n\n                    vo.push_back(stemp); \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n\n    return(final);\n    }\n};"
+},
+{
+"time": 1692985009,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo;\n        string stemp = \"\";\n        int tem = 0;\n        int tem2 = 0;\n        for (int i = 0; i <= s.size(); ++i) {\n            if (s[i] == ' ' || s.size() == i){\n                if (tem == 0 && final != \"\"){\n                    tem = i;\n                } else{\n                    tem2 = i;\n                    for (int j = tem; j < tem2; ++j){\n                        stemp += s[j];\n                    }\n\n                    final += stemp; \n                    stemp = \"\";\n                    tem = 0;\n                    tem2 = 0;\n                    --i;\n                }\n            }\n        }\n\n    return(final);\n    }\n};"
+},
+{
+"time": 1692985069,
+"language": "cpp",
+"runtime": 0,
+"memory": 8.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        string final = \"\";\n        vector<string> vo; \n\n        int start = 0;\n        int end = 0;\n\n        for (int i = 0; i < s.size(); ++i) {\n            if (s[i] == ' ') {\n                end = i;\n                if (start != end) {\n                    string word = s.substr(start, end - start);\n                    vo.push_back(word);\n                }\n                start = i + 1; \n            }\n        }\n\n        if (start < s.size()) {\n            string word = s.substr(start);\n            vo.push_back(word);\n        }\n\n        for (int i = vo.size() - 1; i >= 0; --i) {\n            final += vo[i];\n            if (i > 0) {\n                final += \" \";\n            }\n        }\n\n        return final;\n    }\n};\n"
+},
+{
+"time": 1761745516,
+"language": "cpp",
+"runtime": 3,
+"memory": 10.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string reverseWords(string s) {\n        int n = s.size();\n\n        char prev = ' ';\n        string myString(n, ' ');\n        int index = n;\n\n        for(int i = 0; i < n; i++){\n            if(prev ==' ' && s[i] != ' '){\n                int start = i;\n                while(s[i] != ' ' && i < n){\n                    i++;\n                }\n                string temp_str = s.substr(start, i-start);\n                index -= temp_str.size();\n                if(index -1 > 0){\n                    temp_str = \" \" + temp_str;\n                    index--;\n                }\n                myString.replace(index, temp_str.size(), temp_str);\n            }\n            prev = s[i];\n        }\n\n        int space_index = 0;\n        while(myString[space_index] == ' ' && space_index < n){\n            space_index++;\n        }\n\n        return myString.substr(space_index, n- space_index);\n    }\n};"
+}
+]
+}

@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>345 - Reverse Vowels of a String</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/reverse-vowels-of-a-string/>reverse-vowels-of-a-string</a></h2><p>Given a string <code>s</code>, reverse only all the vowels in the string and return it.<p>The vowels are <code>'a'</code>, <code>'e'</code>, <code>'i'</code>, <code>'o'</code>, and <code>'u'</code>, and they can appear in both lower and upper cases, more than once.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"IceCreAm\"</span><p><strong>Output:</strong> <span class=example-io>\"AceCreIm\"</span><p><strong>Explanation:</strong><p>The vowels in <code>s</code> are <code>['I', 'e', 'e', 'A']</code>. On reversing the vowels, s becomes <code>\"AceCreIm\"</code>.</div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>s = \"leetcode\"</span><p><strong>Output:</strong> <span class=example-io>\"leotcede\"</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 3 * 10<sup>5</sup></code><li><code>s</code> consist of <strong>printable ASCII</strong> characters.</ul>",
+"submissions": [
+{
+"time": 1686957546,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string reverseVowels(string s) {\n        vector<char> vo;\n        for(int i = 0; i < s.size(); i++){\n            if(s[i] == 'a')\n            vo.push_back('a');\n            if(s[i] == 'A')\n            vo.push_back('A');\n            if(s[i] == 'e')\n            vo.push_back('e');\n            if(s[i] == 'E')\n            vo.push_back('E');\n            if(s[i] == 'i')\n            vo.push_back('i');\n            if(s[i] == 'I')\n            vo.push_back('I');\n            if(s[i] == 'o')\n            vo.push_back('o');\n            if(s[i] == 'O')\n            vo.push_back('O');\n        }\n        int temp = 0;\n        std::reverse(vo.begin(), vo.end());\n        for (int i = 0; i < s.size(); i++) {\n            if (s[i] == 'a' || s[i] == 'A' || s[i] == 'e' || s[i] == 'E' || s[i] == 'i' || s[i] == 'I' || s[i] == 'o' || s[i] == 'O' || s[i] == 'u' || s[i] == 'U') {\n                s[i] = vo[temp++];\n            }\n        }\n        return s;\n    }\n};"
+},
+{
+"time": 1686958054,
+"language": "cpp",
+"runtime": 17,
+"memory": 8.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string reverseVowels(string s) {\n        vector<char> vo;\n        for(int i = 0; i < s.size(); i++){\n            if(s[i] == 'a')\n            vo.push_back('a');\n            if(s[i] == 'A')\n            vo.push_back('A');\n            if(s[i] == 'e')\n            vo.push_back('e');\n            if(s[i] == 'E')\n            vo.push_back('E');\n            if(s[i] == 'i')\n            vo.push_back('i');\n            if(s[i] == 'I')\n            vo.push_back('I');\n            if(s[i] == 'o')\n            vo.push_back('o');\n            if(s[i] == 'O')\n            vo.push_back('O');\n            if(s[i] == 'u')\n            vo.push_back('u');\n            if(s[i] == 'U')\n            vo.push_back('U');\n        }\n        int temp = 0;\n        std::reverse(vo.begin(), vo.end());\n        for (int i = 0; i < s.size(); i++) {\n            if (s[i] == 'a' || s[i] == 'A' || s[i] == 'e' || s[i] == 'E' || s[i] == 'i' || s[i] == 'I' || s[i] == 'o' || s[i] == 'O' || s[i] == 'u' || s[i] == 'U') {\n                s[i] = vo[temp++];\n            }\n        }\n        return s;\n    }\n};"
+}
+]
+}

@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>1777 - Determine if Two Strings Are Close</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/determine-if-two-strings-are-close/>determine-if-two-strings-are-close</a></h2><p>Two strings are considered <strong>close</strong> if you can attain one from the other using the following operations:<ul><li>Operation 1: Swap any two <strong>existing</strong> characters. <ul><li>For example, <code>a<u>b</u>cd<u>e</u> -> a<u>e</u>cd<u>b</u></code></ul><li>Operation 2: Transform <strong>every</strong> occurrence of one <strong>existing</strong> character into another <strong>existing</strong> character, and do the same with the other character. <ul><li>For example, <code><u>aa</u>c<u>abb</u> -> <u>bb</u>c<u>baa</u></code> (all <code>a</code>'s turn into <code>b</code>'s, and all <code>b</code>'s turn into <code>a</code>'s)</ul></ul><p>You can use the operations on either string as many times as necessary.<p>Given two strings, <code>word1</code> and <code>word2</code>, return <code>true</code><em> if </em><code>word1</code><em> and </em><code>word2</code><em> are <strong>close</strong>, and </em><code>false</code><em> otherwise.</em><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> word1 = \"abc\", word2 = \"bca\"\n<strong>Output:</strong> true\n<strong>Explanation:</strong> You can attain word2 from word1 in 2 operations.\nApply Operation 1: \"a<u>bc</u>\" -> \"a<u>cb</u>\"\nApply Operation 1: \"<u>a</u>c<u>b</u>\" -> \"<u>b</u>c<u>a</u>\"\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> word1 = \"a\", word2 = \"aa\"\n<strong>Output:</strong> false\n<strong>Explanation: </strong>It is impossible to attain word2 from word1, or vice versa, in any number of operations.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> word1 = \"cabbba\", word2 = \"abbccc\"\n<strong>Output:</strong> true\n<strong>Explanation:</strong> You can attain word2 from word1 in 3 operations.\nApply Operation 1: \"ca<u>b</u>bb<u>a</u>\" -> \"ca<u>a</u>bb<u>b</u>\"\nApply Operation 2: \"<u>c</u>aa<u>bbb</u>\" -> \"<u>b</u>aa<u>ccc</u>\"\nApply Operation 2: \"<u>baa</u>ccc\" -> \"<u>abb</u>ccc\"\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= word1.length, word2.length &lt;= 10<sup>5</sup></code><li><code>word1</code> and <code>word2</code> contain only lowercase English letters.</ul>",
+"submissions": [
+{
+"time": 1717550311,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool closeStrings(string word1, string word2) {\n    \n\n    map<char, int> word1Map;\n    for (const char& elem : word1) {\n        word1Map[elem]++;\n    }\n\n    map<char, int> word2Map;\n    for (const char& elem : word2) {\n        word2Map[elem]++;\n    }\n\n    map<int, int> word1int;\n    for (const auto& pair : word1Map) {\n        word1int[pair.second]++;\n    }\n\n    map<int, int> word2int;\n    for (const auto& pair : word2Map) {\n        word2int[pair.second]++;\n    }\n\n    return word1int == word2int;\n\n\n    }\n};"
+},
+{
+"time": 1717551138,
+"language": "cpp",
+"runtime": 141,
+"memory": 23.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool closeStrings(string word1, string word2) {\n    \n\n    map<char, int> word1Map;\n    set<char> word1Keys;\n    for (const char& elem : word1) {\n        word1Map[elem]++;\n        word1Keys.insert(elem);\n        \n    }\n\n    map<char, int> word2Map;\n    set<char> word2Keys;\n    for (const char& elem : word2) {\n        word2Map[elem]++;\n        word2Keys.insert(elem);\n    }\n\n    map<int, int> word1int;\n    for (const auto& pair : word1Map) {\n        word1int[pair.second]++;\n    }\n\n    map<int, int> word2int;\n    for (const auto& pair : word2Map) {\n        word2int[pair.second]++;\n    }\n\n    return (word1int == word2int) && (word1Keys == word2Keys);\n\n\n    }\n};\n\n"
+},
+{
+"time": 1717551343,
+"language": "cpp",
+"runtime": 134,
+"memory": 23.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool closeStrings(string word1, string word2) {\n    \n\n    map<char, int> word1Map;\n    set<char> word1Keys;\n    for (const char& elem : word1) {\n        word1Map[elem]++;\n        word1Keys.insert(elem);\n        \n    }\n\n    map<char, int> word2Map;\n    set<char> word2Keys;\n    for (const char& elem : word2) {\n        word2Map[elem]++;\n        word2Keys.insert(elem);\n    }\n\n    if (word1Keys != word2Keys) return false;\n\n    vector<int> freq1, freq2;\n        for (const auto& pair : word1Map) {\n            freq1.push_back(pair.second);\n        }\n        for (const auto& pair : word2Map) {\n            freq2.push_back(pair.second);\n        }\n\n        sort(freq1.begin(), freq1.end());\n        sort(freq2.begin(), freq2.end());\n\n        return freq1 == freq2;\n\n\n    }\n};\n\n"
+}
+]
+}

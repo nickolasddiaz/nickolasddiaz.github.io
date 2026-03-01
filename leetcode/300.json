@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>300 - Longest Increasing Subsequence</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/longest-increasing-subsequence/>longest-increasing-subsequence</a></h2><p>Given an integer array <code>nums</code>, return <em>the length of the longest <strong>strictly increasing </strong></em><span data-keyword=subsequence-array><em><strong>subsequence</strong></em></span>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [10,9,2,5,3,7,101,18]\n<strong>Output:</strong> 4\n<strong>Explanation:</strong> The longest increasing subsequence is [2,3,7,101], therefore the length is 4.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [0,1,0,3,2,3]\n<strong>Output:</strong> 4\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [7,7,7,7,7,7,7]\n<strong>Output:</strong> 1\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 2500</code><li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></ul><p>\u00a0<p><b>Follow up:</b>\u00a0Can you come up with an algorithm that runs in\u00a0<code>O(n log(n))</code> time complexity?",
+"submissions": [
+{
+"time": 1767718355,
+"language": "py",
+"runtime": 3,
+"memory": 19.0,
+"accepted": true,
+"code_content": "class Solution:\n    def lengthOfLIS(self, nums: List[int]) -> int:\n        dp = []\n\n        for num in nums:\n            if len(dp) == 0 or num > dp[-1]:\n                dp.append(num)\n            else:\n                index = bisect.bisect_left(dp, num)\n                dp[index] = num\n\n\n        return len(dp)"
+}
+]
+}

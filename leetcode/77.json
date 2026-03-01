@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>77 - Combinations</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/combinations/>combinations</a></h2><p>Given two integers <code>n</code> and <code>k</code>, return <em>all possible combinations of</em> <code>k</code> <em>numbers chosen from the range</em> <code>[1, n]</code>.<p>You may return the answer in <strong>any order</strong>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> n = 4, k = 2\n<strong>Output:</strong> [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]\n<strong>Explanation:</strong> There are 4 choose 2 = 6 total combinations.\nNote that combinations are unordered, i.e., [1,2] and [2,1] are considered to be the same combination.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> n = 1, k = 1\n<strong>Output:</strong> [[1]]\n<strong>Explanation:</strong> There is 1 choose 1 = 1 total combination.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= n &lt;= 20</code><li><code>1 &lt;= k &lt;= n</code></ul>",
+"submissions": [
+{
+"time": 1765935159,
+"language": "py",
+"runtime": 135,
+"memory": 59.0,
+"accepted": true,
+"code_content": "class Solution:\n    def combine(self, n: int, k: int) -> List[List[int]]:\n        result: List[List[int]] = []\n\n        def dfs(start, comb):\n            if len(comb) == k:\n                result.append(comb[:])\n                return\n            for i in range(start, n + 1):\n                comb.append(i)\n                dfs(i + 1, comb)\n                comb.pop()\n\n        dfs(1, [])\n\n        return result"
+}
+]
+}

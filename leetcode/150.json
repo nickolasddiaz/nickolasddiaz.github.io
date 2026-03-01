@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>150 - Evaluate Reverse Polish Notation</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/evaluate-reverse-polish-notation/>evaluate-reverse-polish-notation</a></h2><p>You are given an array of strings <code>tokens</code> that represents an arithmetic expression in a <a href=http://en.wikipedia.org/wiki/Reverse_Polish_notation target=_blank>Reverse Polish Notation</a>.<p>Evaluate the expression. Return <em>an integer that represents the value of the expression</em>.<p><strong>Note</strong> that:<ul><li>The valid operators are <code>'+'</code>, <code>'-'</code>, <code>'*'</code>, and <code>'/'</code>.<li>Each operand may be an integer or another expression.<li>The division between two integers always <strong>truncates toward zero</strong>.<li>There will not be any division by zero.<li>The input represents a valid arithmetic expression in a reverse polish notation.<li>The answer and all the intermediate calculations can be represented in a <strong>32-bit</strong> integer.</ul><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> tokens = [\"2\",\"1\",\"+\",\"3\",\"*\"]\n<strong>Output:</strong> 9\n<strong>Explanation:</strong> ((2 + 1) * 3) = 9\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> tokens = [\"4\",\"13\",\"5\",\"/\",\"+\"]\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> (4 + (13 / 5)) = 6\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> tokens = [\"10\",\"6\",\"9\",\"3\",\"+\",\"-11\",\"*\",\"/\",\"*\",\"17\",\"+\",\"5\",\"+\"]\n<strong>Output:</strong> 22\n<strong>Explanation:</strong> ((10 * (6 / ((9 + 3) * -11))) + 17) + 5\n= ((10 * (6 / (12 * -11))) + 17) + 5\n= ((10 * (6 / -132)) + 17) + 5\n= ((10 * 0) + 17) + 5\n= (0 + 17) + 5\n= 17 + 5\n= 22\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= tokens.length &lt;= 10<sup>4</sup></code><li><code>tokens[i]</code> is either an operator: <code>\"+\"</code>, <code>\"-\"</code>, <code>\"*\"</code>, or <code>\"/\"</code>, or an integer in the range <code>[-200, 200]</code>.</ul>",
+"submissions": [
+{
+"time": 1764091009,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "def add(f:int,s:int)->int:\n    return f+s\n\ndef sub(f:int,s:int)->int:\n    return f-s\n\ndef mult(f:int,s:int)->int:\n    return f*s\n\ndef div(f:int,s:int)->int:\n    return int(s/f) # 6//-132 is -1 not 0\n\nclass Solution:\n    def evalRPN(self, tokens: List[str]) -> int:\n        stack = deque()\n        check = {'+':add,'-':sub,'*':mult,'/':div}\n\n        for tok in tokens:\n            if tok in check:\n                pos1 = stack.pop()\n                pos2 = stack.pop()\n                stack.append(check[tok](pos1,pos2))\n            else:\n                stack.append(int(tok))\n\n        return stack.pop()"
+},
+{
+"time": 1764091070,
+"language": "py",
+"runtime": 3,
+"memory": 19.0,
+"accepted": true,
+"code_content": "def add(f:int,s:int)->int:\n    return s+f\n\ndef sub(f:int,s:int)->int:\n    return s-f\n\ndef mult(f:int,s:int)->int:\n    return s*f\n\ndef div(f:int,s:int)->int:\n    return int(s/f) # 6//-132 is -1 not 0\n\nclass Solution:\n    def evalRPN(self, tokens: List[str]) -> int:\n        stack = deque()\n        check = {'+':add,'-':sub,'*':mult,'/':div}\n\n        for tok in tokens:\n            if tok in check:\n                pos1 = stack.pop()\n                pos2 = stack.pop()\n                stack.append(check[tok](pos1,pos2))\n            else:\n                stack.append(int(tok))\n\n        return stack.pop()"
+},
+{
+"time": 1764091159,
+"language": "py",
+"runtime": 0,
+"memory": 19.0,
+"accepted": true,
+"code_content": "def add(f:int,s:int)->int:\n    return s+f\n\ndef sub(f:int,s:int)->int:\n    return s-f\n\ndef mult(f:int,s:int)->int:\n    return s*f\n\ndef div(f:int,s:int)->int:\n    return int(s/f) # 6//-132 is -1 not 0\n\nclass Solution:\n    def __init__(self):\n        self.check = {'+':add,'-':sub,'*':mult,'/':div}\n\n    def evalRPN(self, tokens: List[str]) -> int:\n        stack = deque()\n\n        for tok in tokens:\n            if tok in self.check:\n                pos1 = stack.pop()\n                pos2 = stack.pop()\n                stack.append(self.check[tok](pos1,pos2))\n            else:\n                stack.append(int(tok))\n\n        return stack.pop()"
+}
+]
+}

@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>136 - Single Number</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/single-number/>single-number</a></h2><p>Given a <strong>non-empty</strong>\u00a0array of integers <code>nums</code>, every element appears <em>twice</em> except for one. Find that single one.<p>You must\u00a0implement a solution with a linear runtime complexity and use\u00a0only constant\u00a0extra space.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>nums = [2,2,1]</span><p><strong>Output:</strong> <span class=example-io>1</span></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>nums = [4,1,2,1,2]</span><p><strong>Output:</strong> <span class=example-io>4</span></div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>nums = [1]</span><p><strong>Output:</strong> <span class=example-io>1</span></div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code><li><code>-3 * 10<sup>4</sup> &lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code><li>Each element in the array appears twice except for one element which appears only once.</ul>",
+"submissions": [
+{
+"time": 1721432073,
+"language": "cpp",
+"runtime": 14,
+"memory": 19.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int singleNumber(vector<int>& nums) {\n        int x = 0;\n\n        for(auto i: nums){\n            x = x ^ i;\n        }\n        return x;\n    }\n};"
+}
+]
+}

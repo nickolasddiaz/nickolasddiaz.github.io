@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>69 - Sqrt(x)</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/sqrtx/>sqrtx</a></h2><p>Given a non-negative integer <code>x</code>, return <em>the square root of </em><code>x</code><em> rounded down to the nearest integer</em>. The returned integer should be <strong>non-negative</strong> as well.<p>You <strong>must not use</strong> any built-in exponent function or operator.<ul><li>For example, do not use <code>pow(x, 0.5)</code> in c++ or <code>x ** 0.5</code> in python.</ul><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> x = 4\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> The square root of 4 is 2, so we return 2.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> x = 8\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> The square root of 8 is 2.82842..., and since we round it down to the nearest integer, 2 is returned.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>0 &lt;= x &lt;= 2<sup>31</sup> - 1</code></ul>",
+"submissions": [
+{
+"time": 1767109442,
+"language": "py",
+"runtime": 3,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n\n    def mySqrt(self, x: int) -> int:\n        left = 0\n        right = x\n\n        while left <= right:\n            mid = (left + right) // 2\n\n            if mid * mid == x:\n                return mid\n            elif mid * mid < x:\n                left = mid + 1\n            else:\n                right = mid - 1\n\n        return right"
+}
+]
+}

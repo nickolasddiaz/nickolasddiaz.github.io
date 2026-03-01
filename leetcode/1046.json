@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>1046 - Max Consecutive Ones III</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/max-consecutive-ones-iii/>max-consecutive-ones-iii</a></h2><p>Given a binary array <code>nums</code> and an integer <code>k</code>, return <em>the maximum number of consecutive </em><code>1</code><em>'s in the array if you can flip at most</em> <code>k</code> <code>0</code>'s.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,1,1,0,0,0,1,1,1,1,0], k = 2\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> [1,1,1,0,0,<u><strong>1</strong>,1,1,1,1,<strong>1</strong></u>]\nBolded numbers were flipped from 0 to 1. The longest subarray is underlined.</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1], k = 3\n<strong>Output:</strong> 10\n<strong>Explanation:</strong> [0,0,<u>1,1,<strong>1</strong>,<strong>1</strong>,1,1,1,<strong>1</strong>,1,1</u>,0,0,0,1,1,1,1]\nBolded numbers were flipped from 0 to 1. The longest subarray is underlined.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code><li><code>nums[i]</code> is either <code>0</code> or <code>1</code>.<li><code>0 &lt;= k &lt;= nums.length</code></ul>",
+"submissions": [
+{
+"time": 1702689425,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int longestOnes(vector<int>& nums, int k) {\n        int zero = 0;\n        int count = 0;\n        int max = 0;\n        \n        for(int i = 0; i < nums.size(); i++){\n            while(zero <= k && nums.size() >= i + count){\n                if(nums[i + count] == 0){\n                    zero++;\n                }\n                count++;\n            }\n            max = std::max(max,count);\n            count = 0;\n            zero = 0;\n        }\n        return max -1;\n    }\n};"
+},
+{
+"time": 1702690830,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int longestOnes(vector<int>& nums, int k) {\n        int zero = 0;\n        int count = 0;\n        int max = 0;\n        \n        for(int i = 0; i < nums.size(); i++){\n            while(zero <= k && nums.size() > i + count){\n                if(nums[i + count] == 0){\n                    zero++;\n                }\n                if(zero <= k)\n                count++;\n            }\n            max = std::max(max,count);\n            count = 0;\n            zero = 0;\n        }\n        return max;\n    }\n};"
+},
+{
+"time": 1721763712,
+"language": "cpp",
+"runtime": 49,
+"memory": 61.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int longestOnes(vector<int>& nums, int k) {\n        int n = nums.size();\n        queue<int> q;\n        int maxlen = 0;\n        int zeros = 0;\n\n        for (auto i : nums){\n            if(i){\n                q.push(i);\n            }else{\n                q.push(i);\n                zeros++;\n                while(k < zeros){\n                    if(q.front() == 0)\n                        zeros--;\n                        q.pop();\n                }\n            }\n            maxlen = (maxlen > q.size()) ? maxlen : q.size();\n\n        }\n        return (maxlen > q.size()) ? maxlen : q.size();\n\n    }\n};"
+}
+]
+}

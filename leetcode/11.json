@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>11 - Container With Most Water</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/container-with-most-water/>container-with-most-water</a></h2><p>You are given an integer array <code>height</code> of length <code>n</code>. There are <code>n</code> vertical lines drawn such that the two endpoints of the <code>i<sup>th</sup></code> line are <code>(i, 0)</code> and <code>(i, height[i])</code>.<p>Find two lines that together with the x-axis form a container, such that the container contains the most water.<p>Return <em>the maximum amount of water a container can store</em>.<p><strong>Notice</strong> that you may not slant the container.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/17/question_11.jpg style=width:600px;height:287px><pre>\n<strong>Input:</strong> height = [1,8,6,2,5,4,8,3,7]\n<strong>Output:</strong> 49\n<strong>Explanation:</strong> The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> height = [1,1]\n<strong>Output:</strong> 1\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == height.length</code><li><code>2 &lt;= n &lt;= 10<sup>5</sup></code><li><code>0 &lt;= height[i] &lt;= 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1693101386,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        int a = 1;\n        int p = 1;\n        int n = height.size();\n        for(int i = 0; i < n; i++){\n            for(int x = (i + 1); x < n; x++){\n                int minHeight = min(height[i], height[x]);\n                int width = x - i;\n                int area = width * minHeight;\n                if (area > a) {\n                    a = area; \n                }\n        }\n        }\n        return a;\n    }\n};"
+},
+{
+"time": 1693101434,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        int a = 0;\n        int n = height.size();\n        for(int i = 0; i < n; i++){\n            for(int x = (i + 1); x < n; x++){\n                int minHeight = min(height[i], height[x]);\n                int width = x - i;\n                int area = width * minHeight;\n                if (area > a) {\n                    a = area; \n                }\n        }\n        }\n        return a;\n    }\n};"
+},
+{
+"time": 1693102618,
+"language": "cpp",
+"runtime": 64,
+"memory": 59.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int maxArea(vector<int>& height) {\n        int left = 0;\n        int right = height.size() -1;\n        int marea = 0;\n        while (left < right) {\n            int minHeight = min(height[left], height[right]);\n            int width = right - left;\n            int area = width * minHeight;\n            marea = max(marea, area);\n            \n            if (height[left] < height[right]) {\n                left++;\n            } else {\n                right--;\n            }\n        }\n        \n        return marea;\n    }\n};"
+}
+]
+}

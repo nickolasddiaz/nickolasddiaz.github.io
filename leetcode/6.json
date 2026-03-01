@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>6 - Zigzag Conversion</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/zigzag-conversion/>zigzag-conversion</a></h2><p>The string <code>\"PAYPALISHIRING\"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)<pre>\nP   A   H   N\nA P L S I I G\nY   I   R\n</pre><p>And then read line by line: <code>\"PAHNAPLSIIGYIR\"</code><p>Write the code that will take a string and make this conversion given a number of rows:<pre>\nstring convert(string s, int numRows);\n</pre><p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"PAYPALISHIRING\", numRows = 3\n<strong>Output:</strong> \"PAHNAPLSIIGYIR\"\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"PAYPALISHIRING\", numRows = 4\n<strong>Output:</strong> \"PINALSIGYAHRPI\"\n<strong>Explanation:</strong>\nP     I    N\nA   L S  I G\nY A   H R\nP     I\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \"A\", numRows = 1\n<strong>Output:</strong> \"A\"\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 1000</code><li><code>s</code> consists of English letters (lower-case and upper-case), <code>','</code> and <code>'.'</code>.<li><code>1 &lt;= numRows &lt;= 1000</code></ul>",
+"submissions": [
+{
+"time": 1762009551,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\n    public:\n        string convert(string s, int numRows) {\n            int n = s.length();\n            string words(n, ' ');\n    \n            int position = 0, jmp_st_pos = 0;\n            int jump_amount;\n            for(int row = numRows; row+1 >= numRows/2; row--, jmp_st_pos++){\n                bool even = false;\n                for(int jmp_pos = jmp_st_pos; jmp_pos < n && position < n; jmp_pos+=jump_amount, position++){\n                    if(even){\n                        if(numRows != row && row != 1)\n                            jump_amount = abs(numRows - row) *2;\n                    } else {\n                        if(row == 1)\n                            jump_amount = numRows * 2 - 2;\n                        else\n                            jump_amount = row * 2 - 2;\n                            \n                    }\n                    even = !even;\n                    words[position] = s[jmp_pos];\n                }\n            }\n            if(words[words.length()-1] == ' ')\n                words[words.length()-1] = s[numRows -1];\n\n            \n    \n    \n            return words;\n        }\n    };"
+},
+{
+"time": 1762009638,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\n    public:\n        string convert(string s, int numRows) {\n            int n = s.length();\n            if(numRows == 1)\n                return s;\n\n            string words(n, ' ');\n    \n            int position = 0, jmp_st_pos = 0;\n            int jump_amount;\n            for(int row = numRows; row+1 >= numRows/2; row--, jmp_st_pos++){\n                bool even = false;\n                for(int jmp_pos = jmp_st_pos; jmp_pos < n && position < n; jmp_pos+=jump_amount, position++){\n                    if(even){\n                        if(numRows != row && row != 1)\n                            jump_amount = abs(numRows - row) *2;\n                    } else {\n                        if(row == 1)\n                            jump_amount = numRows * 2 - 2;\n                        else\n                            jump_amount = row * 2 - 2;\n                            \n                    }\n                    even = !even;\n                    words[position] = s[jmp_pos];\n                }\n            }\n            if(words[words.length()-1] == ' ')\n                words[words.length()-1] = s[numRows -1];\n\n            \n    \n    \n            return words;\n        }\n    };"
+},
+{
+"time": 1762012344,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\n    public:\n        string convert(string s, int numRows) {\n            int n = s.length();\n            if(numRows == 1)\n                return s;\n\n            string words(n, ' ');\n    \n            int position = 0, jmp_st_pos = 0;\n            int jump_amount;\n            for(int row = numRows; row+1 >= numRows/2; row--, jmp_st_pos++){\n                bool even = false;\n                for(int jmp_pos = jmp_st_pos; jmp_pos < n && position < n; jmp_pos+=jump_amount, position++){\n                    if(even){\n                        if(numRows != row && row != 1)\n                            jump_amount = abs(numRows - row) *2;\n                    } else {\n                        if(row == 1)\n                            jump_amount = numRows * 2 - 2;\n                        else\n                            jump_amount = row * 2 - 2;\n                            \n                    }\n                    even = !even;\n                    words[position] = s[jmp_pos];\n                }\n            }\n\n\n            int i = words.length()-1;\n            int num_spaces = numRows -1;\n            while(words[i] == ' '){\n                words[i] = s[num_spaces];\n                i--; num_spaces++;\n            }\n      \n    \n            return words;\n        }\n    };"
+},
+{
+"time": 1762024690,
+"language": "cpp",
+"runtime": 7,
+"memory": 10.0,
+"accepted": true,
+"code_content": "class Solution {\n    public:\n        string convert(string s, int numRows) {\n            int n = s.length();\n            if(numRows == 1)\n                return s;\n\n            string words(n, ' ');\n    \n            int position = 0, jmp_st_pos = 0;\n            int jump_amount;\n            for(int row = numRows; row > 0; row--, jmp_st_pos++){\n                bool even = false;\n                for(int jmp_pos = jmp_st_pos; jmp_pos < n && position < n; jmp_pos+=jump_amount, position++){\n                    if(even){\n                        if(numRows != row && row != 1)\n                            jump_amount = abs(numRows - row) *2;\n                    } else {\n                        if(row == 1)\n                            jump_amount = numRows * 2 - 2;\n                        else\n                            jump_amount = row * 2 - 2;\n                            \n                    }\n                    even = !even;\n                    words[position] = s[jmp_pos];\n                }\n            }\n\n    \n            return words;\n        }\n    };"
+}
+]
+}

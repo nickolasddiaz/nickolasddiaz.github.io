@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>19 - Remove Nth Node From End of List</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/remove-nth-node-from-end-of-list/>remove-nth-node-from-end-of-list</a></h2><p>Given the <code>head</code> of a linked list, remove the <code>n<sup>th</sup></code> node from the end of the list and return its head.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/10/03/remove_ex1.jpg style=width:542px;height:222px><pre>\n<strong>Input:</strong> head = [1,2,3,4,5], n = 2\n<strong>Output:</strong> [1,2,3,5]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> head = [1], n = 1\n<strong>Output:</strong> []\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> head = [1,2], n = 1\n<strong>Output:</strong> [1]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the list is <code>sz</code>.<li><code>1 &lt;= sz &lt;= 30</code><li><code>0 &lt;= Node.val &lt;= 100</code><li><code>1 &lt;= n &lt;= sz</code></ul><p>\u00a0<p><strong>Follow up:</strong> Could you do this in one pass?",
+"submissions": [
+{
+"time": 1764526507,
+"language": "py",
+"runtime": 0,
+"memory": 18.0,
+"accepted": true,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:\n\n        temp_head = head\n        node_count = -1\n        while temp_head:\n            node_count += 1\n            temp_head = temp_head.next\n\n\n        stop = node_count - n\n\n        if stop == -1:\n            return head.next\n\n        temp_head = head\n\n        prev = head\n        while temp_head:\n            if stop == 0:\n                temp_delete = temp_head.next\n                if temp_delete is None:\n                    prev.next = None\n                    break\n                temp_head.next = temp_head.next.next\n                del temp_delete\n                break\n            stop -= 1\n            prev = temp_head\n            temp_head = temp_head.next\n\n        return head "
+}
+]
+}

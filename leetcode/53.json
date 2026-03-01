@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>53 - Maximum Subarray</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/maximum-subarray/>maximum-subarray</a></h2><p>Given an integer array <code>nums</code>, find the <span data-keyword=subarray-nonempty>subarray</span> with the largest sum, and return <em>its sum</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [-2,1,-3,4,-1,2,1,-5,4]\n<strong>Output:</strong> 6\n<strong>Explanation:</strong> The subarray [4,-1,2,1] has the largest sum 6.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [1]\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> The subarray [1] has the largest sum 1.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [5,4,-1,7,8]\n<strong>Output:</strong> 23\n<strong>Explanation:</strong> The subarray [5,4,-1,7,8] has the largest sum 23.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code><li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></ul><p>\u00a0<p><strong>Follow up:</strong> If you have figured out the <code>O(n)</code> solution, try coding another solution using the <strong>divide and conquer</strong> approach, which is more subtle.",
+"submissions": [
+{
+"time": 1766353277,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def maxSubArray(self, nums: List[int]) -> int:\n        result: int = 0\n        current: int = 0\n\n        for num in nums:\n            current += num\n            result = max(result, current)\n            if current < 0:\n                current = 0\n\n        return result"
+},
+{
+"time": 1766353351,
+"language": "py",
+"runtime": 51,
+"memory": 30.0,
+"accepted": true,
+"code_content": "class Solution:\n    def maxSubArray(self, nums: List[int]) -> int:\n        result: int = nums[0]\n        current: int = 0\n\n        for num in nums:\n            current += num\n            result = max(result, current)\n            if current < 0:\n                current = 0\n\n        return result"
+}
+]
+}

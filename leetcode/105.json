@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>105 - Construct Binary Tree from Preorder and Inorder Traversal</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/>construct-binary-tree-from-preorder-and-inorder-traversal</a></h2><p>Given two integer arrays <code>preorder</code> and <code>inorder</code> where <code>preorder</code> is the preorder traversal of a binary tree and <code>inorder</code> is the inorder traversal of the same tree, construct and return <em>the binary tree</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/tree.jpg style=width:277px;height:302px><pre>\n<strong>Input:</strong> preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]\n<strong>Output:</strong> [3,9,20,null,null,15,7]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> preorder = [-1], inorder = [-1]\n<strong>Output:</strong> [-1]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= preorder.length &lt;= 3000</code><li><code>inorder.length == preorder.length</code><li><code>-3000 &lt;= preorder[i], inorder[i] &lt;= 3000</code><li><code>preorder</code> and <code>inorder</code> consist of <strong>unique</strong> values.<li>Each value of <code>inorder</code> also appears in <code>preorder</code>.<li><code>preorder</code> is <strong>guaranteed</strong> to be the preorder traversal of the tree.<li><code>inorder</code> is <strong>guaranteed</strong> to be the inorder traversal of the tree.</ul>",
+"submissions": [
+{
+"time": 1764774998,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:\n        if not preorder:\n            return None\n        if len(preorder) == 1:\n            return TreeNode(preorder[0])\n\n        head_val = preorder[0]\n\n        split = inorder.index(head_val) + 1\n\n        left_branch = self.buildTree(preorder[1:split], inorder[1:split])\n        right_branch = self.buildTree(preorder[split:], inorder[split:])\n\n        return TreeNode(val=head_val, left=left_branch, right=right_branch)\n\n        "
+},
+{
+"time": 1764775669,
+"language": "py",
+"runtime": 104,
+"memory": 89.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:\n        if not preorder:\n            return None\n        if len(preorder) == 1:\n            return TreeNode(preorder[0])\n\n        head_val = preorder[0]\n\n        split = inorder.index(head_val) + 1\n\n        left_branch = self.buildTree(preorder[1:split], inorder[0:split-1])\n        right_branch = self.buildTree(preorder[split:], inorder[split:])\n\n        return TreeNode(val=head_val, left=left_branch, right=right_branch)\n        "
+}
+]
+}

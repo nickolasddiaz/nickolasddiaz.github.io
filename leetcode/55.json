@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>55 - Jump Game</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/jump-game/>jump-game</a></h2><p>You are given an integer array <code>nums</code>. You are initially positioned at the array's <strong>first index</strong>, and each element in the array represents your maximum jump length at that position.<p>Return <code>true</code><em> if you can reach the last index, or </em><code>false</code><em> otherwise</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [2,3,1,1,4]\n<strong>Output:</strong> true\n<strong>Explanation:</strong> Jump 1 step from index 0 to 1, then 3 steps to the last index.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [3,2,1,0,4]\n<strong>Output:</strong> false\n<strong>Explanation:</strong> You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code><li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></ul>",
+"submissions": [
+{
+"time": 1761230849,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canJump(vector<int>& nums) {\n        int n = nums.size();\n        \n        int i = 0;\n        while(i < n){\n            int index = nums[i] + i;\n            int highest = index;\n            int high_index = i;\n            for(int x = i; x < n && x <= index; x++){\n                int temp = nums[x] + x;\n\n                if (temp >= highest && nums[x] != 0){\n                    highest = temp;\n                    high_index = x;\n                }\n            }\n\n            if(nums[high_index] + i > n-1){\n                return true;\n            }\n            if (highest == index)\n                return false;\n            else{\n                i = high_index;\n            }\n        }\n\n        return true;\n\n    }\n};"
+},
+{
+"time": 1761230904,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canJump(vector<int>& nums) {\n        int n = nums.size();\n        \n        int i = 0;\n        while(i < n){\n            int index = nums[i] + i;\n            int highest = index;\n            int high_index = i;\n            for(int x = i; x < n && x <= index; x++){\n                int temp = nums[x] + x;\n\n                if (temp >= highest && nums[x] != 0){\n                    highest = temp;\n                    high_index = x;\n                }\n            }\n\n            if(nums[high_index] + i > n-2){\n                return true;\n            }\n            if (highest == index)\n                return false;\n            else{\n                i = high_index;\n            }\n        }\n\n        return true;\n\n    }\n};"
+},
+{
+"time": 1761231147,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    bool canJump(vector<int>& nums) {\n        int n = nums.size();\n        \n        int i = 0;\n        while(i < n){\n            int index = nums[i] + i;\n            int highest = index;\n            int high_index = i;\n            for(int x = i; x < n && x <= index; x++){\n                int temp = nums[x] + x;\n\n                if (temp >= highest && nums[x] != 0){\n                    highest = temp;\n                    high_index = x;\n                }\n            }\n\n            if(nums[high_index] + i >= n-2){\n                return true;\n            }\n            if (highest == index)\n                return false;\n            else{\n                i = high_index;\n            }\n        }\n\n        return true;\n\n    }\n};"
+},
+{
+"time": 1761231245,
+"language": "cpp",
+"runtime": 0,
+"memory": 52.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    bool canJump(vector<int>& nums) {\n        int n = nums.size();\n        \n        int i = 0;\n        while(i < n){\n            int index = nums[i] + i;\n            int highest = index;\n            int high_index = i;\n            for(int x = i; x < n && x <= index; x++){\n                int temp = nums[x] + x;\n\n                if (temp >= highest && nums[x] != 0){\n                    highest = temp;\n                    high_index = x;\n                }\n            }\n\n            if(nums[high_index] + high_index > n-2){\n                return true;\n            }\n            if (highest == index)\n                return false;\n            else{\n                i = high_index;\n            }\n        }\n\n        return true;\n\n    }\n};"
+}
+]
+}

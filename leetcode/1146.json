@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>1146 - Greatest Common Divisor of Strings</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/greatest-common-divisor-of-strings/>greatest-common-divisor-of-strings</a></h2><p>For two strings <code>s</code> and <code>t</code>, we say \"<code>t</code> divides <code>s</code>\" if and only if <code>s = t + t + t + ... + t + t</code> (i.e., <code>t</code> is concatenated with itself one or more times).<p>Given two strings <code>str1</code> and <code>str2</code>, return <em>the largest string </em><code>x</code><em> such that </em><code>x</code><em> divides both </em><code>str1</code><em> and </em><code>str2</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>str1 = \"ABCABC\", str2 = \"ABC\"</span><p><strong>Output:</strong> <span class=example-io>\"ABC\"</span></div><p><strong class=example>Example 2:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>str1 = \"ABABAB\", str2 = \"ABAB\"</span><p><strong>Output:</strong> <span class=example-io>\"AB\"</span></div><p><strong class=example>Example 3:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>str1 = \"LEET\", str2 = \"CODE\"</span><p><strong>Output:</strong> <span class=example-io>\"\"</span></div><p><strong class=example>Example 4:</strong><div class=example-block><p><strong>Input:</strong> <span class=example-io>str1 = \"AAAAAB\", str2 = \"AAA\"</span><p><strong>Output:</strong> <span class=example-io>\"\"</span>\u200b\u200b\u200b\u200b\u200b\u200b\u200b</div><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= str1.length, str2.length &lt;= 1000</code><li><code>str1</code> and <code>str2</code> consist of English uppercase letters.</ul>",
+"submissions": [
+{
+"time": 1686541992,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string gcdOfStrings(string str1, string str2) {\n        if (str1.length() == str2.length() ) {\n            return \"\";\n        }\n        int temp = 0;\n        string word;\n        int mult = str1.length() / str2.length();\n        for(int i = 0; i <= mult; i++){\n            temp = 0;\n            for (int x = 0; x < str2.length(); x++){\n                if(str1[i+x] == str2[x]) \n                    temp += 1;\n            }\n            if (temp != str2.length()){\n                for(int c = i + str2.length()-1; c != str1.length(); c++)\n                    word += str1[c];\n                return word;\n            }\n        }\n        return word;\n    }\n};\n"
+},
+{
+"time": 1686542028,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    string gcdOfStrings(string str1, string str2) {\n        if (str1.length() == str2.length() ) {\n            return \"\";\n        }\n        int temp = 0;\n        string word;\n        int mult = str1.length() / str2.length();\n        for(int i = 0; i <= mult; i++){\n            temp = 0;\n            for (int x = 0; x < str2.length(); x++){\n                if(str1[i+x] == str2[x]) \n                    temp += 1;\n            }\n            if (temp != str2.length()){\n                for(int c = i + str2.length()-1; c != str1.length(); c++)\n                    word += str1[c];\n                return word;\n            }\n        }\n        return word;\n    }\n};\n"
+},
+{
+"time": 1686542166,
+"language": "cpp",
+"runtime": 0,
+"memory": 7.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    string gcdOfStrings(string str1, string str2) {\n        if(str1 + str2 != str2 + str1)\n            return \"\";\n\n        return str1.substr(0, gcd(str1.size(), str2.size()));\n    }\n};"
+}
+]
+}

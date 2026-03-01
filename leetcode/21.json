@@ -1,0 +1,29 @@
+{
+"html_content": "<h1>21 - Merge Two Sorted Lists</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/merge-two-sorted-lists/>merge-two-sorted-lists</a></h2><p>You are given the heads of two sorted linked lists <code>list1</code> and <code>list2</code>.<p>Merge the two lists into one <strong>sorted</strong> list. The list should be made by splicing together the nodes of the first two lists.<p>Return <em>the head of the merged linked list</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/10/03/merge_ex1.jpg style=width:662px;height:302px><pre>\n<strong>Input:</strong> list1 = [1,2,4], list2 = [1,3,4]\n<strong>Output:</strong> [1,1,2,3,4,4]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> list1 = [], list2 = []\n<strong>Output:</strong> []\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> list1 = [], list2 = [0]\n<strong>Output:</strong> [0]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in both lists is in the range <code>[0, 50]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code><li>Both <code>list1</code> and <code>list2</code> are sorted in <strong>non-decreasing</strong> order.</ul>",
+"submissions": [
+{
+"time": 1764252627,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:\n        if list1 is None and list2 is None:\n            return None\n\n        result = ListNode()\n        head = result\n        t = ListNode()\n        while list1 is not None or list2 is not None:\n\n            if list1 is None or list1.val > list2.val:\n                next_value = list2.val\n                temp = list2\n                list2 = list2.next\n            else:\n                next_value = list1.val\n                temp = list1\n                list1 = list1.next\n\n            result.val = next_value\n            t = result\n            result.next = temp\n            result = temp\n\n        del t.next\n        t.next = None\n\n        return head"
+},
+{
+"time": 1764252859,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:\n        if list1 is None and list2 is None:\n            return None\n        elif list1 is None:\n            return list2\n        elif list2 is None:\n            return list1\n\n        result = ListNode()\n        head = result\n        t = ListNode()\n        while list1 is not None or list2 is not None:\n\n            if list1 is None or list1.val > list2.val:\n                next_value = list2.val\n                temp = list2\n                list2 = list2.next\n            else:\n                next_value = list1.val\n                temp = list1\n                list1 = list1.next\n\n            result.val = next_value\n            t = result\n            result.next = temp\n            result = temp\n\n        del t.next\n        t.next = None\n\n        return head"
+},
+{
+"time": 1764253653,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:\n        if list1 is None and list2 is None:\n            return None\n\n        result = ListNode()\n        head = result\n        while list1 is not None and list2 is not None:\n\n            if list1.val > list2.val:\n                temp = list2\n                list2 = list2.next\n            else:\n                temp = list1\n                list1 = list1.next\n\n            result.next = temp\n            result = result.next\n\n        if list1 is None:\n            result.next = list2\n        else:\n            result.next = list1\n\n\n        return head.next"
+}
+]
+}

@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>137 - Single Number II</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/single-number-ii/>single-number-ii</a></h2><p>Given an integer array <code>nums</code> where\u00a0every element appears <strong>three times</strong> except for one, which appears <strong>exactly once</strong>. <em>Find the single element and return it</em>.<p>You must\u00a0implement a solution with a linear runtime complexity and use\u00a0only constant\u00a0extra space.<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> nums = [2,2,3,2]\n<strong>Output:</strong> 3\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> nums = [0,1,0,1,0,1,99]\n<strong>Output:</strong> 99\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 3 * 10<sup>4</sup></code><li><code>-2<sup>31</sup> &lt;= nums[i] &lt;= 2<sup>31</sup> - 1</code><li>Each element in <code>nums</code> appears exactly <strong>three times</strong> except for one element which appears <strong>once</strong>.</ul>",
+"submissions": [
+{
+"time": 1767026246,
+"language": "py",
+"runtime": 0,
+"memory": 18.0,
+"accepted": true,
+"code_content": "class Solution:\n    def singleNumber(self, nums: List[int]) -> int:\n        ones = 0\n        twos = 0\n\n        for num in nums:\n            ones ^= (num & ~twos)\n            twos ^= (num & ~ones)\n\n        return ones"
+}
+]
+}

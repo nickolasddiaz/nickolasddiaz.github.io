@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>62 - Unique Paths</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/unique-paths/>unique-paths</a></h2><p>There is a robot on an <code>m x n</code> grid. The robot is initially located at the <strong>top-left corner</strong> (i.e., <code>grid[0][0]</code>). The robot tries to move to the <strong>bottom-right corner</strong> (i.e., <code>grid[m - 1][n - 1]</code>). The robot can only move either down or right at any point in time.<p>Given the two integers <code>m</code> and <code>n</code>, return <em>the number of possible unique paths that the robot can take to reach the bottom-right corner</em>.<p>The test cases are generated so that the answer will be less than or equal to <code>2 * 10<sup>9</sup></code>.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img src=https://assets.leetcode.com/uploads/2018/10/22/robot_maze.png style=width:400px;height:183px><pre>\n<strong>Input:</strong> m = 3, n = 7\n<strong>Output:</strong> 28\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> m = 3, n = 2\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:\n1. Right -> Down -> Down\n2. Down -> Down -> Right\n3. Down -> Right -> Down\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= m, n &lt;= 100</code></ul>",
+"submissions": [
+{
+"time": 1721275568,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int uniquePaths(int m, int n) {\n        int numerator = m+n-2;\n        int denominator = min(n-1,m-1);\n        double solution = 1;\n\n        for(int i = 0; i < min(n-1,m-1); i++)\n        solution = solution * numerator-- / denominator--;\n\n        return solution;\n\n    }\n};"
+},
+{
+"time": 1721275624,
+"language": "cpp",
+"runtime": 2,
+"memory": 7.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int uniquePaths(int m, int n) {\n        int numerator = m+n-2;\n        int denominator = min(n-1,m-1);\n        double solution = 1;\n\n        for(int i = 0; i < min(n-1,m-1); i++)\n        solution = solution * numerator-- / denominator--;\n\n        return round(solution);\n\n    }\n};"
+}
+]
+}

@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>61 - Rotate List</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/rotate-list/>rotate-list</a></h2><p>Given the <code>head</code> of a linked\u00a0list, rotate the list to the right by <code>k</code> places.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/13/rotate1.jpg style=width:450px;height:191px><pre>\n<strong>Input:</strong> head = [1,2,3,4,5], k = 2\n<strong>Output:</strong> [4,5,1,2,3]\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2020/11/13/roate2.jpg style=width:305px;height:350px><pre>\n<strong>Input:</strong> head = [0,1,2], k = 4\n<strong>Output:</strong> [2,0,1]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the list is in the range <code>[0, 500]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code><li><code>0 &lt;= k &lt;= 2 * 10<sup>9</sup></code></ul>",
+"submissions": [
+{
+"time": 1764529216,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:\n\n        length = 0\n        temp_head = head\n        while temp_head:\n            length += 1\n            temp_head = temp_head.next\n\n        k %= length\n        if k == 0:\n            return head\n\n        temp_head = head\n\n        start = head\n\n        while temp_head.next:\n            if k == 0:\n                start = start.next\n            else:\n                k -= 1\n\n            temp_head = temp_head.next\n\n        temp_head.next = head\n\n        result = start.next\n        start.next = None\n\n        return result\n"
+},
+{
+"time": 1764529362,
+"language": "py",
+"runtime": 0,
+"memory": 18.0,
+"accepted": true,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:\n\n        length = 0\n        temp_head = head\n        while temp_head:\n            length += 1\n            temp_head = temp_head.next\n\n        if length == 0:\n            return None\n\n        k %= length\n        if k == 0:\n            return head\n\n        temp_head = head\n\n        start = head\n\n        while temp_head.next:\n            if k == 0:\n                start = start.next\n            else:\n                k -= 1\n\n            temp_head = temp_head.next\n\n        temp_head.next = head\n\n        result = start.next\n        start.next = None\n\n        return result"
+}
+]
+}

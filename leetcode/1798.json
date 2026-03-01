@@ -1,0 +1,37 @@
+{
+"html_content": "<h1>1798 - Max Number of K-Sum Pairs</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/max-number-of-k-sum-pairs/>max-number-of-k-sum-pairs</a></h2><p>You are given an integer array <code>nums</code> and an integer <code>k</code>.<p>In one operation, you can pick two numbers from the array whose sum equals <code>k</code> and remove them from the array.<p>Return <em>the maximum number of operations you can perform on the array</em>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,2,3,4], k = 5\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> Starting with nums = [1,2,3,4]:\n- Remove numbers 1 and 4, then nums = [2,3]\n- Remove numbers 2 and 3, then nums = []\nThere are no more pairs that sum up to 5, hence a total of 2 operations.</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [3,1,3,4,3], k = 6\n<strong>Output:</strong> 1\n<strong>Explanation:</strong> Starting with nums = [3,1,3,4,3]:\n- Remove the first two 3's, then nums = [1,4,3]\nThere are no more pairs that sum up to 6, hence a total of 1 operation.</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>5</sup></code><li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code><li><code>1 &lt;= k &lt;= 10<sup>9</sup></code></ul>",
+"submissions": [
+{
+"time": 1699328663,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int maxOperations(vector<int>& nums, int k) {\n        int total = 0;\n        int temp = 0;\n        int half = k / 2;\n        int halfnum;\n\n        std::sort(nums.begin(), nums.end());\n    auto it = std::unique(nums.begin(), nums.end());\n        nums.erase(it, nums.end());\n        for (int i = 0; i < nums.size(); i++) {\n    }\n\n\n        for(int i = 0; i < nums.size(); i++){\n            if (nums[i] > half){\n                halfnum = i;\n                break;\n            }\n        }\n        if ( !(nums.size() % 2 == 0))\n   halfnum--;\n\n\n for(int i = 0; i < nums.size(); i++){\n    if (nums[i] < k){\n        temp = k - nums[i];\n        for(int j = halfnum; j < nums.size(); j++){\n            if (nums[j] == temp){\n                total++;\n                break; \n            }\n        }\n    }\n}\n\n        return total;\n    }\n};"
+},
+{
+"time": 1699420709,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int maxOperations(vector<int>& nums, int k) {\n        int first = 0;\n        int last = nums.size() -1;\n        int total = 0;\n        int temp;\n\n        std::sort(nums.begin(), nums.end());\n    auto it = std::unique(nums.begin(), nums.end());\n        nums.erase(it, nums.end());\n\n\nwhile (first < last){\n    temp = nums[first] + nums[last];\nif(temp == k){\n    first++;\n    last--;\n    total++;\n}\nif (temp > k){\n    last--;\n}\nif (temp < k){\n    first++;\n}\n\n}\n\n        return total;\n    }\n};"
+},
+{
+"time": 1699421016,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int maxOperations(vector<int>& nums, int k) {\n        int first = 0;\n        int last = nums.size() - 1;\n        int total = 0;\n        int temp;\n\n        std::sort(nums.begin(), nums.end());\n        auto it = std::unique(nums.begin(), nums.end());\n        nums.erase(it, nums.end());\n\n        while (first < last) {\n            temp = nums[first] + nums[last];\n            if (temp == k) {\n                first++;\n                last--;\n                total++;\n            }\n            if (temp > k) {\n                last--;\n            }\n            if (temp < k) {\n                first++;\n            }\n        }\n\n        return total;\n    }\n};\n"
+},
+{
+"time": 1699421374,
+"language": "cpp",
+"runtime": 100,
+"memory": 58.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int maxOperations(vector<int>& nums, int k) {\n        int first = 0;\n        int last = nums.size() - 1;\n        int total = 0;\n        int temp;\n\n        sort(nums.begin(), nums.end());\n  \n\n        while (first < last) {\n            if (nums[first] + nums[last] == k) {\n                first++;\n                last--;\n                total++;\n            }\n            if (nums[first] + nums[last] > k) {\n                last--;\n            }\n            if (nums[first] + nums[last] < k) {\n                first++;\n            }\n        }\n\n        return total;\n    }\n};\n"
+}
+]
+}

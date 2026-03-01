@@ -1,0 +1,53 @@
+{
+"html_content": "<h1>643 - Maximum Average Subarray I</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/maximum-average-subarray-i/>maximum-average-subarray-i</a></h2><p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.<p>Find a contiguous subarray whose <strong>length is equal to</strong> <code>k</code> that has the maximum average value and return <em>this value</em>. Any answer with a calculation error less than <code>10<sup>-5</sup></code> will be accepted.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,12,-5,-6,50,3], k = 4\n<strong>Output:</strong> 12.75000\n<strong>Explanation:</strong> Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [5], k = 1\n<strong>Output:</strong> 5.00000\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == nums.length</code><li><code>1 &lt;= k &lt;= n &lt;= 10<sup>5</sup></code><li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1702577476,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    double findMaxAverage(vector<int>& nums, int k) {\n        float ave = 0;\n        float greatest = 0;\n        float temp = 0;\n        for(int i = 0; i < nums.size(); i++){\n            ave += nums[i];\n        }\n        if (nums.size() == 1){\n            return nums[0];\n        }\n        for(int i = 0; i < nums.size() - k; i++){\n            for(int x = i; x < (i + k); x++){\n            temp += nums[x];\n            }\n            if (abs(greatest - ave) > abs(temp - ave)){\n                greatest = temp;\n            }\n            temp = 0;\n    }\n    return greatest / k;\n};\n};"
+},
+{
+"time": 1702577564,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    double findMaxAverage(vector<int>& nums, int k) {\n        float ave = 0;\n        float greatest = 0;\n        float temp = 0;\n        for(int i = 0; i < nums.size(); i++){\n            ave += nums[i];\n        }\n        if (nums.size() == 1){\n            return nums[0];\n        }\n        for(int i = 0; i < nums.size() - k+1; i++){\n            for(int x = i; x < (i + k); x++){\n            temp += nums[x];\n            }\n            if (abs(greatest - ave) > abs(temp - ave)){\n                greatest = temp;\n            }\n            temp = 0;\n    }\n    return greatest / k;\n};\n};"
+},
+{
+"time": 1702577628,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    double findMaxAverage(vector<int>& nums, int k) {\n        float ave = 0;\n        double greatest = 0;\n        double temp = 0;\n        for(int i = 0; i < nums.size(); i++){\n            ave += nums[i];\n        }\n        if (nums.size() == 1){\n            return nums[0];\n        }\n        for(int i = 0; i < nums.size() - k+1; i++){\n            for(int x = i; x < (i + k); x++){\n            temp += nums[x];\n            }\n            if (abs(greatest - ave) > abs(temp - ave)){\n                greatest = temp;\n            }\n            temp = 0;\n    }\n    return greatest / k;\n};\n};"
+},
+{
+"time": 1702578652,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    double findMaxAverage(vector<int>& nums, int k) {\n        float ave = 0;\n        double greatest = 0;\n        double temp = 0;\n        for(int i = 0; i < nums.size(); i++){\n            ave += nums[i];\n        }\n\n        \n        if (nums.size() == 1){\n            return nums[0];\n        }\n        for(int i = 0; i < nums.size() - k+1; i++){\n            for(int x = i; x < (i + k); x++){\n            temp += nums[x];\n            }\n            if (greatest - ave < temp - ave){\n                greatest = temp;\n            }\n            temp = 0;\n    }\n    return greatest / k;\n    \n};\n};"
+},
+{
+"time": 1702578978,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    double findMaxAverage(vector<int>& nums, int k) {\n        float ave = 0;\n        double greatest = 0;\n        double temp = 0;\n        for(int i = 0; i < nums.size(); i++){\n            ave += nums[i];\n        }\n        \n        \n        if (nums.size() == 1){\n            return nums[0];\n        }\n        for(int i = 0; i < nums.size() - k+1; i++){\n            for(int x = i; x < (i + k); x++){\n            temp += nums[x];\n            }\n            if (abs(greatest) - ave < abs(temp) - ave){\n                greatest = temp;\n            }\n            temp = 0;\n    }\n    return greatest / k;\n    \n};\n};"
+},
+{
+"time": 1702579369,
+"language": "cpp",
+"runtime": 148,
+"memory": 110.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    double findMaxAverage(vector<int>& nums, int k) {\n        double ave = 0;\n        double greatest = 0;\n        for (int i = 0; i < k; ++i) {\n            ave += nums[i];\n        }\n        greatest = ave;\n        \n        for (int i = k; i < nums.size(); ++i) {\n            ave += nums[i] - nums[i - k]; \n            greatest = max(greatest, ave); \n        }\n    \n    return greatest / k;\n    }\n};\n"
+}
+]
+}

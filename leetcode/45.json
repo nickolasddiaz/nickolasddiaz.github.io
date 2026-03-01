@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>45 - Jump Game II</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/jump-game-ii/>jump-game-ii</a></h2><p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>. You are initially positioned at\u00a0index 0.<p>Each element <code>nums[i]</code> represents the maximum length of a forward jump from index <code>i</code>. In other words, if you are at index <code>i</code>, you can jump to any index <code>(i + j)</code>\u00a0where:<ul><li><code>0 &lt;= j &lt;= nums[i]</code> and<li><code>i + j &lt; n</code></ul><p>Return <em>the minimum number of jumps to reach index </em><code>n - 1</code>. The test cases are generated such that you can reach index\u00a0<code>n - 1</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [2,3,1,1,4]\n<strong>Output:</strong> 2\n<strong>Explanation:</strong> The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [2,3,0,1,4]\n<strong>Output:</strong> 2\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= nums.length &lt;= 10<sup>4</sup></code><li><code>0 &lt;= nums[i] &lt;= 1000</code><li>It's guaranteed that you can reach <code>nums[n - 1]</code>.</ul>",
+"submissions": [
+{
+"time": 1761310783,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution {\npublic:\n    int jump(vector<int>& nums) {\n        int n = nums.size();\n        int jumps = 0;\n        \n        int i = 0;\n        while(i < n){\n            int index = nums[i] + i;\n            int highest = index;\n            int high_index = i;\n            for(int x = i; x < n && x <= index; x++){\n                int temp = nums[x] + x;\n\n                if (temp >= highest && nums[x] != 0){\n                    highest = temp;\n                    high_index = x;\n                }\n            }\n            jumps++;\n\n            if(nums[high_index] + high_index > n-2){\n                return jumps+1;\n            }\n            if (highest == index)\n                return -1;\n            else{\n                i = high_index;\n            }\n        }\n\n        return jumps;\n    }\n};"
+},
+{
+"time": 1761311097,
+"language": "cpp",
+"runtime": 0,
+"memory": 20.0,
+"accepted": true,
+"code_content": "class Solution\n{\n\tpublic:\n\t\tint jump(vector<int> &nums)\n\t\t{\n\t\t\tint n = nums.size();\n\t\t\tint jumps = 0;\n\n            if (n == 1){\n                return 0;\n            }\n\n\t\t\tint i = 0;\n\t\t\twhile (i < n)\n\t\t\t{\n\t\t\t\tint index = nums[i] + i;\n\t\t\t\tint highest = index;\n\t\t\t\tint high_index = i;\n                if (nums[high_index] + high_index > n - 2)\n\t\t\t\t{\n\t\t\t\t\treturn jumps+1;\n\t\t\t\t}\n\t\t\t\tfor (int x = i; x < n && x <= index; x++)\n\t\t\t\t{\n\t\t\t\t\tint temp = nums[x] + x;\n\n\t\t\t\t\tif (temp >= highest && nums[x] != 0)\n\t\t\t\t\t{\n\t\t\t\t\t\thighest = temp;\n\t\t\t\t\t\thigh_index = x;\n\t\t\t\t\t}\n\t\t\t\t}\n\n\t\t\t\tjumps++;\n\n\t\t\t\t\n\t\t\t\ti = high_index;\n\t\t\t\t\n\t\t\t}\n\n\t\t\treturn jumps;\n\t\t}\n};\n"
+}
+]
+}

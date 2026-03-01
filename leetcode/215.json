@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>215 - Kth Largest Element in an Array</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/kth-largest-element-in-an-array/>kth-largest-element-in-an-array</a></h2><p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>largest element in the array</em>.<p>Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.<p>Can you solve it without sorting?<p>\u00a0<p><strong class=example>Example 1:</strong><pre><strong>Input:</strong> nums = [3,2,1,5,6,4], k = 2\n<strong>Output:</strong> 5\n</pre><p><strong class=example>Example 2:</strong><pre><strong>Input:</strong> nums = [3,2,3,1,2,4,5,5,6], k = 4\n<strong>Output:</strong> 4\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= k &lt;= nums.length &lt;= 10<sup>5</sup></code><li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1720384712,
+"language": "cpp",
+"runtime": 101,
+"memory": 64.0,
+"accepted": true,
+"code_content": "class Solution {\npublic:\n    int findKthLargest(vector<int>& nums, int k) {\n        priority_queue<int> pq;\n        for (int i : nums) {\n        pq.push(i);\n        }\n\n        for(int i = 1; i < k; i++){\n            pq.pop();\n        }\n        return pq.top();\n\n\n\n    }\n};"
+}
+]
+}

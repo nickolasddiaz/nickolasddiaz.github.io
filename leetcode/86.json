@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>86 - Partition List</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/partition-list/>partition-list</a></h2><p>Given the <code>head</code> of a linked list and a value <code>x</code>, partition it such that all nodes <strong>less than</strong> <code>x</code> come before nodes <strong>greater than or equal</strong> to <code>x</code>.<p>You should <strong>preserve</strong> the original relative order of the nodes in each of the two partitions.<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/01/04/partition.jpg style=width:662px;height:222px><pre>\n<strong>Input:</strong> head = [1,4,3,2,5,2], x = 3\n<strong>Output:</strong> [1,2,2,4,3,5]\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> head = [2,1], x = 2\n<strong>Output:</strong> [1,2]\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the list is in the range <code>[0, 200]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code><li><code>-200 &lt;= x &lt;= 200</code></ul>",
+"submissions": [
+{
+"time": 1764625558,
+"language": "py",
+"runtime": 0,
+"memory": 17.0,
+"accepted": true,
+"code_content": "# Definition for singly-linked list.\n# class ListNode:\n#     def __init__(self, val=0, next=None):\n#         self.val = val\n#         self.next = next\nclass Solution:\n    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:\n        less_head = ListNode()\n        less_tail = less_head\n        greater_head = ListNode()\n        greater_tail = greater_head\n\n\n        while head:\n            if head.val < x:\n                less_tail.next = head\n                less_tail = less_tail.next\n            else:\n                greater_tail.next = head\n                greater_tail = greater_tail.next\n\n            head = head.next\n            greater_tail.next = None\n\n\n        less_tail.next = greater_head.next\n\n        return less_head.next"
+}
+]
+}

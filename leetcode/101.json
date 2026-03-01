@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>101 - Symmetric Tree</h1><h2>Difficulty: Easy - <a href=https://leetcode.com/problems/symmetric-tree/>symmetric-tree</a></h2><p>Given the <code>root</code> of a binary tree, <em>check whether it is a mirror of itself</em> (i.e., symmetric around its center).<p>\u00a0<p><strong class=example>Example 1:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/symtree1.jpg style=width:354px;height:291px><pre>\n<strong>Input:</strong> root = [1,2,2,3,4,4,3]\n<strong>Output:</strong> true\n</pre><p><strong class=example>Example 2:</strong><p><img alt src=https://assets.leetcode.com/uploads/2021/02/19/symtree2.jpg style=width:308px;height:258px><pre>\n<strong>Input:</strong> root = [1,2,2,null,3,null,3]\n<strong>Output:</strong> false\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.<li><code>-100 &lt;= Node.val &lt;= 100</code></ul><p>\u00a0<p><strong>Follow up:</strong> Could you solve it both recursively and iteratively?",
+"submissions": [
+{
+"time": 1764706553,
+"language": "py",
+"runtime": 1,
+"memory": 17.0,
+"accepted": true,
+"code_content": "# Definition for a binary tree node.\n# class TreeNode:\n#     def __init__(self, val=0, left=None, right=None):\n#         self.val = val\n#         self.left = left\n#         self.right = right\nclass Solution:\n    def isSymmetric(self, root: Optional[TreeNode]) -> bool:\n        if root is None:\n            return False\n        \n        if (root.right is None) or (root.left is None):\n            return not (root.right is None) ^ (root.left is None)\n\n        stack1 = deque()\n        stack2 = deque()\n\n        stack1.append(root.right)\n        stack2.append(root.left)\n\n        while stack1:\n            tree1 = stack1.pop()\n            tree2 = stack2.pop()\n            if (tree1 is None) ^ (tree2 is None):\n                return False\n\n            if tree1 is None:\n                continue\n\n            if tree1.val == tree2.val:\n                stack1.append(tree1.right)\n                stack1.append(tree1.left)\n                stack2.append(tree2.left)\n                stack2.append(tree2.right)\n            else:\n                return False\n                \n        return True"
+}
+]
+}

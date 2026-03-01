@@ -1,0 +1,13 @@
+{
+"html_content": "<h1>954 - Maximum Sum Circular Subarray</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/maximum-sum-circular-subarray/>maximum-sum-circular-subarray</a></h2><p>Given a <strong>circular integer array</strong> <code>nums</code> of length <code>n</code>, return <em>the maximum possible sum of a non-empty <strong>subarray</strong> of </em><code>nums</code>.<p>A <strong>circular array</strong> means the end of the array connects to the beginning of the array. Formally, the next element of <code>nums[i]</code> is <code>nums[(i + 1) % n]</code> and the previous element of <code>nums[i]</code> is <code>nums[(i - 1 + n) % n]</code>.<p>A <strong>subarray</strong> may only include each element of the fixed buffer <code>nums</code> at most once. Formally, for a subarray <code>nums[i], nums[i + 1], ..., nums[j]</code>, there does not exist <code>i &lt;= k1</code>, <code>k2 &lt;= j</code> with <code>k1 % n == k2 % n</code>.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> nums = [1,-2,3,-2]\n<strong>Output:</strong> 3\n<strong>Explanation:</strong> Subarray [3] has maximum sum 3.\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> nums = [5,-3,5]\n<strong>Output:</strong> 10\n<strong>Explanation:</strong> Subarray [5,5] has maximum sum 5 + 5 = 10.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> nums = [-3,-2,-3]\n<strong>Output:</strong> -2\n<strong>Explanation:</strong> Subarray [-2] has maximum sum -2.\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>n == nums.length</code><li><code>1 &lt;= n &lt;= 3 * 10<sup>4</sup></code><li><code>-3 * 10<sup>4</sup> &lt;= nums[i] &lt;= 3 * 10<sup>4</sup></code></ul>",
+"submissions": [
+{
+"time": 1766450869,
+"language": "py",
+"runtime": 63,
+"memory": 21.0,
+"accepted": true,
+"code_content": "class Solution:\n    def maxSubarraySumCircular(self, nums: List[int]) -> int:\n        result: int = nums[0]\n        current: int = 0\n\n        min_result: int = nums[0]\n        min_current: int = 0\n\n        sum = 0\n\n        for num in nums:\n            sum += num\n\n            min_current += num\n            min_result = min(min_result, min_current)\n            if min_current > 0:\n                min_current = 0\n\n\n            current += num\n            result = max(result, current)\n            if current < 0:\n                current = 0\n\n        if sum != min_result:\n            result = max(result, sum -min_result)\n        return result"
+}
+]
+}

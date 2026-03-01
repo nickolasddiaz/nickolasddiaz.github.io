@@ -1,0 +1,21 @@
+{
+"html_content": "<h1>1544 - Count Good Nodes in Binary Tree</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/count-good-nodes-in-binary-tree/>count-good-nodes-in-binary-tree</a></h2><p>Given a binary tree <code>root</code>, a node <em>X</em> in the tree is named\u00a0<strong>good</strong> if in the path from root to <em>X</em> there are no nodes with a value <em>greater than</em> X.<p>Return the number of <strong>good</strong> nodes in the binary tree.<p>\u00a0<p><strong class=example>Example 1:</strong><p><strong><img alt src=https://assets.leetcode.com/uploads/2020/04/02/test_sample_1.png style=width:263px;height:156px></strong><pre>\n\n<strong>Input:</strong> root = [3,1,4,3,null,1,5]\n\n<strong>Output:</strong> 4\n\n<strong>Explanation:</strong> Nodes in blue are <strong>good</strong>.\n\nRoot Node (3) is always a good node.\n\nNode 4 -> (3,4) is the maximum value in the path starting from the root.\n\nNode 5 -> (3,4,5) is the maximum value in the path\n\nNode 3 -> (3,1,3) is the maximum value in the path.</pre><p><strong class=example>Example 2:</strong><p><strong><img alt src=https://assets.leetcode.com/uploads/2020/04/02/test_sample_2.png style=width:157px;height:161px></strong><pre>\n\n<strong>Input:</strong> root = [3,3,null,4,2]\n\n<strong>Output:</strong> 3\n\n<strong>Explanation:</strong> Node 2 -> (3, 3, 2) is not good, because \"3\" is higher than it.</pre><p><strong class=example>Example 3:</strong><pre>\n\n<strong>Input:</strong> root = [1]\n\n<strong>Output:</strong> 1\n\n<strong>Explanation:</strong> Root is considered as <strong>good</strong>.</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li>The number of nodes in the binary tree is in the range\u00a0<code>[1, 10^5]</code>.<li>Each node's value is between <code>[-10^4, 10^4]</code>.</ul>",
+"submissions": [
+{
+"time": 1719439698,
+"language": "cpp",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int goodNodes(TreeNode* root) {\n        \n        int i = goodnode(root, root->val);\n        return (i) ? i : i+1;\n    }\nprivate:\n    int goodnode(TreeNode* root, int max, int value = 0){\n        if(root->left){\n            if(root->val >= max){\n                value++;\n                value += goodnode(root->left, root->val);\n            }\n            else{\n                value += goodnode(root->left, max);\n            }\n        }\n        if(root->right){\n            if(root->val >= max){\n                value++;\n                value += goodnode(root->right, root->val);\n            }\n            else{\n                value += goodnode(root->right, max);\n            }\n        }\n        return value;\n\n\n    }\n};"
+},
+{
+"time": 1719440583,
+"language": "cpp",
+"runtime": 86,
+"memory": 84.0,
+"accepted": true,
+"code_content": "/**\n * Definition for a binary tree node.\n * struct TreeNode {\n *     int val;\n *     TreeNode *left;\n *     TreeNode *right;\n *     TreeNode() : val(0), left(nullptr), right(nullptr) {}\n *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}\n * };\n */\nclass Solution {\npublic:\n    int goodNodes(TreeNode* root) {\n        return goodnode(root, root->val);\n    }\n    \nprivate:\n    int goodnode(TreeNode* root, int max){\n        if(root == nullptr) return 0;\n        int value = 0;\n        if(root->val >= max){\n            value++;\n            max = root->val;\n        }\n        value += goodnode(root->left, max);\n        value += goodnode(root->right, max);\n        \n        return value;\n    }\n};"
+}
+]
+}

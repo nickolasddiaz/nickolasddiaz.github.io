@@ -1,0 +1,45 @@
+{
+"html_content": "<h1>139 - Word Break</h1><h2>Difficulty: Medium - <a href=https://leetcode.com/problems/word-break/>word-break</a></h2><p>Given a string <code>s</code> and a dictionary of strings <code>wordDict</code>, return <code>true</code> if <code>s</code> can be segmented into a space-separated sequence of one or more dictionary words.<p><strong>Note</strong> that the same word in the dictionary may be reused multiple times in the segmentation.<p>\u00a0<p><strong class=example>Example 1:</strong><pre>\n<strong>Input:</strong> s = \"leetcode\", wordDict = [\"leet\",\"code\"]\n<strong>Output:</strong> true\n<strong>Explanation:</strong> Return true because \"leetcode\" can be segmented as \"leet code\".\n</pre><p><strong class=example>Example 2:</strong><pre>\n<strong>Input:</strong> s = \"applepenapple\", wordDict = [\"apple\",\"pen\"]\n<strong>Output:</strong> true\n<strong>Explanation:</strong> Return true because \"applepenapple\" can be segmented as \"apple pen apple\".\nNote that you are allowed to reuse a dictionary word.\n</pre><p><strong class=example>Example 3:</strong><pre>\n<strong>Input:</strong> s = \"catsandog\", wordDict = [\"cats\",\"dog\",\"sand\",\"and\",\"cat\"]\n<strong>Output:</strong> false\n</pre><p>\u00a0<p><strong>Constraints:</strong><ul><li><code>1 &lt;= s.length &lt;= 300</code><li><code>1 &lt;= wordDict.length &lt;= 1000</code><li><code>1 &lt;= wordDict[i].length &lt;= 20</code><li><code>s</code> and <code>wordDict[i]</code> consist of only lowercase English letters.<li>All the strings of <code>wordDict</code> are <strong>unique</strong>.</ul>",
+"submissions": [
+{
+"time": 1767214489,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def wordBreak(self, s: str, wordDict: List[str]) -> bool:\n        wordSet = set(wordDict)\n        lengths_set = {len(s) for s in wordDict}\n\n        return self.find_word(s, wordSet, 0, lengths_set)\n\n    def find_word(self, s: str, wordSet: set[str], start: int, lengths_set: set[int]) -> bool:\n        while start < len(s):\n            for leng in lengths_set:\n                if start + leng > len(s):\n                    return False\n                if s[start: start + leng] in wordSet:\n                    if self.find_word(s, wordSet, start + leng, lengths_set):\n                        return True\n            else:\n                return False"
+},
+{
+"time": 1767214557,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def wordBreak(self, s: str, wordDict: List[str]) -> bool:\n        wordSet = set(wordDict)\n        lengths_set = {len(s) for s in wordDict}\n\n        return self.find_word(s, wordSet, 0, lengths_set)\n\n    def find_word(self, s: str, wordSet: set[str], start: int, lengths_set: set[int]) -> bool:\n        while start < len(s):\n            for leng in lengths_set:\n                if start + leng > len(s):\n                    return False\n                if s[start: start + leng] in wordSet:\n                    if self.find_word(s, wordSet, start + leng, lengths_set):\n                        return True\n            else:\n                return False\n\n        return True"
+},
+{
+"time": 1767218387,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n    def wordBreak(self, s: str, wordDict: List[str]) -> bool:\n        wordSet = set(wordDict)\n        lengths_set = {len(s) for s in wordDict}\n        self.dp = [False] * (len(s) + 1)\n\n        return self.find_word(s, wordSet, 0, lengths_set)\n\n    def find_word(self, s: str, wordSet: set[str], start: int, lengths_set: set[int]) -> bool:\n        while start < len(s):\n            for leng in lengths_set:\n                if start + leng > len(s) or self.dp[start + leng]:\n                    return False\n                if s[start: start + leng] in wordSet:\n                    if self.find_word(s, wordSet, start + leng, lengths_set):\n                        return True\n                    else:\n                        self.dp[start + leng] = True\n            else:\n                return False\n\n        return True"
+},
+{
+"time": 1767219186,
+"language": "py",
+"runtime": -1,
+"memory": -1,
+"accepted": false,
+"code_content": "class Solution:\n        def wordBreak(self, s: str, wordDict: List[str]) -> bool:\n        dp = [False] * (len(s) + 1)\n        dp[0] = True\n\n        for i in range(1, len(s) + 1):\n            for ch in wordDict:\n                start = i - len(ch)\n                if start >= 0 and dp[start] and s[start:i] == ch:\n                    dp[i] = True\n                    break\n        \n        return dp[-1]"
+},
+{
+"time": 1767219209,
+"language": "py",
+"runtime": 3,
+"memory": 17.0,
+"accepted": true,
+"code_content": "class Solution:\n    def wordBreak(self, s: str, wordDict: List[str]) -> bool:\n        dp = [False] * (len(s) + 1)\n        dp[0] = True\n\n        for i in range(1, len(s) + 1):\n            for ch in wordDict:\n                start = i - len(ch)\n                if start >= 0 and dp[start] and s[start:i] == ch:\n                    dp[i] = True\n                    break\n\n        return dp[-1]"
+}
+]
+}
