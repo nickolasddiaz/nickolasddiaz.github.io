@@ -12,6 +12,7 @@
 - Shiki
 - Youtube Embed
 - Web3Forms
+- Super Sitemap
 
 ## To start
 
