@@ -1,3 +1,5 @@
+export const prerender = true;
+
 import * as sitemap from 'super-sitemap';
 import type { RequestHandler } from '@sveltejs/kit';
 

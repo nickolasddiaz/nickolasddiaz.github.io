@@ -6,10 +6,16 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			fallback: '404.html'
+			pages: 'build',
+      		assets: 'build',
+			fallback: '404.html',
+			strict: true
 		}),
 		paths: {
 			base: ''
+		},
+		prerender: {
+			entries: ['*', '/sitemap.xml']
 		}
 	}
 };
