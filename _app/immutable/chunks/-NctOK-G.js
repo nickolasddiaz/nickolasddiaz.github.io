@@ -1,0 +1,1 @@
+var e=new Intl.DateTimeFormat(`en-CA`),t=new Intl.DateTimeFormat(`en-GB`,{year:`numeric`,month:`short`});function n(t){return e.format(t)}function r(e){return t.format(e)}export{r as n,n as t};
