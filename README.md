@@ -20,6 +20,11 @@
 bun install
 ```
 
+## Upgrade packages
+```sh
+bun update --interactive
+```
+
 ## Developing
 
 start a development server:
