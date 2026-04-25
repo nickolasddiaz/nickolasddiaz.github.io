@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Dark Spooky Forest</title>
+	</head>
+	<body>
+		
+		<canvas id="myCanvas">
+			Your browser does not support canvas.
+		</canvas>
+
+		<script type="module">
+			import get_main from './dist/Main.js';
+			const m = await get_main();
+			requestAnimationFrame((ts) => m.update(ts));
+		</script>	
+	</body>
+</HTML>
+
+<style>
+	canvas {
+		width: auto;
+		height: 95vh;
+		aspect-ratio: 1 / 1;
+		display: block;
+  		margin: auto;
+	}
+</style>
+		
+		

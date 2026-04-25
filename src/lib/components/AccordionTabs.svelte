@@ -11,12 +11,18 @@
   function getextention(str: string){
     let exten = str.split(".").pop()
     switch (exten) {
-      case 'h':
-        return "cpp"
-      case 's':
-        return "asm"
-      default:
-        return exten
+        case 'h':
+            return "cpp";
+        case 's':
+            return "asm";
+        case 'rkt':
+            return "racket";
+        case 'frag':
+            return "glsl";
+        case 'vert':
+            return "glsl";
+        default:
+            return exten;
     }
   }
 </script>

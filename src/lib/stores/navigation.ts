@@ -32,7 +32,9 @@ export default [
       ['C++', '/classes/cpp'],
       ['Architecture', '/classes/architecture'],
       ['Database 1', '/classes/database'],
-      ['Python', '/classes/py']
+      ['Python', '/classes/py'],
+      ['Languages', '/classes/programming_languages'],
+      ['AI', '/classes/ai'],
     ]
   },
   {

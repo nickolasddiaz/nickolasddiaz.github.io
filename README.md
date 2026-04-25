@@ -21,6 +21,7 @@ bun install
 ```
 
 ## Upgrade packages
+
 ```sh
 bun update --interactive
 ```

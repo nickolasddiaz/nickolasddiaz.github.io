@@ -1,5 +1,5 @@
 <script lang="ts">
-  import data from "$lib/stores/py";
+  import data from "$lib/stores/classes/py";
   import AccordionTabs from '$lib/components/AccordionTabs.svelte'
   import MainContent from '$lib/components/MainContent.svelte'
 

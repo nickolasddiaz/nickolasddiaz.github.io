@@ -1,5 +1,5 @@
 <script lang="ts">
-  import data from "$lib/stores/cpp";
+  import data from "$lib/stores/classes/cpp";
   import AccordionTabs from '$lib/components/AccordionTabs.svelte'
 
   

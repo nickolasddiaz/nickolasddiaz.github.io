@@ -1,5 +1,5 @@
 <script lang="ts">
-  import data from "$lib/stores/database";
+  import data from "$lib/stores/classes/database";
   import AccordionTabs from '$lib/components/AccordionTabs.svelte'
   import MainContent from '$lib/components/MainContent.svelte'
 
