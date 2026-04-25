@@ -1,0 +1,1 @@
+import{M as e,P as t,X as n,ft as r,w as i}from"./BAsXavoG.js";import"./S-KyrcF8.js";var a=t(`<div class="md:p-8 p-2 pt-4 pb-4 h-screen"><!></div>`);function o(t,o){var s=a();i(n(s),()=>o.children),r(s),e(t,s)}export{o as t};

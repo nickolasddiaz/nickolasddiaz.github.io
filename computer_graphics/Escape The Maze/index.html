@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Escape The Maze</title>
+	</head>
+	<body>
+		
+		<canvas id="myCanvas">
+			Your browser does not support canvas.
+		</canvas>
+		<h1 id="text-overlay"></h1>
+
+
+		<script type="module">
+			import get_main from './dist/Main.js';
+			const m = await get_main();
+			requestAnimationFrame((ts) => m.update(ts));
+		</script>	
+	</body>
+</HTML>
+
+<style>
+	canvas {
+		position: relative;
+		width: auto;
+		height: 95vh;
+		aspect-ratio: 1 / 1;
+		display: block;
+  		margin: auto;
+	}
+
+	#text-overlay {
+		position: absolute;
+		top: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+		color: red;
+		text-align: center;
+		font-family: sans-serif;
+		pointer-events: none;
+	}
+</style>
+		
+		
