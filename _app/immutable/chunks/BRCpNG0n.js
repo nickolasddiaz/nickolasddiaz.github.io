@@ -1,0 +1,1 @@
+new Intl.DateTimeFormat(`en-CA`);var e=new Intl.DateTimeFormat(`en-GB`,{year:`numeric`,month:`short`}),t=new Intl.DateTimeFormat(`en-US`,{year:`numeric`,month:`long`,day:`numeric`});function n(e){return t.format(e)}function r(t){return e.format(t)}export{r as n,n as t};

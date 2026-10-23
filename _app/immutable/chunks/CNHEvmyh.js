@@ -1,0 +1,1 @@
+import{F as e,N as t,O as n,X as r,ft as i}from"./CxUECtwn.js";var a=e(`<div class="mx-auto block h-auto w-[90vw] lg:w-[50vw]"><!></div>`);function o(e,o){var s=a(),c=r(s);n(c,()=>o.children),i(s),t(e,s)}export{o as t};
