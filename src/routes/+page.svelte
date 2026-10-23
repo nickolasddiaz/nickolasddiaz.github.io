@@ -9,14 +9,9 @@
   import CySAImg from "#lib/assets/CySA+.webp";
   import AImg from "#lib/assets/A+.webp";
   import SecurityImg from "#lib/assets/Security+.webp";
+  import socialData from "#lib/stores/social_media.js";
 
-  import FullScreenIframe from "#lib/components/FullScreenIframe.svelte";
-  import SocialMedia from "#lib/components/SocialMedia.svelte";
-
-  import Web3form from "#lib/components/Web3form.svelte";
   import { resolve } from "$app/paths";
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const url = resolve("/resume/resume.pdf" as any);
 
   let canvas: HTMLCanvasElement;
 
@@ -134,9 +129,11 @@
     >
       <div class="flex w-full items-center justify-between text-gray-600">
         <span><strong>{name}</strong></span>
-        <span>{start_date} - {end_date}</span>
+        <span class="text-xs text-gray-400">{start_date} - {end_date}</span>
       </div>
-      <p class="text-gray-600">{degree_level} in {degree} - {location}</p>
+      <p class="text-sm text-gray-600">
+        {degree_level} in {degree} - {location}
+      </p>
     </div>
   {/each}
 
@@ -152,9 +149,11 @@
     >
       <div class="flex w-full items-center justify-between text-gray-600">
         <span><strong>{name}</strong></span>
-        <span>{start_date} - {end_date}</span>
+        <span class="text-xs text-gray-400">{start_date} - {end_date}</span>
       </div>
-      <ul class="text-gray-600">
+      <ul
+        class="my-2 list-inside list-disc text-sm text-gray-600 marker:text-primary-700"
+      >
         <li>{bullet_1}</li>
         <li>{bullet_2}</li>
         <li>{bullet_3}</li>
@@ -202,7 +201,7 @@
       class="mb-3.75 flex flex-col gap-2 rounded-[10px] border border-primary-100 bg-white p-5 shadow-(--shadow)"
     >
       <strong class="text-gray-600">{category}</strong>
-      <span class="text-gray-600">
+      <span class="text-sm text-gray-600">
         {items.join(", ")}
       </span>
     </div>
@@ -211,18 +210,18 @@
   <h2>Social Media</h2>
   <hr />
   <br />
-  <SocialMedia></SocialMedia>
-  <br />
-  <h2>Contact Me or Message Me on Social Media</h2>
-  <hr />
-  <br />
-  <Web3form></Web3form>
-  <br />
-  <h2>Resume</h2>
-  <hr />
-  <br />
-  <FullScreenIframe {url}></FullScreenIframe>
-  <br />
+  <div class="flex justify-around p-5">
+    {#each Object.entries(socialData) as [key, value] (key)}
+      <a
+        href={value.link}
+        title={value.title}
+        class="group rounded-lg p-3 shadow-md transition-shadow hover:shadow-sm hover:shadow-primary-500"
+      >
+        <img src={value.img} alt={value.title} class="mx-auto h-10 w-10" />
+        <span class="group-hover:text-primary-500">{value.title}</span>
+      </a>
+    {/each}
+  </div>
   <br />
   <br />
 </MainContent>

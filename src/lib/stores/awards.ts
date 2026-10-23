@@ -15,6 +15,9 @@ import PythonCoreImg from "#lib/assets/Python_Core_Certificate.webp";
 import LeetCode150Img from "#lib/assets/Interview_150.webp";
 import LeetCode75Img from "#lib/assets/LeetCode_75.webp";
 import PenImg from "#lib/assets/CompTIA_PenTest+_Path.webp";
+import CitiImg from "#lib/assets/citi.webp";
+import WalmartImg from "#lib/assets/walmart.webp";
+import CommoonwealthImg from "#lib/assets/commonwealth_bank.webp";
 
 interface MediaItem {
   description: string;
@@ -31,6 +34,24 @@ function getdate(year: number, month: number): Temporal.PlainDate {
 }
 
 export const awards: Record<string, MediaItem> = {
+  "Citi Bank Simulation": {
+    description: "Technology Software Development Job Simulation",
+    link: "https://www.theforage.com/completion-certificates/8eNRcRqBZM9HLvwGw/2jxESPvorR7fmypXj_8eNRcRqBZM9HLvwGw_6a511c49d283f5ca6ab23dac_1783982601182_completion_certificate.pdf",
+    image_link: CitiImg,
+    issued_date: getdate(2026, 7),
+  },
+  "Forage Walmart Simulation": {
+    description: "Advanced Software Engineering Job Simulation",
+    link: "https://www.theforage.com/completion-certificates/prBZoAihniNijyD6d/oX6f9BbCL9kJDJzfg_prBZoAihniNijyD6d_6a511c49d283f5ca6ab23dac_1785971578873_completion_certificate.pdf",
+    image_link: WalmartImg,
+    issued_date: getdate(2026, 8),
+  },
+  "Common Wealth Bank Simulation": {
+    description: "Tech Explorer Job Simulation",
+    link: "https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/GYcpProEZQFCiSmT6_2sNmYuurxgpFYawco_6a511c49d283f5ca6ab23dac_1785970587561_completion_certificate.pdf",
+    image_link: CommoonwealthImg,
+    issued_date: getdate(2026, 8),
+  },
   "AWS Certified Developer": {
     description:
       "Validates my ability to develop, test, deploy, and debug cloud-native applications on AWS.",

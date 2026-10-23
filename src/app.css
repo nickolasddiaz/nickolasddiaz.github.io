@@ -12,7 +12,7 @@
 @theme {
   --z-index-100: 100;
 
-  --color-primary-50: oklch(97.9% 0.021 166.113);
+  --color-primary-50:  oklch(97.9% 0.021 166.113);
   --color-primary-100: oklch(95% 0.052 163.051);
   --color-primary-200: oklch(90.5% 0.093 164.15);
   --color-primary-300: oklch(76.5% 0.177 163.223);
@@ -25,16 +25,16 @@
   --color-primary-800: oklch(43.2% 0.095 166.913);
   --color-primary-900: oklch(37.8% 0.077 168.94);
 
-  --color-secondary-50: #f0f9ff;
-  --color-secondary-100: #e0f2fe;
-  --color-secondary-200: #bae6fd;
-  --color-secondary-300: #7dd3fc;
-  --color-secondary-400: #38bdf8;
-  --color-secondary-500: #0ea5e9;
-  --color-secondary-600: #0284c7;
-  --color-secondary-700: #0369a1;
-  --color-secondary-800: #075985;
-  --color-secondary-900: #0c4a6e;
+  --color-secondary-50:  oklch(97.7% 0.017 320.058);
+  --color-secondary-100: oklch(95.2% 0.037 318.852);
+  --color-secondary-200: oklch(90.3% 0.076 319.62);
+  --color-secondary-300: oklch(83.3% 0.145 321.434);
+  --color-secondary-400: oklch(74% 0.238 322.16);
+  --color-secondary-500: oklch(66.7% 0.295 322.15);
+  --color-secondary-600: oklch(59.1% 0.293 322.896);
+  --color-secondary-700: oklch(51.8% 0.253 323.949);
+  --color-secondary-800: oklch(45.2% 0.211 324.591);
+  --color-secondary-900: oklch(40.1% 0.17 325.612);
 }
 
 @layer base {
@@ -49,13 +49,10 @@
     @apply inline cursor-pointer text-blue-600 underline transition-colors duration-200;
     @apply hover:text-blue-800 hover:no-underline;
   }
-  .paragraph-text {
-    @apply max-w-5xl place-self-center text-lg;
-  }
   .navbar-text {
     @apply bg-clip-text text-transparent;
-    @apply bg-linear-to-b from-emerald-200 to-neutral-200;
-    @apply hover:bg-linear-to-b hover:from-fuchsia-300 hover:to-neutral-200;
+    @apply bg-linear-to-b from-primary-200 to-neutral-200;
+    @apply hover:bg-linear-to-b hover:from-secondary-300 hover:to-neutral-200;
   }
 }
 
@@ -71,11 +68,5 @@
   }
   h4 {
     @apply mb-1 text-lg font-semibold text-primary-500;
-  }
-  ul {
-    @apply my-2 list-inside list-disc marker:text-primary-700;
-  }
-  ol {
-    @apply my-2 list-inside list-decimal marker:text-primary-700;
   }
 }

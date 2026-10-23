@@ -7,7 +7,6 @@
   // prettier-ignore
   import { Button, Dropdown, Radio, Datepicker, Search, Modal, } from "flowbite-svelte";
   import { FilterOutline } from "flowbite-svelte-icons";
-  import EmojiIcon from "#lib/components/EmojiIcon.svelte";
 
   let dateRange: { from: Date | undefined; to: Date | undefined } = $state({
     from: undefined,
@@ -63,7 +62,7 @@
           month: dateRange.from.getMonth() + 1,
           day: dateRange.from.getDate(),
         });
-        if (paper.date <= after) {
+        if (Temporal.PlainDate.compare(paper.date, after) <= 0) {
           return false;
         }
       }
@@ -74,7 +73,7 @@
           month: dateRange.to.getMonth() + 1,
           day: dateRange.to.getDate(),
         });
-        if (paper.date >= before) {
+        if (Temporal.PlainDate.compare(paper.date, before) >= 0) {
           return false;
         }
       }
@@ -93,12 +92,17 @@
 </script>
 
 <MainContent>
+  <br />
+  <h2>Academic Papers</h2>
+  <hr />
+  <br />
   <p class="paragraph-text">
     The following collection comprises all of my academic papers, ranging from
     my 9th-grade assignments to my college-level coursework. The total number of
     essays displayed are {papers.length}, total pages: {total_pages}, total
     words: {total_words}.
   </p>
+  <br />
   <div class="flex flex-wrap items-center justify-between gap-4">
     <Search bind:value={searchQuery} class="w-full md:flex-1" />
     <Datepicker
@@ -106,7 +110,7 @@
       bind:rangeFrom={dateRange.from}
       bind:rangeTo={dateRange.to}
       color="blue"
-      class="w-auto"
+      class="w-auto z-50"
     />
 
     <Button
@@ -147,36 +151,37 @@
       </li>
     </Dropdown>
   </div>
+  <br />
 
   <div
     class="grid grid-cols-2 gap-2 p-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4"
   >
     {#each results as item (item.title)}
       <button
-        class="group flex items-center gap-2 rounded-xl bg-white p-2 text-left shadow-md md:gap-3"
+        style="background-color: {topic_types[item.topic]!
+          .background_color}; background-image: url({topic_types[item.topic]!
+          .pic});"
+        class="group relative flex items-center gap-2 overflow-hidden rounded-xl border border-neutral-100/20 bg-size-[auto_65%] bg-center bg-no-repeat p-2 text-left text-white shadow-md md:gap-3"
         onclick={() => openPdfDialog(item.url)}
       >
-        <div class="shrink-0">
-          <EmojiIcon
-            sizeClass="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16"
-            bgColor={topic_types[item.topic]?.background_color ?? ""}
-            emoji={topic_types[item.topic]?.emoji ?? ""}
-          />
-        </div>
         <div
-          class="min-w-0 p-6 text-xs group-hover:text-fuchsia-500 md:text-sm lg:text-base"
+          class="absolute inset-0 bg-linear-to-t from-black/80 via-black/50 to-black/20 transition-opacity group-hover:opacity-90"
+        ></div>
+
+        <div
+          class="relative z-10 flex h-full min-w-0 flex-col justify-end p-5 text-xs md:text-sm lg:text-base"
         >
-          <div class="trunca font-medium">
+          <div class="truncate font-medium text-white group-hover:text-secondary-300">
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html highlightText(item.title, searchQuery)}
           </div>
-          <div class="text-gray-500">
+          <div class="text-gray-300">
             {year_month__day_formatDate(item.date)}
           </div>
-          <div class="hidden text-gray-400 md:block">
+          <div class="text-gray-300">
             Words: {item.word_count}
           </div>
-          <div class="hidden text-gray-400 md:block">
+          <div class="text-gray-300">
             Pages: {item.page_count}
           </div>
         </div>
@@ -190,7 +195,7 @@
 <Modal
   title={decodeURIComponent(selectedPdfUrl.split("/").at(-1)!)}
   bind:open={defaultModal}
-  class="h-[90vh]"
+  class="mx-auto block h-auto w-[90vw] max-w-none! border border-solid"
   classes={{ body: "p-0 flex-1 overflow-hidden" }}
 >
   {#if selectedPdfUrl}

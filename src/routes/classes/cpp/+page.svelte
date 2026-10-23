@@ -7,7 +7,11 @@
 </script>
 
 <MainContent>
-  <p class="paragraph-text">
+  <br />
+  <h2>Artificial Intelligence</h2>
+  <hr />
+  <br />
+  <p>
     Here are all my C++ homework, projects and labs from my C++ in Fullerton
     College from spring 2023. <a
       class="link-primary"
@@ -15,5 +19,8 @@
       href={resolve("/cpp/C++.zip" as any)}>Here</a
     > is a zip link with one single makefile to compile all 145 executatables.
   </p>
+  <br />
   <AccordionTabs {data}></AccordionTabs>
+  <br />
+  <br />
 </MainContent>

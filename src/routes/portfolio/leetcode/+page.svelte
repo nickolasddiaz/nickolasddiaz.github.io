@@ -120,7 +120,11 @@
 </script>
 
 <MainContent>
-  <p class="paragraph-text">
+  <br />
+  <h2>Leetcode Submissions</h2>
+  <hr />
+  <br />
+  <p>
     Here serves all of my {Object.keys(data).length} Leetcode Submissions.
     <a
       class="link-primary"
@@ -128,6 +132,7 @@
       href="https://leetcode.com/u/nickolasddiaz/">Leetcode Link</a
     >
   </p>
+  <br />
 
   <div class="flex flex-wrap items-center justify-between gap-4">
     <Search bind:value={searchQuery} class="w-full md:flex-1" />
@@ -168,23 +173,24 @@
       </li>
     </Dropdown>
   </div>
+  <br />
   <ul
-    class="mx-auto grid list-disc grid-cols-1 space-y-4 rounded-lg bg-gray-100 p-4 shadow-lg md:grid-cols-2"
+    class="mx-auto grid list-disc grid-cols-1 space-y-4 rounded-lg bg-slate-100 p-4 shadow-lg md:grid-cols-2"
   >
     {#each filteredEntries() as [key, value] (key)}
       <button onclick={() => openDialog(key)}>
         <li
-          class="group flex w-full items-center justify-between p-3 odd:bg-slate-50 md:odd:bg-transparent md:nth-[4n+1]:bg-slate-50 md:nth-[4n+2]:bg-slate-50"
+          class="group flex w-full items-center justify-between p-3 odd:bg-gray-100 md:odd:bg-transparent md:nth-[4n+1]:bg-slate-50 md:nth-[4n+2]:bg-slate-50"
         >
           <span
-            class="trunca font-medium text-gray-500 group-hover:text-fuchsia-500"
+            class="trunca font-xs text-gray-500 group-hover:text-secondary-500"
             >{key}
           </span>
           <span
-            class="trunca font-medium text-gray-500 group-hover:text-fuchsia-500"
+            class="trunca font-xs text-gray-500 group-hover:text-secondary-500"
             >{value.title}
           </span>
-          <span class="font-bold {difficultyColors[value.difficulty]}">
+          <span class="font-xs font-bold {difficultyColors[value.difficulty]}">
             {value.difficulty}
           </span>
         </li>
@@ -196,7 +202,7 @@
 <Modal
   title={`${identifier} - ${data[identifier as keyof typeof data]["title"]} - ${data[identifier as keyof typeof data]["difficulty"]}`}
   bind:open={defaultModal}
-  class="h-[90vh]"
+  class="mx-auto block h-auto w-[90vw] max-w-none! border border-solid"
   classes={{ body: "p-0 flex-1 truncate" }}
 >
   {#if defaultModal}
@@ -209,7 +215,7 @@
               Description
             </div>
           {/snippet}
-          <p class="text-gray-500 dark:text-gray-400">
+          <p class="text-gray-500 dark:text-gray-200">
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html submissions["html_content"]}
           </p>

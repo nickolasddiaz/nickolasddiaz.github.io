@@ -5,9 +5,16 @@
 </script>
 
 <MainContent>
-  <p class="paragraph-text">
+  <br />
+  <h2>Artificial Intelligence</h2>
+  <hr />
+  <br />
+  <p>
     Here is all of my homework, labs, and exams from python at Cypress College
     Spring 2023
   </p>
+  <br />
   <AccordionTabs {data}></AccordionTabs>
+  <br />
+  <br />
 </MainContent>

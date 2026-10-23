@@ -39,20 +39,20 @@
       </button>
       {#if openIndex === index}
         <ul
-          class="absolute z-50 mt-6 w-44 rounded-s-md bg-primary-300 whitespace-nowrap text-teal-900 sm:text-base md:space-y-3 md:text-lg lg:space-y-1 lg:text-xl"
+          class="absolute z-50 mt-6 w-44 rounded-s-md bg-primary-300 whitespace-nowrap text-primary-900 sm:text-base md:space-y-3 md:text-lg lg:space-y-1 lg:text-xl"
           in:slide={{ duration: 200, axis: "y" }}
           out:fade={{ duration: 150 }}
         >
           {#each data.paths as [name, href] (name)}
-            <li
-              class="group cursor-pointer rounded-s-md p-2 hover:bg-primary-310"
+            <a
+              href={resolve(href as any)}
+              on:click={() => (openIndex = null)}
+              class="navbar-text block h-full w-full hover:bg-primary-310"
             >
-              <a
-                href={resolve(href as any)}
-                on:click={() => (openIndex = null)}
-                class="navbar-text block h-full w-full">{name}</a
-              >
-            </li>
+              <li class="group cursor-pointer rounded-s-md p-2">
+                <p>{name}</p>
+              </li>
+            </a>
           {/each}
         </ul>
       {/if}

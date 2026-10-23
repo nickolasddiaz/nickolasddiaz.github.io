@@ -5,9 +5,16 @@
 </script>
 
 <MainContent>
-  <p class="paragraph-text">
+  <br />
+  <h2>Computer Graphics</h2>
+  <hr />
+  <br />
+  <p>
     Here are my projects from my class, computer graphics at Florida Poly Spring
     2026
   </p>
+  <br />
   <AccordionTabs {data}></AccordionTabs>
+  <br />
+  <br />
 </MainContent>

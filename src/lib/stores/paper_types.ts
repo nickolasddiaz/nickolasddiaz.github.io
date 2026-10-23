@@ -1,6 +1,20 @@
 import paperRaw from "#lib/data/papers_data.csv?raw";
 import { resolve } from "$app/paths";
 
+import bar_chart from "#lib/assets/emoji/bar_chart.png";
+import book from "#lib/assets/emoji/book.png";
+import briefcase from "#lib/assets/emoji/briefcase.png";
+import classical_building from "#lib/assets/emoji/classical_building.png";
+import dancer from "#lib/assets/emoji/dancer.png";
+import dove_of_peace from "#lib/assets/emoji/dove_of_peace.png";
+import magnet from "#lib/assets/emoji/magnet.png";
+import notes from "#lib/assets/emoji/notes.png";
+import performing_arts from "#lib/assets/emoji/performing_arts.png";
+import shield from "#lib/assets/emoji/shield.png";
+import test_tube from "#lib/assets/emoji/test_tube.png";
+
+import speech_balloon from "#lib/assets/emoji/speech_balloon.png";
+
 type emoji = string;
 type color = string;
 type topic = string;
@@ -8,56 +22,69 @@ type topic = string;
 export interface paper_type {
   emoji: emoji;
   background_color: color;
+  pic: string;
 }
 
 export const topic_types: Record<topic, paper_type> = {
+  Statistics: {
+    emoji: "📊",
+    background_color: "Beige",
+    pic: bar_chart,
+  },
   Literature: {
     emoji: "📖",
     background_color: "OrangeRed",
+    pic: book,
   },
   Business: {
     emoji: "💼",
     background_color: "SteelBlue",
+    pic: briefcase,
   },
   History: {
     emoji: "🏛️",
     background_color: "Wheat",
-  },
-  Communication: {
-    emoji: "💬",
-    background_color: "SkyBlue",
-  },
-  Physics: {
-    emoji: "🧲",
-    background_color: "Khaki",
-  },
-  Ethics: {
-    emoji: "🎭",
-    background_color: "Turquoise",
-  },
-  Bible: {
-    emoji: "🕊️",
-    background_color: "LightSeaGreen",
-  },
-  Cybersecurity: {
-    emoji: "🛡️",
-    background_color: "BlueViolet",
-  },
-  Chemistry: {
-    emoji: "🧪",
-    background_color: "CornflowerBlue",
-  },
-  Music: {
-    emoji: "🎶",
-    background_color: "Orchid",
+    pic: classical_building,
   },
   Spanish: {
     emoji: "💃",
     background_color: "BlueViolet",
+    pic: dancer,
   },
-  Statistics: {
-    emoji: "📊",
-    background_color: "Beige",
+  Bible: {
+    emoji: "🕊️",
+    background_color: "LightSeaGreen",
+    pic: dove_of_peace,
+  },
+  Physics: {
+    emoji: "🧲",
+    background_color: "Khaki",
+    pic: magnet,
+  },
+  Music: {
+    emoji: "🎶",
+    background_color: "Orchid",
+    pic: notes,
+  },
+  Ethics: {
+    emoji: "🎭",
+    background_color: "Turquoise",
+    pic: performing_arts,
+  },
+  Cybersecurity: {
+    emoji: "🛡️",
+    background_color: "BlueViolet",
+    pic: shield,
+  },
+  Communication: {
+    emoji: "💬",
+    background_color: "SkyBlue",
+    pic: speech_balloon,
+  },
+  Chemistry: {
+    emoji: "🧪",
+    background_color: "CornflowerBlue",
+    pic: test_tube,
   },
 };
 
