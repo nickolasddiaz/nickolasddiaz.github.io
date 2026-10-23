@@ -1,0 +1,1 @@
+import{D as e,M as t,P as n,Y as r,dt as i}from"./iJmIDYYy.js";var a=n(`<div class="mx-auto block h-auto w-[90vw] lg:w-[50vw]"><!></div>`);function o(n,o){var s=a(),c=r(s);e(c,()=>o.children),i(s),t(n,s)}export{o as t};
