@@ -1,12 +1,13 @@
 <script lang="ts">
-  import data from "$lib/stores/classes/database";
-  import AccordionTabs from '$lib/components/AccordionTabs.svelte'
-  import MainContent from '$lib/components/MainContent.svelte'
-
-
+  import data from "#lib/stores/classes/database.js";
+  import AccordionTabs from "#lib/components/AccordionTabs.svelte";
+  import MainContent from "#lib/components/MainContent.svelte";
 </script>
 
 <MainContent>
-    <p class="paragraph-text">Here is my final project from my class, Database 1 at Florida Poly Spring 2025</p>
-    <AccordionTabs {data}></AccordionTabs>
+  <p class="paragraph-text">
+    Here is my final project from my class, Database 1 at Florida Poly Spring
+    2025
+  </p>
+  <AccordionTabs {data}></AccordionTabs>
 </MainContent>

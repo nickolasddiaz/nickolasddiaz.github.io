@@ -1,42 +1,73 @@
-import prettier from 'eslint-config-prettier';
-import { fileURLToPath } from 'node:url';
-import { includeIgnoreFile } from '@eslint/compat';
-import js from '@eslint/js';
-import svelte from 'eslint-plugin-svelte';
-import { defineConfig } from 'eslint/config';
-import globals from 'globals';
-import ts from 'typescript-eslint';
-import svelteConfig from './svelte.config.js';
+// eslint.config.js
+import { loadConfig } from "@sveltejs/load-config";
+import { defineConfig } from "eslint/config";
+import globals from "globals";
+import js from "@eslint/js";
+import ts from "typescript-eslint";
+import svelte from "eslint-plugin-svelte";
+// import espree from 'espree';
 
-const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
+const svelteConfig = (await loadConfig("./", { traverse: false }))?.config;
 
 export default defineConfig(
-	includeIgnoreFile(gitignorePath),
-	js.configs.recommended,
-	...ts.configs.recommended,
-	...svelte.configs.recommended,
-	prettier,
-	...svelte.configs.prettier,
-	{
-		languageOptions: { globals: { ...globals.browser, ...globals.node } },
+  {
+    ignores: [
+      "static/**",
+      "build/**",
+      ".svelte-kit/**",
+      ".github/**",
+      "node_modules/**",
+    ],
+  },
+  js.configs.recommended,
+  ts.configs.recommended,
+  svelte.configs.recommended,
+  {
+    languageOptions: {
+      parserOptions: {
+        // Keep this consistent for TypeScript and Svelte files to avoid project reloads.
+        extraFileExtensions: [".svelte"],
+      },
+      globals: {
+        ...globals.browser,
+        // for Sveltekit in non-SPA mode
+        // ...globals.node
+      },
+    },
+    // ...
+  },
+  {
+    files: ["**/*.svelte", "**/*.svelte.ts", "**/*.svelte.js"],
+    // See more details at: https://typescript-eslint.io/packages/parser/
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        // Specify a parser for each language, if needed:
+        parser: {
+          ts: ts.parser,
+          typescript: ts.parser,
+          // js: espree,            // add `import espree from 'espree'`
+        },
 
-		rules: {
-			// typescript-eslint strongly recommend that you do not use the no-undef lint rule on TypeScript projects.
-			// see: https://typescript-eslint.io/troubleshooting/faqs/eslint/#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
-			'no-undef': 'off',
-			'svelte/no-at-html-tags': 'off',
-		}
-	},
-	{
-		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],
-
-		languageOptions: {
-			parserOptions: {
-				projectService: true,
-				extraFileExtensions: ['.svelte'],
-				parser: ts.parser,
-				svelteConfig
-			}
-		}
-	}
+        // explicitly importing allows for better compatibilty and functionality with rules and other tooling that depend on the config file.
+        //
+        // Note: `eslint --cache` will fail with non-serializable properties.
+        // In those cases, please remove the non-serializable properties.
+        // svelteConfig: {
+        //   ...svelteConfig,
+        //   kit: {
+        //     ...svelteConfig.kit,
+        //     typescript: undefined
+        //   }
+        // }
+        svelteConfig,
+      },
+    },
+  },
+  {
+    rules: {
+      // Override or add rule settings here, such as:
+      // 'svelte/rule-name': 'error'
+    },
+  },
 );

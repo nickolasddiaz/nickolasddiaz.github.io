@@ -1,8 +1,7 @@
 <script>
-    let { children } = $props();
+  let { children } = $props();
 </script>
 
-
-<div class="md:p-8 p-2 pt-4 pb-4 h-screen">
-    {@render children()}
+<div class="mx-auto block h-auto w-[90vw] lg:w-[50vw]">
+  {@render children()}
 </div>

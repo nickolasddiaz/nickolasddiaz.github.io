@@ -6,10 +6,10 @@
     sizeClass?: string;
   }
 
-  let { 
-    bgColor = 'lightblue', 
-    emoji = '🤩', 
-    sizeClass = 'w-12 h-12' 
+  let {
+    bgColor = "lightblue",
+    emoji = "🤩",
+    sizeClass = "w-12 h-12",
   }: Props = $props();
 </script>
 

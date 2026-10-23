@@ -1,10 +1,10 @@
 export const prerender = true;
 
-import * as sitemap from 'super-sitemap';
-import type { RequestHandler } from '@sveltejs/kit';
+import type { RequestHandler } from "@sveltejs/kit";
+import { response } from "super-sitemap/sveltekit";
 
 export const GET: RequestHandler = async () => {
-  return await sitemap.response({
-    origin: 'https://nickolasddiaz.github.io',
+  return await response({
+    origin: "https://nickolasddiaz.github.io",
   });
 };

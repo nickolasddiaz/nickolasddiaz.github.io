@@ -1,4 +1,4 @@
-# Welcome to my website
+# [nickolasddiaz.github.io](https://github.com/nickolasddiaz/nickolasddiaz.github.io)
 
 ## Tech used
 
@@ -7,14 +7,13 @@
 - Typescript
 - Tailwind
 - Flowbite Svelte
-- Github Pages Adapter
 - FlexSearch
 - Shiki
 - Youtube Embed
 - Web3Forms
 - Super Sitemap
 
-## To start
+## Install
 
 ```sh
 bun install
@@ -44,18 +43,32 @@ bun run build
 
 You can preview the production build with `bun run preview`.
 
-## Deploy
-
-To deploy to github pages:
+## lint
 
 ```sh
-bun run deploy
+bun run lint
 ```
 
 ## Format
 
-Format the tailwind CSS:
-
 ```sh
 bun run format
+```
+
+## Format Check
+
+```sh
+bun run formatCheck
+```
+
+## disable eslint
+
+```sh
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+```
+
+## disable prettier
+
+```sh
+// prettier-ignore
 ```

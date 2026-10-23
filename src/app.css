@@ -2,12 +2,12 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@source './src/**/*.{html,js,svelte,ts,md}';
-@source '../node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}';
-@source '../node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}';
-@source '../node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}';
+@source "./src/**/*.{html,js,svelte,ts,md}";
+@source "../node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}";
+@source "../node_modules/flowbite-svelte-icons/**/*.{html,js,svelte,ts}";
+@source "../node_modules/flowbite-svelte-blocks/**/*.{html,js,svelte,ts}";
 
-@plugin 'flowbite/plugin';
+@plugin "flowbite/plugin";
 
 @theme {
   --z-index-100: 100;
@@ -24,7 +24,6 @@
   --color-primary-700: oklch(52.7% 0.154 150.069);
   --color-primary-800: oklch(43.2% 0.095 166.913);
   --color-primary-900: oklch(37.8% 0.077 168.94);
-  
 
   --color-secondary-50: #f0f9ff;
   --color-secondary-100: #e0f2fe;
@@ -39,22 +38,44 @@
 }
 
 @layer base {
-  button, [role="button"] {
+  button,
+  [role="button"] {
     cursor: pointer;
   }
 }
 
 @layer components {
   .link-primary {
-    @apply inline text-blue-600 underline cursor-pointer transition-colors duration-200;
+    @apply inline cursor-pointer text-blue-600 underline transition-colors duration-200;
     @apply hover:text-blue-800 hover:no-underline;
   }
   .paragraph-text {
-    @apply text-lg max-w-5xl place-self-center;
+    @apply max-w-5xl place-self-center text-lg;
   }
   .navbar-text {
     @apply bg-clip-text text-transparent;
     @apply bg-linear-to-b from-emerald-200 to-neutral-200;
     @apply hover:bg-linear-to-b hover:from-fuchsia-300 hover:to-neutral-200;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply mb-4 text-3xl font-bold text-primary-500;
+  }
+  h2 {
+    @apply mb-3 text-2xl font-semibold text-primary-500;
+  }
+  h3 {
+    @apply mb-2 text-xl font-semibold text-primary-500;
+  }
+  h4 {
+    @apply mb-1 text-lg font-semibold text-primary-500;
+  }
+  ul {
+    @apply my-2 list-inside list-disc marker:text-primary-700;
+  }
+  ol {
+    @apply my-2 list-inside list-decimal marker:text-primary-700;
   }
 }
