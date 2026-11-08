@@ -27,7 +27,7 @@
     <li class="inline-block p-2">
       <button
         type="button"
-        class="cursor-pointer rounded-xl bg-primary-310 p-2 hover:bg-primary-320 sm:text-xl lg:text-2xl"
+        class="cursor-pointer rounded-xl border-2 border-t-2 border-l-2 border-t-neutral-400 border-r-neutral-600 border-b-neutral-600 border-l-neutral-400 bg-primary-310 p-2 hover:bg-primary-320 sm:text-xl lg:text-2xl"
         on:click={() => toggleMenu(index)}
       >
         <div
@@ -47,9 +47,9 @@
             <a
               href={resolve(href as any)}
               on:click={() => (openIndex = null)}
-              class="navbar-text block h-full w-full hover:bg-primary-310"
+              class="block h-full w-full rounded-s-md text-white hover:bg-primary-310"
             >
-              <li class="group cursor-pointer rounded-s-md p-2">
+              <li class="group cursor-pointer p-2">
                 <p>{name}</p>
               </li>
             </a>

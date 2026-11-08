@@ -9,6 +9,14 @@
   import sketchfab from "#lib/assets/sketchfab-logo-text.svg";
   import newground from "#lib/assets/newgrounds-logo.svg";
   import itchio from "#lib/assets/itchio-logo.svg";
+
+  // title link image description invert
+  const banners: [string, string, string, string, boolean][] = [
+    ["Code Pen", "https://codepen.io/nickolasddiaz/pens/public", codepen_pic, "HTML/CSS/JS web scripts", true],
+    ["Sketchfab", "https://sketchfab.com/NickolasDaniel", sketchfab, "Sketchfab for my 3D meshes", true],
+    ["Newgrounds", "https://nickolasdan.newgrounds.com", newground, "Newgrounds for my video games", false],
+    ["Itch.io", "https://nickolasdan.itch.io", itchio, " itch.io for my video games", false],
+  ]
 </script>
 
 <MainContent>
@@ -35,8 +43,8 @@
     >!!! I replaced the face of Trump with the face of DaBaby creating a
     hilarious meme.
   </p>
-
-  <img class="place-self-center p-4" src={dababy_nuke} alt="DaBaby Nuke" />
+  <br>
+  <img class="place-self-center p-2 border-4 border-primary-300" src={dababy_nuke} alt="DaBaby Nuke" />
 
   <br />
   <h2>My Minecraft Map</h2>
@@ -78,81 +86,32 @@
     </div>
   </div>
   <br />
-  <h2>My code pen showcase</h2>
-  <hr />
-  <br />
-  <a
-    href="https://codepen.io/nickolasddiaz/pens/public"
+
+  {#each banners as [title, link, image, description, invert]}
+    <h2>{title}</h2>
+    <hr />
+    <br />
+    <a
+    href={link}
     target="_blank"
     rel="noopener noreferrer"
-    class="flex w-full items-start gap-2.5 rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-inherit no-underline shadow-[0_1px_4px_rgba(0,0,0,0.1)]"
+    class="flex flex-col md:flex-row justify-center w-full items-start gap-2.5 rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-inherit no-underline shadow-[0_1px_4px_rgba(0,0,0,0.1)] dark:border-gray-700 dark:bg-gray-800"
   >
-    <img src={codepen_pic} alt="My codepen" class="h-8 shrink-0 rounded-lg" />
+    <img
+      src={image}
+      alt="My codepen"
+      class="h-8 shrink-0 rounded-lg {invert? "dark:invert" : ""}"
+    />
     <div class="min-w-0 flex-1">
       <div
         class="mb-0.5 items-center text-center text-[20px] leading-[1.4] text-gray-500"
       >
-        My codepen showcase for my HTML/CSS/JS web scripts.
+        {description}
       </div>
     </div>
   </a>
   <br />
-  <h2>My sketchfab showcase</h2>
-  <hr />
+  {/each}
   <br />
-  <a
-    href="https://sketchfab.com/NickolasDaniel"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex w-full items-start gap-2.5 rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-inherit no-underline shadow-[0_1px_4px_rgba(0,0,0,0.1)]"
-  >
-    <img src={sketchfab} alt="My codepen" class="h-8 shrink-0 rounded-lg" />
-    <div class="min-w-0 flex-1">
-      <div
-        class="mb-0.5 items-center text-center text-[20px] leading-[1.4] text-gray-500"
-      >
-        My sketchfab for my 3D meshes.
-      </div>
-    </div>
-  </a>
-  <br />
-  <h2>My newgrounds profile</h2>
-  <hr />
-  <br />
-  <a
-    href="https://nickolasdan.newgrounds.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex w-full items-start gap-2.5 rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-inherit no-underline shadow-[0_1px_4px_rgba(0,0,0,0.1)]"
-  >
-    <img src={newground} alt="My codepen" class="h-8 shrink-0 rounded-lg" />
-    <div class="min-w-0 flex-1">
-      <div
-        class="mb-0.5 items-center text-center text-[20px] leading-[1.4] text-gray-500"
-      >
-        My newgrounds for my video games.
-      </div>
-    </div>
-  </a>
-  <br />
-  <h2>My itch.io profile</h2>
-  <hr />
-  <br />
-  <a
-    href="https://nickolasdan.itch.io/"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="flex w-full items-start gap-2.5 rounded-xl border border-gray-300 bg-white px-3.5 py-3 text-inherit no-underline shadow-[0_1px_4px_rgba(0,0,0,0.1)]"
-  >
-    <img src={itchio} alt="My codepen" class="h-8 shrink-0 rounded-lg" />
-    <div class="min-w-0 flex-1">
-      <div
-        class="mb-0.5 items-center text-center text-[20px] leading-[1.4] text-gray-500"
-      >
-        My itch.io for my video games.
-      </div>
-    </div>
-  </a>
-  <br />
-  <br />
+  
 </MainContent>

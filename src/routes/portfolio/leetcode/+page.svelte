@@ -137,11 +137,7 @@
   <div class="flex flex-wrap items-center justify-between gap-4">
     <Search bind:value={searchQuery} class="w-full md:flex-1" />
 
-    <Button
-      >Filter<FilterOutline
-        class="ms-2 h-6 w-6 text-white dark:text-white"
-      /></Button
-    >
+    <Button>Filter<FilterOutline class="ms-2 h-6 w-6 text-white" /></Button>
     <Dropdown simple class="*:p-2">
       <li>
         <Radio
@@ -175,19 +171,18 @@
   </div>
   <br />
   <ul
-    class="mx-auto grid list-disc grid-cols-1 space-y-4 rounded-lg bg-slate-100 p-4 shadow-lg md:grid-cols-2"
+    class="mx-auto grid list-disc grid-cols-1 space-y-4 rounded-lg bg-zinc-50 p-4 shadow-lg md:grid-cols-2 dark:bg-slate-600"
   >
     {#each filteredEntries() as [key, value] (key)}
       <button onclick={() => openDialog(key)}>
         <li
-          class="group flex w-full items-center justify-between p-3 odd:bg-gray-100 md:odd:bg-transparent md:nth-[4n+1]:bg-slate-50 md:nth-[4n+2]:bg-slate-50"
+          class="group flex w-full items-center justify-between bg-zinc-100 p-3 text-gray-500 dark:bg-gray-500 dark:text-gray-200"
         >
-          <span
-            class="trunca font-xs text-gray-500 group-hover:text-secondary-500"
+          <span class="trunca font-xs group-hover:text-secondary-500"
             >{key}
           </span>
           <span
-            class="trunca font-xs text-gray-500 group-hover:text-secondary-500"
+            class="trunca font-xs line-clamp-1 group-hover:text-secondary-500"
             >{value.title}
           </span>
           <span class="font-xs font-bold {difficultyColors[value.difficulty]}">

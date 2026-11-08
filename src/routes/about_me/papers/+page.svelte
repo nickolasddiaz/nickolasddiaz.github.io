@@ -110,7 +110,7 @@
       bind:rangeFrom={dateRange.from}
       bind:rangeTo={dateRange.to}
       color="blue"
-      class="w-auto z-50"
+      class="z-50 w-auto"
     />
 
     <Button
@@ -171,7 +171,9 @@
         <div
           class="relative z-10 flex h-full min-w-0 flex-col justify-end p-5 text-xs md:text-sm lg:text-base"
         >
-          <div class="truncate font-medium text-white group-hover:text-secondary-300">
+          <div
+            class="truncate font-medium text-white group-hover:text-secondary-300"
+          >
             <!-- eslint-disable-next-line svelte/no-at-html-tags -->
             {@html highlightText(item.title, searchQuery)}
           </div>

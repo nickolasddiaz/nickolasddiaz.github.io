@@ -91,7 +91,7 @@ export const topic_types: Record<topic, paper_type> = {
 export interface Paper {
   title: string;
   url: string;
-  date: Temporal.PlainDate;
+  date: Date;
   topic: string;
   page_count: number;
   word_count: number;
@@ -111,7 +111,7 @@ for (const line of paperRaw.split(/\r?\n/)) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const url = resolve(`/papers/${encodeURIComponent(title)}.pdf` as any);
   title = title.replace("_", "'");
-  const date = Temporal.PlainDate.from(values[1]!); // ISO 8601 format (YYYY-MM-DD)
+  const date = new Date(values[1]!); // ISO 8601 format (YYYY-MM-DD)
   const topic = values[2]!;
   const page_count = Number(values[3]);
   const word_count = Number(values[4]);
@@ -131,13 +131,19 @@ export const FILTYPE = {
   Rev: 6,
 } as const;
 
+function compare<T extends Date>(a: T, b: T): number {
+  if (a < b) return -1;
+  if (a > b) return 1;
+  return 0;
+}
+
 export function sortPapers(papers: Paper[], filterType: number): Paper[] {
   return [...papers].sort((a, b) => {
     switch (filterType) {
       case FILTYPE.Newest:
-        return Temporal.PlainDate.compare(b.date, a.date);
+        return compare(b.date, a.date);
       case FILTYPE.Oldest:
-        return Temporal.PlainDate.compare(a.date, b.date);
+        return compare(a.date, b.date);
       case FILTYPE.Page:
         return b.page_count - a.page_count;
       case FILTYPE.Word:

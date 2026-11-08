@@ -1,4 +1,4 @@
-# [nickolasddiaz.github.io](https://github.com/nickolasddiaz/nickolasddiaz.github.io)
+# [nickolasddiaz.github.io](https://nickolasddiaz.github.io)
 
 ## Tech used
 

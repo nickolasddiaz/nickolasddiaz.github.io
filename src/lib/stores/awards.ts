@@ -23,14 +23,14 @@ interface MediaItem {
   description: string;
   link: string;
   image_link: string;
-  issued_date: Temporal.PlainDate; // month is 1-indexed
+  issued_date: Date; // month is 1-indexed
 }
 
 export const title =
   "The awards page displays all of my awards, accompanied by clickable links that serve as evidence of my achievement. Each award is listed with a description.";
 
-function getdate(year: number, month: number): Temporal.PlainDate {
-  return new Temporal.PlainDate(year, month, 1);
+function getdate(year: number, month: number): Date {
+  return new Date(year, month + 1, 1);
 }
 
 export const awards: Record<string, MediaItem> = {

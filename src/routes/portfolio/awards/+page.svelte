@@ -19,7 +19,7 @@
       <div class="group h-full w-full">
         <a href={item.link} target="_blank" rel="external" class="block h-full">
           <div
-            class="relative h-64 w-full overflow-hidden rounded-xl border border-neutral-100 bg-cover bg-center shadow-md"
+            class="relative h-64 w-full overflow-hidden rounded-xl border border-neutral-100 bg-cover bg-center shadow-md dark:border-gray-600"
             style="background-image: url({item.image_link});"
           >
             <div

@@ -125,13 +125,17 @@
   <br />
   {#each education as [name, degree, location, degree_level, start_date, end_date] (name)}
     <div
-      class="mb-3.75 flex flex-col gap-2 rounded-[10px] border border-primary-100 bg-white p-5 shadow-(--shadow)"
+      class="mb-3.75 flex flex-col gap-2 rounded-[10px] border border-primary-100 bg-white p-5 shadow-(--shadow) dark:border-gray-700 dark:bg-gray-800"
     >
-      <div class="flex w-full items-center justify-between text-gray-600">
+      <div
+        class="flex w-full items-center justify-between text-gray-600 dark:text-gray-200"
+      >
         <span><strong>{name}</strong></span>
-        <span class="text-xs text-gray-400">{start_date} - {end_date}</span>
+        <span class="text-xs text-gray-400 dark:text-gray-400"
+          >{start_date} - {end_date}</span
+        >
       </div>
-      <p class="text-sm text-gray-600">
+      <p class="text-sm text-gray-600 dark:text-gray-300">
         {degree_level} in {degree} - {location}
       </p>
     </div>
@@ -145,14 +149,18 @@
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      class="mb-2.5 block rounded-md border-l-3 border-l-gray-200 bg-white px-3.75 py-3 transition-all duration-200 hover:border-l-primary-400 hover:bg-gray-200"
+      class="mb-2.5 block rounded-md border-l-3 border-l-gray-200 bg-white px-3.75 py-3 transition-all duration-200 hover:border-l-primary-400 hover:bg-gray-200 dark:border-l-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
     >
-      <div class="flex w-full items-center justify-between text-gray-600">
+      <div
+        class="flex w-full items-center justify-between text-gray-600 dark:text-gray-200"
+      >
         <span><strong>{name}</strong></span>
-        <span class="text-xs text-gray-400">{start_date} - {end_date}</span>
+        <span class="text-xs text-gray-400 dark:text-gray-400"
+          >{start_date} - {end_date}</span
+        >
       </div>
       <ul
-        class="my-2 list-inside list-disc text-sm text-gray-600 marker:text-primary-700"
+        class="my-2 list-inside list-disc text-sm text-gray-600 marker:text-primary-700 dark:text-gray-300 dark:marker:text-primary-300"
       >
         <li>{bullet_1}</li>
         <li>{bullet_2}</li>
@@ -164,30 +172,31 @@
 
   <h2>Certifications</h2>
   <hr />
+  <br>
   {#each certifications as [name, icon, verify_link, description, awarded_date, expires_date] (name)}
     <a
       href={verify_link}
       target="_blank"
       rel="noopener noreferrer"
-      class="mb-2.5 flex items-center gap-4 rounded-md border-l-3 border-l-gray-200 bg-white px-4 py-3 transition-all duration-200 hover:border-l-primary-400 hover:bg-gray-200"
+      class="mb-2.5 flex items-center gap-4 rounded-md border-l-3 border-l-gray-200 bg-white px-4 py-3 transition-all duration-200 hover:border-l-primary-400 hover:bg-gray-200 dark:border-l-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
     >
       <div class="flex h-12 w-12 shrink-0 items-center justify-center">
         <img
           src={resolve(icon as any)}
           alt={name}
-          class="max-h-full max-w-full object-contain mix-blend-multiply"
+          class="max-h-full max-w-full object-contain mix-blend-multiply dark:mix-blend-normal"
         />
       </div>
       <div class="min-w-0 flex-1">
         <div
-          class="mb-1 flex w-full items-center justify-between text-gray-600"
+          class="mb-1 flex w-full items-center justify-between text-gray-600 dark:text-gray-200"
         >
           <span class="truncate"><strong>{name}</strong></span>
           <span class="text-xs text-gray-400"
             >Awarded: {awarded_date} - Expires: {expires_date}</span
           >
         </div>
-        <p class="text-sm text-gray-600">{description}</p>
+        <p class="text-sm text-gray-600 dark:text-gray-300">{description}</p>
       </div>
     </a>
   {/each}
@@ -198,10 +207,10 @@
   <br />
   {#each Object.entries(etc) as [category, items] (category)}
     <div
-      class="mb-3.75 flex flex-col gap-2 rounded-[10px] border border-primary-100 bg-white p-5 shadow-(--shadow)"
+      class="mb-3.75 flex flex-col gap-2 rounded-[10px] border border-primary-100 bg-white p-5 shadow-(--shadow) dark:border-gray-700 dark:bg-gray-800"
     >
-      <strong class="text-gray-600">{category}</strong>
-      <span class="text-sm text-gray-600">
+      <strong class="text-gray-600 dark:text-gray-200">{category}</strong>
+      <span class="text-sm text-gray-600 dark:text-gray-300">
         {items.join(", ")}
       </span>
     </div>
@@ -210,15 +219,20 @@
   <h2>Social Media</h2>
   <hr />
   <br />
-  <div class="flex justify-around p-5">
+  <div
+    class="grid grid-cols-[repeat(auto-fit,minmax(100px,max-content))] justify-center gap-4 p-5"
+  >
     {#each Object.entries(socialData) as [key, value] (key)}
       <a
         href={value.link}
         title={value.title}
-        class="group rounded-lg p-3 shadow-md transition-shadow hover:shadow-sm hover:shadow-primary-500"
+        class="group flex flex-col items-center rounded-lg border border-primary-100 p-3 text-center text-gray-700 shadow-md transition-shadow hover:shadow-sm hover:shadow-primary-500 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200"
       >
-        <img src={value.img} alt={value.title} class="mx-auto h-10 w-10" />
-        <span class="group-hover:text-primary-500">{value.title}</span>
+        <img src={value.img} alt={value.title} class="mb-2 h-10 w-10" />
+        <span
+          class="group-hover:text-primary-500 dark:group-hover:text-primary-300"
+          >{value.title}</span
+        >
       </a>
     {/each}
   </div>
